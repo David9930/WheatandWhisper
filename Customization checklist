@@ -1,0 +1,212 @@
+# Wheat and Whisper Website Customization Checklist
+
+Use this checklist to personalize your website before or after launch.
+
+## 🚀 Before Launch (Critical)
+
+- [ ] **Deploy to GitHub Pages**
+  - Follow DEPLOYMENT-GUIDE.md
+  - Verify site is live at your GitHub Pages URL
+
+- [ ] **Update Contact Information** (in `index.html`)
+  - [ ] Replace "The Prairie" with your actual location
+  - [ ] Add your real email address (replace hello@wheatandwhisper.com)
+  - [ ] Add your Instagram handle and link
+  - [ ] Add Facebook page link (if applicable)
+
+- [ ] **Test Forms**
+  - [ ] Decide on newsletter service (Mailchimp, ConvertKit, etc.)
+  - [ ] Set up contact form backend (FormSpree, Netlify Forms, or email service)
+  - [ ] Update form actions in `index.html`
+
+## 📸 Content Updates (High Priority)
+
+- [ ] **Add Real Photos**
+  - [ ] Replace all image placeholders with your farm photos
+  - [ ] Hero/header area - landscape shots of the farm
+  - [ ] About section - candid farm life photos
+  - [ ] Gallery - horses, prairie, products, daily life
+  - [ ] Compress images before uploading (use tinypng.com)
+
+- [ ] **Customize Text**
+  - [ ] About section - tell your unique story
+  - [ ] Add details about your horses (names, personalities)
+  - [ ] Update product descriptions if you're selling items
+  - [ ] Personalize the newsletter signup message
+
+- [ ] **Logo & Branding**
+  - [ ] Confirm logo looks good on all pages
+  - [ ] Add favicon (small icon in browser tab)
+  - [ ] Ensure colors match your brand
+
+## 🛍️ E-Commerce Setup (If Selling Products)
+
+Choose ONE to start:
+
+### Option A: Etsy Shop (Recommended to Start)
+- [ ] Set up Etsy shop
+- [ ] Add product listings
+- [ ] Link shop from your website
+- [ ] Update "Shop" section in navigation
+
+### Option B: Shopify Store (Like Slow Sunday)
+- [ ] Sign up for Shopify
+- [ ] Import products
+- [ ] Set up payment processing
+- [ ] Connect domain or link from GitHub site
+
+### Option C: Simple Buy Buttons
+- [ ] Set up Stripe account
+- [ ] Create product pages
+- [ ] Add buy button code
+- [ ] Test checkout flow
+
+## 🎨 Design Enhancements (Optional)
+
+- [ ] **Navigation Updates**
+  - [ ] Add "Shop" link (if selling)
+  - [ ] Add "Blog" section (if starting a blog)
+  - [ ] Add "Gallery" page for more photos
+
+- [ ] **New Sections**
+  - [ ] "Meet the Horses" - individual horse profiles
+  - [ ] "Our Products" - showcase soaps/goods
+  - [ ] "Visit Us" - booking form for farm visits
+  - [ ] "Blog" - farm stories and updates
+
+- [ ] **Additional Pages**
+  - [ ] Create separate pages (copy index.html as template)
+  - [ ] Gallery page with more photos
+  - [ ] About page with longer story
+  - [ ] Products page with catalog
+
+## 🔧 Technical Improvements (As Needed)
+
+- [ ] **SEO Optimization**
+  - [ ] Add meta descriptions to HTML
+  - [ ] Include alt text for all images
+  - [ ] Submit site to Google Search Console
+  - [ ] Create sitemap
+
+- [ ] **Analytics**
+  - [ ] Set up Google Analytics
+  - [ ] Track visitor behavior
+  - [ ] Monitor popular pages
+
+- [ ] **Performance**
+  - [ ] Compress images (all should be under 500KB)
+  - [ ] Test site speed (use PageSpeed Insights)
+  - [ ] Optimize for mobile viewing
+
+- [ ] **Custom Domain** (Optional)
+  - [ ] Purchase domain (wheatandwhisper.com?)
+  - [ ] Configure DNS settings
+  - [ ] Add CNAME file to repository
+  - [ ] Update links to use new domain
+
+## 📱 Social Media Integration
+
+- [ ] **Connect Accounts**
+  - [ ] Link Instagram profile
+  - [ ] Link Facebook page
+  - [ ] Add social sharing buttons
+  - [ ] Consider Instagram feed embed
+
+- [ ] **Content Strategy**
+  - [ ] Cross-post website updates to social media
+  - [ ] Share behind-the-scenes content
+  - [ ] Announce new products/blog posts
+  - [ ] Engage with followers
+
+## ✍️ Content Calendar (Ongoing)
+
+- [ ] **Blog Posts** (if adding blog)
+  - [ ] Plan 1-2 posts per month
+  - [ ] Topics: farm life, horse care, product making
+  - [ ] Share personal stories and experiences
+
+- [ ] **Photo Updates**
+  - [ ] Seasonal photos (spring flowers, winter snow)
+  - [ ] New horses or animals
+  - [ ] Product photos as you make new items
+  - [ ] Behind-the-scenes process shots
+
+- [ ] **Newsletter**
+  - [ ] Plan monthly or bi-monthly sends
+  - [ ] Share farm updates
+  - [ ] Announce new products
+  - [ ] Personal messages to your community
+
+## 📊 Growth & Marketing
+
+- [ ] **Expand Reach**
+  - [ ] Submit to farm directories
+  - [ ] Join local business listings
+  - [ ] Network with other farm businesses
+  - [ ] Participate in farmers markets (with business cards)
+
+- [ ] **Customer Engagement**
+  - [ ] Respond to all contact form submissions
+  - [ ] Engage on social media
+  - [ ] Share customer testimonials
+  - [ ] Build community around your brand
+
+- [ ] **Product Development**
+  - [ ] Test new soap scents/products
+  - [ ] Gather customer feedback
+  - [ ] Create seasonal offerings
+  - [ ] Collaborate with other makers
+
+## 🎯 Priority Order
+
+**Week 1: Get it Live**
+1. Deploy to GitHub Pages
+2. Add 3-5 real photos
+3. Update contact info
+4. Test on mobile phone
+
+**Week 2-3: Polish Content**
+5. Replace all placeholder images
+6. Rewrite about section with your story
+7. Set up newsletter service
+8. Connect social media
+
+**Month 2: Add Products**
+9. Set up Etsy shop OR product pages
+10. Add shop link to navigation
+11. Photograph products professionally
+12. Launch with announcement
+
+**Ongoing: Grow & Engage**
+13. Post regularly on social media
+14. Send monthly newsletters
+15. Add blog posts when inspired
+16. Continuously improve based on feedback
+
+## 💡 Tips for Success
+
+1. **Start Simple** - Launch with basics, improve over time
+2. **Use Quality Photos** - Natural light, tell a story
+3. **Be Authentic** - Share your real farm life
+4. **Stay Consistent** - Regular updates build audience
+5. **Engage Community** - Respond to all messages
+6. **Think Long-term** - Build slowly and sustainably
+
+## 📝 Notes Section
+
+Use this space to track your progress or ideas:
+
+```
+Date: _______________
+Completed Today: _______________________________________
+Next Priority: ________________________________________
+Ideas for Future: _____________________________________
+__________________________________________________
+__________________________________________________
+```
+
+---
+
+**Remember:** This is YOUR website. Make it reflect your farm, your values, and your vision. There's no rush - build it thoughtfully and with love, just like you tend to your horses and craft your products.
+
+*Wild and Washed in Grace* 🌾
