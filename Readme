@@ -1,0 +1,158 @@
+# Wheat and Whisper Farm Website
+
+A beautiful, nostalgic website for Wheat and Whisper Farm - where wild hearts find grace on the prairie.
+
+## 🌾 About
+
+This website showcases the farm, horses, and handcrafted products with a warm, earthy aesthetic inspired by slow living and traditional craftsmanship.
+
+## 🚀 Quick Start - GitHub Pages Deployment
+
+### Step 1: Create a GitHub Repository
+
+1. Go to [GitHub](https://github.com) and sign in (or create an account)
+2. Click the "+" icon in the top right, then "New repository"
+3. Name your repository (e.g., `wheat-and-whisper-farm`)
+4. Make it **Public** (required for free GitHub Pages)
+5. Click "Create repository"
+
+### Step 2: Upload Your Files
+
+**Option A: Using GitHub Web Interface**
+1. In your new repository, click "uploading an existing file"
+2. Drag and drop all files from this folder:
+   - `index.html`
+   - `styles.css`
+   - `script.js`
+   - `WheatandWhisperLogo.png`
+   - `README.md`
+3. Scroll down and click "Commit changes"
+
+**Option B: Using Git Command Line**
+```bash
+git init
+git add .
+git commit -m "Initial commit: Wheat and Whisper Farm website"
+git branch -M main
+git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+git push -u origin main
+```
+
+### Step 3: Enable GitHub Pages
+
+1. Go to your repository on GitHub
+2. Click **Settings** (top menu)
+3. Click **Pages** (left sidebar)
+4. Under "Branch," select **main** and **/root**
+5. Click **Save**
+6. Wait 2-3 minutes for deployment
+
+Your site will be live at:
+`https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/`
+
+## 📝 Customization Guide
+
+### Update Content
+
+Edit `index.html` to customize:
+- Farm story and about text
+- Contact information
+- Social media links
+- Newsletter signup action
+
+### Change Colors
+
+Edit `styles.css` - Look for the `:root` section at the top:
+```css
+:root {
+    --wheat: #C9A66B;
+    --earth-brown: #8B6F47;
+    --deep-brown: #5D4E37;
+    /* ... more colors ... */
+}
+```
+
+### Add Photos
+
+1. Add your photos to the repository
+2. Replace image placeholders in `index.html`:
+   ```html
+   <div class="image-placeholder">
+   ```
+   Change to:
+   ```html
+   <img src="your-photo.jpg" alt="Description">
+   ```
+
+### Update Logo
+
+Replace `WheatandWhisperLogo.png` with your updated logo (keep the same filename, or update the path in `index.html`).
+
+## 🛠 Next Steps & Features to Consider
+
+### Immediate Improvements
+- [ ] Add real farm photos
+- [ ] Update contact information
+- [ ] Connect social media links
+- [ ] Set up newsletter service (Mailchimp, ConvertKit, etc.)
+
+### Future Enhancements
+- [ ] Add blog section for farm stories
+- [ ] Create photo gallery pages
+- [ ] Add testimonials section
+- [ ] Create "Meet the Horses" individual pages
+
+### E-Commerce Options
+
+**For Selling Products:**
+
+1. **Shopify** (Like Slow Sunday)
+   - Pros: Professional, robust, beautiful templates
+   - Cons: $39+/month, transaction fees
+   - Best for: Serious online store with inventory
+
+2. **Square Online Store**
+   - Pros: Free tier available, easy setup
+   - Cons: Limited customization
+   - Best for: Small product lines
+
+3. **Etsy Shop + Link from Website**
+   - Pros: Built-in audience, low risk
+   - Cons: Fees per sale, less control
+   - Best for: Handmade/artisan products
+
+4. **Custom E-Commerce on GitHub**
+   - Pros: Free, full control
+   - Cons: Requires Stripe/PayPal integration
+   - Best for: Technical users, simple catalog
+
+**Recommendation:** Start with Etsy or Square's free tier while building your audience, then upgrade to Shopify when you're consistently selling.
+
+## 🎨 Design Philosophy
+
+This site embodies:
+- **Nostalgia** - Vintage serifs, warm tones, classic layouts
+- **Slow Living** - Generous spacing, gentle animations, unhurried pace
+- **Craftsmanship** - Attention to detail, quality over quantity
+- **Prairie Aesthetic** - Earthy colors, natural imagery, wide open spaces
+
+Inspired by slow fashion brands like Slow Sunday, but tailored for farm life.
+
+## 📧 Support & Questions
+
+For technical help with GitHub Pages:
+- [GitHub Pages Documentation](https://docs.github.com/en/pages)
+- [GitHub Community Forum](https://github.community/)
+
+For design questions or site updates:
+- Open an issue in this repository
+- Or reach out to your developer
+
+## 📄 License
+
+This website design is custom-created for Wheat and Whisper Farm. All rights reserved.
+
+---
+
+**Built with love for the prairie** 🌾
+*Wild and Washed in Grace*
