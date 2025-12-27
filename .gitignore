@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.tmp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Build files (if you add build tools later)
+node_modules/
+dist/
+build/
+
+---
+INSTRUCTIONS FOR USE:
+After downloading this file, rename it from "gitignore.txt" to ".gitignore" (with the dot at the beginning and no .txt extension)
+
+On Windows: You may need to enable "Show file extensions" in File Explorer to rename it properly.
+On Mac: The dot makes it hidden - use Finder > Go menu > hold Option key > Show Library, or use Terminal.
