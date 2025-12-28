@@ -9,4 +9,4 @@ temperament: Spirited
 available_visits: true
 adoptable: true
 ---
-#### Mostly ***calm*** except if you mention the name Donna.... :)
+Mostly *calm* except if you mention the name Donna....
