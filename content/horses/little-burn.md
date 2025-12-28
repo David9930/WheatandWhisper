@@ -1,6 +1,6 @@
 ---
 title: Little Burn
-featured_image: https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800
+featured_image: /images/uploads/minihorsefortest.jpg
 breed: Chunky Monkey
 age: 12
 height: ""
