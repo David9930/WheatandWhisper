@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Our Horses - Wheat and Whisper Farm</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="horses.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Wheat and Whisper</a>
+            <div class="nav-menu">
+                <a href="index.html#about" class="nav-link">Our Story</a>
+                <a href="horses.html" class="nav-link active">Our Horses</a>
+                <a href="index.html#farm" class="nav-link">The Farm</a>
+                <a href="index.html#contact" class="nav-link">Visit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Meet Our Horses</h1>
+            <p class="page-subtitle">Each horse has a story, a personality, and a place in our hearts</p>
+        </div>
+    </section>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Loading our beautiful horses...</p>
+    </div>
+
+    <!-- Horses Grid -->
+    <section class="horses-section">
+        <div class="container">
+            <div id="horses-grid" class="horses-grid">
+                <!-- Horses will be loaded here by JavaScript -->
+            </div>
+            
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <p>No horses have been added yet. Check back soon!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horse Detail Modal -->
+    <div id="horse-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div id="modal-body">
+                <!-- Horse details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Wheat and Whisper Farm. Wild and Washed in Grace.</p>
+        </div>
+    </footer>
+
+    <script src="horses.js"></script>
+</body>
+</html>
