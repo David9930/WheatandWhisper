@@ -1,4 +1,38 @@
-...
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "updates"
+    label: "Farm Updates"
+    folder: "content/updates"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Story", name: "body", widget: "markdown"}
+      - {label: "Second Image (Optional)", name: "image2", widget: "image", required: false}
+
+  - name: "products"
+    label: "Products"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Product Name", name: "title", widget: "string"}
+      - {label: "Price", name: "price", widget: "string", hint: "e.g., $12.00"}
+      - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Product Photo", name: "image", widget: "image"}
+      - {label: "Available", name: "available", widget: "boolean", default: true}
+
+  - name: "pages"
+    label: "Pages"
+    files:
       - label: "About Section"
         name: "about"
         file: "content/pages/about.md"
@@ -6,31 +40,3 @@
           - {label: "Section Title", name: "title", widget: "string", default: "Our Story"}
           - {label: "Farm Story", name: "body", widget: "markdown"}
           - {label: "Main Photo", name: "image", widget: "image", required: false}
-```
-↑ **This is the end** - no closing tag needed!
-
----
-
-## 🔍 How to Tell YAML is Valid
-
-**In YAML, you know it's complete when:**
-1. All sections have matching indentation
-2. The last entry is fully defined
-3. No lines are hanging without values
-
-**Think of it like an outline:**
-```
-Collections:
-  - Farm Updates:
-      - Title field
-      - Date field
-      - Body field
-  - Products:
-      - Name field
-      - Price field
-  - Pages:
-      - About Section
-          - Title field
-          - Story field
-          - Photo field
-← End of outline, no closing needed
