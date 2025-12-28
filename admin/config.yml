@@ -30,6 +30,59 @@ collections:
       - {label: "Product Photo", name: "image", widget: "image"}
       - {label: "Available", name: "available", widget: "boolean", default: true}
 
+  - name: "horses"
+    label: "Meet Our Horses"
+    folder: "content/horses"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Horse Name", name: "title", widget: "string"}
+      - {label: "Main Photo", name: "featured_image", widget: "image", hint: "Primary photo for this horse"}
+      - {label: "Breed", name: "breed", widget: "string", required: false}
+      - {label: "Age", name: "age", widget: "number", value_type: "int", min: 0, max: 50, required: false}
+      - {label: "Height (hands)", name: "height", widget: "number", value_type: "float", min: 10, max: 20, step: 0.1, required: false}
+      - label: "Color"
+        name: "color"
+        widget: "select"
+        required: false
+        options:
+          - "Bay"
+          - "Black"
+          - "Chestnut"
+          - "Gray"
+          - "Palomino"
+          - "Paint"
+          - "Appaloosa"
+          - "Roan"
+          - "Buckskin"
+          - "Other"
+      - label: "Temperament"
+        name: "temperament"
+        widget: "select"
+        required: false
+        options:
+          - "Gentle"
+          - "Spirited"
+          - "Calm"
+          - "Playful"
+          - "Working"
+      - {label: "Arrival Date", name: "arrival_date", widget: "date", format: "YYYY-MM-DD", required: false}
+      - {label: "Story", name: "body", widget: "markdown", hint: "Tell this horse's story"}
+      - {label: "Available for Visits", name: "available_visits", widget: "boolean", default: true}
+      - {label: "Adoptable", name: "adoptable", widget: "boolean", default: false, required: false}
+      - label: "Special Traits"
+        name: "traits"
+        widget: "list"
+        required: false
+        field: {label: "Trait", name: "trait", widget: "string"}
+      - label: "Photo Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Caption", name: "caption", widget: "string", required: false}
+
   - name: "pages"
     label: "Pages"
     files:
