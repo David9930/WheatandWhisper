@@ -1,6 +1,6 @@
 ---
 title: Little Donna Lover
-featured_image: images/uploads/greg-at-high-school-dance.jpg
+featured_image:  images/uploads/greg-at-high-school-dance.jpg
 breed: Stud
 age: 17
 height: 10
