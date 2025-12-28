@@ -133,7 +133,14 @@ function createHorseCard(horse) {
     card.className = 'horse-card';
     card.onclick = () => openHorseModal(horse);
     
+    // DEBUG: Log what we're getting
+    console.log('Horse data:', horse);
+    console.log('Featured image value:', horse.featured_image);
+    console.log('Featured image type:', typeof horse.featured_image);
+    
     const imageUrl = horse.featured_image || '/images/uploads/placeholder-horse.jpg';
+    console.log('Final imageUrl:', imageUrl);
+    
     const excerpt = horse.content.substring(0, 150).replace(/<[^>]*>/g, '') + '...';
     
     card.innerHTML = `
