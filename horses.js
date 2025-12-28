@@ -137,7 +137,7 @@ function createHorseCard(horse) {
     const excerpt = horse.content.substring(0, 150).replace(/<[^>]*>/g, '') + '...';
     
     card.innerHTML = `
-        <img src="${imageUrl}" alt="${horse.title}" class="horse-image" onerror="this.src='/images/uploads/placeholder-horse.jpg'">
+        <img src="${imageUrl}" alt="${horse.title}" class="horse-image" onerror="this.style.display='none'">
         <div class="horse-content">
             <h2 class="horse-name">${horse.title}</h2>
             ${horse.breed ? `<p class="horse-breed">${horse.breed}</p>` : ''}
@@ -227,7 +227,7 @@ function openHorseModal(horse) {
     }
     
     modalBodyEl.innerHTML = `
-        <img src="${imageUrl}" alt="${horse.title}" class="modal-header-image" onerror="this.src='/images/uploads/placeholder-horse.jpg'">
+        <img src="${imageUrl}" alt="${horse.title}" class="modal-header-image" onerror="this.style.display='none'">
         <div class="modal-body">
             <h1 class="modal-title">${horse.title}</h1>
             ${horse.breed ? `<p class="modal-breed">${horse.breed}</p>` : ''}
