@@ -1,1 +1,36 @@
+...
+      - label: "About Section"
+        name: "about"
+        file: "content/pages/about.md"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Our Story"}
+          - {label: "Farm Story", name: "body", widget: "markdown"}
+          - {label: "Main Photo", name: "image", widget: "image", required: false}
+```
+↑ **This is the end** - no closing tag needed!
 
+---
+
+## 🔍 How to Tell YAML is Valid
+
+**In YAML, you know it's complete when:**
+1. All sections have matching indentation
+2. The last entry is fully defined
+3. No lines are hanging without values
+
+**Think of it like an outline:**
+```
+Collections:
+  - Farm Updates:
+      - Title field
+      - Date field
+      - Body field
+  - Products:
+      - Name field
+      - Price field
+  - Pages:
+      - About Section
+          - Title field
+          - Story field
+          - Photo field
+← End of outline, no closing needed
