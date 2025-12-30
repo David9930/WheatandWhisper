@@ -1,12 +1,12 @@
 // Wheat and Whisper Farm - Homepage JavaScript with Typewriter Effect
 
 // Typewriter Effect Configuration
-const TYPEWRITER_SPEED = 69; // milliseconds per character (50 = elegant pace)
+const TYPEWRITER_SPEED = 50; // milliseconds per character (50 = elegant pace)
 const INITIAL_DELAY = 800; // Wait before starting
 const PAUSE_BETWEEN = 300; // Pause between subtitle and tagline
 
 // Elegant Typewriter Effect
-function typewriterEffect(element, text, speed = 50) {
+function typewriterEffect(element, text, speed = 50, onComplete) {
     let index = 0;
     element.textContent = ''; // Clear the text
     element.style.opacity = '1'; // Make visible
@@ -16,6 +16,11 @@ function typewriterEffect(element, text, speed = 50) {
             element.textContent += text.charAt(index);
             index++;
             setTimeout(type, speed);
+        } else {
+            // Typing complete - trigger callback
+            if (onComplete) {
+                setTimeout(onComplete, 200); // Brief pause before glow
+            }
         }
     }
     
@@ -34,8 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hide initially
             subtitle.style.opacity = '0';
             
-            // Start typing
-            typewriterEffect(subtitle, subtitleText, TYPEWRITER_SPEED);
+            // Start typing with glow callback
+            typewriterEffect(subtitle, subtitleText, TYPEWRITER_SPEED, () => {
+                subtitle.classList.add('glow'); // Add glow effect
+            });
             
             // Then type the tagline after subtitle completes
             const tagline = document.querySelector('.hero-tagline');
@@ -50,7 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Start tagline after subtitle + pause
                 setTimeout(() => {
-                    typewriterEffect(tagline, taglineText, TYPEWRITER_SPEED);
+                    typewriterEffect(tagline, taglineText, TYPEWRITER_SPEED, () => {
+                        tagline.classList.add('glow'); // Add glow effect
+                    });
                 }, subtitleDuration + PAUSE_BETWEEN);
             }
         }
