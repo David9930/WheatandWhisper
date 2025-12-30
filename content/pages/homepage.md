@@ -2,6 +2,7 @@
 hero_title_1: WHEAT AND
 hero_title_2: WHISPER FARM
 hero_subtitle: Wild and Washed in Grace
+hero_tagline: Where every moment is a gift and every animal has a story
 hero_image: images/uploads/hero-background.jpg
 grid_1:
   title: Wheat and Whisper Story
