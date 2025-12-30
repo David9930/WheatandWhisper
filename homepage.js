@@ -1,7 +1,7 @@
 // Wheat and Whisper Farm - Homepage JavaScript with Typewriter Effect
 
 // Typewriter Effect Configuration
-const TYPEWRITER_SPEED = 50; // milliseconds per character (50 = elegant pace)
+const TYPEWRITER_SPEED = 65; // milliseconds per character (50 = elegant pace)
 const INITIAL_DELAY = 800; // Wait before starting
 const PAUSE_BETWEEN = 300; // Pause between subtitle and tagline
 
