@@ -1,0 +1,118 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: "images/uploads" # Where uploaded images will be stored
+public_folder: "images/uploads" # The src attribute for uploaded images (relative path works everywhere!)
+
+collections:
+  # Farm Updates - Blog-style posts
+  - name: "updates"
+    label: "Farm Updates"
+    folder: "content/updates"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Story", name: "body", widget: "markdown"}
+      - {label: "Second Image (Optional)", name: "image2", widget: "image", required: false}
+
+  # Products - For soaps and farm goods
+  - name: "products"
+    label: "Products"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Product Name", name: "title", widget: "string"}
+      - {label: "Price", name: "price", widget: "string", hint: "e.g., $12.00"}
+      - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Product Photo", name: "image", widget: "image"}
+      - {label: "Available", name: "available", widget: "boolean", default: true}
+
+  # Pages - For editing main sections like About
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Homepage Settings"
+        name: "homepage"
+        file: "content/pages/homepage.md"
+        fields:
+          # Hero Section
+          - {label: "Hero Title (Line 1)", name: "hero_title_1", widget: "string", default: "WHEAT AND", hint: "First line of main title"}
+          - {label: "Hero Title (Line 2)", name: "hero_title_2", widget: "string", default: "WHISPER FARM", hint: "Second line of main title"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "string", default: "Wild and Washed in Grace"}
+          - {label: "Hero Tagline", name: "hero_tagline", widget: "string", default: "Where every moment is a gift and every animal has a story"}
+          - {label: "Hero Background Image", name: "hero_image", widget: "image", hint: "Large background image for top section"}
+          
+          # Grid Sections
+          - label: "Grid Section 1 - Story"
+            name: "grid_1"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Page", name: "link", widget: "string", default: "about.html", hint: "Which page does this go to?"}
+          
+          - label: "Grid Section 2 - Animals"
+            name: "grid_2"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Meet the Animals"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Page", name: "link", widget: "string", default: "horses.html"}
+          
+          - label: "Grid Section 3 - Farmette Life"
+            name: "grid_3"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Farmette Life"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Page", name: "link", widget: "string", default: "blog.html"}
+          
+          - label: "Grid Section 4 - Nubians"
+            name: "grid_4"
+            widget: "object"
+            fields:
+              - {label: "Section Title (Line 1)", name: "title_1", widget: "string", default: "Sovereignty Grace"}
+              - {label: "Section Title (Line 2)", name: "title_2", widget: "string", default: "Mini Nubians"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Page", name: "link", widget: "string", default: "nubians.html"}
+          
+          - label: "Grid Section 5 - Retrievers"
+            name: "grid_5"
+            widget: "object"
+            fields:
+              - {label: "Section Title (Line 1)", name: "title_1", widget: "string", default: "Sovereignty Grace"}
+              - {label: "Section Title (Line 2)", name: "title_2", widget: "string", default: "Golden Retrievers"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Page", name: "link", widget: "string", default: "retrievers.html"}
+          
+          - label: "Grid Section 6 - Products"
+            name: "grid_6"
+            widget: "object"
+            fields:
+              - {label: "Section Title (Line 1)", name: "title_1", widget: "string", default: "Handcrafted"}
+              - {label: "Section Title (Line 2)", name: "title_2", widget: "string", default: "Treasures"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Page", name: "link", widget: "string", default: "products.html"}
+          
+          # Poetic Section
+          - {label: "Poetic Section Title", name: "poetic_title", widget: "string", default: "From Our Fields to yours."}
+          - {label: "Poetic Line 1", name: "poetic_1", widget: "string", default: "This brand is my love letter to simple living,"}
+          - {label: "Poetic Line 2", name: "poetic_2", widget: "string", default: "to mothers,"}
+          - {label: "Poetic Line 3", name: "poetic_3", widget: "string", default: "to the beauty of ordinary days,"}
+          - {label: "Poetic Line 4", name: "poetic_4", widget: "string", default: "and to the God who whispers dreams into our hearts."}
+      
+      - label: "About Section"
+        name: "about"
+        file: "content/pages/about.md"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Our Story"}
+          - {label: "Farm Story", name: "body", widget: "markdown"}
+          - {label: "Main Photo", name: "image", widget: "image", required: false}
