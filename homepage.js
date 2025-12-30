@@ -45,14 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 subtitle.classList.add('glow'); // Add glow effect
                 console.log('📊 Subtitle classes:', subtitle.className);
                 console.log('🎨 Subtitle text-shadow:', window.getComputedStyle(subtitle).textShadow);
-                
-                // TEMP TEST: Force a color change to prove this runs
-                console.log('🧪 TEST: Changing text color to yellow for 3 seconds...');
-                subtitle.style.color = 'yellow';
-                setTimeout(() => {
-                    subtitle.style.color = '';
-                    console.log('🧪 TEST: Color reset to default');
-                }, 3000);
             });
             
             // Then type the tagline after subtitle completes
