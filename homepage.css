@@ -152,16 +152,18 @@ body {
     letter-spacing: 2px;
     margin-bottom: 20px;
     opacity: 0; /* Hidden initially for typewriter effect */
-    transition: none; /* No transition - typewriter handles reveal */
+    /* Starting shadow at 0 opacity so browser can animate from it */
+    text-shadow: 0 0 0 rgba(201, 166, 107, 0);
+    /* Move transition here so it's ready before class is added */
+    transition: text-shadow 1.5s ease-in, opacity 0.5s ease;
 }
 
 .hero-subtitle.glow {
     text-shadow: 
-        0 0 20px rgba(201, 166, 107, 0.8),  /* Warm golden glow */
+        0 0 20px rgba(201, 166, 107, 0.8),
         0 0 40px rgba(201, 166, 107, 0.6),
         0 0 60px rgba(201, 166, 107, 0.3),
-        2px 2px 4px rgba(0, 0, 0, 0.5);     /* Keep readability shadow */
-    transition: text-shadow 1.5s ease-in;   /* Smooth glow appearance */
+        2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-tagline {
@@ -173,20 +175,21 @@ body {
     margin-bottom: 40px;
     max-width: 600px;
     line-height: 1.8;
+    /* Keep readability shadow but add the glow at 0 opacity */
     text-shadow: 
         2px 2px 8px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(0, 0, 0, 0.6);
+        0 0 0 rgba(201, 166, 107, 0);
     opacity: 0; /* Hidden initially for typewriter effect */
-    transition: none; /* No transition - typewriter handles reveal */
+    /* Move transition here */
+    transition: text-shadow 1.5s ease-in, opacity 0.5s ease;
 }
 
 .hero-tagline.glow {
     text-shadow: 
-        0 0 25px rgba(201, 166, 107, 0.9),  /* Warm golden glow */
+        0 0 25px rgba(201, 166, 107, 0.9),
         0 0 50px rgba(201, 166, 107, 0.6),
         0 0 75px rgba(201, 166, 107, 0.3),
-        2px 2px 8px rgba(0, 0, 0, 0.8);     /* Keep readability shadow */
-    transition: text-shadow 1.5s ease-in;   /* Smooth glow appearance */
+        2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .logo-container {
