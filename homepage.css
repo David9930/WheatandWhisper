@@ -163,12 +163,12 @@ body {
 .farm-logo {
     width: 200px;
     height: 200px;
-    object-fit: cover;  /* Changed to cover for better circular crop */
+    object-fit: cover;
     border-radius: 50%;  /* Makes it perfectly circular! */
     background: white;  /* White background for the circle */
-    padding: 10px;  /* Small padding inside the circle */
+    padding: 0;  /* No padding - logo fills the circle exactly */
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8);  /* Optional: white border effect */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9);  /* Subtle white border */
 }
 
 .social-icons {
