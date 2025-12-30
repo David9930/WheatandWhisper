@@ -161,11 +161,14 @@ body {
 }
 
 .farm-logo {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-    /* Logo will appear in its original colors - remove invert if logo is already light colored */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;  /* Changed to cover for better circular crop */
+    border-radius: 50%;  /* Makes it perfectly circular! */
+    background: white;  /* White background for the circle */
+    padding: 10px;  /* Small padding inside the circle */
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8);  /* Optional: white border effect */
 }
 
 .social-icons {
