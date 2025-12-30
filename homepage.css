@@ -108,7 +108,7 @@ body {
 .hero-section {
     margin-top: 60px;
     height: 600px;
-    background-image: url('images/hero-background.jpg');
+    background-image: url('images/uploads/hero-background.jpg');
     background-size: cover;
     background-position: center;
     background-color: #8B7355;
@@ -228,12 +228,12 @@ body {
 }
 
 /* Placeholder background images for grid items */
-.grid-item:nth-child(1) { background-image: url('images/story-background.jpg'); }
-.grid-item:nth-child(2) { background-image: url('images/animals-background.jpg'); }
-.grid-item:nth-child(3) { background-image: url('images/farmette-background.jpg'); }
-.grid-item:nth-child(4) { background-image: url('images/nubians-background.jpg'); }
-.grid-item:nth-child(5) { background-image: url('images/retrievers-background.jpg'); }
-.grid-item:nth-child(6) { background-image: url('images/products-background.jpg'); }
+.grid-item:nth-child(1) { background-image: url('images/uploads/story-background.jpg'); }
+.grid-item:nth-child(2) { background-image: url('images/uploads/animals-background.jpg'); }
+.grid-item:nth-child(3) { background-image: url('images/uploads/farmette-background.jpg'); }
+.grid-item:nth-child(4) { background-image: url('images/uploads/nubians-background.jpg'); }
+.grid-item:nth-child(5) { background-image: url('images/uploads/retrievers-background.jpg'); }
+.grid-item:nth-child(6) { background-image: url('images/uploads/products-background.jpg'); }
 
 .grid-item-overlay {
     position: relative;
