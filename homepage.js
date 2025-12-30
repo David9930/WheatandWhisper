@@ -1,7 +1,7 @@
 // Wheat and Whisper Farm - Homepage JavaScript with Typewriter Effect
 
 // Typewriter Effect Configuration
-const TYPEWRITER_SPEED = 65; // milliseconds per character (50 = elegant pace)
+const TYPEWRITER_SPEED = 50; // milliseconds per character (50 = elegant pace)
 const INITIAL_DELAY = 800; // Wait before starting
 const PAUSE_BETWEEN = 300; // Pause between subtitle and tagline
 
@@ -41,7 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Start typing with glow callback
             typewriterEffect(subtitle, subtitleText, TYPEWRITER_SPEED, () => {
+                console.log('✅ Subtitle typing complete - adding glow class');
                 subtitle.classList.add('glow'); // Add glow effect
+                console.log('📊 Subtitle classes:', subtitle.className);
+                console.log('🎨 Subtitle text-shadow:', window.getComputedStyle(subtitle).textShadow);
+                
+                // TEMP TEST: Force a color change to prove this runs
+                console.log('🧪 TEST: Changing text color to yellow for 3 seconds...');
+                subtitle.style.color = 'yellow';
+                setTimeout(() => {
+                    subtitle.style.color = '';
+                    console.log('🧪 TEST: Color reset to default');
+                }, 3000);
             });
             
             // Then type the tagline after subtitle completes
@@ -58,7 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Start tagline after subtitle + pause
                 setTimeout(() => {
                     typewriterEffect(tagline, taglineText, TYPEWRITER_SPEED, () => {
+                        console.log('✅ Tagline typing complete - adding glow class');
                         tagline.classList.add('glow'); // Add glow effect
+                        console.log('📊 Tagline classes:', tagline.className);
+                        console.log('🎨 Tagline text-shadow:', window.getComputedStyle(tagline).textShadow);
                     });
                 }, subtitleDuration + PAUSE_BETWEEN);
             }
