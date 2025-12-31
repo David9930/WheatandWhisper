@@ -55,26 +55,60 @@ function parseYAMLFrontmatter(content) {
     const lines = yaml.split('\n');
     let currentKey = null;
     let currentObject = null;
+    let multiLineKey = null;
+    let multiLineValue = [];
+    let isMultiLine = false;
     
-    for (let line of lines) {
-        // Skip empty lines
-        if (!line.trim()) continue;
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
         
-        // Check if this is a nested object
-        if (line.startsWith('  ')) {
+        // Skip empty lines unless we're in multi-line mode
+        if (!line.trim() && !isMultiLine) continue;
+        
+        // Check if we're in multi-line mode
+        if (isMultiLine) {
+            // Check if this line is still indented (part of multi-line text)
+            if (line.startsWith('    ') || line.trim() === '') {
+                // Add to multi-line value (remove the 4-space indent)
+                multiLineValue.push(line.substring(4));
+            } else {
+                // Multi-line section ended, save it
+                if (currentObject && multiLineKey) {
+                    currentObject[multiLineKey] = multiLineValue.join('\n');
+                }
+                isMultiLine = false;
+                multiLineValue = [];
+                multiLineKey = null;
+                // Re-process this line as it's not part of multi-line
+                i--;
+                continue;
+            }
+            continue;
+        }
+        
+        // Check if this is a nested object property
+        if (line.startsWith('  ') && !line.startsWith('    ')) {
             // This is a property of the current object
             if (currentObject) {
-                const match = line.trim().match(/^(\w+):\s*(.+)$/);
-                if (match) {
-                    const [, key, value] = match;
-                    currentObject[key] = value;
+                const propMatch = line.trim().match(/^(\w+):\s*(.*)$/);
+                if (propMatch) {
+                    const [, key, value] = propMatch;
+                    
+                    // Check if this is the start of multi-line text (ends with |)
+                    if (value === '|') {
+                        isMultiLine = true;
+                        multiLineKey = key;
+                        multiLineValue = [];
+                    } else if (value) {
+                        currentObject[key] = value;
+                    }
                 }
             }
-        } else {
+        } else if (!line.startsWith(' ')) {
             // This is a top-level key
-            const match = line.match(/^(\w+):\s*(.*)$/);
-            if (match) {
-                const [, key, value] = match;
+            const topMatch = line.match(/^(\w+):\s*(.*)$/);
+            if (topMatch) {
+                const [, key, value] = topMatch;
                 
                 if (value) {
                     // Simple key-value pair
@@ -89,6 +123,11 @@ function parseYAMLFrontmatter(content) {
                 }
             }
         }
+    }
+    
+    // Handle case where multi-line is at the end of file
+    if (isMultiLine && currentObject && multiLineKey) {
+        currentObject[multiLineKey] = multiLineValue.join('\n');
     }
     
     return data;
