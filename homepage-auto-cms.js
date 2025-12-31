@@ -98,42 +98,52 @@ function parseYAMLFrontmatter(content) {
 function updatePageContent(data) {
     console.log('🎨 Updating page content...');
     
+    // ===== HERO SECTION =====
+    const hero = data.hero_section || {};
+    
     // Update hero title
     const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle && data.hero_title_1 && data.hero_title_2) {
-        heroTitle.innerHTML = `${data.hero_title_1}<br>${data.hero_title_2}`;
+    if (heroTitle && hero.title_line_1 && hero.title_line_2) {
+        heroTitle.innerHTML = `${hero.title_line_1}<br>${hero.title_line_2}`;
         console.log('✅ Hero title updated');
     }
     
     // Update hero subtitle (preserve for typewriter)
     const heroSubtitle = document.querySelector('.hero-subtitle');
-    if (heroSubtitle && data.hero_subtitle) {
-        // Store the content but don't update yet - typewriter will handle it
-        heroSubtitle.setAttribute('data-content', data.hero_subtitle);
+    if (heroSubtitle && hero.subtitle_line_1) {
+        heroSubtitle.setAttribute('data-content', hero.subtitle_line_1);
         console.log('✅ Hero subtitle ready for typewriter');
     }
     
     // Update hero tagline (preserve for typewriter)
     const heroTagline = document.querySelector('.hero-tagline');
-    if (heroTagline && data.hero_tagline) {
-        // Store the content but don't update yet - typewriter will handle it
-        heroTagline.setAttribute('data-content', data.hero_tagline);
+    if (heroTagline && hero.subtitle_line_2) {
+        heroTagline.setAttribute('data-content', hero.subtitle_line_2);
         console.log('✅ Hero tagline ready for typewriter');
     }
     
     // Update hero background
-    if (data.hero_image) {
+    if (hero.background_image) {
         const heroSection = document.querySelector('.hero-section');
         if (heroSection) {
-            heroSection.style.backgroundImage = `url('${data.hero_image}')`;
+            heroSection.style.backgroundImage = `url('${hero.background_image}')`;
             console.log('✅ Hero background updated');
         }
     }
     
-    // Update grid sections
+    // Update main logo
+    if (hero.main_logo) {
+        const logo = document.querySelector('.farm-logo');
+        if (logo) {
+            logo.src = hero.main_logo;
+            console.log('✅ Main logo updated');
+        }
+    }
+    
+    // ===== BOXES 1-6 =====
     for (let i = 1; i <= 6; i++) {
-        const gridData = data[`grid_${i}`];
-        if (!gridData) continue;
+        const boxData = data[`box_${i}`];
+        if (!boxData) continue;
         
         const gridItem = document.querySelector(`.grid-item:nth-child(${i})`);
         if (!gridItem) continue;
@@ -141,45 +151,45 @@ function updatePageContent(data) {
         // Update title
         const titleElement = gridItem.querySelector('.grid-item-title');
         if (titleElement) {
-            if (gridData.title) {
+            if (boxData.title) {
                 // Single-line title
-                titleElement.textContent = gridData.title;
-            } else if (gridData.title_1 && gridData.title_2) {
+                titleElement.textContent = boxData.title;
+            } else if (boxData.title_line_1 && boxData.title_line_2) {
                 // Two-line title
-                titleElement.innerHTML = `${gridData.title_1}<br>${gridData.title_2}`;
+                titleElement.innerHTML = `${boxData.title_line_1}<br>${boxData.title_line_2}`;
             }
         }
         
         // Update background image
-        if (gridData.image) {
-            gridItem.style.backgroundImage = `url('${gridData.image}')`;
+        if (boxData.image) {
+            gridItem.style.backgroundImage = `url('${boxData.image}')`;
         }
         
         // Update link
-        if (gridData.link) {
-            gridItem.href = gridData.link;
+        if (boxData.link) {
+            gridItem.href = boxData.link;
         }
         
-        console.log(`✅ Grid section ${i} updated`);
+        console.log(`✅ Box ${i} updated`);
     }
     
-    // Update poetic section
-    const poeticTitle = document.querySelector('.poetic-title');
-    if (poeticTitle && data.poetic_title) {
-        poeticTitle.textContent = data.poetic_title;
-        console.log('✅ Poetic title updated');
+    // ===== PAGE BANNER =====
+    const banner = data.page_banner || {};
+    
+    // Update banner title
+    const bannerTitle = document.querySelector('.poetic-title');
+    if (bannerTitle && banner.title) {
+        bannerTitle.textContent = banner.title;
+        console.log('✅ Page banner title updated');
     }
     
-    const poeticText = document.querySelector('.poetic-text');
-    if (poeticText) {
-        const lines = [];
-        for (let i = 1; i <= 4; i++) {
-            if (data[`poetic_${i}`]) {
-                lines.push(`<p>${data[`poetic_${i}`]}</p>`);
-            }
-        }
-        poeticText.innerHTML = lines.join('');
-        console.log('✅ Poetic text updated');
+    // Update banner text
+    const bannerText = document.querySelector('.poetic-text');
+    if (bannerText && banner.text) {
+        // Split text by newlines and wrap each in <p> tags
+        const lines = banner.text.split('\n').filter(line => line.trim());
+        bannerText.innerHTML = lines.map(line => `<p>${line}</p>`).join('');
+        console.log('✅ Page banner text updated');
     }
     
     console.log('🎉 All content updated successfully!');
