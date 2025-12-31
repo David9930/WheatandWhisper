@@ -8,7 +8,7 @@ hero_section:
   background_image: images/uploads/hero-background.jpg
 box_1:
   title: Wheat and Whisper Story
-  image: images/uploads/story-background.jpg
+  image: images/uploads/20190830_165251.jpg
   link: about.html
 box_2:
   title: Meet the Animals
