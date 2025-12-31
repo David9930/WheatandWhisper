@@ -1,0 +1,249 @@
+/* About Page Styles */
+/* Using Homepage Color Palette and Fonts */
+
+/* About Page Container */
+.about-page {
+    margin-top: 60px;
+    background-color: var(--cream-bg);
+    padding: 80px 40px;
+    min-height: calc(100vh - 60px);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Top Section - Page Title */
+.about-title-section {
+    margin-bottom: 40px;
+}
+
+.about-title-section[data-align="left"] .about-page-title {
+    text-align: left;
+}
+
+.about-title-section[data-align="center"] .about-page-title {
+    text-align: center;
+}
+
+.about-title-section[data-align="right"] .about-page-title {
+    text-align: right;
+}
+
+.about-page-title {
+    font-family: 'Allura', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Top Section - Body Text */
+.about-body-section {
+    margin-bottom: 60px;
+}
+
+.about-body-section[data-align="left"] .about-body-text {
+    text-align: left;
+}
+
+.about-body-section[data-align="center"] .about-body-text {
+    text-align: center;
+}
+
+.about-body-section[data-align="right"] .about-body-text {
+    text-align: right;
+}
+
+.about-body-text {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-body-text p {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--medium-brown);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-body-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Middle Section - Hero Image */
+.about-image-section {
+    margin-bottom: 60px;
+}
+
+.about-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Image Overlay Text */
+.about-image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+.about-overlay-text {
+    background: rgba(250, 243, 237, 0.95);
+    padding: 40px 50px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-overlay-text p {
+    font-family: 'Lora', serif;
+    color: var(--warm-brown);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.overlay-line-1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-bottom: 15px !important;
+}
+
+.overlay-line-2 {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 8px !important;
+}
+
+.overlay-line-3 {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Hide overlay section if no text */
+.about-image-overlay:empty {
+    display: none;
+}
+
+/* Bottom Section - Optional Text Area */
+.about-bottom-section {
+    margin-top: 60px;
+}
+
+.about-bottom-section[data-align="left"] .about-bottom-text {
+    text-align: left;
+}
+
+.about-bottom-section[data-align="center"] .about-bottom-text {
+    text-align: center;
+}
+
+.about-bottom-section[data-align="right"] .about-bottom-text {
+    text-align: right;
+}
+
+.about-bottom-text {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-bottom-text p {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--medium-brown);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about-bottom-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Hide bottom section if no text */
+.about-bottom-text:empty {
+    display: none;
+}
+
+.about-bottom-section:has(.about-bottom-text:empty) {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .about-page {
+        padding: 60px 30px;
+    }
+    
+    .about-page-title {
+        font-size: 3rem;
+    }
+    
+    .about-body-text p {
+        font-size: 1.1rem;
+    }
+    
+    .about-overlay-text {
+        padding: 30px 35px;
+    }
+    
+    .overlay-line-1 {
+        font-size: 2.25rem;
+    }
+    
+    .overlay-line-2,
+    .overlay-line-3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-page {
+        padding: 40px 20px;
+    }
+    
+    .about-page-title {
+        font-size: 2.5rem;
+    }
+    
+    .about-body-text p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .about-overlay-text {
+        padding: 25px 30px;
+    }
+    
+    .overlay-line-1 {
+        font-size: 1.75rem;
+        letter-spacing: 2px;
+    }
+    
+    .overlay-line-2,
+    .overlay-line-3 {
+        font-size: 0.95rem;
+    }
+    
+    .about-bottom-text p {
+        font-size: 1rem;
+    }
+}
