@@ -12,7 +12,7 @@ body_text: >
 
 
   That vision became the seed. Not just a brand. A farm. A lifestyle. A story being written in real time.
-body_align: justify
+body_align: center
 hero_image: images/uploads/aboutbackground.jpg
 overlay_line_1: WELCOME
 overlay_line_2: We are so glad you're here.
