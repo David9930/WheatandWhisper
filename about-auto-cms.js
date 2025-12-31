@@ -85,8 +85,8 @@ function parseYAMLFrontmatter(content) {
             const key = line.substring(0, colonIndex).trim();
             const value = line.substring(colonIndex + 1).trim();
             
-            // Check if this is the start of multi-line text (ends with |)
-            if (value === '|') {
+            // Check if this is the start of multi-line text (ends with | or >)
+            if (value === '|' || value === '>') {
                 isMultiLine = true;
                 multiLineKey = key;
                 multiLineValue = [];
