@@ -45,18 +45,6 @@
     margin-bottom: 60px;
 }
 
-.about-body-section[data-align="left"] .about-body-text {
-    text-align: left;
-}
-
-.about-body-section[data-align="center"] .about-body-text {
-    text-align: center;
-}
-
-.about-body-section[data-align="right"] .about-body-text {
-    text-align: right;
-}
-
 .about-body-text {
     max-width: 900px;
     margin: 0 auto;
@@ -69,6 +57,23 @@
     color: var(--medium-brown);
     line-height: 1.8;
     margin-bottom: 20px;
+    /* text-align controlled by data-align attribute below */
+}
+
+/* Body Text Alignment Options */
+.about-body-section[data-align="left"] .about-body-text p {
+    text-align: left;
+}
+
+.about-body-section[data-align="center"] .about-body-text p {
+    text-align: center;
+}
+
+.about-body-section[data-align="right"] .about-body-text p {
+    text-align: right;
+}
+
+.about-body-section[data-align="justify"] .about-body-text p {
     text-align: justify;
 }
 
@@ -149,6 +154,7 @@
     margin-top: 60px;
 }
 
+/* Bottom Text Alignment Options */
 .about-bottom-section[data-align="left"] .about-bottom-text {
     text-align: left;
 }
@@ -159,6 +165,10 @@
 
 .about-bottom-section[data-align="right"] .about-bottom-text {
     text-align: right;
+}
+
+.about-bottom-section[data-align="justify"] .about-bottom-text {
+    text-align: justify;
 }
 
 .about-bottom-text {
