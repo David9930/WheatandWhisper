@@ -108,12 +108,12 @@
     transform: translate(-50%, -50%);
     text-align: center;
     width: 90%;
-    max-width: 375px;  /* Reduced from 600px */
+    max-width: 325px;  /* Reduced from 600px */
 }
 
 .about-overlay-text {
-    background: rgba(250, 243, 237, 0.75);  /* Reduced opacity from 0.95 to 0.75 */
-    padding: 25px 40px;  /* Reduced from 40px 50px */
+    background: rgba(250, 243, 237, 0.50);  /* Reduced opacity from 0.95 to 0.75 */
+    padding: 20px 40px;  /* Reduced from 40px 50px */
     border-radius: 4px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
