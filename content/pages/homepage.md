@@ -15,7 +15,7 @@ box_2:
   image: images/uploads/animals-background.jpg
   link: products.html
 box_3:
-  title: Two Wild and Crazy Guys
+  title: Two Wild and Crazy Guys !
   image: images/uploads/farmette-background.jpg
   link: blog.html
 box_4:
