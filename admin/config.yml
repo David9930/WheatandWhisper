@@ -43,71 +43,151 @@ collections:
         name: "homepage"
         file: "content/pages/homepage.md"
         fields:
-          # Hero Section
-          - {label: "Hero Title (Line 1)", name: "hero_title_1", widget: "string", default: "WHEAT AND", hint: "First line of main title"}
-          - {label: "Hero Title (Line 2)", name: "hero_title_2", widget: "string", default: "WHISPER FARM", hint: "Second line of main title"}
-          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "string", default: "Wild and Washed in Grace"}
-          - {label: "Hero Tagline", name: "hero_tagline", widget: "string", default: "Where every moment is a gift and every animal has a story"}
-          - {label: "Hero Background Image", name: "hero_image", widget: "image", hint: "Large background image for top section"}
-          
-          # Grid Sections
-          - label: "Grid Section 1 - Story"
-            name: "grid_1"
+          # ===== HERO SECTION =====
+          - label: "Hero Section"
+            name: "hero_section"
             widget: "object"
+            collapsed: false
             fields:
-              - {label: "Section Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Page", name: "link", widget: "string", default: "about.html", hint: "Which page does this go to?"}
+              - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "WHEAT AND", hint: "First line of main title"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "WHISPER FARM", hint: "Second line of main title"}
+              - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace", hint: "First line below title (typewriter effect)"}
+              - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story", hint: "Second line below title (typewriter effect)"}
+              - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png", hint: "Circular logo in center"}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg", hint: "Large background image for top section"}
           
-          - label: "Grid Section 2 - Animals"
-            name: "grid_2"
+          # ===== BOX 1 =====
+          - label: "Box 1 - Story"
+            name: "box_1"
             widget: "object"
+            collapsed: true
             fields:
-              - {label: "Section Title", name: "title", widget: "string", default: "Meet the Animals"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Page", name: "link", widget: "string", default: "horses.html"}
+              - {label: "Box Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
+              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/story-background.jpg", hint: "Image that fills this box"}
+              - label: "Link Destination"
+                name: "link"
+                widget: "select"
+                default: "about.html"
+                options:
+                  - {label: "About Page", value: "about.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Farmette Life", value: "blog.html"}
+                  - {label: "Mini Nubians", value: "nubians.html"}
+                  - {label: "Golden Retrievers", value: "retrievers.html"}
+                  - {label: "Products", value: "products.html"}
           
-          - label: "Grid Section 3 - Farmette Life"
-            name: "grid_3"
+          # ===== BOX 2 =====
+          - label: "Box 2 - Animals"
+            name: "box_2"
             widget: "object"
+            collapsed: true
             fields:
-              - {label: "Section Title", name: "title", widget: "string", default: "Farmette Life"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Page", name: "link", widget: "string", default: "blog.html"}
+              - {label: "Box Title", name: "title", widget: "string", default: "Meet the Animals"}
+              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/animals-background.jpg"}
+              - label: "Link Destination"
+                name: "link"
+                widget: "select"
+                default: "horses.html"
+                options:
+                  - {label: "About Page", value: "about.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Farmette Life", value: "blog.html"}
+                  - {label: "Mini Nubians", value: "nubians.html"}
+                  - {label: "Golden Retrievers", value: "retrievers.html"}
+                  - {label: "Products", value: "products.html"}
           
-          - label: "Grid Section 4 - Nubians"
-            name: "grid_4"
+          # ===== BOX 3 =====
+          - label: "Box 3 - Farmette Life"
+            name: "box_3"
             widget: "object"
+            collapsed: true
             fields:
-              - {label: "Section Title (Line 1)", name: "title_1", widget: "string", default: "Sovereignty Grace"}
-              - {label: "Section Title (Line 2)", name: "title_2", widget: "string", default: "Mini Nubians"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Page", name: "link", widget: "string", default: "nubians.html"}
+              - {label: "Box Title", name: "title", widget: "string", default: "Farmette Life"}
+              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/farmette-background.jpg"}
+              - label: "Link Destination"
+                name: "link"
+                widget: "select"
+                default: "blog.html"
+                options:
+                  - {label: "About Page", value: "about.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Farmette Life", value: "blog.html"}
+                  - {label: "Mini Nubians", value: "nubians.html"}
+                  - {label: "Golden Retrievers", value: "retrievers.html"}
+                  - {label: "Products", value: "products.html"}
           
-          - label: "Grid Section 5 - Retrievers"
-            name: "grid_5"
+          # ===== BOX 4 =====
+          - label: "Box 4 - Mini Nubians"
+            name: "box_4"
             widget: "object"
+            collapsed: true
             fields:
-              - {label: "Section Title (Line 1)", name: "title_1", widget: "string", default: "Sovereignty Grace"}
-              - {label: "Section Title (Line 2)", name: "title_2", widget: "string", default: "Golden Retrievers"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Page", name: "link", widget: "string", default: "retrievers.html"}
+              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
+              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Mini Nubians"}
+              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/nubians-background.jpg"}
+              - label: "Link Destination"
+                name: "link"
+                widget: "select"
+                default: "nubians.html"
+                options:
+                  - {label: "About Page", value: "about.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Farmette Life", value: "blog.html"}
+                  - {label: "Mini Nubians", value: "nubians.html"}
+                  - {label: "Golden Retrievers", value: "retrievers.html"}
+                  - {label: "Products", value: "products.html"}
           
-          - label: "Grid Section 6 - Products"
-            name: "grid_6"
+          # ===== BOX 5 =====
+          - label: "Box 5 - Golden Retrievers"
+            name: "box_5"
             widget: "object"
+            collapsed: true
             fields:
-              - {label: "Section Title (Line 1)", name: "title_1", widget: "string", default: "Handcrafted"}
-              - {label: "Section Title (Line 2)", name: "title_2", widget: "string", default: "Treasures"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Page", name: "link", widget: "string", default: "products.html"}
+              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
+              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Golden Retrievers"}
+              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/retrievers-background.jpg"}
+              - label: "Link Destination"
+                name: "link"
+                widget: "select"
+                default: "retrievers.html"
+                options:
+                  - {label: "About Page", value: "about.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Farmette Life", value: "blog.html"}
+                  - {label: "Mini Nubians", value: "nubians.html"}
+                  - {label: "Golden Retrievers", value: "retrievers.html"}
+                  - {label: "Products", value: "products.html"}
           
-          # Poetic Section
-          - {label: "Poetic Section Title", name: "poetic_title", widget: "string", default: "From Our Fields to yours."}
-          - {label: "Poetic Line 1", name: "poetic_1", widget: "string", default: "This brand is my love letter to simple living,"}
-          - {label: "Poetic Line 2", name: "poetic_2", widget: "string", default: "to mothers,"}
-          - {label: "Poetic Line 3", name: "poetic_3", widget: "string", default: "to the beauty of ordinary days,"}
-          - {label: "Poetic Line 4", name: "poetic_4", widget: "string", default: "and to the God who whispers dreams into our hearts."}
+          # ===== BOX 6 =====
+          - label: "Box 6 - Products"
+            name: "box_6"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Handcrafted"}
+              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Treasures"}
+              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/products-background.jpg"}
+              - label: "Link Destination"
+                name: "link"
+                widget: "select"
+                default: "products.html"
+                options:
+                  - {label: "About Page", value: "about.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Farmette Life", value: "blog.html"}
+                  - {label: "Mini Nubians", value: "nubians.html"}
+                  - {label: "Golden Retrievers", value: "retrievers.html"}
+                  - {label: "Products", value: "products.html"}
+          
+          # ===== PAGE BANNER =====
+          - label: "Page Banner"
+            name: "page_banner"
+            widget: "object"
+            collapsed: true
+            hint: "The beautiful text section below the boxes"
+            fields:
+              - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours.", hint: "Decorative script text at top"}
+              - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts.", hint: "Multi-line text - press Enter for new lines"}
       
       - label: "About Section"
         name: "about"
