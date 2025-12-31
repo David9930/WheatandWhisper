@@ -213,11 +213,12 @@ collections:
           - label: "Body Text Alignment"
             name: "body_align"
             widget: "select"
-            default: "center"
+            default: "justify"
             options:
               - {label: "Left", value: "left"}
               - {label: "Center", value: "center"}
               - {label: "Right", value: "right"}
+              - {label: "Justify", value: "justify"}
           
           # Middle Section - Hero Image
           - {label: "Hero Image", name: "hero_image", widget: "image", default: "images/uploads/about-hero.jpg", hint: "Large main image for the page"}
@@ -241,3 +242,4 @@ collections:
               - {label: "Left", value: "left"}
               - {label: "Center", value: "center"}
               - {label: "Right", value: "right"}
+              - {label: "Justify", value: "justify"}
