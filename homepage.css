@@ -244,7 +244,16 @@ body {
     position: relative;
     height: 400px;
     background-size: cover;
+    
+    /* OLD CODE - Centers image, may crop heads at top:
     background-position: center;
+    */
+    
+    /* NEW CODE - Smart compromise: Shows top portion preferentially */
+    background-position: center top;
+    /* This means: horizontally centered, vertically aligned to top */
+    /* Result: Faces at top won't get cut off, but bottoms might */
+    
     background-color: var(--beige-bg);
     display: flex;
     align-items: center;
