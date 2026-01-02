@@ -190,22 +190,31 @@ function updatePageContent(data) {
     const heroSection = document.querySelector('.hero-section');
     const videoElement = document.getElementById('hero-video-background');
     
-    if (hero.hero_video_url && hero.hero_video_url.trim()) {
-        // Video URL provided - embed YouTube video
+    // Check if user wants video background AND has provided URL
+    const useVideo = hero.use_video_background !== false; // Default to true if not specified
+    const hasVideoUrl = hero.hero_video_url && hero.hero_video_url.trim();
+    
+    if (useVideo && hasVideoUrl) {
+        // User wants video AND provided URL - try to embed video
         const videoId = extractYouTubeVideoId(hero.hero_video_url);
         
         if (videoId) {
             const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`;
             videoElement.src = embedUrl;
             videoElement.style.display = 'block';
-            console.log('✅ Video background embedded:', videoId);
+            console.log('✅ Video background enabled and embedded:', videoId);
         } else {
             // Invalid video URL, fall back to image
             console.warn('⚠️ Invalid YouTube URL, falling back to image');
             setHeroBackgroundImage(heroSection, hero.background_image);
         }
     } else {
-        // No video URL, use background image
+        // User turned off video OR no URL provided - use image
+        if (!useVideo) {
+            console.log('📷 Video background disabled - using image');
+        } else {
+            console.log('📷 No video URL provided - using image');
+        }
         setHeroBackgroundImage(heroSection, hero.background_image);
     }
     
