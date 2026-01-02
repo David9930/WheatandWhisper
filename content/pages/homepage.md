@@ -1,10 +1,11 @@
+---
 hero_section:
   title_line_1: WHEAT AND
   title_line_2: WHISPER FARM
   subtitle_line_1: Wild and Washed in Grace
   subtitle_line_2: Where every moment is a gift and every animal has a story
   main_logo: WheatandWhisperLogo.png
-  hero_video_url: https://youtube.com/shorts/MjydMaDMoxk?feature=share
+  hero_video_url: https://www.youtube.com/watch?v=MjydMaDMoxk
   background_image: images/uploads/hero-background.jpg
 box_1:
   title: Wheat and Whisper Story
