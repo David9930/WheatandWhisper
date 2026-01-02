@@ -15,7 +15,7 @@ box_2:
   image: images/uploads/img_0418.jpeg
   link: products.html
 box_3:
-  title: Two Wild and Crazy Guys !
+  title: Farmette Life
   image: images/uploads/img_6194.jpeg
   link: blog.html
 box_4:
