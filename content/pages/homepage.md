@@ -5,6 +5,7 @@ hero_section:
   subtitle_line_1: Wild and Washed in Grace
   subtitle_line_2: Where every moment is a gift and every animal has a story
   main_logo: WheatandWhisperLogo.png
+  use_video_background: true
   hero_video_url: https://www.youtube.com/watch?v=MjydMaDMoxk
   background_image: images/uploads/hero-background.jpg
 box_1:
