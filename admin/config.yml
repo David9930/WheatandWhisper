@@ -54,8 +54,26 @@ collections:
               - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace", hint: "First line below title (typewriter effect)"}
               - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story", hint: "Second line below title (typewriter effect)"}
               - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png", hint: "Circular logo in center"}
-              - {label: "Hero Video URL (Optional)", name: "hero_video_url", widget: "string", required: false, hint: "YouTube URL (e.g., https://youtube.com/watch?v=ABC123). Leave empty to use background image instead.", default: ""}
-              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg", hint: "Fallback image if no video URL provided"}
+              
+              # VIDEO BACKGROUND CONTROL
+              - label: "Background Type"
+                name: "use_video_background"
+                widget: "boolean"
+                default: true
+                hint: "Turn ON to use video background, turn OFF to use image background"
+              
+              - label: "Video Background URL"
+                name: "hero_video_url"
+                widget: "string"
+                required: false
+                hint: "Paste your YouTube video URL here (e.g., https://www.youtube.com/watch?v=ABC123). Only works if 'Background Type' is ON. Get URL from YouTube after uploading your video as 'Unlisted'."
+                default: ""
+              
+              - label: "Image Background (Fallback)"
+                name: "background_image"
+                widget: "image"
+                default: "images/uploads/hero-background.jpg"
+                hint: "This image shows when 'Background Type' is OFF, or if video fails to load"
           
           # ===== BOX 1 =====
           - label: "Box 1 - Story"
