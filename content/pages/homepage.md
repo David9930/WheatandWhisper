@@ -40,7 +40,6 @@ page_banner:
     to mothers,
     to the beauty of ordinary days,
     and to the God who whispers dreams into our hearts.
-    *****I am adding an extra line to test***
 ---
 
 Homepage content managed through CMS
