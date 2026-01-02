@@ -170,6 +170,7 @@ body {
     font-weight: 300;
     letter-spacing: 2px;
     margin-bottom: 20px;
+    color: #F5DEB3; /* Wheat/cream color */
     opacity: 0; /* Hidden initially for typewriter effect */
     /* Starting shadow at 0 opacity so browser can animate from it */
     text-shadow: 0 0 0 rgba(201, 166, 107, 0);
@@ -194,6 +195,7 @@ body {
     margin-bottom: 40px;
     max-width: 600px;
     line-height: 1.8;
+    color: #F5DEB3; /* Wheat/cream color */
     /* Keep readability shadow but add the glow at 0 opacity */
     text-shadow: 
         2px 2px 8px rgba(0, 0, 0, 0.8),
