@@ -13,7 +13,7 @@ box_1:
   link: about.html
 box_2:
   title: Meet the Animals
-  image: images/uploads/img_8378.jpeg
+  image: images/uploads/img_0418.jpeg
   link: products.html
 box_3:
   title: Two Wild and Crazy Guys !
@@ -41,7 +41,6 @@ page_banner:
     to mothers,
     to the beauty of ordinary days,
     and to the God who whispers dreams into our hearts.
-    *****I am adding an extra line to test***
 ---
 
 Homepage content managed through CMS
