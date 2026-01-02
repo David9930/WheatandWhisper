@@ -54,7 +54,8 @@ collections:
               - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace", hint: "First line below title (typewriter effect)"}
               - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story", hint: "Second line below title (typewriter effect)"}
               - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png", hint: "Circular logo in center"}
-              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg", hint: "Large background image for top section"}
+              - {label: "Hero Video URL (Optional)", name: "hero_video_url", widget: "string", required: false, hint: "YouTube URL (e.g., https://youtube.com/watch?v=ABC123). Leave empty to use background image instead.", default: ""}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg", hint: "Fallback image if no video URL provided"}
           
           # ===== BOX 1 =====
           - label: "Box 1 - Story"
@@ -189,57 +190,10 @@ collections:
               - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours.", hint: "Decorative script text at top"}
               - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts.", hint: "Multi-line text - press Enter for new lines"}
       
-      - label: "About Page"
+      - label: "About Section"
         name: "about"
         file: "content/pages/about.md"
         fields:
-          # Top Section - Page Title
-          - {label: "Page Title", name: "page_title", widget: "string", default: "Welcome to Wheat and Whisper Farm", hint: "Main title at top of page"}
-          - label: "Title Alignment"
-            name: "title_align"
-            widget: "select"
-            default: "center"
-            options:
-              - {label: "Left", value: "left"}
-              - {label: "Center", value: "center"}
-              - {label: "Right", value: "right"}
-          
-          # Top Section - Body Text
-          - label: "Body Text"
-            name: "body_text"
-            widget: "text"
-            default: "Wheat and Whisper Farm is a family lifestyle brand born from faith, simple living, and farm-rooted beauty. This little dream has lived in my heart for years. Born from a longing for simplicity, where family matters most, and beauty is found in the ordinary."
-            hint: "Main text content - press Enter for new lines. Maximum 100 words."
-          - label: "Body Text Alignment"
-            name: "body_align"
-            widget: "select"
-            default: "justify"
-            options:
-              - {label: "Left", value: "left"}
-              - {label: "Center", value: "center"}
-              - {label: "Right", value: "right"}
-              - {label: "Justify", value: "justify"}
-          
-          # Middle Section - Hero Image
-          - {label: "Hero Image", name: "hero_image", widget: "image", default: "images/uploads/about-hero.jpg", hint: "Large main image for the page"}
-          
-          # Middle Section - Image Overlay Text (Optional)
-          - {label: "Overlay Line 1", name: "overlay_line_1", widget: "string", required: false, hint: "First line of text over the image (optional)"}
-          - {label: "Overlay Line 2", name: "overlay_line_2", widget: "string", required: false, hint: "Second line of text over the image (optional)"}
-          - {label: "Overlay Line 3", name: "overlay_line_3", widget: "string", required: false, hint: "Third line of text over the image (optional)"}
-          
-          # Bottom Section - Optional Text Area
-          - label: "Bottom Text"
-            name: "bottom_text"
-            widget: "text"
-            required: false
-            hint: "Optional text at bottom of page. Maximum 3 lines, 50 words."
-          - label: "Bottom Text Alignment"
-            name: "bottom_align"
-            widget: "select"
-            default: "center"
-            options:
-              - {label: "Left", value: "left"}
-              - {label: "Center", value: "center"}
-              - {label: "Right", value: "right"}
-              - {label: "Justify", value: "justify"}
+          - {label: "Section Title", name: "title", widget: "string", default: "Our Story"}
+          - {label: "Farm Story", name: "body", widget: "markdown"}
+          - {label: "Main Photo", name: "image", widget: "image", required: false}
