@@ -6,6 +6,31 @@ const TYPEWRITER_SPEED = 50;
 const INITIAL_DELAY = 800;
 const PAUSE_BETWEEN = 300;
 
+// ===== YOUTUBE VIDEO HELPER =====
+
+// Extract video ID from various YouTube URL formats
+function extractYouTubeVideoId(url) {
+    if (!url) return null;
+    
+    // Regular YouTube URLs: youtube.com/watch?v=VIDEO_ID
+    let match = url.match(/[?&]v=([^&]+)/);
+    if (match) return match[1];
+    
+    // Short URLs: youtu.be/VIDEO_ID
+    match = url.match(/youtu\.be\/([^?]+)/);
+    if (match) return match[1];
+    
+    // YouTube Shorts: youtube.com/shorts/VIDEO_ID
+    match = url.match(/\/shorts\/([^?]+)/);
+    if (match) return match[1];
+    
+    // Embed URLs: youtube.com/embed/VIDEO_ID
+    match = url.match(/\/embed\/([^?]+)/);
+    if (match) return match[1];
+    
+    return null;
+}
+
 // ===== CONTENT LOADER =====
 
 // Fetch and parse homepage content from CMS
@@ -161,12 +186,34 @@ function updatePageContent(data) {
         console.log('✅ Hero tagline ready for typewriter');
     }
     
-    // Update hero background
-    if (hero.background_image) {
-        const heroSection = document.querySelector('.hero-section');
-        if (heroSection) {
-            heroSection.style.backgroundImage = `url('${hero.background_image}')`;
-            console.log('✅ Hero background updated');
+    // Handle Video Background or Fallback Image
+    const heroSection = document.querySelector('.hero-section');
+    const videoElement = document.getElementById('hero-video-background');
+    
+    if (hero.hero_video_url && hero.hero_video_url.trim()) {
+        // Video URL provided - embed YouTube video
+        const videoId = extractYouTubeVideoId(hero.hero_video_url);
+        
+        if (videoId) {
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`;
+            videoElement.src = embedUrl;
+            videoElement.style.display = 'block';
+            console.log('✅ Video background embedded:', videoId);
+        } else {
+            // Invalid video URL, fall back to image
+            console.warn('⚠️ Invalid YouTube URL, falling back to image');
+            setHeroBackgroundImage(heroSection, hero.background_image);
+        }
+    } else {
+        // No video URL, use background image
+        setHeroBackgroundImage(heroSection, hero.background_image);
+    }
+    
+    // Update hero background image (only if not using video)
+    function setHeroBackgroundImage(section, imageUrl) {
+        if (imageUrl) {
+            section.style.backgroundImage = `url('${imageUrl}')`;
+            console.log('✅ Hero background image set');
         }
     }
     
