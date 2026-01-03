@@ -1,8 +1,9 @@
 ---
 name: Scout
-photo: images/uploads/placeholder-dog.jpg
-video_url: 
-short_description: Loyal Golden Retriever who greets every visitor and guards the chicken coop faithfully.
+photo: images/uploads/WheatandWhisperLogo.png
+video_url: https://www.youtube.com/watch?v=MjydMaDMoxk
+short_description: Loyal Golden Retriever who greets every visitor and guards
+  the chicken coop faithfully.
 order: 3
 ---
 
