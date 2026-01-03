@@ -1,6 +1,6 @@
 ---
 name: Clover
-photo: images/uploads/placeholder-goat.jpg
+photo: images/uploads/nubians-background.jpg
 video_url: https://www.youtube.com/shorts/AHxl8uSkiN0?feature=share
 short_description: Mischievous Mini Nubian who thinks she's the boss of
   everyone, including the dogs.
