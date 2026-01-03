@@ -15,7 +15,7 @@ box_1:
 box_2:
   title: Meet the Animals
   image: images/uploads/img_0418.jpeg
-  link: products.html
+  link: animals.html
 box_3:
   title: Two Wild and Crazy Guys !
   image: images/uploads/img_6194.jpeg
