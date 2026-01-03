@@ -35,6 +35,39 @@ collections:
       - {label: "Product Photo", name: "image", widget: "image"}
       - {label: "Available", name: "available", widget: "boolean", default: true}
 
+  # Animals - For Meet the Animals page
+  - name: "animals"
+    label: "Animals"
+    label_singular: "Animal"
+    folder: "content/animals"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} - {{short_description}}"
+    sortable_fields: ['name', 'order']
+    fields:
+      - {label: "Animal Name", name: "name", widget: "string", hint: "e.g., Whisper, Clover, Scout"}
+      - {label: "Photo", name: "photo", widget: "image", hint: "Main photo shown in card (before video)"}
+      - label: "Video URL"
+        name: "video_url"
+        widget: "string"
+        required: false
+        hint: "Paste YouTube URL here (e.g., https://www.youtube.com/watch?v=ABC123). Leave empty if no video yet. Visitors will click 'Meet [Name]' to see video."
+        default: ""
+      - label: "Short Description"
+        name: "short_description"
+        widget: "text"
+        hint: "1-2 sentences shown on card. Keep it brief and charming!"
+        pattern: ['^.{1,150}$', "Keep it under 150 characters for best display"]
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        default: 1
+        value_type: "int"
+        min: 1
+        max: 100
+        hint: "Controls order on page (1 = first, 2 = second, etc.)"
+
   # Pages - For editing main sections like About
   - name: "pages"
     label: "Pages"
@@ -89,7 +122,7 @@ collections:
                 default: "about.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Meet the Animals", value: "animals.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -106,10 +139,10 @@ collections:
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
-                default: "horses.html"
+                default: "animals.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Meet the Animals", value: "animals.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -129,7 +162,7 @@ collections:
                 default: "blog.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Meet the Animals", value: "animals.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -150,7 +183,7 @@ collections:
                 default: "nubians.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Meet the Animals", value: "animals.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -171,7 +204,7 @@ collections:
                 default: "retrievers.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Meet the Animals", value: "animals.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -192,7 +225,7 @@ collections:
                 default: "products.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
+                  - {label: "Meet the Animals", value: "animals.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -207,6 +240,23 @@ collections:
             fields:
               - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours.", hint: "Decorative script text at top"}
               - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts.", hint: "Multi-line text - press Enter for new lines"}
+      
+      - label: "Animals Page Settings"
+        name: "animals_settings"
+        file: "content/pages/animals-settings.md"
+        fields:
+          - label: "Page Background"
+            name: "use_background_image"
+            widget: "boolean"
+            default: false
+            hint: "Turn ON to use custom image background, turn OFF for plain wheat color"
+          
+          - label: "Background Image"
+            name: "background_image"
+            widget: "image"
+            required: false
+            hint: "Upload a background image (only used if toggle above is ON)"
+            default: "images/uploads/animals-background.jpg"
       
       - label: "About Section"
         name: "about"
