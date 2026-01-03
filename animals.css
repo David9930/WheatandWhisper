@@ -1,0 +1,403 @@
+/* Wheat and Whisper Farm - Meet the Animals Page */
+/* Consistent with Homepage Aesthetic */
+
+/* Color Palette - Same as Homepage */
+:root {
+    --cream-bg: #FFFEF9;
+    --beige-bg: #F5F3ED;
+    --warm-brown: #5D4E37;
+    --medium-brown: #8B6F47;
+    --light-brown: #C9A66B;
+    --gold-accent: #D4AF37;
+    --wheat: #F5DEB3;
+    --white: #FFFFFF;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: var(--cream-bg);
+    color: var(--warm-brown);
+    line-height: 1.6;
+}
+
+/* Background Image Support (CMS-controlled) */
+body.has-background-image {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Top Navigation - Same as Homepage */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--medium-brown);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--medium-brown);
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--warm-brown);
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.notification-icon,
+.profile-icon,
+.cart-icon {
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--light-brown);
+    color: white;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Page Header */
+.page-header {
+    margin-top: 60px;
+    padding: 80px 40px 60px;
+    background: var(--beige-bg);
+    text-align: center;
+}
+
+.page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--wheat);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--medium-brown);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Animals Section */
+.animals-section {
+    padding: 80px 0 100px;
+    min-height: 60vh;
+}
+
+/* Animals Grid */
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Animal Card */
+.animal-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(93, 78, 55, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid var(--beige-bg);
+}
+
+.animal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(93, 78, 55, 0.2);
+    border-color: var(--light-brown);
+}
+
+/* Media Container - Holds photo AND video in same space */
+.media-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--beige-bg);
+    overflow: hidden;
+}
+
+/* Photo and Video - Positioned absolutely in same space */
+.animal-photo,
+.animal-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Prevents interaction during transition */
+}
+
+/* Active state - visible */
+.animal-photo.active,
+.animal-video.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Video specific */
+.animal-video {
+    border: none;
+}
+
+/* Card Content */
+.animal-content {
+    padding: 30px;
+}
+
+.animal-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--wheat);
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.animal-description {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--warm-brown);
+    margin-bottom: 25px;
+    min-height: 50px; /* Keeps cards aligned */
+}
+
+/* Meet Button */
+.meet-button {
+    width: 100%;
+    padding: 15px 30px;
+    background: var(--light-brown);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.meet-button:hover {
+    background: var(--warm-brown);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 78, 55, 0.3);
+}
+
+.meet-button:active {
+    transform: translateY(0);
+}
+
+.meet-button:disabled {
+    background: var(--beige-bg);
+    color: var(--medium-brown);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Loading State */
+.meet-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.meet-button.loading::after {
+    content: 'Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+/* Footer - Same as Homepage */
+.footer {
+    padding: 60px 40px;
+    background: var(--beige-bg);
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-link {
+    background: transparent;
+    border: 1px solid var(--medium-brown);
+    padding: 12px 30px;
+    color: var(--medium-brown);
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    background: var(--medium-brown);
+    color: white;
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social-link {
+    color: var(--medium-brown);
+    transition: color 0.3s ease;
+}
+
+.footer-social-link:hover {
+    color: var(--warm-brown);
+}
+
+.footer-credit {
+    font-size: 12px;
+    color: var(--medium-brown);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .animals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .animals-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .animal-name {
+        font-size: 1.8rem;
+    }
+    
+    .animal-description {
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .main-nav {
+        gap: 15px;
+    }
+    
+    .nav-link {
+        font-size: 12px;
+    }
+}
+
+/* Fade-in animation on page load */
+.animal-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for cards */
+.animal-card:nth-child(1) { animation-delay: 0.1s; }
+.animal-card:nth-child(2) { animation-delay: 0.2s; }
+.animal-card:nth-child(3) { animation-delay: 0.3s; }
