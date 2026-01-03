@@ -157,7 +157,7 @@ function createAnimalCard(animal) {
                 
                 // Load and show video
                 setTimeout(() => {
-                    video.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=1&rel=0`;
+                    video.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=1&modestbranding=1&autohide=1&rel=0&showinfo=0&iv_load_policy=3`;
                     video.classList.add('active');
                     
                     // Update button after video loads
