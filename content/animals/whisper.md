@@ -1,8 +1,9 @@
 ---
 name: Whisper
-photo: images/uploads/placeholder-horse.jpg
+photo: images/uploads/retrievers-background.jpg
 video_url: https://www.youtube.com/watch?v=MjydMaDMoxk
-short_description: A gentle mare with a kind soul and a love for morning gallops across the prairie.
+short_description: A gentle mare with a kind soul and a love for morning gallops
+  across the prairie.
 order: 1
 ---
 
