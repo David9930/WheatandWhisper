@@ -1,8 +1,9 @@
 ---
 name: Clover
 photo: images/uploads/placeholder-goat.jpg
-video_url: https://www.youtube.com/watch?v=MjydMaDMoxk
-short_description: Mischievous Mini Nubian who thinks she's the boss of everyone, including the dogs.
+video_url: https://www.youtube.com/shorts/AHxl8uSkiN0?feature=share
+short_description: Mischievous Mini Nubian who thinks she's the boss of
+  everyone, including the dogs.
 order: 2
 ---
 
