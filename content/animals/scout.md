@@ -1,9 +1,10 @@
 ---
-name: Scout
-photo: images/uploads/WheatandWhisperLogo.png
+name: Moscato Darling
+photo: images/uploads/bd6e44a5-17a6-41d4-85f7-5aa1e05efadd_1_105_c.jpeg
 video_url: https://www.youtube.com/watch?v=MjydMaDMoxk
-short_description: Loyal Golden Retriever who greets every visitor and guards
-  the chicken coop faithfully.
+short_description: Loyal Golden Retriever who greets every visitor and
+  faithfully raises her babies. Loving companion, a beacon of light here on the
+  farm.
 order: 3
 ---
 
