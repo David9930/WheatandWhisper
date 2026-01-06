@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     background-color: var(--cream-bg);
     color: var(--warm-brown);
     line-height: 1.6;
@@ -153,10 +153,10 @@ body {
 }
 
 .hero-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Sacramento', cursive;
     font-size: 5rem;
-    font-weight: 300;
-    letter-spacing: 8px;
+    font-weight: 400;
+    letter-spacing: 4px;
     line-height: 1.2;
     margin-bottom: 10px;
     color: #F5DEB3; /* Wheat/cream color */
@@ -319,8 +319,8 @@ body {
 }
 
 .grid-item-title {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
+    font-family: 'Sacramento', cursive;
+    font-size: 2.5rem;
     font-weight: 400;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -334,7 +334,7 @@ body {
 }
 
 .poetic-title {
-    font-family: 'Allura', cursive;
+    font-family: 'Sacramento', cursive;
     font-size: 3.5rem;
     font-weight: 400;
     color: var(--medium-brown);
@@ -347,11 +347,12 @@ body {
 }
 
 .poetic-text p {
-    font-family: 'Lora', serif;
-    font-size: 1.3rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
     font-style: italic;
     color: var(--medium-brown);
     line-height: 2;
+    font-weight: 300;
 }
 
 /* Newsletter Section */
@@ -475,12 +476,37 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Mobile version - to be designed separately */
+    /* Mobile version - Fix title cutoff */
+    .hero-section {
+        margin-top: 70px; /* More space for fixed nav */
+        height: auto;
+        min-height: 500px;
+        padding: 40px 20px;
+    }
+    
     .hero-title {
         font-size: 3rem;
+        letter-spacing: 2px;
+        padding-top: 20px; /* Extra padding from top */
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-tagline {
+        font-size: 0.95rem;
     }
     
     .grid-container {
         grid-template-columns: 1fr;
+    }
+    
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .grid-item-title {
+        font-size: 2rem;
     }
 }
