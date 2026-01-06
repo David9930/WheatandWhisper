@@ -258,6 +258,13 @@ function updatePageContent(data) {
         // Update background image
         if (boxData.image) {
             gridItem.style.backgroundImage = `url('${boxData.image}')`;
+            
+            // Apply image position controls if set
+            const posX = boxData.image_position_x || 'center';
+            const posY = boxData.image_position_y || 'center';
+            gridItem.style.backgroundPosition = `${posX} ${posY}`;
+            
+            console.log(`📍 Box ${i} position: ${posX} ${posY}`);
         }
         
         // Update link
