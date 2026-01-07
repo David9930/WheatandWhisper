@@ -253,6 +253,12 @@ function updatePageContent(data) {
                 // Two-line title
                 titleElement.innerHTML = `${boxData.title_line_1}<br>${boxData.title_line_2}`;
             }
+            
+            // Apply text alignment
+            if (boxData.title_align) {
+                titleElement.style.textAlign = boxData.title_align;
+                console.log(`📐 Box ${i} alignment: ${boxData.title_align}`);
+            }
         }
         
         // Update background image
