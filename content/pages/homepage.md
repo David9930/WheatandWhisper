@@ -6,7 +6,7 @@ hero_section:
   subtitle_line_2: Where every moment is a gift and every animal has a story
   title_line_2: WHISPER FARM
   main_logo: WheatandWhisperLogo.png
-  tagline_align: right
+  tagline_align: center
   subtitle_align: center
   title_align: center
 box_1:
