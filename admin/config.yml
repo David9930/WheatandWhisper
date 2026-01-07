@@ -69,6 +69,33 @@ collections:
               - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story"}
               - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
               - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg"}
+              - label: "Title Alignment"
+                name: "title_align"
+                widget: "select"
+                default: "center"
+                hint: "Alignment for WHEAT AND / WHISPER FARM"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
+              - label: "Subtitle Alignment"
+                name: "subtitle_align"
+                widget: "select"
+                default: "center"
+                hint: "Alignment for 'Wild and Washed in Grace'"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
+              - label: "Tagline Alignment"
+                name: "tagline_align"
+                widget: "select"
+                default: "center"
+                hint: "Alignment for 'Where every moment is a gift...'"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
           
           - label: "Box 1 - Story"
             name: "box_1"
