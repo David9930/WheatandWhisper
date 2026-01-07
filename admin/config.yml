@@ -2,14 +2,11 @@ backend:
   name: git-gateway
   branch: main
 
-# Uncomment below to enable drafts
-# publish_mode: editorial_workflow
-
 media_folder: "images/uploads"
 public_folder: "images/uploads"
 
 collections:
-  # Horses/Animals Collection - "Meet the Animals" page
+  # Horses/Animals Collection
   - name: "horses"
     label: "Horses & Animals"
     folder: "content/horses"
@@ -17,7 +14,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Animal Name", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featured_image", widget: "image", hint: "Main photo of this animal"}
+      - {label: "Featured Image", name: "featured_image", widget: "image"}
       - {label: "Breed", name: "breed", widget: "string", required: false}
       - {label: "Age", name: "age", widget: "number", required: false}
       - {label: "Height (hands)", name: "height", widget: "number", required: false}
@@ -25,9 +22,9 @@ collections:
       - {label: "Temperament", name: "temperament", widget: "string", required: false}
       - {label: "Available for Visits", name: "available_visits", widget: "boolean", default: true}
       - {label: "Adoptable", name: "adoptable", widget: "boolean", default: false}
-      - {label: "Story", name: "body", widget: "markdown", hint: "Tell this animal's story"}
+      - {label: "Story", name: "body", widget: "markdown"}
 
-  # Farm Updates - Blog-style posts
+  # Farm Updates
   - name: "updates"
     label: "Farm Updates"
     folder: "content/updates"
@@ -40,7 +37,7 @@ collections:
       - {label: "Story", name: "body", widget: "markdown"}
       - {label: "Second Image (Optional)", name: "image2", widget: "image", required: false}
 
-  # Products - For soaps and farm goods
+  # Products
   - name: "products"
     label: "Products"
     folder: "content/products"
@@ -48,12 +45,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Product Name", name: "title", widget: "string"}
-      - {label: "Price", name: "price", widget: "string", hint: "e.g., $12.00"}
+      - {label: "Price", name: "price", widget: "string"}
       - {label: "Description", name: "body", widget: "markdown"}
       - {label: "Product Photo", name: "image", widget: "image"}
       - {label: "Available", name: "available", widget: "boolean", default: true}
 
-  # Pages - For editing main sections
+  # Pages
   - name: "pages"
     label: "Pages"
     files:
@@ -61,7 +58,6 @@ collections:
         name: "homepage"
         file: "content/pages/homepage.md"
         fields:
-          # ===== HERO SECTION =====
           - label: "Hero Section"
             name: "hero_section"
             widget: "object"
@@ -74,190 +70,93 @@ collections:
               - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
               - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg"}
           
-          # ===== BOX 1 =====
           - label: "Box 1 - Story"
             name: "box_1"
             widget: "object"
             collapsed: true
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
-              - label: "Title Alignment"
-                name: "title_align"
-                widget: "select"
-                default: "center"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/story-background.jpg"}
-              - label: "Link Destination"
-                name: "link"
-                widget: "select"
-                default: "about.html"
-                options:
-                  - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
-                  - {label: "Farmette Life", value: "blog.html"}
-                  - {label: "Mini Nubians", value: "nubians.html"}
-                  - {label: "Golden Retrievers", value: "retrievers.html"}
-                  - {label: "Products", value: "products.html"}
+              - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "about.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "horses.html"}, {label: "Farmette Life", value: "blog.html"}]}
           
-          # ===== BOX 2 =====
           - label: "Box 2 - Animals"
             name: "box_2"
             widget: "object"
             collapsed: true
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Meet the Animals"}
-              - label: "Title Alignment"
-                name: "title_align"
-                widget: "select"
-                default: "center"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/animals-background.jpg"}
-              - label: "Link Destination"
-                name: "link"
-                widget: "select"
-                default: "horses.html"
-                options:
-                  - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
-                  - {label: "Farmette Life", value: "blog.html"}
-                  - {label: "Mini Nubians", value: "nubians.html"}
-                  - {label: "Golden Retrievers", value: "retrievers.html"}
-                  - {label: "Products", value: "products.html"}
+              - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "horses.html", options: [{label: "About", value: "about.html"}, {label: "Animals", value: "horses.html"}, {label: "Blog", value: "blog.html"}]}
           
-          # ===== BOX 3 =====
-          - label: "Box 3 - Farmette Life"
+          - label: "Box 3 - Farmette"
             name: "box_3"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "Box Title", name: "title", widget: "string", default: "Farmette Life"}
-              - label: "Title Alignment"
-                name: "title_align"
-                widget: "select"
-                default: "center"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/farmette-background.jpg"}
-              - label: "Link Destination"
-                name: "link"
-                widget: "select"
-                default: "blog.html"
-                options:
-                  - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
-                  - {label: "Farmette Life", value: "blog.html"}
-                  - {label: "Mini Nubians", value: "nubians.html"}
-                  - {label: "Golden Retrievers", value: "retrievers.html"}
-                  - {label: "Products", value: "products.html"}
+              - {label: "Box Title", name: "title", widget: "string"}
+              - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link", name: "link", widget: "string"}
           
-          # ===== BOX 4 =====
-          - label: "Box 4 - Mini Nubians"
+          - label: "Box 4 - Nubians"
             name: "box_4"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
-              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Mini Nubians"}
-              - label: "Title Alignment"
-                name: "title_align"
-                widget: "select"
-                default: "center"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/nubians-background.jpg"}
-              - label: "Link Destination"
-                name: "link"
-                widget: "select"
-                default: "nubians.html"
-                options:
-                  - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
-                  - {label: "Farmette Life", value: "blog.html"}
-                  - {label: "Mini Nubians", value: "nubians.html"}
-                  - {label: "Golden Retrievers", value: "retrievers.html"}
-                  - {label: "Products", value: "products.html"}
+              - {label: "Title Line 1", name: "title_line_1", widget: "string"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string"}
+              - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link", name: "link", widget: "string"}
           
-          # ===== BOX 5 =====
-          - label: "Box 5 - Golden Retrievers"
+          - label: "Box 5 - Retrievers"
             name: "box_5"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
-              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Golden Retrievers"}
-              - label: "Title Alignment"
-                name: "title_align"
-                widget: "select"
-                default: "center"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/retrievers-background.jpg"}
-              - label: "Link Destination"
-                name: "link"
-                widget: "select"
-                default: "retrievers.html"
-                options:
-                  - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
-                  - {label: "Farmette Life", value: "blog.html"}
-                  - {label: "Mini Nubians", value: "nubians.html"}
-                  - {label: "Golden Retrievers", value: "retrievers.html"}
-                  - {label: "Products", value: "products.html"}
+              - {label: "Title Line 1", name: "title_line_1", widget: "string"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string"}
+              - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link", name: "link", widget: "string"}
           
-          # ===== BOX 6 =====
           - label: "Box 6 - Products"
             name: "box_6"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Handcrafted"}
-              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Treasures"}
-              - label: "Title Alignment"
-                name: "title_align"
-                widget: "select"
-                default: "center"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/products-background.jpg"}
-              - label: "Link Destination"
-                name: "link"
-                widget: "select"
-                default: "products.html"
-                options:
-                  - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "horses.html"}
-                  - {label: "Farmette Life", value: "blog.html"}
-                  - {label: "Mini Nubians", value: "nubians.html"}
-                  - {label: "Golden Retrievers", value: "retrievers.html"}
-                  - {label: "Products", value: "products.html"}
+              - {label: "Title Line 1", name: "title_line_1", widget: "string"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string"}
+              - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link", name: "link", widget: "string"}
           
-          # ===== PAGE BANNER =====
           - label: "Page Banner"
             name: "page_banner"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours."}
-              - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts."}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+      
+      # SITE SETTINGS - THIS IS THE "SETUP PAGE"!
+      - label: "Site Settings"
+        name: "site_settings"
+        file: "content/settings/site-config.md"
+        fields:
+          - {label: "Title Font", name: "font_title", widget: "select", default: "Montserrat", options: [{label: "Montserrat", value: "Montserrat"}, {label: "Sacramento", value: "Sacramento"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Custom", value: "custom"}]}
+          - {label: "Custom Title Font", name: "font_title_custom", widget: "string", required: false, hint: "Enter Google Font name if Custom selected"}
+          - {label: "Body Font", name: "font_body", widget: "select", default: "Josefin Sans", options: [{label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}]}
+          - {label: "Primary Color", name: "color_primary", widget: "color", default: "#C9A66B"}
+          - {label: "Background Color", name: "color_background", widget: "color", default: "#FFFEF9"}
+          - {label: "Text Color", name: "color_text", widget: "color", default: "#5D4E37"}
       
       - label: "About Section"
         name: "about"
         file: "content/pages/about.md"
         fields:
-          - {label: "Section Title", name: "title", widget: "string", default: "Our Story"}
-          - {label: "Farm Story", name: "body", widget: "markdown"}
-          - {label: "Main Photo", name: "image", widget: "image", required: false}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Story", name: "body", widget: "markdown"}
+          - {label: "Photo", name: "image", widget: "image", required: false}
