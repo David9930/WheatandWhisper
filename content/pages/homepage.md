@@ -6,6 +6,9 @@ hero_section:
   subtitle_line_2: Where every moment is a gift and every animal has a story
   main_logo: WheatandWhisperLogo.png
   background_image: images/uploads/hero-background.jpg
+  title_align: center
+  subtitle_align: center
+  tagline_align: center
 box_1:
   title: Wheat and Whisper Story
   title_align: center
