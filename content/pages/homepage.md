@@ -5,35 +5,39 @@ hero_section:
   subtitle_line_1: Wild and Washed in Grace
   subtitle_line_2: Where every moment is a gift and every animal has a story
   main_logo: WheatandWhisperLogo.png
-  use_video_background: true
-  hero_video_url: https://www.youtube.com/watch?v=MjydMaDMoxk
   background_image: images/uploads/hero-background.jpg
 box_1:
   title: Wheat and Whisper Story
-  image: images/uploads/tezza-2900_edited.png
+  title_align: center
+  image: images/uploads/20190830_165251.jpg
   link: about.html
 box_2:
   title: Meet the Animals
-  image: images/uploads/img_0418.jpeg
-  link: animals.html
+  title_align: center
+  image: images/uploads/animals-background.jpg
+  link: horses.html
 box_3:
-  title: Farmette Life
-  image: images/uploads/img_6194.jpeg
+  title: Two Wild and Crazy Guys !
+  title_align: center
+  image: images/uploads/farmette-background.jpg
   link: blog.html
 box_4:
   title_line_1: Sovereignty Grace
   title_line_2: Mini Nubians
-  image: images/uploads/img_5318_edited.jpg
+  title_align: center
+  image: images/uploads/nubians-background.jpg
   link: nubians.html
 box_5:
   title_line_1: Sovereignty Grace
   title_line_2: Golden Retrievers
-  image: images/uploads/img_8378.jpeg
+  title_align: center
+  image: images/uploads/retrievers-background.jpg
   link: retrievers.html
 box_6:
   title_line_1: Handcrafted
   title_line_2: Treasures
-  image: images/uploads/tezza-9369_edited.jpg
+  title_align: center
+  image: images/uploads/products-background.jpg
   link: products.html
 page_banner:
   title: From Our Fields to yours.
