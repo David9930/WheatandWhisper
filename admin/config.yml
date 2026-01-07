@@ -63,6 +63,15 @@ collections:
             collapsed: true
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
+              - label: "Title Alignment"
+                name: "title_align"
+                widget: "select"
+                default: "center"
+                hint: "How the title text is aligned"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/story-background.jpg", hint: "Image that fills this box"}
               - label: "Image Position (Horizontal)"
                 name: "image_position_x"
@@ -101,6 +110,15 @@ collections:
             collapsed: true
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Meet the Animals"}
+              - label: "Title Alignment"
+                name: "title_align"
+                widget: "select"
+                default: "center"
+                hint: "How the title text is aligned"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/animals-background.jpg"}
               - label: "Image Position (Horizontal)"
                 name: "image_position_x"
@@ -139,6 +157,15 @@ collections:
             collapsed: true
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Farmette Life"}
+              - label: "Title Alignment"
+                name: "title_align"
+                widget: "select"
+                default: "center"
+                hint: "How the title text is aligned"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/farmette-background.jpg"}
               - label: "Image Position (Horizontal)"
                 name: "image_position_x"
@@ -178,6 +205,15 @@ collections:
             fields:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Mini Nubians"}
+              - label: "Title Alignment"
+                name: "title_align"
+                widget: "select"
+                default: "center"
+                hint: "How the title text is aligned"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/nubians-background.jpg"}
               - label: "Image Position (Horizontal)"
                 name: "image_position_x"
@@ -217,6 +253,15 @@ collections:
             fields:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Golden Retrievers"}
+              - label: "Title Alignment"
+                name: "title_align"
+                widget: "select"
+                default: "center"
+                hint: "How the title text is aligned"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/retrievers-background.jpg"}
               - label: "Image Position (Horizontal)"
                 name: "image_position_x"
@@ -256,6 +301,15 @@ collections:
             fields:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Handcrafted"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Treasures"}
+              - label: "Title Alignment"
+                name: "title_align"
+                widget: "select"
+                default: "center"
+                hint: "How the title text is aligned"
+                options:
+                  - {label: "Left", value: "left"}
+                  - {label: "Center", value: "center"}
+                  - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/products-background.jpg"}
               - label: "Image Position (Horizontal)"
                 name: "image_position_x"
