@@ -169,6 +169,13 @@ function updatePageContent(data) {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle && hero.title_line_1 && hero.title_line_2) {
         heroTitle.innerHTML = `${hero.title_line_1}<br>${hero.title_line_2}`;
+        
+        // Apply title alignment
+        if (hero.title_align) {
+            heroTitle.style.textAlign = hero.title_align;
+            console.log(`📐 Hero title alignment: ${hero.title_align}`);
+        }
+        
         console.log('✅ Hero title updated');
     }
     
@@ -176,6 +183,13 @@ function updatePageContent(data) {
     const heroSubtitle = document.querySelector('.hero-subtitle');
     if (heroSubtitle && hero.subtitle_line_1) {
         heroSubtitle.setAttribute('data-content', hero.subtitle_line_1);
+        
+        // Apply subtitle alignment
+        if (hero.subtitle_align) {
+            heroSubtitle.style.textAlign = hero.subtitle_align;
+            console.log(`📐 Hero subtitle alignment: ${hero.subtitle_align}`);
+        }
+        
         console.log('✅ Hero subtitle ready for typewriter');
     }
     
@@ -183,6 +197,13 @@ function updatePageContent(data) {
     const heroTagline = document.querySelector('.hero-tagline');
     if (heroTagline && hero.subtitle_line_2) {
         heroTagline.setAttribute('data-content', hero.subtitle_line_2);
+        
+        // Apply tagline alignment
+        if (hero.tagline_align) {
+            heroTagline.style.textAlign = hero.tagline_align;
+            console.log(`📐 Hero tagline alignment: ${hero.tagline_align}`);
+        }
+        
         console.log('✅ Hero tagline ready for typewriter');
     }
     
