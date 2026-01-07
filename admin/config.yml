@@ -73,31 +73,13 @@ collections:
                   - {label: "Center", value: "center"}
                   - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/story-background.jpg", hint: "Image that fills this box"}
-              - label: "Image Position (Horizontal)"
-                name: "image_position_x"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned left-to-right"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - label: "Image Position (Vertical)"
-                name: "image_position_y"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned top-to-bottom"
-                options:
-                  - {label: "Top", value: "top"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Bottom", value: "bottom"}
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
                 default: "about.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "animals.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -120,31 +102,13 @@ collections:
                   - {label: "Center", value: "center"}
                   - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/animals-background.jpg"}
-              - label: "Image Position (Horizontal)"
-                name: "image_position_x"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned left-to-right"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - label: "Image Position (Vertical)"
-                name: "image_position_y"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned top-to-bottom"
-                options:
-                  - {label: "Top", value: "top"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Bottom", value: "bottom"}
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
-                default: "animals.html"
+                default: "horses.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "animals.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -167,31 +131,13 @@ collections:
                   - {label: "Center", value: "center"}
                   - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/farmette-background.jpg"}
-              - label: "Image Position (Horizontal)"
-                name: "image_position_x"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned left-to-right"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - label: "Image Position (Vertical)"
-                name: "image_position_y"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned top-to-bottom"
-                options:
-                  - {label: "Top", value: "top"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Bottom", value: "bottom"}
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
                 default: "blog.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "animals.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -215,31 +161,13 @@ collections:
                   - {label: "Center", value: "center"}
                   - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/nubians-background.jpg"}
-              - label: "Image Position (Horizontal)"
-                name: "image_position_x"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned left-to-right"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - label: "Image Position (Vertical)"
-                name: "image_position_y"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned top-to-bottom"
-                options:
-                  - {label: "Top", value: "top"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Bottom", value: "bottom"}
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
                 default: "nubians.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "animals.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -263,31 +191,13 @@ collections:
                   - {label: "Center", value: "center"}
                   - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/retrievers-background.jpg"}
-              - label: "Image Position (Horizontal)"
-                name: "image_position_x"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned left-to-right"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - label: "Image Position (Vertical)"
-                name: "image_position_y"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned top-to-bottom"
-                options:
-                  - {label: "Top", value: "top"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Bottom", value: "bottom"}
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
                 default: "retrievers.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "animals.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -311,31 +221,13 @@ collections:
                   - {label: "Center", value: "center"}
                   - {label: "Right", value: "right"}
               - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/products-background.jpg"}
-              - label: "Image Position (Horizontal)"
-                name: "image_position_x"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned left-to-right"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
-              - label: "Image Position (Vertical)"
-                name: "image_position_y"
-                widget: "select"
-                default: "center"
-                hint: "Adjust where the image is positioned top-to-bottom"
-                options:
-                  - {label: "Top", value: "top"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Bottom", value: "bottom"}
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
                 default: "products.html"
                 options:
                   - {label: "About Page", value: "about.html"}
-                  - {label: "Meet the Animals", value: "animals.html"}
+                  - {label: "Meet the Animals", value: "horses.html"}
                   - {label: "Farmette Life", value: "blog.html"}
                   - {label: "Mini Nubians", value: "nubians.html"}
                   - {label: "Golden Retrievers", value: "retrievers.html"}
@@ -351,213 +243,10 @@ collections:
               - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours.", hint: "Decorative script text at top"}
               - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts.", hint: "Multi-line text - press Enter for new lines"}
       
-      - label: "About Page"
+      - label: "About Section"
         name: "about"
         file: "content/pages/about.md"
         fields:
-          # Top Section - Page Title
-          - {label: "Page Title", name: "page_title", widget: "string", default: "Welcome to Wheat and Whisper Farm", hint: "Main title at top of page"}
-          - label: "Title Alignment"
-            name: "title_align"
-            widget: "select"
-            default: "center"
-            options:
-              - {label: "Left", value: "left"}
-              - {label: "Center", value: "center"}
-              - {label: "Right", value: "right"}
-          
-          # Top Section - Body Text
-          - label: "Body Text"
-            name: "body_text"
-            widget: "text"
-            default: "Wheat and Whisper Farm is a family lifestyle brand born from faith, simple living, and farm-rooted beauty. This little dream has lived in my heart for years. Born from a longing for simplicity, where family matters most, and beauty is found in the ordinary."
-            hint: "Main text content - press Enter for new lines. Maximum 100 words."
-          - label: "Body Text Alignment"
-            name: "body_align"
-            widget: "select"
-            default: "justify"
-            options:
-              - {label: "Left", value: "left"}
-              - {label: "Center", value: "center"}
-              - {label: "Right", value: "right"}
-              - {label: "Justify", value: "justify"}
-          
-          # Middle Section - Hero Image
-          - {label: "Hero Image", name: "hero_image", widget: "image", default: "images/uploads/about-hero.jpg", hint: "Large main image for the page"}
-          
-          # Middle Section - Image Overlay Text (Optional)
-          - {label: "Overlay Line 1", name: "overlay_line_1", widget: "string", required: false, hint: "First line of text over the image (optional)"}
-          - {label: "Overlay Line 2", name: "overlay_line_2", widget: "string", required: false, hint: "Second line of text over the image (optional)"}
-          - {label: "Overlay Line 3", name: "overlay_line_3", widget: "string", required: false, hint: "Third line of text over the image (optional)"}
-          
-          # Bottom Section - Optional Text Area
-          - label: "Bottom Text"
-            name: "bottom_text"
-            widget: "text"
-            required: false
-            hint: "Optional text at bottom of page. Maximum 3 lines, 50 words."
-          - label: "Bottom Text Alignment"
-            name: "bottom_align"
-            widget: "select"
-            default: "center"
-            options:
-              - {label: "Left", value: "left"}
-              - {label: "Center", value: "center"}
-              - {label: "Right", value: "right"}
-              - {label: "Justify", value: "justify"}
-      
-      - label: "Site Settings"
-        name: "site_settings"
-        file: "content/settings/site-config.md"
-        fields:
-          # ===== TYPOGRAPHY SECTION =====
-          - label: "Title Font"
-            name: "font_title"
-            widget: "select"
-            default: "Montserrat"
-            hint: "Font for main page titles"
-            options:
-              - {label: "Montserrat (Clean, Geometric)", value: "Montserrat"}
-              - {label: "Sacramento (Elegant Script)", value: "Sacramento"}
-              - {label: "Josefin Sans (Modern, Rounded)", value: "Josefin Sans"}
-              - {label: "Lora (Classic Serif)", value: "Lora"}
-              - {label: "Playfair Display (Elegant Serif)", value: "Playfair Display"}
-              - {label: "Great Vibes (Fancy Script)", value: "Great Vibes"}
-              - {label: "League Spartan (Bold Sans)", value: "League Spartan"}
-              - {label: "Custom (Enter Below)", value: "custom"}
-          
-          - label: "Custom Title Font"
-            name: "font_title_custom"
-            widget: "string"
-            required: false
-            hint: "Enter any Google Font name (only used if 'Custom' selected above). Example: 'Bebas Neue', 'Raleway', 'Cinzel'"
-          
-          - label: "Subtitle Font"
-            name: "font_subtitle"
-            widget: "select"
-            default: "Sacramento"
-            hint: "Font for subtitle text (Wild and Washed in Grace)"
-            options:
-              - {label: "Sacramento (Elegant Script)", value: "Sacramento"}
-              - {label: "Great Vibes (Fancy Script)", value: "Great Vibes"}
-              - {label: "Montserrat (Clean Sans)", value: "Montserrat"}
-              - {label: "Josefin Sans (Modern)", value: "Josefin Sans"}
-              - {label: "Custom (Enter Below)", value: "custom"}
-          
-          - label: "Custom Subtitle Font"
-            name: "font_subtitle_custom"
-            widget: "string"
-            required: false
-            hint: "Enter any Google Font name (only used if 'Custom' selected above)"
-          
-          - label: "Body Font"
-            name: "font_body"
-            widget: "select"
-            default: "Josefin Sans"
-            hint: "Font for all body text and paragraphs"
-            options:
-              - {label: "Josefin Sans (Modern, Clean)", value: "Josefin Sans"}
-              - {label: "Lora (Classic, Readable)", value: "Lora"}
-              - {label: "Crimson Text (Traditional)", value: "Crimson Text"}
-              - {label: "Montserrat (Geometric)", value: "Montserrat"}
-              - {label: "Open Sans (Simple, Clear)", value: "Open Sans"}
-              - {label: "Custom (Enter Below)", value: "custom"}
-          
-          - label: "Custom Body Font"
-            name: "font_body_custom"
-            widget: "string"
-            required: false
-            hint: "Enter any Google Font name (only used if 'Custom' selected above)"
-          
-          - label: "Title Size"
-            name: "title_size"
-            widget: "string"
-            default: "5rem"
-            hint: "Size of main titles (e.g., '5rem', '4.5rem', '6rem')"
-          
-          - label: "Subtitle Size"
-            name: "subtitle_size"
-            widget: "string"
-            default: "1.4rem"
-            hint: "Size of subtitle text (e.g., '1.4rem', '1.2rem', '1.6rem')"
-          
-          - label: "Body Text Size"
-            name: "body_size"
-            widget: "string"
-            default: "1rem"
-            hint: "Size of body text (e.g., '1rem', '1.1rem', '0.9rem')"
-          
-          # ===== COLORS SECTION =====
-          - label: "Primary Brand Color (Wheat)"
-            name: "color_primary"
-            widget: "color"
-            default: "#C9A66B"
-            hint: "Main accent color used throughout site"
-          
-          - label: "Background Color (Cream)"
-            name: "color_background"
-            widget: "color"
-            default: "#FFFEF9"
-            hint: "Main background color"
-          
-          - label: "Alternate Background (Beige)"
-            name: "color_background_alt"
-            widget: "color"
-            default: "#F5F3ED"
-            hint: "Secondary background for sections"
-          
-          - label: "Text Color (Dark Brown)"
-            name: "color_text"
-            widget: "color"
-            default: "#5D4E37"
-            hint: "Main text color"
-          
-          - label: "Medium Text Color (Brown)"
-            name: "color_text_medium"
-            widget: "color"
-            default: "#8B6F47"
-            hint: "Secondary text color"
-          
-          - label: "Accent Color (Gold)"
-            name: "color_accent"
-            widget: "color"
-            default: "#D4AF37"
-            hint: "Highlight/accent color"
-          
-          # ===== BOX TITLE STYLING =====
-          - label: "Box Title Color"
-            name: "box_title_color"
-            widget: "color"
-            default: "#C9A66B"
-            hint: "Color of text in grid box titles"
-          
-          - label: "Show Box Title Underline"
-            name: "box_title_underline"
-            widget: "boolean"
-            default: true
-            hint: "Add underline decoration to box titles"
-          
-          - label: "Box Title Underline Color"
-            name: "box_title_underline_color"
-            widget: "color"
-            default: "#C9A66B"
-            hint: "Color of the underline (if enabled)"
-          
-          # ===== SPACING & LAYOUT =====
-          - label: "Section Padding"
-            name: "section_padding"
-            widget: "string"
-            default: "80px"
-            hint: "Space above/below sections (e.g., '80px', '100px', '60px')"
-          
-          - label: "Grid Gap"
-            name: "grid_gap"
-            widget: "string"
-            default: "30px"
-            hint: "Space between grid boxes (e.g., '30px', '40px', '20px')"
-          
-          - label: "Hero Section Height"
-            name: "hero_height"
-            widget: "string"
-            default: "600px"
-            hint: "Height of hero section (e.g., '600px', '500px', '700px')"
+          - {label: "Section Title", name: "title", widget: "string", default: "Our Story"}
+          - {label: "Farm Story", name: "body", widget: "markdown"}
+          - {label: "Main Photo", name: "image", widget: "image", required: false}
