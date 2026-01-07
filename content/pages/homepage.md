@@ -1,14 +1,14 @@
 ---
 hero_section:
-  title_line_1: WHEAT AND
-  title_line_2: WHISPER FARM
-  subtitle_line_1: Wild and Washed in Grace
-  subtitle_line_2: Where every moment is a gift and every animal has a story
-  main_logo: WheatandWhisperLogo.png
   background_image: images/uploads/hero-background.jpg
-  title_align: center
+  subtitle_line_1: Wild and Washed in Grace
+  title_line_1: WHEAT AND
+  subtitle_line_2: Where every moment is a gift and every animal has a story
+  title_line_2: WHISPER FARM
+  main_logo: WheatandWhisperLogo.png
+  tagline_align: right
   subtitle_align: center
-  tagline_align: center
+  title_align: center
 box_1:
   title: Wheat and Whisper Story
   title_align: center
