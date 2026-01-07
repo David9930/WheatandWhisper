@@ -1,15 +1,40 @@
-/* Wheat and Whisper Farm - Homepage Styles */
-/* Matching Paige's Wix Design */
+/* Wheat and Whisper Farm - Variable-Based Styles */
+/* All design elements controlled by CSS variables */
+/* Settings can be changed via CMS (Site Settings page) */
 
-/* Color Palette */
+/* ===== CSS VARIABLES (Defaults - Overridden by site-settings-loader.js) ===== */
 :root {
-    --cream-bg: #FFFEF9;
-    --beige-bg: #F5F3ED;
-    --warm-brown: #5D4E37;
-    --medium-brown: #8B6F47;
-    --light-brown: #C9A66B;
-    --gold-accent: #D4AF37;
-    --white: #FFFFFF;
+    /* Colors */
+    --color-primary: #C9A66B;
+    --color-background: #FFFEF9;
+    --color-background-alt: #F5F3ED;
+    --color-text: #5D4E37;
+    --color-text-medium: #8B6F47;
+    --color-accent: #D4AF37;
+    
+    /* Fonts */
+    --font-title: 'Montserrat', sans-serif;
+    --font-subtitle: 'Sacramento', cursive;
+    --font-body: 'Josefin Sans', sans-serif;
+    
+    /* Font Sizes */
+    --title-size: 5rem;
+    --subtitle-size: 1.4rem;
+    --body-size: 1rem;
+    
+    /* Box Title Styling */
+    --box-title-color: #C9A66B;
+    --box-title-underline: underline;
+    --box-title-underline-color: #C9A66B;
+    
+    /* Spacing */
+    --section-padding: 80px;
+    --grid-gap: 30px;
+    --hero-height: 600px;
+    
+    /* Advanced */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 20px rgba(93, 78, 55, 0.08);
 }
 
 /* Reset and Base Styles */
@@ -20,10 +45,11 @@
 }
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: var(--cream-bg);
-    color: var(--warm-brown);
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
     line-height: 1.6;
+    font-size: var(--body-size);
 }
 
 /* Top Navigation */
@@ -52,7 +78,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--medium-brown);
+    color: var(--color-text-medium);
     font-size: 14px;
     cursor: pointer;
 }
@@ -63,16 +89,17 @@ body {
 }
 
 .nav-link {
-    color: var(--medium-brown);
+    color: var(--color-text-medium);
     text-decoration: none;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
+    font-family: var(--font-body);
 }
 
 .nav-link:hover {
-    color: var(--warm-brown);
+    color: var(--color-text);
 }
 
 .nav-icons {
@@ -93,7 +120,7 @@ body {
     position: absolute;
     top: -8px;
     right: -8px;
-    background: var(--light-brown);
+    background: var(--color-primary);
     color: white;
     font-size: 10px;
     width: 18px;
@@ -107,8 +134,7 @@ body {
 /* Hero Section */
 .hero-section {
     margin-top: 60px;
-    height: 600px;
-    /* background-image removed - video or JavaScript will set it */
+    height: var(--hero-height);
     background-size: cover;
     background-position: center;
     background-color: #8B7355;
@@ -119,18 +145,17 @@ body {
     overflow: hidden;
 }
 
-/* Video Background */
 .hero-video-background {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100vw;
-    height: 56.25vw; /* 16:9 aspect ratio */
+    height: 56.25vw;
     min-height: 100vh;
-    min-width: 177.77vh; /* 16:9 */
+    min-width: 177.77vh;
     transform: translate(-50%, -50%);
-    pointer-events: none; /* Can't interact with video */
-    z-index: 0; /* Behind overlay and content */
+    pointer-events: none;
+    z-index: 0;
     object-fit: cover;
 }
 
@@ -147,34 +172,34 @@ body {
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Above video and overlay */
+    z-index: 2;
     text-align: center;
     color: white;
 }
 
+/* HERO TITLE - Uses variable font */
 .hero-title {
-    font-family: 'Sacramento', cursive;
-    font-size: 5rem;
+    font-family: var(--font-title);
+    font-size: var(--title-size);
     font-weight: 400;
-    letter-spacing: 4px;
+    letter-spacing: 12px;
     line-height: 1.2;
     margin-bottom: 10px;
-    color: #F5DEB3; /* Wheat/cream color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Stronger shadow for contrast */
+    color: #F5DEB3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
 }
 
+/* HERO SUBTITLE - Uses variable font */
 .hero-subtitle {
-    font-family: 'Lora', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    font-weight: 300;
+    font-family: var(--font-subtitle);
+    font-size: var(--subtitle-size);
+    font-weight: 400;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    color: #F5DEB3; /* Wheat/cream color */
-    opacity: 0; /* Hidden initially for typewriter effect */
-    /* Starting shadow at 0 opacity so browser can animate from it */
+    color: #F5DEB3;
+    opacity: 0;
     text-shadow: 0 0 0 rgba(201, 166, 107, 0);
-    /* Move transition here so it's ready before class is added */
     transition: text-shadow 1.5s ease-in, opacity 0.5s ease;
 }
 
@@ -186,8 +211,9 @@ body {
         2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* HERO TAGLINE - Uses variable font */
 .hero-tagline {
-    font-family: 'Lora', serif;
+    font-family: var(--font-body);
     font-size: 1.1rem;
     font-style: italic;
     font-weight: 300;
@@ -195,13 +221,10 @@ body {
     margin-bottom: 40px;
     max-width: 600px;
     line-height: 1.8;
-    color: #F5DEB3; /* Wheat/cream color */
-    /* Keep readability shadow but add the glow at 0 opacity */
     text-shadow: 
         2px 2px 8px rgba(0, 0, 0, 0.8),
         0 0 0 rgba(201, 166, 107, 0);
-    opacity: 0; /* Hidden initially for typewriter effect */
-    /* Move transition here */
+    opacity: 0;
     transition: text-shadow 1.5s ease-in, opacity 0.5s ease;
 }
 
@@ -224,11 +247,10 @@ body {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 50%;  /* Makes it perfectly circular! */
-    background: white;  /* White background for the circle */
-    padding: 0;  /* No padding - logo fills the circle exactly */
+    border-radius: 50%;
+    background: white;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9);  /* Subtle white border */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9);
 }
 
 .social-icons {
@@ -249,8 +271,8 @@ body {
 
 /* Sections Grid */
 .sections-grid {
-    padding: 80px 40px;
-    background: var(--cream-bg);
+    padding: var(--section-padding) 40px;
+    background: var(--color-background);
 }
 
 .grid-container {
@@ -258,30 +280,22 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: var(--grid-gap);
 }
 
 .grid-item {
     position: relative;
     height: 400px;
     background-size: cover;
-    
-    /* OLD CODE - Centers image, may crop heads at top:
     background-position: center;
-    */
-    
-    /* NEW CODE - Smart compromise: Shows top portion preferentially */
-    background-position: center top;
-    /* This means: horizontally centered, vertically aligned to top */
-    /* Result: Faces at top won't get cut off, but bottoms might */
-    
-    background-color: var(--beige-bg);
+    background-color: var(--color-background-alt);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     overflow: hidden;
     transition: transform 0.3s ease;
+    border-radius: var(--border-radius);
 }
 
 .grid-item:hover {
@@ -303,7 +317,7 @@ body {
     background: rgba(0, 0, 0, 0.5);
 }
 
-/* Placeholder background images for grid items */
+/* Placeholder background images */
 .grid-item:nth-child(1) { background-image: url('images/uploads/story-background.jpg'); }
 .grid-item:nth-child(2) { background-image: url('images/uploads/animals-background.jpg'); }
 .grid-item:nth-child(3) { background-image: url('images/uploads/farmette-background.jpg'); }
@@ -318,27 +332,32 @@ body {
     padding: 20px;
 }
 
+/* BOX TITLES - Uses variables for color and underline */
 .grid-item-title {
-    font-family: 'Sacramento', cursive;
-    font-size: 2.5rem;
+    font-family: var(--font-body);
+    font-size: 1.8rem;
     font-weight: 400;
-    color: var(--light-brown); /* Changed to wheat color! */
+    color: var(--box-title-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
+    text-decoration: var(--box-title-underline);
+    text-decoration-color: var(--box-title-underline-color);
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
 }
 
 /* Poetic Section */
 .poetic-section {
-    padding: 100px 40px;
-    background: var(--beige-bg);
+    padding: var(--section-padding) 40px;
+    background: var(--color-background-alt);
     text-align: center;
 }
 
 .poetic-title {
-    font-family: 'Sacramento', cursive;
+    font-family: var(--font-subtitle);
     font-size: 3.5rem;
     font-weight: 400;
-    color: var(--medium-brown);
+    color: var(--color-text-medium);
     margin-bottom: 40px;
 }
 
@@ -348,18 +367,18 @@ body {
 }
 
 .poetic-text p {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 1.2rem;
     font-style: italic;
-    color: var(--medium-brown);
+    color: var(--color-text-medium);
     line-height: 2;
     font-weight: 300;
 }
 
 /* Newsletter Section */
 .newsletter-section {
-    padding: 80px 40px;
-    background: var(--cream-bg);
+    padding: var(--section-padding) 40px;
+    background: var(--color-background);
 }
 
 .newsletter-container {
@@ -376,23 +395,24 @@ body {
 .newsletter-input {
     width: 100%;
     padding: 15px;
-    border: 1px solid var(--medium-brown);
-    background: var(--beige-bg);
-    font-family: 'Crimson Text', serif;
+    border: 1px solid var(--color-text-medium);
+    background: var(--color-background-alt);
+    font-family: var(--font-body);
     font-size: 16px;
-    color: var(--warm-brown);
+    color: var(--color-text);
+    border-radius: var(--border-radius);
 }
 
 .newsletter-input::placeholder {
-    color: var(--medium-brown);
+    color: var(--color-text-medium);
 }
 
 .newsletter-checkbox {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    font-family: 'Crimson Text', serif;
-    color: var(--warm-brown);
+    font-family: var(--font-body);
+    color: var(--color-text);
     cursor: pointer;
 }
 
@@ -404,23 +424,24 @@ body {
 .newsletter-button {
     align-self: center;
     padding: 15px 60px;
-    background: var(--light-brown);
+    background: var(--color-primary);
     color: white;
     border: none;
-    font-family: 'Crimson Text', serif;
+    font-family: var(--font-body);
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease;
+    border-radius: var(--border-radius);
 }
 
 .newsletter-button:hover {
-    background: var(--warm-brown);
+    background: var(--color-text);
 }
 
 /* Footer */
 .footer {
     padding: 60px 40px;
-    background: var(--beige-bg);
+    background: var(--color-background-alt);
     border-top: 1px solid rgba(93, 78, 55, 0.1);
 }
 
@@ -436,17 +457,18 @@ body {
 
 .footer-link {
     background: transparent;
-    border: 1px solid var(--medium-brown);
+    border: 1px solid var(--color-text-medium);
     padding: 12px 30px;
-    color: var(--medium-brown);
-    font-family: 'Crimson Text', serif;
+    color: var(--color-text-medium);
+    font-family: var(--font-body);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-radius: var(--border-radius);
 }
 
 .footer-link:hover {
-    background: var(--medium-brown);
+    background: var(--color-text-medium);
     color: white;
 }
 
@@ -456,20 +478,20 @@ body {
 }
 
 .footer-social-link {
-    color: var(--medium-brown);
+    color: var(--color-text-medium);
     transition: color 0.3s ease;
 }
 
 .footer-social-link:hover {
-    color: var(--warm-brown);
+    color: var(--color-text);
 }
 
 .footer-credit {
     font-size: 12px;
-    color: var(--medium-brown);
+    color: var(--color-text-medium);
 }
 
-/* Responsive - Desktop Only for Now */
+/* Responsive */
 @media (max-width: 1200px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
@@ -477,22 +499,21 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Mobile version - Fix title cutoff */
     .hero-section {
-        margin-top: 70px; /* More space for fixed nav */
+        margin-top: 70px;
         height: auto;
         min-height: 500px;
         padding: 40px 20px;
     }
     
     .hero-title {
-        font-size: 3rem;
-        letter-spacing: 2px;
-        padding-top: 20px; /* Extra padding from top */
+        font-size: calc(var(--title-size) * 0.6);
+        letter-spacing: 6px;
+        padding-top: 20px;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: calc(var(--subtitle-size) * 0.8);
     }
     
     .hero-tagline {
@@ -508,6 +529,10 @@ body {
     }
     
     .grid-item-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .sections-grid {
+        padding: 60px 20px;
     }
 }
