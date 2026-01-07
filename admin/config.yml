@@ -5,10 +5,28 @@ backend:
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
 
-media_folder: "images/uploads" # Where uploaded images will be stored
-public_folder: "images/uploads" # The src attribute for uploaded images (relative path works everywhere!)
+media_folder: "images/uploads"
+public_folder: "images/uploads"
 
 collections:
+  # Horses/Animals Collection - "Meet the Animals" page
+  - name: "horses"
+    label: "Horses & Animals"
+    folder: "content/horses"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Animal Name", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featured_image", widget: "image", hint: "Main photo of this animal"}
+      - {label: "Breed", name: "breed", widget: "string", required: false}
+      - {label: "Age", name: "age", widget: "number", required: false}
+      - {label: "Height (hands)", name: "height", widget: "number", required: false}
+      - {label: "Color", name: "color", widget: "string", required: false}
+      - {label: "Temperament", name: "temperament", widget: "string", required: false}
+      - {label: "Available for Visits", name: "available_visits", widget: "boolean", default: true}
+      - {label: "Adoptable", name: "adoptable", widget: "boolean", default: false}
+      - {label: "Story", name: "body", widget: "markdown", hint: "Tell this animal's story"}
+
   # Farm Updates - Blog-style posts
   - name: "updates"
     label: "Farm Updates"
@@ -35,7 +53,7 @@ collections:
       - {label: "Product Photo", name: "image", widget: "image"}
       - {label: "Available", name: "available", widget: "boolean", default: true}
 
-  # Pages - For editing main sections like About
+  # Pages - For editing main sections
   - name: "pages"
     label: "Pages"
     files:
@@ -49,12 +67,12 @@ collections:
             widget: "object"
             collapsed: false
             fields:
-              - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "WHEAT AND", hint: "First line of main title"}
-              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "WHISPER FARM", hint: "Second line of main title"}
-              - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace", hint: "First line below title (typewriter effect)"}
-              - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story", hint: "Second line below title (typewriter effect)"}
-              - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png", hint: "Circular logo in center"}
-              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg", hint: "Large background image for top section"}
+              - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "WHEAT AND"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "WHISPER FARM"}
+              - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace"}
+              - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story"}
+              - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg"}
           
           # ===== BOX 1 =====
           - label: "Box 1 - Story"
@@ -67,12 +85,11 @@ collections:
                 name: "title_align"
                 widget: "select"
                 default: "center"
-                hint: "How the title text is aligned"
                 options:
                   - {label: "Left", value: "left"}
                   - {label: "Center", value: "center"}
                   - {label: "Right", value: "right"}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/story-background.jpg", hint: "Image that fills this box"}
+              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/story-background.jpg"}
               - label: "Link Destination"
                 name: "link"
                 widget: "select"
@@ -96,7 +113,6 @@ collections:
                 name: "title_align"
                 widget: "select"
                 default: "center"
-                hint: "How the title text is aligned"
                 options:
                   - {label: "Left", value: "left"}
                   - {label: "Center", value: "center"}
@@ -125,7 +141,6 @@ collections:
                 name: "title_align"
                 widget: "select"
                 default: "center"
-                hint: "How the title text is aligned"
                 options:
                   - {label: "Left", value: "left"}
                   - {label: "Center", value: "center"}
@@ -155,7 +170,6 @@ collections:
                 name: "title_align"
                 widget: "select"
                 default: "center"
-                hint: "How the title text is aligned"
                 options:
                   - {label: "Left", value: "left"}
                   - {label: "Center", value: "center"}
@@ -185,7 +199,6 @@ collections:
                 name: "title_align"
                 widget: "select"
                 default: "center"
-                hint: "How the title text is aligned"
                 options:
                   - {label: "Left", value: "left"}
                   - {label: "Center", value: "center"}
@@ -215,7 +228,6 @@ collections:
                 name: "title_align"
                 widget: "select"
                 default: "center"
-                hint: "How the title text is aligned"
                 options:
                   - {label: "Left", value: "left"}
                   - {label: "Center", value: "center"}
@@ -238,10 +250,9 @@ collections:
             name: "page_banner"
             widget: "object"
             collapsed: true
-            hint: "The beautiful text section below the boxes"
             fields:
-              - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours.", hint: "Decorative script text at top"}
-              - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts.", hint: "Multi-line text - press Enter for new lines"}
+              - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours."}
+              - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts."}
       
       - label: "About Section"
         name: "about"
