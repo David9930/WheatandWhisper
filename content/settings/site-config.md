@@ -1,5 +1,5 @@
 ---
-font_title: Josefin Sans
+font_title: Lora
 font_title_custom: ""
 font_subtitle: Sacramento
 font_subtitle_custom: ""
