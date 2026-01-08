@@ -229,6 +229,7 @@ collections:
           - {label: "Custom Body Font", name: "font_body_custom", widget: "string", required: false}
           - {label: "Title Size", name: "title_size", widget: "string", default: "5rem"}
           - {label: "Subtitle Size", name: "subtitle_size", widget: "string", default: "1.4rem"}
+          - {label: "Tagline Size (Subtitle Line 2)", name: "tagline_size", widget: "string", default: "1.1rem", hint: "Size for 'Where every moment is a gift...'"}  ← ADD THIS LINE
           - {label: "Body Text Size", name: "body_size", widget: "string", default: "1rem"}
           
           # Colors
