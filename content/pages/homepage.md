@@ -12,35 +12,35 @@ hero_section:
 box_1:
   title: Wheat and Whisper Story
   title_align: center
-  image: images/uploads/20190830_165251.jpg
+  image: images/uploads/tezza-9369_edited.jpg
   link: about.html
 box_2:
   title: Meet the Animals
   title_align: center
-  image: images/uploads/animals-background.jpg
+  image: images/uploads/img_0418.jpeg
   link: animals.html
 box_3:
   title: Blog!
   title_align: center
-  image: images/uploads/farmette-background.jpg
+  image: images/uploads/img_6194.jpeg
   link: blog.html
 box_4:
   title_line_1: Sovereignty Grace
   title_line_2: Mini Nubians
   title_align: center
-  image: images/uploads/nubians-background.jpg
+  image: images/uploads/e24fdb51-dc07-47f0-b0ea-31d6b0cee996_1_201_a.jpeg
   link: nubians.html
 box_5:
   title_line_1: Sovereignty Grace
   title_line_2: Golden Retrievers
   title_align: center
-  image: images/uploads/retrievers-background.jpg
+  image: images/uploads/bd6e44a5-17a6-41d4-85f7-5aa1e05efadd_1_105_c.jpeg
   link: retrievers.html
 box_6:
   title_line_1: Handcrafted
   title_line_2: Treasures
   title_align: center
-  image: images/uploads/products-background.jpg
+  image: images/uploads/tezza-2900_edited.png
   link: products.html
 page_banner:
   title: From Our Fields to yours.
