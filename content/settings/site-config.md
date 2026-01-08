@@ -1,27 +1,28 @@
 ---
-font_title: Lora
-font_title_custom: ""
-font_subtitle: Sacramento
-font_subtitle_custom: ""
-font_body: Josefin Sans
-font_body_custom: ""
-title_size: 5rem
-subtitle_size: 3rem
-body_size: 3rem
+border_radius: 8px
 color_primary: "#C9A66B"
+color_accent: "#D4AF37"
+font_title_custom: ""
+title_size: 4.5rem
+font_subtitle_custom: ""
+font_subtitle: Sacramento
+box_title_color: "#C9A66B"
+font_title: Lora
+font_body: Josefin Sans
+subtitle_size: 3rem
+tagline_size: 3rem
 color_background: "#FFFEF9"
-color_background_alt: "#F5F3ED"
 color_text: "#5D4E37"
 color_text_medium: "#8B6F47"
-color_accent: "#D4AF37"
-box_title_color: "#C9A66B"
-box_title_underline: false
-box_title_underline_color: "#C9A66B"
 section_padding: 80px
-grid_gap: 30px
 hero_height: 600px
-border_radius: 8px
+box_title_underline: false
 box_shadow: 0 4px 20px rgba(93, 78, 55, 0.08)
+color_background_alt: "#F5F3ED"
+box_title_underline_color: "#C9A66B"
+grid_gap: 30px
+body_size: 3rem
+font_body_custom: ""
 ---
 
 This file controls the visual design of your website. Edit through CMS > Site Settings.
