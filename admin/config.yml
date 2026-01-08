@@ -6,27 +6,29 @@ media_folder: "images/uploads"
 public_folder: "images/uploads"
 
 collections:
-  # Horses/Animals Collection
-  - name: "horses"
-    label: "Horses & Animals"
-    folder: "content/horses"
+  # =============================================================================
+  # ANIMALS PAGE - "Meet the Animals" (animals.html)
+  # This is the main page with photo/video toggle functionality
+  # =============================================================================
+  - name: "animals"
+    label: "🐴 Animals (Meet the Animals)"
+    label_singular: "Animal"
+    folder: "content/animals"
     create: true
     slug: "{{slug}}"
+    summary: "{{name}} - {{short_description}}"
     fields:
-      - {label: "Animal Name", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featured_image", widget: "image"}
-      - {label: "Breed", name: "breed", widget: "string", required: false}
-      - {label: "Age", name: "age", widget: "number", required: false}
-      - {label: "Height (hands)", name: "height", widget: "number", required: false}
-      - {label: "Color", name: "color", widget: "string", required: false}
-      - {label: "Temperament", name: "temperament", widget: "string", required: false}
-      - {label: "Available for Visits", name: "available_visits", widget: "boolean", default: true}
-      - {label: "Adoptable", name: "adoptable", widget: "boolean", default: false}
-      - {label: "Story", name: "body", widget: "markdown"}
+      - {label: "Animal Name", name: "name", widget: "string", hint: "Display name for this animal"}
+      - {label: "Photo", name: "photo", widget: "image", hint: "Main photo shown on card"}
+      - {label: "Video URL (Optional)", name: "video_url", widget: "string", required: false, hint: "YouTube URL for Meet button - leave blank for 'Coming Soon'"}
+      - {label: "Short Description", name: "short_description", widget: "text", hint: "Brief description shown on card (2-3 sentences)"}
+      - {label: "Display Order", name: "order", widget: "number", default: 1, value_type: "int", min: 1, hint: "Lower numbers appear first"}
 
-  # Farm Updates
+  # =============================================================================
+  # FARM UPDATES - Blog Posts
+  # =============================================================================
   - name: "updates"
-    label: "Farm Updates"
+    label: "📝 Farm Updates"
     folder: "content/updates"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -37,9 +39,11 @@ collections:
       - {label: "Story", name: "body", widget: "markdown"}
       - {label: "Second Image (Optional)", name: "image2", widget: "image", required: false}
 
-  # Products
+  # =============================================================================
+  # PRODUCTS
+  # =============================================================================
   - name: "products"
-    label: "Products"
+    label: "🛍️ Products"
     folder: "content/products"
     create: true
     slug: "{{slug}}"
@@ -50,11 +54,16 @@ collections:
       - {label: "Product Photo", name: "image", widget: "image"}
       - {label: "Available", name: "available", widget: "boolean", default: true}
 
-  # Pages
+  # =============================================================================
+  # PAGES - Homepage, About, Settings
+  # =============================================================================
   - name: "pages"
-    label: "Pages"
+    label: "📄 Pages & Settings"
     files:
-      - label: "Homepage Settings"
+      # ---------------------------------------------------------------------------
+      # HOMEPAGE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "Homepage"
         name: "homepage"
         file: "content/pages/homepage.md"
         fields:
@@ -73,29 +82,17 @@ collections:
                 name: "title_align"
                 widget: "select"
                 default: "center"
-                hint: "Alignment for WHEAT AND / WHISPER FARM"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
+                options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]
               - label: "Subtitle Alignment"
                 name: "subtitle_align"
                 widget: "select"
                 default: "center"
-                hint: "Alignment for 'Wild and Washed in Grace'"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
+                options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]
               - label: "Tagline Alignment"
                 name: "tagline_align"
                 widget: "select"
                 default: "center"
-                hint: "Alignment for 'Where every moment is a gift...'"
-                options:
-                  - {label: "Left", value: "left"}
-                  - {label: "Center", value: "center"}
-                  - {label: "Right", value: "right"}
+                options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]
           
           - label: "Box 1 - Story"
             name: "box_1"
@@ -104,8 +101,8 @@ collections:
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
               - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/story-background.jpg"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "about.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "horses.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "about.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 2 - Animals"
             name: "box_2"
@@ -114,8 +111,8 @@ collections:
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Meet the Animals"}
               - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/animals-background.jpg"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "horses.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "horses.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "animals.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 3 - Farmette Life"
             name: "box_3"
@@ -124,8 +121,8 @@ collections:
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Farmette Life"}
               - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/farmette-background.jpg"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "blog.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "horses.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "blog.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 4 - Mini Nubians"
             name: "box_4"
@@ -135,8 +132,8 @@ collections:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Mini Nubians"}
               - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/nubians-background.jpg"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "nubians.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "horses.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "nubians.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 5 - Golden Retrievers"
             name: "box_5"
@@ -146,8 +143,8 @@ collections:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Golden Retrievers"}
               - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/retrievers-background.jpg"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "retrievers.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "horses.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "retrievers.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 6 - Products"
             name: "box_6"
@@ -157,8 +154,8 @@ collections:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Handcrafted"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Treasures"}
               - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]}
-              - {label: "Background Image", name: "image", widget: "image", default: "images/uploads/products-background.jpg"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "products.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "horses.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "products.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Page Banner"
             name: "page_banner"
@@ -166,31 +163,73 @@ collections:
             collapsed: true
             fields:
               - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours."}
-              - {label: "Banner Text", name: "text", widget: "text", default: "This brand is my love letter to simple living,\nto mothers,\nto the beauty of ordinary days,\nand to the God who whispers dreams into our hearts."}
+              - {label: "Banner Text", name: "text", widget: "text"}
       
-      # THIS IS THE "SETUP PAGE" - SITE SETTINGS!
+      # ---------------------------------------------------------------------------
+      # ABOUT PAGE
+      # ---------------------------------------------------------------------------
+      - label: "About Page"
+        name: "about"
+        file: "content/pages/about.md"
+        fields:
+          - {label: "Page Title", name: "page_title", widget: "string", default: "Welcome to Wheat and Whisper Farm"}
+          - label: "Title Alignment"
+            name: "title_align"
+            widget: "select"
+            default: "center"
+            options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}]
+          - {label: "Body Text", name: "body_text", widget: "text", hint: "Main text at top of page"}
+          - label: "Body Text Alignment"
+            name: "body_align"
+            widget: "select"
+            default: "center"
+            options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}, {label: "Justify", value: "justify"}]
+          - {label: "Hero Image", name: "hero_image", widget: "image"}
+          - {label: "Image Overlay Line 1", name: "overlay_line_1", widget: "string", required: false, hint: "Large text on image"}
+          - {label: "Image Overlay Line 2", name: "overlay_line_2", widget: "string", required: false}
+          - {label: "Image Overlay Line 3", name: "overlay_line_3", widget: "string", required: false}
+          - {label: "Bottom Text (Optional)", name: "bottom_text", widget: "text", required: false, hint: "Additional text below image"}
+          - label: "Bottom Text Alignment"
+            name: "bottom_align"
+            widget: "select"
+            default: "center"
+            options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}, {label: "Right", value: "right"}, {label: "Justify", value: "justify"}]
+      
+      # ---------------------------------------------------------------------------
+      # ANIMALS PAGE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "Animals Page Settings"
+        name: "animals_settings"
+        file: "content/pages/animals-settings.md"
+        fields:
+          - {label: "Use Custom Background Image", name: "use_background_image", widget: "boolean", default: false, hint: "Toggle between plain wheat color or custom image background"}
+          - {label: "Background Image", name: "background_image", widget: "image", required: false, hint: "Only used if 'Use Custom Background Image' is enabled"}
+      
+      # ---------------------------------------------------------------------------
+      # SITE SETTINGS (Fonts, Colors, Spacing)
+      # ---------------------------------------------------------------------------
       - label: "Site Settings"
         name: "site_settings"
         file: "content/settings/site-config.md"
         fields:
           # Typography
-          - {label: "Title Font", name: "font_title", widget: "select", default: "Montserrat", hint: "Font for main page titles", options: [{label: "Montserrat (Clean)", value: "Montserrat"}, {label: "Sacramento (Script)", value: "Sacramento"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Custom", value: "custom"}]}
-          - {label: "Custom Title Font", name: "font_title_custom", widget: "string", required: false, hint: "Enter any Google Font name (only used if Custom selected)"}
-          - {label: "Subtitle Font", name: "font_subtitle", widget: "select", default: "Sacramento", options: [{label: "Sacramento (Script)", value: "Sacramento"}, {label: "Montserrat", value: "Montserrat"}, {label: "Lora", value: "Lora"}]}
+          - {label: "Title Font", name: "font_title", widget: "select", default: "Lora", options: [{label: "Montserrat", value: "Montserrat"}, {label: "Sacramento", value: "Sacramento"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Custom", value: "custom"}]}
+          - {label: "Custom Title Font", name: "font_title_custom", widget: "string", required: false}
+          - {label: "Subtitle Font", name: "font_subtitle", widget: "select", default: "Sacramento", options: [{label: "Sacramento", value: "Sacramento"}, {label: "Montserrat", value: "Montserrat"}, {label: "Lora", value: "Lora"}]}
           - {label: "Custom Subtitle Font", name: "font_subtitle_custom", widget: "string", required: false}
           - {label: "Body Font", name: "font_body", widget: "select", default: "Josefin Sans", options: [{label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Montserrat", value: "Montserrat"}]}
           - {label: "Custom Body Font", name: "font_body_custom", widget: "string", required: false}
-          - {label: "Title Size", name: "title_size", widget: "string", default: "5rem", hint: "e.g., 5rem, 4rem, 6rem"}
+          - {label: "Title Size", name: "title_size", widget: "string", default: "5rem"}
           - {label: "Subtitle Size", name: "subtitle_size", widget: "string", default: "1.4rem"}
           - {label: "Body Text Size", name: "body_size", widget: "string", default: "1rem"}
           
           # Colors
-          - {label: "Primary Brand Color", name: "color_primary", widget: "color", default: "#C9A66B", hint: "Main accent color (wheat/gold)"}
-          - {label: "Background Color", name: "color_background", widget: "color", default: "#FFFEF9", hint: "Main page background"}
-          - {label: "Alternate Background", name: "color_background_alt", widget: "color", default: "#F5F3ED", hint: "Section backgrounds"}
-          - {label: "Text Color", name: "color_text", widget: "color", default: "#5D4E37", hint: "Main text color"}
-          - {label: "Medium Text Color", name: "color_text_medium", widget: "color", default: "#8B6F47", hint: "Secondary text"}
-          - {label: "Accent Color", name: "color_accent", widget: "color", default: "#D4AF37", hint: "Highlight color"}
+          - {label: "Primary Brand Color", name: "color_primary", widget: "color", default: "#C9A66B"}
+          - {label: "Background Color", name: "color_background", widget: "color", default: "#FFFEF9"}
+          - {label: "Alternate Background", name: "color_background_alt", widget: "color", default: "#F5F3ED"}
+          - {label: "Text Color", name: "color_text", widget: "color", default: "#5D4E37"}
+          - {label: "Medium Text Color", name: "color_text_medium", widget: "color", default: "#8B6F47"}
+          - {label: "Accent Color", name: "color_accent", widget: "color", default: "#D4AF37"}
           
           # Box Title Styling
           - {label: "Box Title Color", name: "box_title_color", widget: "color", default: "#C9A66B"}
@@ -198,18 +237,10 @@ collections:
           - {label: "Box Title Underline Color", name: "box_title_underline_color", widget: "color", default: "#C9A66B"}
           
           # Spacing
-          - {label: "Section Padding", name: "section_padding", widget: "string", default: "80px", hint: "Space above/below sections"}
-          - {label: "Grid Gap", name: "grid_gap", widget: "string", default: "30px", hint: "Space between boxes"}
-          - {label: "Hero Height", name: "hero_height", widget: "string", default: "600px", hint: "Height of top section"}
+          - {label: "Section Padding", name: "section_padding", widget: "string", default: "80px"}
+          - {label: "Grid Gap", name: "grid_gap", widget: "string", default: "30px"}
+          - {label: "Hero Height", name: "hero_height", widget: "string", default: "600px"}
           
           # Advanced
-          - {label: "Border Radius", name: "border_radius", widget: "string", default: "8px", hint: "Roundness of corners"}
-          - {label: "Box Shadow", name: "box_shadow", widget: "string", default: "0 4px 20px rgba(93, 78, 55, 0.08)", hint: "Shadow effect"}
-      
-      - label: "About Section"
-        name: "about"
-        file: "content/pages/about.md"
-        fields:
-          - {label: "Section Title", name: "title", widget: "string", default: "Our Story"}
-          - {label: "Farm Story", name: "body", widget: "markdown"}
-          - {label: "Main Photo", name: "image", widget: "image", required: false}
+          - {label: "Border Radius", name: "border_radius", widget: "string", default: "8px"}
+          - {label: "Box Shadow", name: "box_shadow", widget: "string", default: "0 4px 20px rgba(93, 78, 55, 0.08)"}
