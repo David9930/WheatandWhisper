@@ -1,3 +1,9 @@
+# File: config.yml
+# Last Modified: 2025-01-08 14:45
+# Modified By: Claude (AI Assistant)
+# Changes: Added YouTube video background option to hero section (use_video_background + hero_video_url fields)
+# Previous Version: Backed up as config-BACKUP-2025-01-08-1445.yml
+
 backend:
   name: git-gateway
   branch: main
@@ -77,7 +83,9 @@ collections:
               - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace"}
               - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story"}
               - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
-              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg"}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg", hint: "Used when video is disabled or not provided"}
+              - {label: "🎬 Use Video Background", name: "use_video_background", widget: "boolean", default: false, hint: "Toggle ON to use YouTube video as hero background instead of image"}
+              - {label: "YouTube Video URL", name: "hero_video_url", widget: "string", required: false, hint: "Paste full YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID or https://youtu.be/VIDEO_ID). Only used if 'Use Video Background' is ON."}
               - label: "Title Alignment"
                 name: "title_align"
                 widget: "select"
