@@ -1,9 +1,10 @@
 /*
  * File: homepage.css
- * Last Modified: 2025-01-08 15:00
+ * Last Modified: 2025-01-08 15:20
  * Modified By: Claude (AI Assistant)
- * Changes: Added padding-top: 25px to .hero-title to prevent top cutoff
- * Previous Version: Backed up as homepage-BACKUP-2025-01-08-1500.css
+ * Changes: Fixed .hero-content padding to account for fixed navigation bar (80px top padding)
+ * Previous Version: Backed up as homepage-BACKUP-2025-01-08-1520.css
+ * Issue Found: User correctly identified that nav bar overlays top of hero, needed more padding
  */
 
 /* Wheat and Whisper Farm - Homepage Styles */
@@ -156,7 +157,10 @@ body {
     z-index: 2;
     text-align: center;
     color: white;
-    padding: 40px 20px;
+    /* FIXED: Increased top padding from 40px to 80px to account for fixed nav bar */
+    /* The nav bar (≈50-60px tall) overlays the top of the hero section */
+    /* This padding ensures content is fully visible below the nav */
+    padding: 80px 20px 30px 20px;
     max-width: 90%;
 }
 
@@ -166,7 +170,7 @@ body {
     font-weight: 400;
     letter-spacing: 4px;
     line-height: 1.2;
-    padding-top: 25px; /* FIXED: Added padding-top to prevent title cutoff */
+    /* Removed padding-top: 25px - no longer needed with proper hero-content padding */
     margin-bottom: 10px;
     color: #F5DEB3;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -199,7 +203,7 @@ body {
     font-style: italic;
     font-weight: 300;
     letter-spacing: 1.5px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -221,7 +225,7 @@ body {
 }
 
 .logo-container {
-    margin: 25px 0; /* FIXED: Reduced from 30px to 25px for tighter spacing */
+    margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,8 +246,8 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-top: 15px; /* FIXED: Reduced from 20px to 15px */
-    padding-bottom: 15px; /* FIXED: Increased from 10px to 15px */
+    margin-top: 15px;
+    padding-bottom: 5px;
 }
 
 .social-link {
@@ -478,13 +482,13 @@ body {
     }
     
     .hero-content {
-        padding: 30px 15px;
+        /* Mobile: Less aggressive top padding since nav is smaller */
+        padding: 50px 15px 30px 15px;
     }
     
     .hero-title {
         font-size: 3rem;
         letter-spacing: 2px;
-        padding-top: 30px; /* FIXED: Increased for mobile */
     }
     
     .hero-subtitle {
