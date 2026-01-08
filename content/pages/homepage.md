@@ -18,9 +18,9 @@ box_2:
   title: Meet the Animals
   title_align: center
   image: images/uploads/animals-background.jpg
-  link: horses.html
+  link: animals.html
 box_3:
-  title: Two Wild and Crazy Guys !
+  title: Blog!
   title_align: center
   image: images/uploads/farmette-background.jpg
   link: blog.html
