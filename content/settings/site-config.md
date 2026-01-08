@@ -6,8 +6,8 @@ font_subtitle_custom: ""
 font_body: Josefin Sans
 font_body_custom: ""
 title_size: 5rem
-subtitle_size: 1.4rem
-body_size: 1rem
+subtitle_size: 3rem
+body_size: 3rem
 color_primary: "#C9A66B"
 color_background: "#FFFEF9"
 color_background_alt: "#F5F3ED"
