@@ -1,6 +1,8 @@
 ---
 hero_section:
+  hero_video_url: https://youtube.com/shorts/SIKylJwizMA
   background_image: images/uploads/hero-background.jpg
+  use_video_background: true
   subtitle_line_1: Wild and Washed in Grace
   title_line_1: WHEAT AND
   subtitle_line_2: Where every moment is a gift and every animal has a story
