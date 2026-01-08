@@ -15,7 +15,7 @@ color_text: "#5D4E37"
 color_text_medium: "#8B6F47"
 color_accent: "#D4AF37"
 box_title_color: "#C9A66B"
-box_title_underline: true
+box_title_underline: false
 box_title_underline_color: "#C9A66B"
 section_padding: 80px
 grid_gap: 30px
