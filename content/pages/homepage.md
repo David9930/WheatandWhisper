@@ -46,12 +46,11 @@ box_6:
   link: products.html
 page_banner:
   title: From Our Fields to yours.
-  text: |
+  text: |+
     This brand is my love letter to simple living,
     to mothers,
     to the beauty of ordinary days,
     and to the God who whispers dreams into our hearts.
-    *****I am adding an extra line to test***
 ---
 
 Homepage content managed through CMS
