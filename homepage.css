@@ -1,3 +1,11 @@
+/*
+ * File: homepage.css
+ * Last Modified: 2025-01-08 14:50
+ * Modified By: Claude (AI Assistant)
+ * Changes: Fixed hero positioning - added padding to .hero-content and adjusted spacing to prevent title/icons cutoff
+ * Previous Version: Backed up as homepage-BACKUP-2025-01-08-1450.css
+ */
+
 /* Wheat and Whisper Farm - Homepage Styles */
 /* Matching Paige's Wix Design */
 
@@ -150,6 +158,9 @@ body {
     z-index: 2; /* Above video and overlay */
     text-align: center;
     color: white;
+    /* FIXED: Add vertical padding to prevent cutoff */
+    padding: 40px 20px;
+    max-width: 90%;
 }
 
 .hero-title {
@@ -192,7 +203,7 @@ body {
     font-style: italic;
     font-weight: 300;
     letter-spacing: 1.5px;
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* FIXED: Reduced from 40px to 30px */
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -216,7 +227,7 @@ body {
 }
 
 .logo-container {
-    margin: 40px 0;
+    margin: 30px 0; /* FIXED: Reduced from 40px to 30px */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,7 +248,8 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px; /* FIXED: Reduced from 30px to 20px */
+    padding-bottom: 10px; /* FIXED: Added padding at bottom */
 }
 
 .social-link {
@@ -487,6 +499,10 @@ body {
         padding: 40px 20px;
     }
     
+    .hero-content {
+        padding: 30px 15px;
+    }
+    
     .hero-title {
         font-size: 3rem;
         letter-spacing: 2px;
@@ -499,6 +515,11 @@ body {
     
     .hero-tagline {
         font-size: 0.95rem;
+    }
+    
+    .farm-logo {
+        width: 150px;
+        height: 150px;
     }
     
     .grid-container {
