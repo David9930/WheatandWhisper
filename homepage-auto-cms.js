@@ -48,55 +48,55 @@ function applySiteSettings(settings) {
         document.head.appendChild(styleEl);
     }
     
-    // Build CSS rules
-    let css = '/* CMS Dynamic Styles */\n';
+    // Build CSS rules with !important to override hardcoded styles
+    let css = '/* CMS Dynamic Styles - Override Hardcoded CSS */\n';
     
     // Hero Title
     if (settings.font_title) {
-        css += `.hero-title { font-family: '${settings.font_title}', serif; }\n`;
+        css += `.hero-title { font-family: '${settings.font_title}', serif !important; }\n`;
     }
     if (settings.title_size) {
-        css += `.hero-title { font-size: ${settings.title_size}; }\n`;
+        css += `.hero-title { font-size: ${settings.title_size} !important; }\n`;
     }
     
     // Hero Subtitle (Line 1)
     if (settings.font_subtitle) {
-        css += `.hero-subtitle { font-family: '${settings.font_subtitle}', serif; }\n`;
+        css += `.hero-subtitle { font-family: '${settings.font_subtitle}', serif !important; }\n`;
     }
     if (settings.subtitle_size) {
-        css += `.hero-subtitle { font-size: ${settings.subtitle_size}; }\n`;
+        css += `.hero-subtitle { font-size: ${settings.subtitle_size} !important; }\n`;
     }
     
     // Hero Tagline (Subtitle Line 2)
     if (settings.font_tagline) {
-        css += `.hero-tagline { font-family: '${settings.font_tagline}', serif; }\n`;
+        css += `.hero-tagline { font-family: '${settings.font_tagline}', serif !important; }\n`;
     }
     if (settings.tagline_size) {
-        css += `.hero-tagline { font-size: ${settings.tagline_size}; }\n`;
+        css += `.hero-tagline { font-size: ${settings.tagline_size} !important; }\n`;
     }
     
     // Body Text
     if (settings.font_body) {
-        css += `body { font-family: '${settings.font_body}', sans-serif; }\n`;
+        css += `body { font-family: '${settings.font_body}', sans-serif !important; }\n`;
     }
     if (settings.body_size) {
-        css += `body { font-size: ${settings.body_size}; }\n`;
+        css += `body { font-size: ${settings.body_size} !important; }\n`;
     }
     
     // Colors
     if (settings.color_primary) {
-        css += `:root { --light-brown: ${settings.color_primary}; }\n`;
+        css += `:root { --light-brown: ${settings.color_primary} !important; }\n`;
     }
     if (settings.color_background) {
-        css += `:root { --cream-bg: ${settings.color_background}; }\n`;
+        css += `:root { --cream-bg: ${settings.color_background} !important; }\n`;
     }
     if (settings.color_text) {
-        css += `:root { --warm-brown: ${settings.color_text}; }\n`;
+        css += `:root { --warm-brown: ${settings.color_text} !important; }\n`;
     }
     
     // Apply the CSS
     styleEl.textContent = css;
-    console.log('✅ Site settings applied to CSS');
+    console.log('✅ Site settings applied to CSS with !important');
     console.log('📊 Generated CSS:\n', css);
 }
 
