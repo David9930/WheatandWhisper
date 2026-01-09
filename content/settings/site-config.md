@@ -8,9 +8,10 @@ font_subtitle_custom: ""
 font_subtitle: Sacramento
 box_title_color: "#C9A66B"
 font_title: Lora
+font_tagline: Sacramento
 font_body: Josefin Sans
-subtitle_size: 3rem
-tagline_size: 6rem
+subtitle_size: 2rem
+tagline_size: 2rem
 color_background: "#FFFEF9"
 color_text: "#5D4E37"
 color_text_medium: "#8B6F47"
@@ -21,7 +22,7 @@ box_shadow: 0 4px 20px rgba(93, 78, 55, 0.08)
 color_background_alt: "#F5F3ED"
 box_title_underline_color: "#C9A66B"
 grid_gap: 30px
-body_size: 3rem
+body_size: 2rem
 font_body_custom: ""
 ---
 
