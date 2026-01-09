@@ -112,6 +112,12 @@ function applyFonts(config) {
     }
     if (subtitleFont !== 'custom') fonts.push(subtitleFont);
     
+    let taglineFont = config.font_tagline || 'Lora';
+    if (taglineFont === 'custom' && config.font_tagline_custom) {
+        taglineFont = config.font_tagline_custom;
+    }
+    if (taglineFont !== 'custom') fonts.push(taglineFont);
+    
     let bodyFont = config.font_body || 'Josefin Sans';
     if (bodyFont === 'custom' && config.font_body_custom) {
         bodyFont = config.font_body_custom;
@@ -137,7 +143,7 @@ function applyFonts(config) {
         }
         
         .hero-tagline {
-            font-family: '${subtitleFont}', serif !important;
+            font-family: '${taglineFont}', serif !important;
         }
         
         body, .newsletter-input, .newsletter-button {
@@ -158,7 +164,7 @@ function applyFonts(config) {
     if (oldStyle) oldStyle.remove();
     
     document.head.appendChild(style);
-    console.log(`✅ Fonts applied: Title="${titleFont}", Subtitle="${subtitleFont}", Body="${bodyFont}"`);
+    console.log(`✅ Fonts applied: Title="${titleFont}", Subtitle="${subtitleFont}", Tagline="${taglineFont}", Body="${bodyFont}"`);
 }
 
 // Load Google Fonts dynamically
@@ -209,7 +215,7 @@ function applyColors(config) {
         }
         
         .hero-title, .hero-subtitle, .hero-tagline {
-            color: #F5DEB3 !important;
+            color: white !important;
         }
         
         .nav-link {
@@ -274,7 +280,8 @@ function applySizes(config) {
     style.id = 'site-settings-sizes';
     
     const titleSize = config.title_size || '5rem';
-    const subtitleSize = config.subtitle_size || '1.4rem';
+    const subtitleSize = config.subtitle_size || '1.2rem';
+    const taglineSize = config.tagline_size || '1.1rem';  // ← FIXED: Added tagline_size!
     const bodySize = config.body_size || '1rem';
     
     style.textContent = `
@@ -286,6 +293,10 @@ function applySizes(config) {
             font-size: ${subtitleSize} !important;
         }
         
+        .hero-tagline {
+            font-size: ${taglineSize} !important;
+        }
+        
         body {
             font-size: ${bodySize} !important;
         }
@@ -295,7 +306,7 @@ function applySizes(config) {
     if (oldStyle) oldStyle.remove();
     
     document.head.appendChild(style);
-    console.log('✅ Sizes applied');
+    console.log(`✅ Sizes applied: Title=${titleSize}, Subtitle=${subtitleSize}, Tagline=${taglineSize}, Body=${bodySize}`);
 }
 
 // ===== BOX TITLE STYLING =====
