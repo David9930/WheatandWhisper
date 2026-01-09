@@ -124,10 +124,10 @@ body.has-background-image {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
     font-weight: 400;
-    color: var(--wheat);
+    color: var(--warm-brown);  /* FIXED: Changed from wheat to dark brown for visibility */
     letter-spacing: 2px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .page-subtitle {
@@ -217,11 +217,27 @@ body.has-background-image {
     padding: 30px;
 }
 
+/* Per-Animal Text Alignment - NEW! */
+.animal-content[data-text-align="left"] .animal-name,
+.animal-content[data-text-align="left"] .animal-description {
+    text-align: left;
+}
+
+.animal-content[data-text-align="center"] .animal-name,
+.animal-content[data-text-align="center"] .animal-description {
+    text-align: center;
+}
+
+.animal-content[data-text-align="right"] .animal-name,
+.animal-content[data-text-align="right"] .animal-description {
+    text-align: right;
+}
+
 .animal-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.2rem;
     font-weight: 500;
-    color: var(--wheat);
+    color: var(--light-brown);
     margin-bottom: 12px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
