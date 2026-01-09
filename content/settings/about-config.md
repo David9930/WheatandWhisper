@@ -3,7 +3,7 @@ font_page_title: Allura
 size_page_title: 4rem
 color_page_title: "#8b6f47"
 font_body_text: Lora
-size_body_text: 1.2rem
+size_body_text: 2.5rem
 color_body_text: "#8b6f47"
 font_overlay_1: Sacramento
 size_overlay_1: 2.5rem
