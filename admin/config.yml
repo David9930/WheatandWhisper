@@ -1,8 +1,8 @@
 # File: config.yml
-# Last Modified: 2025-01-08 15:10
+# Last Modified: 2025-01-08 15:40
 # Modified By: Claude (AI Assistant)
-# Changes: Fixed YAML indentation error on "Site Settings" entry (line 219)
-# Previous Version: Backed up as config-BACKUP-2025-01-08-1510.yml
+# Changes: Added tagline_font field to Site Settings for Subtitle Line 2 font control
+# Previous Version: Backed up as config-BACKUP-2025-01-08-1540.yml
 
 backend:
   name: git-gateway
@@ -183,15 +183,23 @@ collections:
         name: "site_settings"
         file: "content/settings/site-config.md"
         fields:
-          - {label: "Title Font", name: "font_title", widget: "select", default: "Lora", options: [{label: "Montserrat", value: "Montserrat"}, {label: "Sacramento", value: "Sacramento"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}]}
-          - {label: "Subtitle Font", name: "font_subtitle", widget: "select", default: "Sacramento", options: [{label: "Sacramento", value: "Sacramento"}, {label: "Montserrat", value: "Montserrat"}, {label: "Lora", value: "Lora"}]}
+          # Typography - Fonts
+          - {label: "Title Font", name: "font_title", widget: "select", default: "Sacramento", options: [{label: "Montserrat", value: "Montserrat"}, {label: "Sacramento", value: "Sacramento"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}]}
+          - {label: "Subtitle Line 1 Font", name: "font_subtitle", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Sacramento", value: "Sacramento"}, {label: "Montserrat", value: "Montserrat"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Crimson Text", value: "Crimson Text"}], hint: "Font for 'Wild and Washed in Grace'"}
+          - {label: "Subtitle Line 2 Font (Tagline)", name: "font_tagline", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Montserrat", value: "Montserrat"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Sacramento", value: "Sacramento"}], hint: "Font for 'Where every moment is a gift...'"}
           - {label: "Body Font", name: "font_body", widget: "select", default: "Josefin Sans", options: [{label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Montserrat", value: "Montserrat"}]}
-          - {label: "Title Size", name: "title_size", widget: "string", default: "5rem"}
-          - {label: "Subtitle Size", name: "subtitle_size", widget: "string", default: "1.4rem"}
-          - {label: "Tagline Size", name: "tagline_size", widget: "string", default: "1.1rem", hint: "Size for 'Where every moment is a gift...'"}
+          
+          # Typography - Sizes
+          - {label: "Title Size", name: "title_size", widget: "string", default: "5rem", hint: "e.g., 5rem, 80px, 3em"}
+          - {label: "Subtitle Line 1 Size", name: "subtitle_size", widget: "string", default: "1.2rem", hint: "Size for 'Wild and Washed in Grace'"}
+          - {label: "Subtitle Line 2 Size (Tagline)", name: "tagline_size", widget: "string", default: "1.1rem", hint: "Size for 'Where every moment is a gift...'"}
           - {label: "Body Text Size", name: "body_size", widget: "string", default: "1rem"}
+          
+          # Colors
           - {label: "Primary Brand Color", name: "color_primary", widget: "color", default: "#C9A66B"}
           - {label: "Background Color", name: "color_background", widget: "color", default: "#FFFEF9"}
           - {label: "Text Color", name: "color_text", widget: "color", default: "#5D4E37"}
+          
+          # Spacing
           - {label: "Section Padding", name: "section_padding", widget: "string", default: "80px"}
           - {label: "Hero Height", name: "hero_height", widget: "string", default: "600px"}
