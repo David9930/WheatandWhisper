@@ -5,7 +5,7 @@ color_page_title: "#8b6f47"
 font_body_text: Lora
 size_body_text: 1.2rem
 color_body_text: "#8b6f47"
-font_overlay_1: Cormorant Garamond
+font_overlay_1: Sacramento
 size_overlay_1: 2.5rem
 color_overlay_1: "#5d4e37"
 font_overlay_2: Lora
