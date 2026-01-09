@@ -1,30 +1,119 @@
 // Wheat and Whisper Farm - Dynamic CMS Content Loader
-// This file loads content from CMS and updates the page automatically!
+// This file loads content AND design settings from CMS
 
 // Typewriter Effect Configuration
 const TYPEWRITER_SPEED = 50;
 const INITIAL_DELAY = 800;
 const PAUSE_BETWEEN = 300;
 
+// ===== SITE SETTINGS LOADER =====
+
+async function loadSiteSettings() {
+    try {
+        console.log('🎨 Loading site settings from CMS...');
+        
+        const response = await fetch('content/settings/site-config.md');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const content = await response.text();
+        const settings = parseYAMLFrontmatter(content);
+        
+        console.log('✅ Site settings loaded:', settings);
+        
+        // Apply settings to CSS
+        applySiteSettings(settings);
+        
+        return settings;
+        
+    } catch (error) {
+        console.error('❌ Error loading site settings:', error);
+        console.log('⚠️ Using default hardcoded styles');
+        return null;
+    }
+}
+
+function applySiteSettings(settings) {
+    if (!settings) return;
+    
+    console.log('🎨 Applying site settings to CSS...');
+    
+    // Create or get style element
+    let styleEl = document.getElementById('cms-dynamic-styles');
+    if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = 'cms-dynamic-styles';
+        document.head.appendChild(styleEl);
+    }
+    
+    // Build CSS rules
+    let css = '/* CMS Dynamic Styles */\n';
+    
+    // Hero Title
+    if (settings.font_title) {
+        css += `.hero-title { font-family: '${settings.font_title}', serif; }\n`;
+    }
+    if (settings.title_size) {
+        css += `.hero-title { font-size: ${settings.title_size}; }\n`;
+    }
+    
+    // Hero Subtitle (Line 1)
+    if (settings.font_subtitle) {
+        css += `.hero-subtitle { font-family: '${settings.font_subtitle}', serif; }\n`;
+    }
+    if (settings.subtitle_size) {
+        css += `.hero-subtitle { font-size: ${settings.subtitle_size}; }\n`;
+    }
+    
+    // Hero Tagline (Subtitle Line 2)
+    if (settings.font_tagline) {
+        css += `.hero-tagline { font-family: '${settings.font_tagline}', serif; }\n`;
+    }
+    if (settings.tagline_size) {
+        css += `.hero-tagline { font-size: ${settings.tagline_size}; }\n`;
+    }
+    
+    // Body Text
+    if (settings.font_body) {
+        css += `body { font-family: '${settings.font_body}', sans-serif; }\n`;
+    }
+    if (settings.body_size) {
+        css += `body { font-size: ${settings.body_size}; }\n`;
+    }
+    
+    // Colors
+    if (settings.color_primary) {
+        css += `:root { --light-brown: ${settings.color_primary}; }\n`;
+    }
+    if (settings.color_background) {
+        css += `:root { --cream-bg: ${settings.color_background}; }\n`;
+    }
+    if (settings.color_text) {
+        css += `:root { --warm-brown: ${settings.color_text}; }\n`;
+    }
+    
+    // Apply the CSS
+    styleEl.textContent = css;
+    console.log('✅ Site settings applied to CSS');
+    console.log('📊 Generated CSS:\n', css);
+}
+
 // ===== YOUTUBE VIDEO HELPER =====
 
-// Extract video ID from various YouTube URL formats
 function extractYouTubeVideoId(url) {
     if (!url) return null;
     
-    // Regular YouTube URLs: youtube.com/watch?v=VIDEO_ID
     let match = url.match(/[?&]v=([^&]+)/);
     if (match) return match[1];
     
-    // Short URLs: youtu.be/VIDEO_ID
     match = url.match(/youtu\.be\/([^?]+)/);
     if (match) return match[1];
     
-    // YouTube Shorts: youtube.com/shorts/VIDEO_ID
     match = url.match(/\/shorts\/([^?]+)/);
     if (match) return match[1];
     
-    // Embed URLs: youtube.com/embed/VIDEO_ID
     match = url.match(/\/embed\/([^?]+)/);
     if (match) return match[1];
     
@@ -33,12 +122,10 @@ function extractYouTubeVideoId(url) {
 
 // ===== CONTENT LOADER =====
 
-// Fetch and parse homepage content from CMS
 async function loadHomepageContent() {
     try {
         console.log('🔄 Loading homepage content from CMS...');
         
-        // Fetch the content file from GitHub Pages
         const response = await fetch('content/pages/homepage.md');
         
         if (!response.ok) {
@@ -48,11 +135,9 @@ async function loadHomepageContent() {
         const content = await response.text();
         console.log('✅ Content file loaded successfully');
         
-        // Parse the YAML frontmatter
         const data = parseYAMLFrontmatter(content);
         console.log('📊 Parsed content:', data);
         
-        // Update the page with CMS content
         updatePageContent(data);
         
         return data;
@@ -66,7 +151,6 @@ async function loadHomepageContent() {
 
 // Parse YAML frontmatter from markdown file
 function parseYAMLFrontmatter(content) {
-    // Extract content between --- markers
     const match = content.match(/^---\s*\n([\s\S]*?)\n---/);
     
     if (!match) {
@@ -76,7 +160,6 @@ function parseYAMLFrontmatter(content) {
     const yaml = match[1];
     const data = {};
     
-    // Parse line by line
     const lines = yaml.split('\n');
     let currentKey = null;
     let currentObject = null;
@@ -87,61 +170,51 @@ function parseYAMLFrontmatter(content) {
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
         
-        // Skip empty lines unless we're in multi-line mode
         if (!line.trim() && !isMultiLine) continue;
         
-        // Check if we're in multi-line mode
         if (isMultiLine) {
-            // Check if this line is still indented (part of multi-line text)
             if (line.startsWith('    ') || line.trim() === '') {
-                // Add to multi-line value (remove the 4-space indent)
                 multiLineValue.push(line.substring(4));
             } else {
-                // Multi-line section ended, save it
                 if (currentObject && multiLineKey) {
                     currentObject[multiLineKey] = multiLineValue.join('\n');
                 }
                 isMultiLine = false;
                 multiLineValue = [];
                 multiLineKey = null;
-                // Re-process this line as it's not part of multi-line
                 i--;
                 continue;
             }
             continue;
         }
         
-        // Check if this is a nested object property
         if (line.startsWith('  ') && !line.startsWith('    ')) {
-            // This is a property of the current object
             if (currentObject) {
                 const propMatch = line.trim().match(/^(\w+):\s*(.*)$/);
                 if (propMatch) {
                     const [, key, value] = propMatch;
                     
-                    // Check if this is the start of multi-line text (ends with |)
                     if (value === '|') {
                         isMultiLine = true;
                         multiLineKey = key;
                         multiLineValue = [];
                     } else if (value) {
-                        currentObject[key] = value;
+                        // Remove quotes if present
+                        currentObject[key] = value.replace(/^["']|["']$/g, '');
                     }
                 }
             }
         } else if (!line.startsWith(' ')) {
-            // This is a top-level key
             const topMatch = line.match(/^(\w+):\s*(.*)$/);
             if (topMatch) {
                 const [, key, value] = topMatch;
                 
                 if (value) {
-                    // Simple key-value pair
-                    data[key] = value;
+                    // Remove quotes if present
+                    data[key] = value.replace(/^["']|["']$/g, '');
                     currentKey = key;
                     currentObject = null;
                 } else {
-                    // Start of an object
                     data[key] = {};
                     currentKey = key;
                     currentObject = data[key];
@@ -150,7 +223,6 @@ function parseYAMLFrontmatter(content) {
         }
     }
     
-    // Handle case where multi-line is at the end of file
     if (isMultiLine && currentObject && multiLineKey) {
         currentObject[multiLineKey] = multiLineValue.join('\n');
     }
@@ -162,84 +234,57 @@ function parseYAMLFrontmatter(content) {
 function updatePageContent(data) {
     console.log('🎨 Updating page content...');
     
-    // ===== HERO SECTION =====
     const hero = data.hero_section || {};
     
-    // Update hero title
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle && hero.title_line_1 && hero.title_line_2) {
         heroTitle.innerHTML = `${hero.title_line_1}<br>${hero.title_line_2}`;
-        
-        // Apply title alignment
         if (hero.title_align) {
             heroTitle.style.textAlign = hero.title_align;
-            console.log(`📐 Hero title alignment: ${hero.title_align}`);
         }
-        
         console.log('✅ Hero title updated');
     }
     
-    // Update hero subtitle (preserve for typewriter)
     const heroSubtitle = document.querySelector('.hero-subtitle');
     if (heroSubtitle && hero.subtitle_line_1) {
         heroSubtitle.setAttribute('data-content', hero.subtitle_line_1);
-        
-        // Apply subtitle alignment
         if (hero.subtitle_align) {
             heroSubtitle.style.textAlign = hero.subtitle_align;
-            console.log(`📐 Hero subtitle alignment: ${hero.subtitle_align}`);
         }
-        
         console.log('✅ Hero subtitle ready for typewriter');
     }
     
-    // Update hero tagline (preserve for typewriter)
     const heroTagline = document.querySelector('.hero-tagline');
     if (heroTagline && hero.subtitle_line_2) {
         heroTagline.setAttribute('data-content', hero.subtitle_line_2);
-        
-        // Apply tagline alignment
         if (hero.tagline_align) {
             heroTagline.style.textAlign = hero.tagline_align;
-            console.log(`📐 Hero tagline alignment: ${hero.tagline_align}`);
         }
-        
         console.log('✅ Hero tagline ready for typewriter');
     }
     
-    // Handle Video Background or Fallback Image
     const heroSection = document.querySelector('.hero-section');
     const videoElement = document.getElementById('hero-video-background');
     
-    // Check if user wants video background AND has provided URL
-    const useVideo = hero.use_video_background !== false; // Default to true if not specified
+    const useVideo = hero.use_video_background !== false;
     const hasVideoUrl = hero.hero_video_url && hero.hero_video_url.trim();
     
     if (useVideo && hasVideoUrl) {
-        // User wants video AND provided URL - try to embed video
         const videoId = extractYouTubeVideoId(hero.hero_video_url);
         
         if (videoId) {
             const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`;
             videoElement.src = embedUrl;
             videoElement.style.display = 'block';
-            console.log('✅ Video background enabled and embedded:', videoId);
+            console.log('✅ Video background enabled:', videoId);
         } else {
-            // Invalid video URL, fall back to image
             console.warn('⚠️ Invalid YouTube URL, falling back to image');
             setHeroBackgroundImage(heroSection, hero.background_image);
         }
     } else {
-        // User turned off video OR no URL provided - use image
-        if (!useVideo) {
-            console.log('📷 Video background disabled - using image');
-        } else {
-            console.log('📷 No video URL provided - using image');
-        }
         setHeroBackgroundImage(heroSection, hero.background_image);
     }
     
-    // Update hero background image (only if not using video)
     function setHeroBackgroundImage(section, imageUrl) {
         if (imageUrl) {
             section.style.backgroundImage = `url('${imageUrl}')`;
@@ -247,7 +292,6 @@ function updatePageContent(data) {
         }
     }
     
-    // Update main logo
     if (hero.main_logo) {
         const logo = document.querySelector('.farm-logo');
         if (logo) {
@@ -256,7 +300,6 @@ function updatePageContent(data) {
         }
     }
     
-    // ===== BOXES 1-6 =====
     for (let i = 1; i <= 6; i++) {
         const boxData = data[`box_${i}`];
         if (!boxData) continue;
@@ -264,37 +307,27 @@ function updatePageContent(data) {
         const gridItem = document.querySelector(`.grid-item:nth-child(${i})`);
         if (!gridItem) continue;
         
-        // Update title
         const titleElement = gridItem.querySelector('.grid-item-title');
         if (titleElement) {
             if (boxData.title) {
-                // Single-line title
                 titleElement.textContent = boxData.title;
             } else if (boxData.title_line_1 && boxData.title_line_2) {
-                // Two-line title
                 titleElement.innerHTML = `${boxData.title_line_1}<br>${boxData.title_line_2}`;
             }
             
-            // Apply text alignment
             if (boxData.title_align) {
                 titleElement.style.textAlign = boxData.title_align;
-                console.log(`📐 Box ${i} alignment: ${boxData.title_align}`);
             }
         }
         
-        // Update background image
         if (boxData.image) {
             gridItem.style.backgroundImage = `url('${boxData.image}')`;
             
-            // Apply image position controls if set
             const posX = boxData.image_position_x || 'center';
             const posY = boxData.image_position_y || 'center';
             gridItem.style.backgroundPosition = `${posX} ${posY}`;
-            
-            console.log(`📍 Box ${i} position: ${posX} ${posY}`);
         }
         
-        // Update link
         if (boxData.link) {
             gridItem.href = boxData.link;
         }
@@ -302,20 +335,16 @@ function updatePageContent(data) {
         console.log(`✅ Box ${i} updated`);
     }
     
-    // ===== PAGE BANNER =====
     const banner = data.page_banner || {};
     
-    // Update banner title
     const bannerTitle = document.querySelector('.poetic-title');
     if (bannerTitle && banner.title) {
         bannerTitle.textContent = banner.title;
         console.log('✅ Page banner title updated');
     }
     
-    // Update banner text
     const bannerText = document.querySelector('.poetic-text');
     if (bannerText && banner.text) {
-        // Split text by newlines and wrap each in <p> tags
         const lines = banner.text.split('\n').filter(line => line.trim());
         bannerText.innerHTML = lines.map(line => `<p>${line}</p>`).join('');
         console.log('✅ Page banner text updated');
@@ -351,43 +380,35 @@ function typewriterEffect(element, text, speed = 50, onComplete) {
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('🚀 Wheat and Whisper Farm - Auto-CMS Initialized');
     
-    // Load content from CMS first
+    // Load site settings FIRST (fonts, sizes, colors)
+    await loadSiteSettings();
+    
+    // Then load content (text, images)
     const cmsContent = await loadHomepageContent();
     
-    // Start typewriter effect after content is loaded
+    // Start typewriter effect after everything is loaded
     setTimeout(() => {
         const subtitle = document.querySelector('.hero-subtitle');
         if (subtitle) {
-            // Get text from data attribute (set by updatePageContent) or fallback to HTML
             const subtitleText = subtitle.getAttribute('data-content') || subtitle.textContent;
-            
-            // Hide initially
             subtitle.style.opacity = '0';
             
-            // Start typing with glow callback
             typewriterEffect(subtitle, subtitleText, TYPEWRITER_SPEED, () => {
-                console.log('✅ Subtitle typing complete - adding glow class');
+                console.log('✅ Subtitle typing complete - adding glow');
                 subtitle.classList.add('glow');
-                console.log('📊 Subtitle classes:', subtitle.className);
-                console.log('🎨 Subtitle text-shadow:', window.getComputedStyle(subtitle).textShadow);
             });
             
-            // Type the tagline
             const tagline = document.querySelector('.hero-tagline');
             if (tagline) {
-                // Get text from data attribute (set by updatePageContent) or fallback to HTML
                 const taglineText = tagline.getAttribute('data-content') || tagline.textContent;
-                
                 tagline.style.opacity = '0';
                 
                 const subtitleDuration = subtitleText.length * TYPEWRITER_SPEED;
                 
                 setTimeout(() => {
                     typewriterEffect(tagline, taglineText, TYPEWRITER_SPEED, () => {
-                        console.log('✅ Tagline typing complete - adding glow class');
+                        console.log('✅ Tagline typing complete - adding glow');
                         tagline.classList.add('glow');
-                        console.log('📊 Tagline classes:', tagline.className);
-                        console.log('🎨 Tagline text-shadow:', window.getComputedStyle(tagline).textShadow);
                     });
                 }, subtitleDuration + PAUSE_BETWEEN);
             }
@@ -397,23 +418,19 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 // ===== NEWSLETTER & INTERACTIVITY =====
 
-// Newsletter Form Submission
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
     newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
         const email = this.querySelector('input[type="email"]').value;
-        
         if (email) {
             console.log('Newsletter signup:', email);
-            alert('Thank you for subscribing! We promise to write only when we have something worth saying.');
+            alert('Thank you for subscribing!');
             this.reset();
         }
     });
 }
 
-// Search functionality
 const searchIcon = document.querySelector('.search-icon');
 if (searchIcon) {
     searchIcon.addEventListener('click', function() {
@@ -421,7 +438,6 @@ if (searchIcon) {
     });
 }
 
-// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -429,16 +445,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
     });
 });
 
-// Fade-in animation for grid items on scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -453,7 +465,6 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// Apply fade-in to grid items
 document.querySelectorAll('.grid-item').forEach(item => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(20px)';
@@ -461,17 +472,15 @@ document.querySelectorAll('.grid-item').forEach(item => {
     observer.observe(item);
 });
 
-// Basic analytics tracking
 function trackPageView() {
     const pageData = {
         page: window.location.pathname,
         timestamp: new Date().toISOString(),
         referrer: document.referrer
     };
-    
     console.log('Page view:', pageData);
 }
 
 window.addEventListener('load', trackPageView);
 
-console.log('✨ Homepage Auto-CMS Ready!');
+console.log('✨ Homepage Auto-CMS Ready with Dynamic Site Settings!');
