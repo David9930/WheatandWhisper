@@ -25,7 +25,7 @@ box_3:
   title: Blog!
   title_align: center
   image: images/uploads/img_6194.jpeg
-  link: blog.html
+  link: farmette.html
 box_4:
   title_line_1: Sovereignty Grace
   title_line_2: Mini Nubians
