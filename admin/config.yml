@@ -1,8 +1,8 @@
 # File: config.yml
-# Last Modified: 2025-01-08 15:40
+# Last Modified: 2025-01-08 17:00
 # Modified By: Claude (AI Assistant)
-# Changes: Added tagline_font field to Site Settings for Subtitle Line 2 font control
-# Previous Version: Backed up as config-BACKUP-2025-01-08-1540.yml
+# Changes: Added hero text color controls (title_color, subtitle_color, tagline_color)
+# Previous Version: Backed up as config-BACKUP-2025-01-08-1700.yml
 
 backend:
   name: git-gateway
@@ -195,10 +195,15 @@ collections:
           - {label: "Subtitle Line 2 Size (Tagline)", name: "tagline_size", widget: "string", default: "1.1rem", hint: "Size for 'Where every moment is a gift...'"}
           - {label: "Body Text Size", name: "body_size", widget: "string", default: "1rem"}
           
-          # Colors
+          # Hero Text Colors
+          - {label: "Title Color", name: "color_title", widget: "color", default: "#FFFFFF", hint: "Color for 'WHEAT AND WHISPER FARM'"}
+          - {label: "Subtitle Line 1 Color", name: "color_subtitle", widget: "color", default: "#FFFFFF", hint: "Color for 'Wild and Washed in Grace'"}
+          - {label: "Subtitle Line 2 Color (Tagline)", name: "color_tagline", widget: "color", default: "#FFFFFF", hint: "Color for 'Where every moment is a gift...'"}
+          
+          # General Colors
           - {label: "Primary Brand Color", name: "color_primary", widget: "color", default: "#C9A66B"}
           - {label: "Background Color", name: "color_background", widget: "color", default: "#FFFEF9"}
-          - {label: "Text Color", name: "color_text", widget: "color", default: "#5D4E37"}
+          - {label: "Body Text Color", name: "color_text", widget: "color", default: "#5D4E37"}
           
           # Spacing
           - {label: "Section Padding", name: "section_padding", widget: "string", default: "80px"}
