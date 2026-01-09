@@ -192,6 +192,12 @@ function applyColors(config) {
     const style = document.createElement('style');
     style.id = 'site-settings-colors';
     
+    // Hero text colors (NEW!)
+    const titleColor = config.color_title || '#FFFFFF';
+    const subtitleColor = config.color_subtitle || '#FFFFFF';
+    const taglineColor = config.color_tagline || '#FFFFFF';
+    
+    // General colors
     const primary = config.color_primary || '#C9A66B';
     const background = config.color_background || '#FFFEF9';
     const backgroundAlt = config.color_background_alt || '#F5F3ED';
@@ -214,8 +220,17 @@ function applyColors(config) {
             color: ${text} !important;
         }
         
-        .hero-title, .hero-subtitle, .hero-tagline {
-            color: white !important;
+        /* Hero Text Colors - NOW CONTROLLED BY CMS! */
+        .hero-title {
+            color: ${titleColor} !important;
+        }
+        
+        .hero-subtitle {
+            color: ${subtitleColor} !important;
+        }
+        
+        .hero-tagline {
+            color: ${taglineColor} !important;
         }
         
         .nav-link {
@@ -239,7 +254,7 @@ function applyColors(config) {
     if (oldStyle) oldStyle.remove();
     
     document.head.appendChild(style);
-    console.log('✅ Colors applied');
+    console.log(`✅ Colors applied: Title=${titleColor}, Subtitle=${subtitleColor}, Tagline=${taglineColor}`);
 }
 
 // ===== SPACING APPLICATION =====
@@ -281,7 +296,7 @@ function applySizes(config) {
     
     const titleSize = config.title_size || '5rem';
     const subtitleSize = config.subtitle_size || '1.2rem';
-    const taglineSize = config.tagline_size || '1.1rem';  // ← FIXED: Added tagline_size!
+    const taglineSize = config.tagline_size || '1.1rem';
     const bodySize = config.body_size || '1rem';
     
     style.textContent = `
