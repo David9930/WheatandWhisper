@@ -3,7 +3,7 @@ border_radius: 8px
 color_primary: "#C9A66B"
 color_accent: "#D4AF37"
 font_title_custom: ""
-title_size: 3.4rem
+title_size: 3rem
 font_subtitle_custom: ""
 font_subtitle: Sacramento
 box_title_color: "#C9A66B"
