@@ -1,8 +1,8 @@
 # File: config.yml
-# Last Modified: 2025-01-08 17:00
+# Last Modified: 2025-01-08 17:30
 # Modified By: Claude (AI Assistant)
-# Changes: Added hero text color controls (title_color, subtitle_color, tagline_color)
-# Previous Version: Backed up as config-BACKUP-2025-01-08-1700.yml
+# Changes: Added About Page Settings section with font/size/color controls for all text elements
+# Previous Version: Backed up as config-BACKUP-2025-01-08-1730.yml
 
 backend:
   name: git-gateway
@@ -159,12 +159,15 @@ collections:
         file: "content/pages/about.md"
         fields:
           - {label: "Page Title", name: "page_title", widget: "string", default: "Welcome to Wheat and Whisper Farm"}
+          - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: ["left", "center", "right"]}
           - {label: "Body Text", name: "body_text", widget: "text", hint: "Main text at top of page"}
+          - {label: "Body Text Alignment", name: "body_align", widget: "select", default: "center", options: ["left", "center", "right", "justify"]}
           - {label: "Hero Image", name: "hero_image", widget: "image"}
           - {label: "Image Overlay Line 1", name: "overlay_line_1", widget: "string", required: false, hint: "Large text on image"}
           - {label: "Image Overlay Line 2", name: "overlay_line_2", widget: "string", required: false}
           - {label: "Image Overlay Line 3", name: "overlay_line_3", widget: "string", required: false}
           - {label: "Bottom Text (Optional)", name: "bottom_text", widget: "text", required: false, hint: "Additional text below image"}
+          - {label: "Bottom Text Alignment", name: "bottom_align", widget: "select", default: "center", options: ["left", "center", "right", "justify"]}
       
       # ---------------------------------------------------------------------------
       # ANIMALS PAGE SETTINGS
@@ -177,9 +180,9 @@ collections:
           - {label: "Background Image", name: "background_image", widget: "image", required: false, hint: "Only used if 'Use Custom Background Image' is enabled"}
       
       # ---------------------------------------------------------------------------
-      # SITE SETTINGS (Fonts, Colors, Spacing)
+      # HOMEPAGE SITE SETTINGS (Fonts, Colors, Spacing)
       # ---------------------------------------------------------------------------
-      - label: "Site Settings"
+      - label: "Homepage Site Settings"
         name: "site_settings"
         file: "content/settings/site-config.md"
         fields:
@@ -208,3 +211,40 @@ collections:
           # Spacing
           - {label: "Section Padding", name: "section_padding", widget: "string", default: "80px"}
           - {label: "Hero Height", name: "hero_height", widget: "string", default: "600px"}
+      
+      # ---------------------------------------------------------------------------
+      # ABOUT PAGE SETTINGS (Fonts, Colors, Spacing) - NEW!
+      # ---------------------------------------------------------------------------
+      - label: "About Page Settings"
+        name: "about_settings"
+        file: "content/settings/about-config.md"
+        fields:
+          # Page Title
+          - {label: "📝 Page Title Font", name: "font_page_title", widget: "select", default: "Allura", options: [{label: "Allura", value: "Allura"}, {label: "Sacramento", value: "Sacramento"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}], hint: "Font for 'Welcome to Wheat and Whisper Farm'"}
+          - {label: "Page Title Size", name: "size_page_title", widget: "string", default: "4rem", hint: "e.g., 4rem, 64px"}
+          - {label: "Page Title Color", name: "color_page_title", widget: "color", default: "#8B6F47", hint: "Color for page title"}
+          
+          # Body Text
+          - {label: "📝 Body Text Font", name: "font_body_text", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Josefin Sans", value: "Josefin Sans"}]}
+          - {label: "Body Text Size", name: "size_body_text", widget: "string", default: "1.2rem"}
+          - {label: "Body Text Color", name: "color_body_text", widget: "color", default: "#8B6F47"}
+          
+          # Overlay Line 1 (WELCOME)
+          - {label: "📝 Overlay Line 1 Font", name: "font_overlay_1", widget: "select", default: "Cormorant Garamond", options: [{label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Sacramento", value: "Sacramento"}, {label: "Allura", value: "Allura"}, {label: "Lora", value: "Lora"}], hint: "Font for 'WELCOME'"}
+          - {label: "Overlay Line 1 Size", name: "size_overlay_1", widget: "string", default: "2.5rem"}
+          - {label: "Overlay Line 1 Color", name: "color_overlay_1", widget: "color", default: "#5D4E37"}
+          
+          # Overlay Line 2
+          - {label: "📝 Overlay Line 2 Font", name: "font_overlay_2", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
+          - {label: "Overlay Line 2 Size", name: "size_overlay_2", widget: "string", default: "1rem"}
+          - {label: "Overlay Line 2 Color", name: "color_overlay_2", widget: "color", default: "#5D4E37"}
+          
+          # Overlay Line 3
+          - {label: "📝 Overlay Line 3 Font", name: "font_overlay_3", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
+          - {label: "Overlay Line 3 Size", name: "size_overlay_3", widget: "string", default: "1rem"}
+          - {label: "Overlay Line 3 Color", name: "color_overlay_3", widget: "color", default: "#5D4E37"}
+          
+          # Bottom Text
+          - {label: "📝 Bottom Text Font", name: "font_bottom_text", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
+          - {label: "Bottom Text Size", name: "size_bottom_text", widget: "string", default: "1.1rem"}
+          - {label: "Bottom Text Color", name: "color_bottom_text", widget: "color", default: "#8B6F47"}
