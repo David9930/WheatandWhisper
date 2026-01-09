@@ -1,5 +1,5 @@
 // Wheat and Whisper Farm - Meet the Animals Page
-// Photo/Video Toggle Functionality
+// Photo/Video Toggle Functionality + Per-Animal Text Alignment
 
 // Configuration
 const GITHUB_USER = 'David9930';
@@ -103,6 +103,9 @@ function createAnimalCard(animal) {
     const videoId = extractYouTubeVideoId(animal.video_url);
     const hasVideo = !!videoId;
     
+    // Get text alignment (default to left if not specified)
+    const textAlign = animal.text_align || 'left';
+    
     card.innerHTML = `
         <div class="media-container">
             <img 
@@ -122,7 +125,7 @@ function createAnimalCard(animal) {
             ` : ''}
         </div>
         
-        <div class="animal-content">
+        <div class="animal-content" data-text-align="${textAlign}">
             <h2 class="animal-name">${animal.name}</h2>
             <p class="animal-description">${animal.short_description}</p>
             <button 
@@ -231,6 +234,7 @@ async function loadAnimals() {
                     photo: frontmatter.photo || 'images/uploads/placeholder-animal.jpg',
                     video_url: frontmatter.video_url || '',
                     short_description: frontmatter.short_description || 'A wonderful animal.',
+                    text_align: frontmatter.text_align || 'left',
                     order: frontmatter.order || 999
                 };
             })
