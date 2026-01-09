@@ -1,40 +1,40 @@
-// Site Settings Loader - Applies CMS settings to the website
-// Loads site-config.md and applies fonts, colors, spacing dynamically
+// About Page Settings Loader - Applies CMS settings to About page
+// Loads about-config.md and applies fonts, colors, sizes dynamically
 
 // ===== CONFIGURATION =====
-const SITE_CONFIG_PATH = 'content/settings/site-config.md';
+const ABOUT_CONFIG_PATH = 'content/settings/about-config.md';
 
-// ===== LOAD AND PARSE SITE CONFIG =====
+// ===== LOAD AND PARSE ABOUT CONFIG =====
 
-async function loadSiteConfig() {
+async function loadAboutConfig() {
     try {
-        console.log('🎨 Loading site settings...');
+        console.log('🎨 Loading About page settings...');
         
-        const response = await fetch(SITE_CONFIG_PATH);
+        const response = await fetch(ABOUT_CONFIG_PATH);
         if (!response.ok) {
-            console.warn('⚠️ Site config not found, using defaults');
+            console.warn('⚠️ About config not found, using defaults');
             return null;
         }
         
         const content = await response.text();
-        const config = parseSiteConfig(content);
+        const config = parseAboutConfig(content);
         
-        console.log('✅ Site settings loaded:', config);
+        console.log('✅ About settings loaded:', config);
         return config;
         
     } catch (error) {
-        console.error('❌ Error loading site config:', error);
+        console.error('❌ Error loading About config:', error);
         return null;
     }
 }
 
-// Parse YAML frontmatter from site-config.md
-function parseSiteConfig(content) {
+// Parse YAML frontmatter from about-config.md
+function parseAboutConfig(content) {
     const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---/;
     const match = content.match(frontmatterRegex);
     
     if (!match) {
-        console.warn('⚠️ No frontmatter found in site-config.md');
+        console.warn('⚠️ No frontmatter found in about-config.md');
         return {};
     }
     
@@ -66,63 +66,42 @@ function parseSiteConfig(content) {
     return config;
 }
 
-// ===== APPLY SITE SETTINGS =====
+// ===== APPLY ABOUT SETTINGS =====
 
-function applySiteSettings(config) {
+function applyAboutSettings(config) {
     if (!config) return;
     
-    console.log('🎨 Applying site settings to page...');
+    console.log('🎨 Applying About page settings...');
     
     // Apply fonts
-    applyFonts(config);
-    
-    // Apply colors
-    applyColors(config);
-    
-    // Apply spacing
-    applySpacing(config);
+    applyAboutFonts(config);
     
     // Apply sizes
-    applySizes(config);
+    applyAboutSizes(config);
     
-    // Apply box title styling
-    applyBoxTitleStyles(config);
+    // Apply colors
+    applyAboutColors(config);
     
-    // Apply advanced styles
-    applyAdvancedStyles(config);
-    
-    console.log('✅ Site settings applied!');
+    console.log('✅ About settings applied!');
 }
 
 // ===== FONT APPLICATION =====
 
-function applyFonts(config) {
+function applyAboutFonts(config) {
     const fonts = [];
     
-    // Get fonts to load
-    let titleFont = config.font_title || 'Montserrat';
-    if (titleFont === 'custom' && config.font_title_custom) {
-        titleFont = config.font_title_custom;
-    }
-    if (titleFont !== 'custom') fonts.push(titleFont);
+    // Collect all fonts to load
+    const pageTitleFont = config.font_page_title || 'Allura';
+    const bodyTextFont = config.font_body_text || 'Lora';
+    const overlay1Font = config.font_overlay_1 || 'Cormorant Garamond';
+    const overlay2Font = config.font_overlay_2 || 'Lora';
+    const overlay3Font = config.font_overlay_3 || 'Lora';
+    const bottomTextFont = config.font_bottom_text || 'Lora';
     
-    let subtitleFont = config.font_subtitle || 'Sacramento';
-    if (subtitleFont === 'custom' && config.font_subtitle_custom) {
-        subtitleFont = config.font_subtitle_custom;
-    }
-    if (subtitleFont !== 'custom') fonts.push(subtitleFont);
-    
-    let taglineFont = config.font_tagline || 'Lora';
-    if (taglineFont === 'custom' && config.font_tagline_custom) {
-        taglineFont = config.font_tagline_custom;
-    }
-    if (taglineFont !== 'custom') fonts.push(taglineFont);
-    
-    let bodyFont = config.font_body || 'Josefin Sans';
-    if (bodyFont === 'custom' && config.font_body_custom) {
-        bodyFont = config.font_body_custom;
-    }
-    if (bodyFont !== 'custom') fonts.push(bodyFont);
+    // Add unique fonts
+    [pageTitleFont, bodyTextFont, overlay1Font, overlay2Font, overlay3Font, bottomTextFont].forEach(font => {
+        if (!fonts.includes(font)) fonts.push(font);
+    });
     
     // Load fonts from Google Fonts
     if (fonts.length > 0) {
@@ -131,40 +110,40 @@ function applyFonts(config) {
     
     // Apply font families via CSS
     const style = document.createElement('style');
-    style.id = 'site-settings-fonts';
+    style.id = 'about-settings-fonts';
     
     style.textContent = `
-        .hero-title {
-            font-family: '${titleFont}', serif !important;
+        .about-page-title {
+            font-family: '${pageTitleFont}', cursive !important;
         }
         
-        .hero-subtitle {
-            font-family: '${subtitleFont}', serif !important;
+        .about-body-text p {
+            font-family: '${bodyTextFont}', serif !important;
         }
         
-        .hero-tagline {
-            font-family: '${taglineFont}', serif !important;
+        .overlay-line-1 {
+            font-family: '${overlay1Font}', serif !important;
         }
         
-        body, .newsletter-input, .newsletter-button {
-            font-family: '${bodyFont}', sans-serif !important;
+        .overlay-line-2 {
+            font-family: '${overlay2Font}', serif !important;
         }
         
-        .grid-item-title {
-            font-family: '${titleFont}', serif !important;
+        .overlay-line-3 {
+            font-family: '${overlay3Font}', serif !important;
         }
         
-        .poetic-title {
-            font-family: '${subtitleFont}', cursive !important;
+        .about-bottom-text p {
+            font-family: '${bottomTextFont}', serif !important;
         }
     `;
     
     // Remove old style if exists
-    const oldStyle = document.getElementById('site-settings-fonts');
+    const oldStyle = document.getElementById('about-settings-fonts');
     if (oldStyle) oldStyle.remove();
     
     document.head.appendChild(style);
-    console.log(`✅ Fonts applied: Title="${titleFont}", Subtitle="${subtitleFont}", Tagline="${taglineFont}", Body="${bodyFont}"`);
+    console.log(`✅ About fonts applied: PageTitle="${pageTitleFont}", Body="${bodyTextFont}", Overlay1="${overlay1Font}"`);
 }
 
 // Load Google Fonts dynamically
@@ -186,210 +165,114 @@ function loadGoogleFonts(fonts) {
     console.log(`✅ Loading Google Fonts: ${fonts.join(', ')}`);
 }
 
-// ===== COLOR APPLICATION =====
-
-function applyColors(config) {
-    const style = document.createElement('style');
-    style.id = 'site-settings-colors';
-    
-    // Hero text colors (NEW!)
-    const titleColor = config.color_title || '#FFFFFF';
-    const subtitleColor = config.color_subtitle || '#FFFFFF';
-    const taglineColor = config.color_tagline || '#FFFFFF';
-    
-    // General colors
-    const primary = config.color_primary || '#C9A66B';
-    const background = config.color_background || '#FFFEF9';
-    const backgroundAlt = config.color_background_alt || '#F5F3ED';
-    const text = config.color_text || '#5D4E37';
-    const textMedium = config.color_text_medium || '#8B6F47';
-    const accent = config.color_accent || '#D4AF37';
-    
-    style.textContent = `
-        :root {
-            --cream-bg: ${background};
-            --beige-bg: ${backgroundAlt};
-            --warm-brown: ${text};
-            --medium-brown: ${textMedium};
-            --light-brown: ${primary};
-            --gold-accent: ${accent};
-        }
-        
-        body {
-            background-color: ${background} !important;
-            color: ${text} !important;
-        }
-        
-        /* Hero Text Colors - NOW CONTROLLED BY CMS! */
-        .hero-title {
-            color: ${titleColor} !important;
-        }
-        
-        .hero-subtitle {
-            color: ${subtitleColor} !important;
-        }
-        
-        .hero-tagline {
-            color: ${taglineColor} !important;
-        }
-        
-        .nav-link {
-            color: ${textMedium} !important;
-        }
-        
-        .poetic-section {
-            background: ${backgroundAlt} !important;
-        }
-        
-        .newsletter-button {
-            background: ${primary} !important;
-        }
-        
-        .newsletter-button:hover {
-            background: ${text} !important;
-        }
-    `;
-    
-    const oldStyle = document.getElementById('site-settings-colors');
-    if (oldStyle) oldStyle.remove();
-    
-    document.head.appendChild(style);
-    console.log(`✅ Colors applied: Title=${titleColor}, Subtitle=${subtitleColor}, Tagline=${taglineColor}`);
-}
-
-// ===== SPACING APPLICATION =====
-
-function applySpacing(config) {
-    const style = document.createElement('style');
-    style.id = 'site-settings-spacing';
-    
-    const sectionPadding = config.section_padding || '80px';
-    const gridGap = config.grid_gap || '30px';
-    const heroHeight = config.hero_height || '600px';
-    
-    style.textContent = `
-        .sections-grid, .poetic-section, .newsletter-section {
-            padding: ${sectionPadding} 40px !important;
-        }
-        
-        .grid-container {
-            gap: ${gridGap} !important;
-        }
-        
-        .hero-section {
-            height: ${heroHeight} !important;
-        }
-    `;
-    
-    const oldStyle = document.getElementById('site-settings-spacing');
-    if (oldStyle) oldStyle.remove();
-    
-    document.head.appendChild(style);
-    console.log('✅ Spacing applied');
-}
-
 // ===== SIZE APPLICATION =====
 
-function applySizes(config) {
+function applyAboutSizes(config) {
     const style = document.createElement('style');
-    style.id = 'site-settings-sizes';
+    style.id = 'about-settings-sizes';
     
-    const titleSize = config.title_size || '5rem';
-    const subtitleSize = config.subtitle_size || '1.2rem';
-    const taglineSize = config.tagline_size || '1.1rem';
-    const bodySize = config.body_size || '1rem';
+    const pageTitleSize = config.size_page_title || '4rem';
+    const bodyTextSize = config.size_body_text || '1.2rem';
+    const overlay1Size = config.size_overlay_1 || '2.5rem';
+    const overlay2Size = config.size_overlay_2 || '1rem';
+    const overlay3Size = config.size_overlay_3 || '1rem';
+    const bottomTextSize = config.size_bottom_text || '1.1rem';
     
     style.textContent = `
-        .hero-title {
-            font-size: ${titleSize} !important;
+        .about-page-title {
+            font-size: ${pageTitleSize} !important;
         }
         
-        .hero-subtitle {
-            font-size: ${subtitleSize} !important;
+        .about-body-text p {
+            font-size: ${bodyTextSize} !important;
         }
         
-        .hero-tagline {
-            font-size: ${taglineSize} !important;
+        .overlay-line-1 {
+            font-size: ${overlay1Size} !important;
         }
         
-        body {
-            font-size: ${bodySize} !important;
+        .overlay-line-2 {
+            font-size: ${overlay2Size} !important;
+        }
+        
+        .overlay-line-3 {
+            font-size: ${overlay3Size} !important;
+        }
+        
+        .about-bottom-text p {
+            font-size: ${bottomTextSize} !important;
         }
     `;
     
-    const oldStyle = document.getElementById('site-settings-sizes');
+    const oldStyle = document.getElementById('about-settings-sizes');
     if (oldStyle) oldStyle.remove();
     
     document.head.appendChild(style);
-    console.log(`✅ Sizes applied: Title=${titleSize}, Subtitle=${subtitleSize}, Tagline=${taglineSize}, Body=${bodySize}`);
+    console.log(`✅ About sizes applied: PageTitle=${pageTitleSize}, Body=${bodyTextSize}, Overlay1=${overlay1Size}`);
 }
 
-// ===== BOX TITLE STYLING =====
+// ===== COLOR APPLICATION =====
 
-function applyBoxTitleStyles(config) {
+function applyAboutColors(config) {
     const style = document.createElement('style');
-    style.id = 'site-settings-box-titles';
+    style.id = 'about-settings-colors';
     
-    const boxTitleColor = config.box_title_color || '#C9A66B';
-    const showUnderline = config.box_title_underline !== false;
-    const underlineColor = config.box_title_underline_color || '#C9A66B';
+    const pageTitleColor = config.color_page_title || '#8B6F47';
+    const bodyTextColor = config.color_body_text || '#8B6F47';
+    const overlay1Color = config.color_overlay_1 || '#5D4E37';
+    const overlay2Color = config.color_overlay_2 || '#5D4E37';
+    const overlay3Color = config.color_overlay_3 || '#5D4E37';
+    const bottomTextColor = config.color_bottom_text || '#8B6F47';
     
     style.textContent = `
-        .grid-item-title {
-            color: white !important;
-            ${showUnderline ? `
-                border-bottom: 2px solid ${underlineColor};
-                padding-bottom: 10px;
-            ` : ''}
+        .about-page-title {
+            color: ${pageTitleColor} !important;
+        }
+        
+        .about-body-text p {
+            color: ${bodyTextColor} !important;
+        }
+        
+        .overlay-line-1 {
+            color: ${overlay1Color} !important;
+        }
+        
+        .overlay-line-2 {
+            color: ${overlay2Color} !important;
+        }
+        
+        .overlay-line-3 {
+            color: ${overlay3Color} !important;
+        }
+        
+        .about-bottom-text p {
+            color: ${bottomTextColor} !important;
         }
     `;
     
-    const oldStyle = document.getElementById('site-settings-box-titles');
+    const oldStyle = document.getElementById('about-settings-colors');
     if (oldStyle) oldStyle.remove();
     
     document.head.appendChild(style);
-    console.log('✅ Box title styling applied');
-}
-
-// ===== ADVANCED STYLES =====
-
-function applyAdvancedStyles(config) {
-    const style = document.createElement('style');
-    style.id = 'site-settings-advanced';
-    
-    const borderRadius = config.border_radius || '8px';
-    const boxShadow = config.box_shadow || '0 4px 20px rgba(93, 78, 55, 0.08)';
-    
-    style.textContent = `
-        .grid-item {
-            border-radius: ${borderRadius} !important;
-            box-shadow: ${boxShadow} !important;
-        }
-    `;
-    
-    const oldStyle = document.getElementById('site-settings-advanced');
-    if (oldStyle) oldStyle.remove();
-    
-    document.head.appendChild(style);
-    console.log('✅ Advanced styles applied');
+    console.log(`✅ About colors applied: PageTitle=${pageTitleColor}, Body=${bodyTextColor}, Overlay1=${overlay1Color}`);
 }
 
 // ===== INITIALIZATION =====
 
-async function initSiteSettings() {
-    console.log('🚀 Site Settings Loader initialized');
+async function initAboutSettings() {
+    console.log('🚀 About Settings Loader initialized');
     
-    const config = await loadSiteConfig();
+    const config = await loadAboutConfig();
     if (config) {
-        applySiteSettings(config);
+        applyAboutSettings(config);
     }
 }
 
 // Load settings when page loads
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSiteSettings);
+    document.addEventListener('DOMContentLoaded', initAboutSettings);
 } else {
-    initSiteSettings();
+    initAboutSettings();
 }
 
-console.log('✨ Site Settings Loader ready!');
+console.log('✨ About Settings Loader ready!');
