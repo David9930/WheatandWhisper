@@ -9,7 +9,7 @@ font_subtitle: Sacramento
 box_title_color: "#C9A66B"
 font_title: Lora
 font_tagline: Sacramento
-font_body: Josefin Sans
+font_body: Lora
 subtitle_size: 2rem
 tagline_size: 2rem
 color_background: "#FFFEF9"
