@@ -10,7 +10,7 @@ box_title_color: "#C9A66B"
 font_title: Lora
 font_body: Josefin Sans
 subtitle_size: 3rem
-tagline_size: 3rem
+tagline_size: 6rem
 color_background: "#FFFEF9"
 color_text: "#5D4E37"
 color_text_medium: "#8B6F47"
