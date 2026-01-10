@@ -22,7 +22,7 @@ box_2:
   image: images/uploads/img_0418.jpeg
   link: animals.html
 box_3:
-  title: Blog!
+  title: Farmette Life
   title_align: center
   image: images/uploads/img_6194.jpeg
   link: farmette.html
@@ -46,7 +46,7 @@ box_6:
   link: products.html
 page_banner:
   title: From Our Fields to yours.
-  text: |+
+  text: |
     This brand is my love letter to simple living,
     to mothers,
     to the beauty of ordinary days,
