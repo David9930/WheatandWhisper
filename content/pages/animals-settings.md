@@ -8,7 +8,7 @@ header_section:
   intro_text: Here at Wheat and Whisper farm every animal has a story, a story
     that matters, a life given by God. Our animals are the cornerstone of our
     farmette.
-  bible_verse: We euphemize main cares for the needs of his animals
+  bible_verse: "A righteous man cares for the needs of his animals "
   bible_reference: Isaiah 40:11
 hero_image_section:
   hero_image: images/uploads/title-photo.jpg
