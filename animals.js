@@ -1,5 +1,6 @@
 // Wheat and Whisper Farm - Meet the Animals Page
 // Updated to Match Paige's Wix Design with Social Icons
+// FIXED: Handles both old field names (title, featured_image) and new (name, photo)
 
 // Configuration
 const GITHUB_USER = 'David9930';
@@ -245,13 +246,25 @@ async function loadAnimals() {
                 const content = await fileResponse.text();
                 const { frontmatter } = parseYAMLFrontmatter(content);
                 
+                // FIXED: Support both old field names AND new field names
+                // Old fields: title, featured_image
+                // New fields: name, photo
+                const animalName = frontmatter.name || frontmatter.title || 'Unknown';
+                const animalPhoto = frontmatter.photo || frontmatter.featured_image || 'images/uploads/placeholder-animal.jpg';
+                const animalVideoUrl = frontmatter.video_url || '';
+                const animalDescription = frontmatter.short_description || frontmatter.breed || 'A wonderful animal.';
+                const animalTextAlign = frontmatter.text_align || 'center';
+                const animalOrder = frontmatter.order || 999;
+                
+                console.log(`📊 Loaded animal: ${animalName} (photo: ${animalPhoto})`);
+                
                 return {
-                    name: frontmatter.name || 'Unknown',
-                    photo: frontmatter.photo || 'images/uploads/placeholder-animal.jpg',
-                    video_url: frontmatter.video_url || '',
-                    short_description: frontmatter.short_description || 'A wonderful animal.',
-                    text_align: frontmatter.text_align || 'center',
-                    order: frontmatter.order || 999
+                    name: animalName,
+                    photo: animalPhoto,
+                    video_url: animalVideoUrl,
+                    short_description: animalDescription,
+                    text_align: animalTextAlign,
+                    order: animalOrder
                 };
             })
         );
