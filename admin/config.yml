@@ -1,8 +1,8 @@
 # File: config.yml
-# Last Modified: 2025-01-08 18:00
+# Last Modified: 2025-01-08 20:15
 # Modified By: Claude (AI Assistant)
-# Changes: Added Animals Page Settings + text_align field to animals collection
-# Previous Version: Backed up as config-BACKUP-2025-01-08-1800.yml
+# Changes: Fixed ALL "blog.html" references to "farmette.html" in dropdown options
+# Previous Version: config-BACKUP-2025-01-08-2015.yml
 
 backend:
   name: git-gateway
@@ -27,7 +27,7 @@ collections:
       - {label: "Photo", name: "photo", widget: "image", hint: "Main photo shown on card"}
       - {label: "Video URL (Optional)", name: "video_url", widget: "string", required: false, hint: "YouTube URL for Meet button - leave blank for 'Coming Soon'"}
       - {label: "Short Description", name: "short_description", widget: "text", hint: "Brief description shown on card (2-3 sentences)"}
-      - {label: "Text Alignment", name: "text_align", widget: "select", default: "left", options: ["left", "center", "right"], hint: "Alignment for name and description on this card"}
+      - {label: "Text Alignment", name: "text_align", widget: "select", default: "center", options: ["left", "center", "right"], hint: "Alignment for name and description on this card"}
       - {label: "Display Order", name: "order", widget: "number", default: 1, value_type: "int", min: 1, hint: "Lower numbers appear first"}
 
   # =============================================================================
@@ -94,7 +94,7 @@ collections:
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
               - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "about.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Link Destination", name: "link", widget: "select", default: "about.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 2 - Animals"
             name: "box_2"
@@ -103,7 +103,7 @@ collections:
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Meet the Animals"}
               - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "animals.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Link Destination", name: "link", widget: "select", default: "animals.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 3 - Farmette Life"
             name: "box_3"
@@ -112,7 +112,7 @@ collections:
             fields:
               - {label: "Box Title", name: "title", widget: "string", default: "Farmette Life"}
               - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "blog.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Link Destination", name: "link", widget: "select", default: "farmette.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 4 - Mini Nubians"
             name: "box_4"
@@ -122,7 +122,7 @@ collections:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Mini Nubians"}
               - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "nubians.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Link Destination", name: "link", widget: "select", default: "nubians.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 5 - Golden Retrievers"
             name: "box_5"
@@ -132,7 +132,7 @@ collections:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Golden Retrievers"}
               - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "retrievers.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Link Destination", name: "link", widget: "select", default: "retrievers.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Box 6 - Products"
             name: "box_6"
@@ -142,7 +142,7 @@ collections:
               - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Handcrafted"}
               - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Treasures"}
               - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link Destination", name: "link", widget: "select", default: "products.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "blog.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+              - {label: "Link Destination", name: "link", widget: "select", default: "products.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
           
           - label: "Page Banner"
             name: "page_banner"
@@ -251,28 +251,28 @@ collections:
           - {label: "Bottom Text Color", name: "color_bottom_text", widget: "color", default: "#8B6F47"}
       
       # ---------------------------------------------------------------------------
-      # ANIMALS PAGE STYLE SETTINGS (Fonts, Colors, Sizes) - NEW!
+      # ANIMALS PAGE STYLE SETTINGS (Fonts, Colors, Sizes)
       # ---------------------------------------------------------------------------
       - label: "Animals Page Style Settings"
         name: "animals_style_settings"
         file: "content/settings/animals-config.md"
         fields:
           # Page Title
-          - {label: "📝 Page Title Font", name: "font_page_title", widget: "select", default: "Cormorant Garamond", options: [{label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Sacramento", value: "Sacramento"}, {label: "Allura", value: "Allura"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}], hint: "Font for 'Meet Our Animals'"}
-          - {label: "Page Title Size", name: "size_page_title", widget: "string", default: "4rem", hint: "e.g., 4rem, 64px"}
-          - {label: "Page Title Color", name: "color_page_title", widget: "color", default: "#5D4E37", hint: "Color for page title (default: dark brown for visibility)"}
+          - {label: "📝 Page Title Font", name: "font_page_title", widget: "select", default: "Allura", options: [{label: "Allura", value: "Allura"}, {label: "Sacramento", value: "Sacramento"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}], hint: "Font for 'Meet the animals'"}
+          - {label: "Page Title Size", name: "size_page_title", widget: "string", default: "5rem", hint: "e.g., 5rem, 80px"}
+          - {label: "Page Title Color", name: "color_page_title", widget: "color", default: "#8B6F47", hint: "Color for page title"}
           
           # Page Subtitle
-          - {label: "📝 Page Subtitle Font", name: "font_page_subtitle", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}], hint: "Font for 'Each one has a story...'"}
-          - {label: "Page Subtitle Size", name: "size_page_subtitle", widget: "string", default: "1.3rem"}
+          - {label: "📝 Page Subtitle Font", name: "font_page_subtitle", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}], hint: "Font for 'Trusting Temperament in Every Turn'"}
+          - {label: "Page Subtitle Size", name: "size_page_subtitle", widget: "string", default: "1.1rem"}
           - {label: "Page Subtitle Color", name: "color_page_subtitle", widget: "color", default: "#8B6F47"}
           
           # Animal Card Name
-          - {label: "📝 Animal Card Name Font", name: "font_card_name", widget: "select", default: "Cormorant Garamond", options: [{label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Sacramento", value: "Sacramento"}, {label: "Allura", value: "Allura"}, {label: "Lora", value: "Lora"}], hint: "Font for animal names on cards"}
-          - {label: "Animal Card Name Size", name: "size_card_name", widget: "string", default: "2.2rem"}
-          - {label: "Animal Card Name Color", name: "color_card_name", widget: "color", default: "#C9A66B", hint: "Color for animal names"}
+          - {label: "📝 Animal Card Name Font", name: "font_card_name", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Sacramento", value: "Sacramento"}, {label: "Allura", value: "Allura"}], hint: "Font for animal names on cards"}
+          - {label: "Animal Card Name Size", name: "size_card_name", widget: "string", default: "1.8rem"}
+          - {label: "Animal Card Name Color", name: "color_card_name", widget: "color", default: "#5D4E37", hint: "Color for animal names"}
           
           # Animal Card Description
           - {label: "📝 Animal Card Description Font", name: "font_card_description", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
-          - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1.05rem"}
-          - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#5D4E37"}
+          - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1rem"}
+          - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#8B6F47"}
