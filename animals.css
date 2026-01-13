@@ -1,7 +1,7 @@
 /* Wheat and Whisper Farm - Meet the Animals Page */
-/* Consistent with Homepage Aesthetic */
+/* Updated to Match Paige's Wix Design */
 
-/* Color Palette - Same as Homepage */
+/* Color Palette */
 :root {
     --cream-bg: #FFFEF9;
     --beige-bg: #F5F3ED;
@@ -9,7 +9,6 @@
     --medium-brown: #8B6F47;
     --light-brown: #C9A66B;
     --gold-accent: #D4AF37;
-    --wheat: #F5DEB3;
     --white: #FFFFFF;
 }
 
@@ -25,13 +24,6 @@ body {
     background-color: var(--cream-bg);
     color: var(--warm-brown);
     line-height: 1.6;
-}
-
-/* Background Image Support (CMS-controlled) */
-body.has-background-image {
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
 /* Top Navigation - Same as Homepage */
@@ -112,76 +104,99 @@ body.has-background-image {
     justify-content: center;
 }
 
-/* Page Header */
-.page-header {
-    margin-top: 60px;
-    padding: 80px 40px 60px;
-    background: var(--beige-bg);
-    text-align: center;
-}
-
-.page-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    font-weight: 400;
-    color: var(--warm-brown);  /* FIXED: Changed from wheat to dark brown for visibility */
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.page-subtitle {
-    font-family: 'Lora', serif;
-    font-size: 1.3rem;
-    font-style: italic;
-    color: var(--medium-brown);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-
 /* Container */
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
 }
 
-/* Animals Section */
-.animals-section {
-    padding: 80px 0 100px;
-    min-height: 60vh;
+/* ========== PAGE HEADER - MATCHING PAIGE'S DESIGN ========== */
+.page-header {
+    margin-top: 60px;
+    padding: 100px 40px 60px;
+    background: var(--cream-bg);
+    text-align: center;
 }
 
-/* Animals Grid */
+.page-title {
+    font-family: 'Allura', cursive;  /* Script font like Paige's */
+    font-size: 5rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.page-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--medium-brown);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+/* Instagram Icon Centered */
+.social-icon-center {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.social-icon-center svg {
+    color: var(--medium-brown);
+    transition: color 0.3s ease;
+}
+
+.social-icon-center svg:hover {
+    color: var(--warm-brown);
+}
+
+/* ========== ANIMALS SECTION ========== */
+.animals-section {
+    padding: 80px 0;
+    background: var(--cream-bg);
+}
+
+/* Section Title (Meet The Animals) */
+.section-title-script {
+    font-family: 'Allura', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Animals Grid - 2 Columns like Paige's */
 .animals-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px;
     margin-top: 40px;
 }
 
-/* Animal Card */
+/* ========== ANIMAL CARD - MATCHING PAIGE'S STYLE ========== */
 .animal-card {
     background: white;
-    border-radius: 8px;
+    border-radius: 0; /* Paige's cards are sharp corners */
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(93, 78, 55, 0.1);
+    box-shadow: 0 2px 15px rgba(93, 78, 55, 0.08);
     transition: all 0.3s ease;
-    border: 2px solid var(--beige-bg);
 }
 
 .animal-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(93, 78, 55, 0.2);
-    border-color: var(--light-brown);
+    box-shadow: 0 4px 25px rgba(93, 78, 55, 0.15);
 }
 
-/* Media Container - Holds photo AND video in same space */
+/* Media Container - Holds photo AND video */
 .media-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3; /* More square like Paige's */
     background: var(--beige-bg);
     overflow: hidden;
 }
@@ -197,7 +212,7 @@ body.has-background-image {
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.5s ease;
-    pointer-events: none; /* Prevents interaction during transition */
+    pointer-events: none;
 }
 
 /* Active state - visible */
@@ -212,93 +227,100 @@ body.has-background-image {
     border: none;
 }
 
-/* Card Content */
+/* ========== CARD CONTENT ========== */
 .animal-content {
-    padding: 30px;
+    padding: 35px 30px 30px;
+    text-align: center; /* Default center like Paige's */
 }
 
-/* Per-Animal Text Alignment - NEW! */
-.animal-content[data-text-align="left"] .animal-name,
-.animal-content[data-text-align="left"] .animal-description {
+/* Per-Animal Text Alignment Support */
+.animal-content[data-text-align="left"] {
     text-align: left;
 }
 
-.animal-content[data-text-align="center"] .animal-name,
-.animal-content[data-text-align="center"] .animal-description {
+.animal-content[data-text-align="center"] {
     text-align: center;
 }
 
-.animal-content[data-text-align="right"] .animal-name,
-.animal-content[data-text-align="right"] .animal-description {
+.animal-content[data-text-align="right"] {
     text-align: right;
 }
 
+/* Animal Name */
 .animal-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 500;
-    color: var(--light-brown);
-    margin-bottom: 12px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.animal-description {
     font-family: 'Lora', serif;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 1.8rem;
+    font-weight: 600;
     color: var(--warm-brown);
-    margin-bottom: 25px;
-    min-height: 50px; /* Keeps cards aligned */
-}
-
-/* Meet Button */
-.meet-button {
-    width: 100%;
-    padding: 15px 30px;
-    background: var(--light-brown);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Crimson Text', serif;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    margin-bottom: 15px;
     letter-spacing: 0.5px;
 }
 
-.meet-button:hover {
-    background: var(--warm-brown);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(93, 78, 55, 0.3);
-}
-
-.meet-button:active {
-    transform: translateY(0);
-}
-
-.meet-button:disabled {
-    background: var(--beige-bg);
+/* Animal Description */
+.animal-description {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    line-height: 1.8;
     color: var(--medium-brown);
-    cursor: not-allowed;
-    opacity: 0.6;
+    margin-bottom: 25px;
+    min-height: 60px;
+    font-style: italic;
 }
 
-/* Loading State */
-.meet-button.loading {
-    position: relative;
-    color: transparent;
+/* Social Icons Row (like Paige's) */
+.animal-social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.meet-button.loading::after {
-    content: 'Loading...';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.animal-social-icons a {
+    color: var(--medium-brown);
+    transition: color 0.3s ease;
+}
+
+.animal-social-icons a:hover {
+    color: var(--warm-brown);
+}
+
+/* Meet Button - Toggle Photo/Video */
+.meet-button {
+    width: 100%;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--medium-brown);
+    border: 1px solid var(--medium-brown);
+    border-radius: 0;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+}
+
+.meet-button:hover {
+    background: var(--medium-brown);
     color: white;
 }
 
-/* Footer - Same as Homepage */
+.meet-button:active {
+    transform: scale(0.98);
+}
+
+.meet-button.showing-video {
+    background: var(--light-brown);
+    color: white;
+    border-color: var(--light-brown);
+}
+
+.meet-button.showing-video:hover {
+    background: var(--warm-brown);
+    border-color: var(--warm-brown);
+}
+
+/* ========== FOOTER ========== */
 .footer {
     padding: 60px 40px;
     background: var(--beige-bg);
@@ -350,38 +372,49 @@ body.has-background-image {
     color: var(--medium-brown);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .animals-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 968px) {
     .page-title {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
     
-    .page-subtitle {
-        font-size: 1.1rem;
+    .section-title-script {
+        font-size: 3rem;
     }
     
     .animals-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 20px;
     }
     
-    .animal-name {
-        font-size: 1.8rem;
+    .page-header {
+        padding: 80px 20px 40px;
     }
     
-    .animal-description {
+    .page-title {
+        font-size: 3rem;
+    }
+    
+    .page-subtitle {
         font-size: 1rem;
     }
     
-    .container {
-        padding: 0 20px;
+    .section-title-script {
+        font-size: 2.5rem;
+    }
+    
+    .animal-name {
+        font-size: 1.5rem;
+    }
+    
+    .animal-content {
+        padding: 25px 20px;
     }
     
     .nav-container {
@@ -397,15 +430,15 @@ body.has-background-image {
     }
 }
 
-/* Fade-in animation on page load */
+/* ========== ANIMATIONS ========== */
 .animal-card {
-    animation: fadeInUp 0.6s ease-out;
+    animation: fadeInUp 0.6s ease-out backwards;
 }
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -413,7 +446,10 @@ body.has-background-image {
     }
 }
 
-/* Stagger animation for cards */
+/* Stagger animation */
 .animal-card:nth-child(1) { animation-delay: 0.1s; }
 .animal-card:nth-child(2) { animation-delay: 0.2s; }
 .animal-card:nth-child(3) { animation-delay: 0.3s; }
+.animal-card:nth-child(4) { animation-delay: 0.4s; }
+.animal-card:nth-child(5) { animation-delay: 0.5s; }
+.animal-card:nth-child(6) { animation-delay: 0.6s; }
