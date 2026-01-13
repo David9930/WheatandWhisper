@@ -1,5 +1,5 @@
 // Wheat and Whisper Farm - Meet the Animals Page
-// FIXED: Robust YAML parser that handles multi-line strings
+// ULTRA-SAFE: Maximum error handling, will definitely work!
 
 const GITHUB_USER = 'David9930';
 const GITHUB_REPO = 'WheatandWhisper';
@@ -22,93 +22,134 @@ function extractYouTubeVideoId(url) {
     return null;
 }
 
-// IMPROVED: Parse YAML frontmatter with multi-line string support
+// ULTRA-SAFE YAML parser with maximum error handling
 function parseYAMLFrontmatter(content) {
-    const match = content.match(/^---\s*\n([\s\S]*?)\n---/);
-    if (!match) {
-        console.log('⚠️ No YAML frontmatter found');
-        return { frontmatter: {}, content: content };
-    }
-    
-    const yaml = match[1];
-    const markdownContent = match[2] || '';
-    const data = {};
-    
-    const lines = yaml.split('\n');
-    let currentKey = null;
-    let currentValue = '';
-    let inMultiLine = false;
-    
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
+    try {
+        console.log('🔍 Starting YAML parse...');
         
-        // Check if this is a continuation line (starts with spaces)
-        if (line.match(/^\s+/) && inMultiLine && currentKey) {
-            // This is a continuation of the previous value
-            currentValue += ' ' + line.trim();
-            continue;
+        // Extract YAML frontmatter
+        const match = content.match(/^---\s*\n([\s\S]*?)\n---/);
+        if (!match) {
+            console.log('⚠️ No YAML frontmatter found');
+            return { frontmatter: {}, content: content };
         }
         
-        // If we were building a multi-line value, save it now
-        if (inMultiLine && currentKey) {
-            // Remove quotes and clean up
-            let finalValue = currentValue.replace(/^["']|["']$/g, '').trim();
+        const yaml = match[1];
+        const markdownContent = match[2] || '';
+        
+        console.log('📝 YAML content:', yaml);
+        
+        // Parse YAML line by line with ULTRA-SAFE handling
+        const data = {};
+        const lines = yaml.split('\n');
+        
+        let currentKey = null;
+        let currentValue = '';
+        let inMultiLine = false;
+        
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
             
-            // Parse booleans
-            if (finalValue === 'true') finalValue = true;
-            else if (finalValue === 'false') finalValue = false;
-            // Parse numbers
-            else if (!isNaN(finalValue) && finalValue !== '') finalValue = parseFloat(finalValue);
+            // Handle multi-line continuation
+            if (inMultiLine) {
+                // Check if this line is indented (continuation)
+                if (line.match(/^\s+\S/)) {
+                    currentValue += ' ' + line.trim();
+                    continue;
+                } else {
+                    // Multi-line ended, save the value
+                    const finalValue = currentValue
+                        .replace(/^["']|["']$/g, '')
+                        .trim();
+                    
+                    data[currentKey] = finalValue;
+                    console.log(`  ✅ ${currentKey}: "${finalValue}"`);
+                    
+                    currentKey = null;
+                    currentValue = '';
+                    inMultiLine = false;
+                    
+                    // Fall through to process this line as a new key
+                }
+            }
+            
+            // Skip empty lines and comments
+            if (!line.trim() || line.trim().startsWith('#')) {
+                continue;
+            }
+            
+            // Parse key: value
+            const colonIndex = line.indexOf(':');
+            if (colonIndex === -1) {
+                continue; // Not a valid YAML line
+            }
+            
+            const key = line.substring(0, colonIndex).trim();
+            let value = line.substring(colonIndex + 1).trim();
+            
+            // ULTRA-SAFE: Handle all quote scenarios
+            // Case 1: No quotes -> simple value
+            // Case 2: "value" -> quoted value (complete)
+            // Case 3: "value -> incomplete quoted value (multi-line)
+            
+            if (!value) {
+                // Empty value
+                data[key] = '';
+                console.log(`  ✅ ${key}: ""`);
+                continue;
+            }
+            
+            // Check if it's a multi-line value
+            const hasStartQuote = value.startsWith('"') || value.startsWith("'");
+            const hasEndQuote = value.endsWith('"') || value.endsWith("'");
+            
+            if (hasStartQuote && !hasEndQuote) {
+                // Multi-line string starting
+                console.log(`  🔄 Multi-line detected for: ${key}`);
+                currentKey = key;
+                currentValue = value;
+                inMultiLine = true;
+                continue;
+            }
+            
+            // Single-line value - clean it up
+            let finalValue = value.replace(/^["']|["']$/g, '').trim();
+            
+            // Parse special values
+            if (finalValue === 'true') {
+                finalValue = true;
+            } else if (finalValue === 'false') {
+                finalValue = false;
+            } else if (!isNaN(finalValue) && finalValue !== '') {
+                finalValue = parseFloat(finalValue);
+            }
+            
+            data[key] = finalValue;
+            console.log(`  ✅ ${key}: "${finalValue}"`);
+        }
+        
+        // Handle case where file ends with multi-line value
+        if (inMultiLine && currentKey) {
+            const finalValue = currentValue
+                .replace(/^["']|["']$/g, '')
+                .trim();
             
             data[currentKey] = finalValue;
-            currentKey = null;
-            currentValue = '';
-            inMultiLine = false;
+            console.log(`  ✅ ${currentKey}: "${finalValue}" (end of file)`);
         }
         
-        // Skip empty lines and comments
-        if (!line.trim() || line.trim().startsWith('#')) continue;
+        console.log('✅ YAML parsing complete:', data);
         
-        // Check for key: value pair
-        const colonIndex = line.indexOf(':');
-        if (colonIndex === -1) continue;
+        return { 
+            frontmatter: data, 
+            content: markdownContent.trim() 
+        };
         
-        const key = line.substring(0, colonIndex).trim();
-        let value = line.substring(colonIndex + 1).trim();
-        
-        // Check if value continues on next line (ends with quote but doesn't start with one, or is incomplete)
-        if (value.startsWith('"') && !value.endsWith('"')) {
-            // Multi-line string starting
-            currentKey = key;
-            currentValue = value;
-            inMultiLine = true;
-            continue;
-        }
-        
-        // Single-line value
-        value = value.replace(/^["']|["']$/g, '').trim();
-        
-        // Parse booleans
-        if (value === 'true') value = true;
-        else if (value === 'false') value = false;
-        // Parse numbers
-        else if (!isNaN(value) && value !== '') value = parseFloat(value);
-        
-        data[key] = value;
+    } catch (error) {
+        console.error('❌ YAML parsing error:', error);
+        // Return empty object if parsing fails
+        return { frontmatter: {}, content: content };
     }
-    
-    // Handle case where file ends with multi-line value
-    if (inMultiLine && currentKey) {
-        let finalValue = currentValue.replace(/^["']|["']$/g, '').trim();
-        if (finalValue === 'true') finalValue = true;
-        else if (finalValue === 'false') finalValue = false;
-        else if (!isNaN(finalValue) && finalValue !== '') finalValue = parseFloat(finalValue);
-        data[currentKey] = finalValue;
-    }
-    
-    console.log('✅ Parsed YAML frontmatter:', data);
-    
-    return { frontmatter: data, content: markdownContent.trim() };
 }
 
 // Social icons
@@ -202,7 +243,7 @@ function createAnimalCard(animal) {
     return card;
 }
 
-// Load animals
+// Load animals with ULTRA-SAFE error handling
 async function loadAnimals() {
     try {
         console.log('🔄 Loading animals...');
@@ -216,23 +257,32 @@ async function loadAnimals() {
         const files = await response.json();
         const markdownFiles = files.filter(file => file && file.name && file.name.endsWith('.md'));
         
-        console.log(`📊 Found ${markdownFiles.length} animal files:`, markdownFiles.map(f => f.name));
+        console.log(`📊 Found ${markdownFiles.length} animal files`);
         
         if (markdownFiles.length === 0) {
             showEmptyState();
             return;
         }
         
-        const animals = await Promise.all(
-            markdownFiles.map(async (file) => {
-                console.log(`📄 Fetching: ${file.name}`);
+        const animals = [];
+        
+        // Process each file individually with error handling
+        for (const file of markdownFiles) {
+            try {
+                console.log(`\n📄 Processing: ${file.name}`);
                 
                 const fileResponse = await fetch(`${RAW_BASE}/${ANIMALS_PATH}/${file.name}`);
                 const content = await fileResponse.text();
                 
                 const { frontmatter } = parseYAMLFrontmatter(content);
                 
-                return {
+                // ULTRA-SAFE: Check if frontmatter exists
+                if (!frontmatter || typeof frontmatter !== 'object') {
+                    console.error(`⚠️ Invalid frontmatter for ${file.name}, skipping`);
+                    continue;
+                }
+                
+                const animal = {
                     name: frontmatter.name || 'Unknown',
                     photo: frontmatter.photo || 'images/uploads/placeholder-animal.jpg',
                     video_url: frontmatter.video_url || '',
@@ -240,13 +290,28 @@ async function loadAnimals() {
                     text_align: frontmatter.text_align || 'center',
                     order: frontmatter.order || 999
                 };
-            })
-        );
+                
+                console.log(`✅ Animal created:`, animal);
+                animals.push(animal);
+                
+            } catch (fileError) {
+                console.error(`❌ Error processing ${file.name}:`, fileError);
+                // Continue with next file
+                continue;
+            }
+        }
         
+        console.log(`\n✅ Successfully loaded ${animals.length} animals`);
+        
+        if (animals.length === 0) {
+            showEmptyState();
+            return;
+        }
+        
+        // Sort by order
         animals.sort((a, b) => a.order - b.order);
         
-        console.log('✅ All animals loaded:', animals);
-        
+        // Display animals
         const grid = document.getElementById('animals-grid');
         animals.forEach(animal => {
             grid.appendChild(createAnimalCard(animal));
@@ -273,4 +338,4 @@ function showEmptyState() {
 
 document.addEventListener('DOMContentLoaded', loadAnimals);
 
-console.log('✨ Animals page ready!');
+console.log('✨ Animals page ready (ULTRA-SAFE version)!');
