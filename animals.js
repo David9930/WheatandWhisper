@@ -1,5 +1,5 @@
-// DIAGNOSTIC VERSION - Shows detailed console logs
-// This will help us see exactly what the GitHub API returns
+// Wheat and Whisper Farm - Meet the Animals Page
+// FIXED: Robust YAML parser that handles multi-line strings
 
 const GITHUB_USER = 'David9930';
 const GITHUB_REPO = 'WheatandWhisper';
@@ -22,30 +22,91 @@ function extractYouTubeVideoId(url) {
     return null;
 }
 
-// Parse YAML frontmatter
+// IMPROVED: Parse YAML frontmatter with multi-line string support
 function parseYAMLFrontmatter(content) {
     const match = content.match(/^---\s*\n([\s\S]*?)\n---/);
-    if (!match) return { frontmatter: {}, content: content };
+    if (!match) {
+        console.log('⚠️ No YAML frontmatter found');
+        return { frontmatter: {}, content: content };
+    }
     
     const yaml = match[1];
     const markdownContent = match[2] || '';
     const data = {};
     
     const lines = yaml.split('\n');
-    lines.forEach(line => {
-        if (!line.trim() || line.startsWith('#')) return;
+    let currentKey = null;
+    let currentValue = '';
+    let inMultiLine = false;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        
+        // Check if this is a continuation line (starts with spaces)
+        if (line.match(/^\s+/) && inMultiLine && currentKey) {
+            // This is a continuation of the previous value
+            currentValue += ' ' + line.trim();
+            continue;
+        }
+        
+        // If we were building a multi-line value, save it now
+        if (inMultiLine && currentKey) {
+            // Remove quotes and clean up
+            let finalValue = currentValue.replace(/^["']|["']$/g, '').trim();
+            
+            // Parse booleans
+            if (finalValue === 'true') finalValue = true;
+            else if (finalValue === 'false') finalValue = false;
+            // Parse numbers
+            else if (!isNaN(finalValue) && finalValue !== '') finalValue = parseFloat(finalValue);
+            
+            data[currentKey] = finalValue;
+            currentKey = null;
+            currentValue = '';
+            inMultiLine = false;
+        }
+        
+        // Skip empty lines and comments
+        if (!line.trim() || line.trim().startsWith('#')) continue;
+        
+        // Check for key: value pair
         const colonIndex = line.indexOf(':');
-        if (colonIndex === -1) return;
+        if (colonIndex === -1) continue;
         
         const key = line.substring(0, colonIndex).trim();
         let value = line.substring(colonIndex + 1).trim();
-        value = value.replace(/^["']|["']$/g, '');
         
+        // Check if value continues on next line (ends with quote but doesn't start with one, or is incomplete)
+        if (value.startsWith('"') && !value.endsWith('"')) {
+            // Multi-line string starting
+            currentKey = key;
+            currentValue = value;
+            inMultiLine = true;
+            continue;
+        }
+        
+        // Single-line value
+        value = value.replace(/^["']|["']$/g, '').trim();
+        
+        // Parse booleans
         if (value === 'true') value = true;
         else if (value === 'false') value = false;
+        // Parse numbers
+        else if (!isNaN(value) && value !== '') value = parseFloat(value);
         
         data[key] = value;
-    });
+    }
+    
+    // Handle case where file ends with multi-line value
+    if (inMultiLine && currentKey) {
+        let finalValue = currentValue.replace(/^["']|["']$/g, '').trim();
+        if (finalValue === 'true') finalValue = true;
+        else if (finalValue === 'false') finalValue = false;
+        else if (!isNaN(finalValue) && finalValue !== '') finalValue = parseFloat(finalValue);
+        data[currentKey] = finalValue;
+    }
+    
+    console.log('✅ Parsed YAML frontmatter:', data);
     
     return { frontmatter: data, content: markdownContent.trim() };
 }
@@ -141,74 +202,37 @@ function createAnimalCard(animal) {
     return card;
 }
 
-// Load animals with EXTENSIVE LOGGING
+// Load animals
 async function loadAnimals() {
     try {
-        console.log('🔄 DIAGNOSTIC: Loading animals...');
-        console.log('📍 API URL:', `${API_BASE}/${ANIMALS_PATH}`);
+        console.log('🔄 Loading animals...');
         
         const response = await fetch(`${API_BASE}/${ANIMALS_PATH}`);
         
-        console.log('📊 Response status:', response.status);
-        console.log('📊 Response ok?:', response.ok);
-        
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            throw new Error(`Failed to fetch animals directory: ${response.status}`);
         }
         
         const files = await response.json();
+        const markdownFiles = files.filter(file => file && file.name && file.name.endsWith('.md'));
         
-        console.log('📊 RAW API RESPONSE:', files);
-        console.log('📊 Response type:', typeof files);
-        console.log('📊 Is array?:', Array.isArray(files));
-        
-        if (!Array.isArray(files)) {
-            console.error('❌ API response is not an array!');
-            console.log('📊 Actual response:', JSON.stringify(files, null, 2));
-            throw new Error('GitHub API returned unexpected format');
-        }
-        
-        console.log('📊 Total files returned:', files.length);
-        
-        // Show first file structure
-        if (files.length > 0) {
-            console.log('📊 First file structure:', files[0]);
-        }
-        
-        const markdownFiles = files.filter(file => {
-            console.log('📊 Checking file:', file?.name, 'Type:', file?.type);
-            return file && file.name && file.name.endsWith('.md');
-        });
-        
-        console.log('📊 Markdown files found:', markdownFiles.length);
-        console.log('📊 Markdown files:', markdownFiles.map(f => f.name));
+        console.log(`📊 Found ${markdownFiles.length} animal files:`, markdownFiles.map(f => f.name));
         
         if (markdownFiles.length === 0) {
-            console.log('⚠️ No markdown files found!');
             showEmptyState();
             return;
         }
         
-        console.log('🔄 Fetching content for each animal...');
-        
         const animals = await Promise.all(
-            markdownFiles.map(async (file, index) => {
-                console.log(`📄 [${index + 1}/${markdownFiles.length}] Fetching: ${file.name}`);
+            markdownFiles.map(async (file) => {
+                console.log(`📄 Fetching: ${file.name}`);
                 
-                const fileUrl = `${RAW_BASE}/${ANIMALS_PATH}/${file.name}`;
-                console.log(`   URL: ${fileUrl}`);
-                
-                const fileResponse = await fetch(fileUrl);
-                console.log(`   Status: ${fileResponse.status}`);
-                
+                const fileResponse = await fetch(`${RAW_BASE}/${ANIMALS_PATH}/${file.name}`);
                 const content = await fileResponse.text();
-                console.log(`   Content length: ${content.length} chars`);
-                console.log(`   First 100 chars:`, content.substring(0, 100));
                 
                 const { frontmatter } = parseYAMLFrontmatter(content);
-                console.log(`   Frontmatter:`, frontmatter);
                 
-                const animal = {
+                return {
                     name: frontmatter.name || 'Unknown',
                     photo: frontmatter.photo || 'images/uploads/placeholder-animal.jpg',
                     video_url: frontmatter.video_url || '',
@@ -216,16 +240,12 @@ async function loadAnimals() {
                     text_align: frontmatter.text_align || 'center',
                     order: frontmatter.order || 999
                 };
-                
-                console.log(`   ✅ Parsed animal:`, animal);
-                
-                return animal;
             })
         );
         
         animals.sort((a, b) => a.order - b.order);
         
-        console.log('✅ ALL ANIMALS LOADED:', animals);
+        console.log('✅ All animals loaded:', animals);
         
         const grid = document.getElementById('animals-grid');
         animals.forEach(animal => {
@@ -235,11 +255,7 @@ async function loadAnimals() {
         console.log('✅ Animals displayed on page!');
         
     } catch (error) {
-        console.error('❌ ERROR LOADING ANIMALS:');
-        console.error('   Error type:', error.constructor.name);
-        console.error('   Error message:', error.message);
-        console.error('   Full error:', error);
-        console.error('   Stack trace:', error.stack);
+        console.error('❌ Error loading animals:', error);
         showEmptyState();
     }
 }
@@ -255,9 +271,6 @@ function showEmptyState() {
     `;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    console.log('🚀 DIAGNOSTIC VERSION - Animals page initialized');
-    await loadAnimals();
-});
+document.addEventListener('DOMContentLoaded', loadAnimals);
 
-console.log('✨ DIAGNOSTIC animals.js loaded!');
+console.log('✨ Animals page ready!');
