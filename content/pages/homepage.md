@@ -14,7 +14,7 @@ hero_section:
 box_1:
   title: Wheat and Whisper Story
   title_align: center
-  image: images/uploads/tezza-2900_edited.png
+  image: images/uploads/tezza-2900.jpg
   link: about.html
 box_2:
   title: Meet the Animals
