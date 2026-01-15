@@ -1,6 +1,6 @@
 ---
 hero_section:
-  hero_video_url: https://youtube.com/shorts/MjydMaDMoxk
+  hero_video_url: https://youtu.be/swcmoJEiTys
   background_image: images/uploads/hero-background.jpg
   use_video_background: true
   subtitle_line_1: Wild and Washed in Grace
