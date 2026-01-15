@@ -5,7 +5,7 @@ hero_section:
   use_video_background: true
   subtitle_line_1: Wild and Washed in Grace
   title_line_1: WHEAT AND
-  subtitle_line_2: Where every moment is a gift and every animal has a story
+  subtitle_line_2: Where every moment is a gift and every animal has a story.
   title_line_2: WHISPER FARM
   main_logo: WheatandWhisperLogo.png
   tagline_align: center
@@ -22,7 +22,7 @@ box_2:
   image: images/uploads/img_0418.jpeg
   link: animals.html
 box_3:
-  title: Farmette Life!
+  title: Farmette Life
   title_align: center
   image: images/uploads/img_6194.jpeg
   link: farmette.html
