@@ -14,7 +14,7 @@ hero_section:
 box_1:
   title: Wheat and Whisper Story
   title_align: center
-  image: images/uploads/tezza-9369_edited.jpg
+  image: images/uploads/tezza-2900_edited.png
   link: about.html
 box_2:
   title: Meet the Animals
@@ -30,7 +30,7 @@ box_4:
   title_line_1: Sovereignty Grace
   title_line_2: Mini Nubians
   title_align: center
-  image: images/uploads/e24fdb51-dc07-47f0-b0ea-31d6b0cee996_1_201_a.jpeg
+  image: images/uploads/img_5318_edited.jpg
   link: nubians.html
 box_5:
   title_line_1: Sovereignty Grace
@@ -42,7 +42,7 @@ box_6:
   title_line_1: Handcrafted
   title_line_2: Treasures
   title_align: center
-  image: images/uploads/tezza-2900_edited.png
+  image: images/uploads/tezza-9369_edited.jpg
   link: products.html
 page_banner:
   title: From Our Fields to yours.
