@@ -511,4 +511,265 @@ body {
     .grid-item-title {
         font-size: 2rem;
     }
+    /* ========================================
+   MOBILE HAMBURGER MENU STYLES
+   Add these to the END of homepage.css
+   ======================================== */
+
+/* Hamburger Menu Button (Hidden on Desktop) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    z-index: 1001;
 }
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--warm-brown);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation (when open) */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(93, 78, 55, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Menu Drawer */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--cream-bg);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+    padding: 25px 20px;
+    background: linear-gradient(135deg, var(--warm-brown) 0%, var(--medium-brown) 100%);
+    color: white;
+    text-align: center;
+}
+
+.mobile-menu-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.mobile-menu-header p {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+}
+
+/* Mobile Menu Links */
+.mobile-menu-links {
+    padding: 15px 0;
+}
+
+.mobile-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 25px;
+    color: var(--warm-brown);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.08);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:active {
+    background: var(--beige-bg);
+    padding-left: 30px;
+    color: var(--medium-brown);
+}
+
+.mobile-menu-link span {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+/* Mobile Social Links */
+.mobile-menu-social {
+    padding: 25px 25px 35px;
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+    margin-top: auto;
+}
+
+.mobile-menu-social p {
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    color: var(--medium-brown);
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mobile-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.mobile-social-link {
+    color: var(--medium-brown);
+    transition: all 0.3s ease;
+    padding: 8px;
+}
+
+.mobile-social-link:hover {
+    color: var(--light-brown);
+    transform: scale(1.1);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Tablet and Below - Show Hamburger */
+@media (max-width: 968px) {
+    /* Hide desktop navigation */
+    .main-nav {
+        display: none !important;
+    }
+    
+    /* Show hamburger menu button */
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Adjust nav container for mobile */
+    .nav-container {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    
+    /* Simplify search icon on mobile */
+    .search-icon span {
+        display: none;
+    }
+    
+    .search-icon {
+        gap: 0;
+    }
+    
+    /* Adjust nav icons spacing */
+    .nav-icons {
+        gap: 12px;
+    }
+}
+
+/* Phone - Further Adjustments */
+@media (max-width: 640px) {
+    .hamburger-menu {
+        padding: 5px;
+    }
+    
+    .hamburger-menu span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    .mobile-menu {
+        width: 85%;
+        max-width: 280px;
+    }
+    
+    /* Hide some nav icons on very small screens */
+    .notification-icon,
+    .profile-icon {
+        font-size: 16px;
+    }
+    
+    .cart-icon {
+        font-size: 18px;
+    }
+    
+    .cart-count {
+        font-size: 9px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 380px) {
+    .mobile-menu {
+        width: 90%;
+    }
+    
+    .mobile-menu-link {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .mobile-menu-link span {
+        font-size: 18px;
+        width: 20px;
+    }
+}
+
+/* END OF MOBILE MENU STYLES */
