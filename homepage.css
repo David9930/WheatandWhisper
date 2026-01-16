@@ -1,15 +1,12 @@
 /*
  * File: homepage.css
- * Last Modified: 2025-01-08 15:30
+ * Last Modified: 2025-01-15 (Corrected)
  * Modified By: Claude (AI Assistant)
- * Changes: Increased bottom padding and reduced spacing to ensure social icons fit within hero section
- * Previous Version: Backed up as homepage-BACKUP-2025-01-08-1530.css
- * Fix: Top padding accounts for nav (80px), bottom padding ensures icons visible (60px)
+ * Changes: Fixed hamburger menu styles - moved outside @media (max-width: 768px) block
+ * Issue: Styles were nested inside 768px media query, now at root level with own media queries
  */
 
 /* Wheat and Whisper Farm - Homepage Styles */
-/* Matching Paige's Wix Design */
-
 /* Color Palette */
 :root {
     --cream-bg: #FFFEF9;
@@ -157,7 +154,6 @@ body {
     z-index: 2;
     text-align: center;
     color: white;
-    /* FIXED: 80px top for nav clearance, 60px bottom to keep social icons visible */
     padding: 80px 20px 60px 20px;
     max-width: 90%;
 }
@@ -244,7 +240,6 @@ body {
     gap: 20px;
     justify-content: center;
     margin-top: 12px;
-    /* Bottom padding removed - handled by hero-content padding now */
 }
 
 .social-link {
@@ -464,6 +459,10 @@ body {
     color: var(--medium-brown);
 }
 
+/* ========================================
+   RESPONSIVE - BASE STYLES
+   ======================================== */
+
 @media (max-width: 1200px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
@@ -511,9 +510,11 @@ body {
     .grid-item-title {
         font-size: 2rem;
     }
-    /* ========================================
+}
+
+/* ========================================
    MOBILE HAMBURGER MENU STYLES
-   Add these to the END of homepage.css
+   NOW at root level with own media queries
    ======================================== */
 
 /* Hamburger Menu Button (Hidden on Desktop) */
@@ -686,7 +687,7 @@ body.menu-open {
 }
 
 /* ========================================
-   RESPONSIVE BREAKPOINTS
+   HAMBURGER MENU RESPONSIVE BREAKPOINTS
    ======================================== */
 
 /* Tablet and Below - Show Hamburger */
@@ -772,4 +773,4 @@ body.menu-open {
     }
 }
 
-/* END OF MOBILE MENU STYLES */
+/* END OF STYLES */
