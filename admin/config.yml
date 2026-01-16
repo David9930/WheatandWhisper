@@ -324,3 +324,98 @@ collections:
           - {label: "📝 Animal Card Description Font", name: "font_card_description", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
           - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1rem"}
           - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#8B6F47"}
+
+# ==============================================
+# GOLDEN RETRIEVERS PAGE CONFIGURATION
+# Add this section to your admin/config.yml file
+# ==============================================
+
+# This goes inside the "pages" collection's "files" array
+# Add it after the existing homepage and about page configurations
+
+      - label: "Golden Retrievers Page"
+        name: "retrievers"
+        file: "content/pages/retrievers.md"
+        fields:
+          # ===== HERO SECTION =====
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Main Title", name: "title", widget: "string", default: "Sovereignty Grace Golden Retrievers", hint: "Large title at top of page"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "how we raise our golden babies", hint: "Italic text below title"}
+          
+          # ===== CONTENT BOX 1 =====
+          - label: "Content Box 1 (Image Left)"
+            name: "box_1"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-1-image.jpg"}
+              - {label: "Title", name: "title", widget: "string", default: "Welcome"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "Keeping life golden", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown", hint: "Main paragraph content"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false, hint: "Phone || Email format"}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: false}
+          
+          # ===== CONTENT BOX 2 =====
+          - label: "Content Box 2 (Image Right)"
+            name: "box_2"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-2-image.jpg"}
+              - {label: "Title", name: "title", widget: "string", default: "Certifications and Testing"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "responsible breeding is everything:", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown", hint: "Can use bullet points with - or *"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: true}
+          
+          # ===== CONTENT BOX 3 =====
+          - label: "Content Box 3 (Image Left)"
+            name: "box_3"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-3-image.jpg"}
+              - {label: "Title", name: "title", widget: "string", default: "Our Breeding Program"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "Quality over quantity", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: false}
+          
+          # ===== CONTENT BOX 4 =====
+          - label: "Content Box 4 (Image Right)"
+            name: "box_4"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-4-image.jpg"}
+              - {label: "Title", name: "title", widget: "string", default: "Puppy Care"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "From birth to forever home", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: false}
+          
+          # ===== ADOPTION CTA =====
+          - label: "Adoption Call-to-Action"
+            name: "cta"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "CTA Title", name: "title", widget: "string", default: "Ready to Welcome a Golden into Your Family?"}
+              - {label: "CTA Text", name: "text", widget: "text", default: "Fill out our adoption application to get started on your journey with a Sovereignty Grace Golden Retriever."}
+              - {label: "Button Text", name: "button_text", widget: "string", default: "Complete Adoption Application"}
+              - {label: "Button Link", name: "button_link", widget: "string", default: "#adoption-form", hint: "URL or #anchor link"}
+
+# ==============================================
+# USAGE INSTRUCTIONS:
+# 1. Open your admin/config.yml file
+# 2. Find the "pages" collection
+# 3. Inside the "files:" array (after homepage and about)
+# 4. Paste this entire configuration block
+# 5. Save the file
+# 6. Commit to GitHub
+# 7. Access CMS at: https://yourdomain.com/admin
+# ==============================================
