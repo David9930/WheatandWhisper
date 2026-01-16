@@ -1,5 +1,6 @@
 // Mobile Hamburger Menu for Wheat and Whisper Farm
 // Handles menu toggle, animations, and interactions
+// FIXED: Updated IDs to match HTML (camelCase)
 
 (function() {
     'use strict';
@@ -14,16 +15,19 @@
     function initMobileMenu() {
         console.log('🍔 Mobile menu initializing...');
         
-        // Get elements
-        const hamburger = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileOverlay = document.getElementById('mobile-overlay');
+        // Get elements - FIXED IDs to match HTML
+        const hamburger = document.getElementById('hamburgerBtn');      // ← FIXED: was 'hamburger-btn'
+        const mobileMenu = document.getElementById('mobileMenu');       // ← FIXED: was 'mobile-menu'
+        const mobileOverlay = document.getElementById('mobileOverlay'); // ← FIXED: was 'mobile-overlay'
         const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
         const body = document.body;
         
         // Check if elements exist
         if (!hamburger || !mobileMenu || !mobileOverlay) {
             console.warn('⚠️ Mobile menu elements not found - menu will not work');
+            console.warn('   hamburger:', !!hamburger);
+            console.warn('   mobileMenu:', !!mobileMenu);
+            console.warn('   mobileOverlay:', !!mobileOverlay);
             return;
         }
         
