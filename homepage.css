@@ -1,0 +1,776 @@
+/*
+ * File: homepage.css
+ * Last Modified: 2025-01-15 (Corrected)
+ * Modified By: Claude (AI Assistant)
+ * Changes: Fixed hamburger menu styles - moved outside @media (max-width: 768px) block
+ * Issue: Styles were nested inside 768px media query, now at root level with own media queries
+ */
+
+/* Wheat and Whisper Farm - Homepage Styles */
+/* Color Palette */
+:root {
+    --cream-bg: #FFFEF9;
+    --beige-bg: #F5F3ED;
+    --warm-brown: #5D4E37;
+    --medium-brown: #8B6F47;
+    --light-brown: #C9A66B;
+    --gold-accent: #D4AF37;
+    --white: #FFFFFF;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--cream-bg);
+    color: var(--warm-brown);
+    line-height: 1.6;
+}
+
+/* Top Navigation */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--medium-brown);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--medium-brown);
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--warm-brown);
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.notification-icon,
+.profile-icon,
+.cart-icon {
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--light-brown);
+    color: white;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero Section */
+.hero-section {
+    margin-top: 60px;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-color: #8B7355;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    object-fit: cover;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 80px 20px 60px 20px;
+    max-width: 90%;
+}
+
+.hero-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 5rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: #F5DEB3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #F5DEB3;
+    opacity: 0;
+    text-shadow: 0 0 0 rgba(201, 166, 107, 0);
+    transition: text-shadow 1.5s ease-in, opacity 0.5s ease;
+}
+
+.hero-subtitle.glow {
+    text-shadow: 
+        0 0 20px rgba(201, 166, 107, 0.8),
+        0 0 40px rgba(201, 166, 107, 0.6),
+        0 0 60px rgba(201, 166, 107, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-tagline {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    color: #F5DEB3;
+    text-shadow: 
+        2px 2px 8px rgba(0, 0, 0, 0.8),
+        0 0 0 rgba(201, 166, 107, 0);
+    opacity: 0;
+    transition: text-shadow 1.5s ease-in, opacity 0.5s ease;
+}
+
+.hero-tagline.glow {
+    text-shadow: 
+        0 0 25px rgba(201, 166, 107, 0.9),
+        0 0 50px rgba(201, 166, 107, 0.6),
+        0 0 75px rgba(201, 166, 107, 0.3),
+        2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.logo-container {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.farm-logo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+    padding: 0;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.social-link {
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+    opacity: 0.7;
+}
+
+.sections-grid {
+    padding: 80px 40px;
+    background: var(--cream-bg);
+}
+
+.grid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.grid-item {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center top;
+    background-color: var(--beige-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.02);
+}
+
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease;
+}
+
+.grid-item:hover::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.grid-item:nth-child(1) { background-image: url('images/uploads/story-background.jpg'); }
+.grid-item:nth-child(2) { background-image: url('images/uploads/animals-background.jpg'); }
+.grid-item:nth-child(3) { background-image: url('images/uploads/farmette-background.jpg'); }
+.grid-item:nth-child(4) { background-image: url('images/uploads/nubians-background.jpg'); }
+.grid-item:nth-child(5) { background-image: url('images/uploads/retrievers-background.jpg'); }
+.grid-item:nth-child(6) { background-image: url('images/uploads/products-background.jpg'); }
+
+.grid-item-overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.grid-item-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--light-brown);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.poetic-section {
+    padding: 100px 40px;
+    background: var(--beige-bg);
+    text-align: center;
+}
+
+.poetic-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    margin-bottom: 40px;
+}
+
+.poetic-text {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.poetic-text p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--medium-brown);
+    line-height: 2;
+    font-weight: 300;
+}
+
+.newsletter-section {
+    padding: 80px 40px;
+    background: var(--cream-bg);
+}
+
+.newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--medium-brown);
+    background: var(--beige-bg);
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    color: var(--warm-brown);
+}
+
+.newsletter-input::placeholder {
+    color: var(--medium-brown);
+}
+
+.newsletter-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Crimson Text', serif;
+    color: var(--warm-brown);
+    cursor: pointer;
+}
+
+.newsletter-checkbox input[type="checkbox"] {
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.newsletter-button {
+    align-self: center;
+    padding: 15px 60px;
+    background: var(--light-brown);
+    color: white;
+    border: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background: var(--warm-brown);
+}
+
+.footer {
+    padding: 60px 40px;
+    background: var(--beige-bg);
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-link {
+    background: transparent;
+    border: 1px solid var(--medium-brown);
+    padding: 12px 30px;
+    color: var(--medium-brown);
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    background: var(--medium-brown);
+    color: white;
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social-link {
+    color: var(--medium-brown);
+    transition: color 0.3s ease;
+}
+
+.footer-social-link:hover {
+    color: var(--warm-brown);
+}
+
+.footer-credit {
+    font-size: 12px;
+    color: var(--medium-brown);
+}
+
+/* ========================================
+   RESPONSIVE - BASE STYLES
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        margin-top: 70px;
+        height: auto;
+        min-height: 500px;
+        padding: 40px 20px;
+    }
+    
+    .hero-content {
+        padding: 50px 15px 40px 15px;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-tagline {
+        font-size: 0.95rem;
+    }
+    
+    .farm-logo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .grid-item-title {
+        font-size: 2rem;
+    }
+}
+
+/* ========================================
+   MOBILE HAMBURGER MENU STYLES
+   NOW at root level with own media queries
+   ======================================== */
+
+/* Hamburger Menu Button (Hidden on Desktop) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--warm-brown);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation (when open) */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(93, 78, 55, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Menu Drawer */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--cream-bg);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+    padding: 25px 20px;
+    background: linear-gradient(135deg, var(--warm-brown) 0%, var(--medium-brown) 100%);
+    color: white;
+    text-align: center;
+}
+
+.mobile-menu-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.mobile-menu-header p {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+}
+
+/* Mobile Menu Links */
+.mobile-menu-links {
+    padding: 15px 0;
+}
+
+.mobile-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 25px;
+    color: var(--warm-brown);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.08);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:active {
+    background: var(--beige-bg);
+    padding-left: 30px;
+    color: var(--medium-brown);
+}
+
+.mobile-menu-link span {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+/* Mobile Social Links */
+.mobile-menu-social {
+    padding: 25px 25px 35px;
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+    margin-top: auto;
+}
+
+.mobile-menu-social p {
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    color: var(--medium-brown);
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mobile-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.mobile-social-link {
+    color: var(--medium-brown);
+    transition: all 0.3s ease;
+    padding: 8px;
+}
+
+.mobile-social-link:hover {
+    color: var(--light-brown);
+    transform: scale(1.1);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* ========================================
+   HAMBURGER MENU RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Tablet and Below - Show Hamburger */
+@media (max-width: 968px) {
+    /* Hide desktop navigation */
+    .main-nav {
+        display: none !important;
+    }
+    
+    /* Show hamburger menu button */
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Adjust nav container for mobile */
+    .nav-container {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    
+    /* Simplify search icon on mobile */
+    .search-icon span {
+        display: none;
+    }
+    
+    .search-icon {
+        gap: 0;
+    }
+    
+    /* Adjust nav icons spacing */
+    .nav-icons {
+        gap: 12px;
+    }
+}
+
+/* Phone - Further Adjustments */
+@media (max-width: 640px) {
+    .hamburger-menu {
+        padding: 5px;
+    }
+    
+    .hamburger-menu span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    .mobile-menu {
+        width: 85%;
+        max-width: 280px;
+    }
+    
+    /* Hide some nav icons on very small screens */
+    .notification-icon,
+    .profile-icon {
+        font-size: 16px;
+    }
+    
+    .cart-icon {
+        font-size: 18px;
+    }
+    
+    .cart-count {
+        font-size: 9px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 380px) {
+    .mobile-menu {
+        width: 90%;
+    }
+    
+    .mobile-menu-link {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .mobile-menu-link span {
+        font-size: 18px;
+        width: 20px;
+    }
+}
+
+/* END OF STYLES */
