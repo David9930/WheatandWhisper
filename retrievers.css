@@ -1,19 +1,28 @@
 /*
- * File: retrievers.css
+ * File: retrievers.css - NEW STYLES TO ADD
  * Last Modified: 2025-01-16
  * Modified By: Claude (AI Assistant)
  * Changes: Added announcement banner, video toggle, gallery link styles
- * Previous Version: Backed up as retrievers-BACKUP-2025-01-16.css
+ * Instructions: ADD THESE STYLES TO THE END OF YOUR EXISTING retrievers.css FILE
+ * 
+ * IMPORTANT: Your .box-image should already have position: relative
+ * These styles assume video toggle and video container are INSIDE .box-image
  */
 
-/* [All existing retrievers.css styles remain... Adding new styles below] */
+/* ========================================
+   ENSURE .box-image HAS POSITION RELATIVE
+   ======================================== */
+
+.box-image {
+    position: relative; /* This should already exist in your CSS */
+}
 
 /* ========================================
    SPECIAL ANNOUNCEMENT BANNER (NEW!)
    ======================================== */
 
 .announcement-banner {
-    margin-top: 60px;
+    margin-top: 0;
     padding: 0;
     background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
     box-shadow: 0 4px 20px rgba(255, 165, 0, 0.3);
@@ -109,7 +118,7 @@
     padding: 8px 15px;
     border: none;
     background: transparent;
-    color: var(--warm-brown);
+    color: #8B6F47;
     font-family: 'Lora', serif;
     font-size: 0.9rem;
     cursor: pointer;
@@ -119,19 +128,23 @@
 }
 
 .toggle-btn:hover {
-    background: var(--beige-bg);
+    background: #FFFEF9;
 }
 
 .toggle-btn.active {
-    background: var(--warm-brown);
+    background: #8B6F47;
     color: white;
 }
 
+/* Video container positioning */
 .video-container {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     min-height: 400px;
+    z-index: 5;
 }
 
 .video-container iframe {
@@ -140,12 +153,13 @@
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 8px;
 }
 
-/* Ensure video container matches image dimensions */
-.box-image-container {
+/* Ensure image stays visible when video is hidden */
+.box-image img {
     position: relative;
-    min-height: 400px;
+    z-index: 1;
 }
 
 /* ========================================
@@ -154,7 +168,7 @@
 
 .gallery-link-section {
     padding: 60px 40px;
-    background: linear-gradient(135deg, var(--beige-bg) 0%, var(--cream-bg) 100%);
+    background: linear-gradient(135deg, #FFFEF9 0%, #FFF8E7 100%);
     border-top: 2px solid rgba(139, 111, 71, 0.2);
     border-bottom: 2px solid rgba(139, 111, 71, 0.2);
 }
@@ -190,21 +204,21 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.5rem;
     font-weight: 500;
-    color: var(--warm-brown);
+    color: #8B6F47;
     margin-bottom: 15px;
 }
 
 .gallery-description {
     font-family: 'Lora', serif;
     font-size: 1.1rem;
-    color: var(--medium-brown);
+    color: #5D4E37;
     margin-bottom: 25px;
 }
 
 .gallery-button {
     display: inline-block;
     padding: 15px 40px;
-    background: linear-gradient(135deg, var(--medium-brown) 0%, var(--warm-brown) 100%);
+    background: linear-gradient(135deg, #5D4E37 0%, #8B6F47 100%);
     color: white;
     text-decoration: none;
     font-family: 'Crimson Text', serif;
@@ -289,11 +303,13 @@
         font-size: 0.95rem;
     }
     
+    /* Move toggle below image on mobile */
     .media-toggle {
         position: static;
         width: 100%;
         justify-content: center;
         margin-bottom: 10px;
+        order: -1; /* Puts it before the image */
     }
     
     .toggle-btn {
@@ -337,4 +353,4 @@
     }
 }
 
-/* END OF NEW STYLES */
+/* END OF NEW STYLES - Add these to your existing retrievers.css */
