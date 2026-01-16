@@ -1,0 +1,739 @@
+/* Wheat and Whisper Farm - Farmette Life Page */
+/* Updated with Hamburger Menu System from about.css */
+
+/* Color Palette */
+:root {
+    --cream-bg: #FFFEF9;
+    --beige-bg: #F5F3ED;
+    --warm-brown: #5D4E37;
+    --medium-brown: #8B6F47;
+    --light-brown: #C9A66B;
+    --gold-accent: #D4AF37;
+    --white: #FFFFFF;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: var(--cream-bg);
+    color: var(--warm-brown);
+    line-height: 1.6;
+}
+
+/* ========================================
+   TOP NAVIGATION
+   ======================================== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--medium-brown);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--medium-brown);
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--warm-brown);
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.notification-icon,
+.profile-icon,
+.cart-icon {
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--light-brown);
+    color: white;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================
+   MOBILE HAMBURGER MENU STYLES
+   (Integrated from about.css)
+   ======================================== */
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--warm-brown);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation (when open) */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(93, 78, 55, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Menu Drawer */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--cream-bg);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+    padding: 25px 20px;
+    background: linear-gradient(135deg, var(--warm-brown) 0%, var(--medium-brown) 100%);
+    color: white;
+    text-align: center;
+}
+
+.mobile-menu-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.mobile-menu-header p {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+}
+
+/* Mobile Menu Links */
+.mobile-menu-links {
+    padding: 15px 0;
+}
+
+.mobile-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 25px;
+    color: var(--warm-brown);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.08);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:active {
+    background: var(--beige-bg);
+    padding-left: 30px;
+    color: var(--medium-brown);
+}
+
+.mobile-menu-link span {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* ========================================
+   PAGE CONTENT STYLES
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.page-header {
+    margin-top: 60px;
+    padding: 100px 40px 80px;
+    background: var(--cream-bg);
+    text-align: center;
+}
+
+.page-title {
+    font-family: 'Allura', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.page-description {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--warm-brown);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-style: italic;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.social-link {
+    color: var(--medium-brown);
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+    opacity: 0.6;
+}
+
+.content-section {
+    padding: 80px 0;
+}
+
+.section-emotions {
+    background: var(--cream-bg);
+}
+
+.section-vision {
+    background: var(--beige-bg);
+}
+
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.two-column-layout.reverse .image-column {
+    order: 2;
+}
+
+.two-column-layout.reverse .text-column {
+    order: 1;
+}
+
+.column {
+    width: 100%;
+}
+
+.image-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.text-column {
+    padding: 20px;
+}
+
+.section-title {
+    font-family: 'Allura', cursive;
+    font-size: 3.5rem;
+    color: var(--medium-brown);
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.section-text {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--warm-brown);
+}
+
+.section-text p {
+    margin-bottom: 20px;
+}
+
+.section-text p:last-child {
+    margin-bottom: 0;
+}
+
+.quote-text {
+    font-style: italic;
+    color: var(--medium-brown);
+    padding-left: 20px;
+    border-left: 3px solid var(--light-brown);
+}
+
+/* ========================================
+   COMMENTS SECTION
+   ======================================== */
+
+.comments-section {
+    padding: 80px 0;
+    background: var(--cream-bg);
+}
+
+.comments-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.comments-title {
+    font-family: 'Allura', cursive;
+    font-size: 3.5rem;
+    color: var(--medium-brown);
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.comments-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--medium-brown);
+    text-align: center;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+.comment-form {
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(93, 78, 55, 0.08);
+    margin-bottom: 60px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    color: var(--warm-brown);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    padding: 15px;
+    border: 1px solid var(--medium-brown);
+    background: var(--beige-bg);
+    color: var(--warm-brown);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--light-brown);
+    box-shadow: 0 0 0 3px rgba(201, 166, 107, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+    line-height: 1.6;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--medium-brown);
+    opacity: 0.6;
+}
+
+.moderation-note {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--medium-brown);
+    font-style: italic;
+    text-align: center;
+    margin: 25px 0;
+    padding: 15px;
+    background: var(--beige-bg);
+    border-radius: 4px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 18px 40px;
+    background: var(--light-brown);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.submit-button:hover {
+    background: var(--warm-brown);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 78, 55, 0.3);
+}
+
+.approved-comments {
+    margin-top: 60px;
+}
+
+.approved-comments-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--warm-brown);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.no-comments {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: var(--medium-brown);
+    text-align: center;
+    padding: 40px;
+    background: var(--beige-bg);
+    border-radius: 8px;
+    font-style: italic;
+}
+
+.comment {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(93, 78, 55, 0.06);
+    border-left: 4px solid var(--light-brown);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.comment-author {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--warm-brown);
+}
+
+.comment-date {
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    color: var(--medium-brown);
+    font-style: italic;
+}
+
+.comment-text {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--warm-brown);
+}
+
+/* ========================================
+   NEWSLETTER & FOOTER
+   ======================================== */
+
+.newsletter-section {
+    padding: 80px 0;
+    background: var(--beige-bg);
+}
+
+.newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--medium-brown);
+    background: var(--cream-bg);
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    color: var(--warm-brown);
+    border-radius: 4px;
+}
+
+.newsletter-button {
+    align-self: center;
+    padding: 15px 60px;
+    background: var(--light-brown);
+    color: white;
+    border: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 4px;
+}
+
+.newsletter-button:hover {
+    background: var(--warm-brown);
+}
+
+.footer {
+    padding: 60px 40px;
+    background: var(--beige-bg);
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-link {
+    background: transparent;
+    border: 1px solid var(--medium-brown);
+    padding: 12px 30px;
+    color: var(--medium-brown);
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    background: var(--medium-brown);
+    color: white;
+}
+
+.footer-credit {
+    font-size: 12px;
+    color: var(--medium-brown);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 968px) {
+    .page-title {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .two-column-layout.reverse .image-column,
+    .two-column-layout.reverse .text-column {
+        order: initial;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .comment-form {
+        padding: 30px;
+    }
+
+    /* Show Hamburger Menu */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Hide standard Desktop Nav Links */
+    .main-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .page-header {
+        padding: 80px 20px 60px;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hamburger-menu {
+        padding: 5px;
+    }
+    
+    .hamburger-menu span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    .mobile-menu {
+        width: 85%;
+        max-width: 280px;
+    }
+}
+
+/* Success Message */
+.success-message {
+    background: #E8F5E9;
+    color: #2E7D32;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Lora', serif;
+    margin-top: 20px;
+    display: none;
+}
+
+.success-message.show {
+    display: block;
+}
+
+/* END OF STYLES */
