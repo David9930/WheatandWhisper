@@ -1,0 +1,597 @@
+/*
+ * File: retrievers.css
+ * Created: 2025-01-16
+ * Created By: Claude (AI Assistant)
+ * Purpose: Styling for Golden Retrievers page with alternating content boxes
+ * Previous Version: N/A (new file)
+ */
+
+/* ========================================
+   GOLDEN RETRIEVERS PAGE STYLES
+   ======================================== */
+
+/* Hero Section */
+.retrievers-hero {
+    margin-top: 60px;
+    padding: 100px 40px;
+    background: linear-gradient(135deg, var(--beige-bg) 0%, var(--cream-bg) 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: 'Allura', cursive;
+    font-size: 4.5rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--medium-brown);
+    opacity: 0.9;
+}
+
+/* Content Section */
+.retrievers-content {
+    background: var(--cream-bg);
+    padding: 0;
+}
+
+.content-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Content Box (Alternating Layout) */
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+/* Image Section */
+.box-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.retriever-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.content-box:hover .retriever-image {
+    transform: scale(1.05);
+}
+
+/* Text Section */
+.box-text {
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream-bg);
+}
+
+.box-title {
+    font-family: 'Allura', cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--warm-brown);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.box-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--medium-brown);
+    margin-bottom: 25px;
+    opacity: 0.95;
+}
+
+.box-body {
+    margin-bottom: 30px;
+}
+
+.box-body p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--warm-brown);
+    margin-bottom: 15px;
+}
+
+.box-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.box-body ul li {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--warm-brown);
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.box-body ul li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--warm-brown);
+    font-weight: 400;
+}
+
+.box-contact {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--medium-brown);
+    padding-top: 20px;
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.box-contact p {
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: var(--medium-brown);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--light-brown);
+    transform: translateY(-2px);
+}
+
+/* Alternating Layouts */
+.box-image-left {
+    grid-template-columns: 1fr 1fr;
+}
+
+.box-image-left .box-image {
+    order: 1;
+}
+
+.box-image-left .box-text {
+    order: 2;
+}
+
+.box-image-right {
+    grid-template-columns: 1fr 1fr;
+}
+
+.box-image-right .box-text {
+    order: 1;
+}
+
+.box-image-right .box-image {
+    order: 2;
+}
+
+/* Adoption CTA Section */
+.adoption-cta {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, var(--medium-brown) 0%, var(--warm-brown) 100%);
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.cta-text {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 50px;
+    background: white;
+    color: var(--warm-brown);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background: var(--light-brown);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   MOBILE HAMBURGER MENU STYLES
+   ======================================== */
+
+/* Hamburger Menu Button (Hidden on Desktop) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--warm-brown);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation (when open) */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(93, 78, 55, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Menu Drawer */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--cream-bg);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+    padding: 25px 20px;
+    background: linear-gradient(135deg, var(--warm-brown) 0%, var(--medium-brown) 100%);
+    color: white;
+    text-align: center;
+}
+
+.mobile-menu-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.mobile-menu-header p {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+}
+
+/* Mobile Menu Links */
+.mobile-menu-links {
+    padding: 15px 0;
+}
+
+.mobile-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 25px;
+    color: var(--warm-brown);
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.08);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:active {
+    background: var(--beige-bg);
+    padding-left: 30px;
+    color: var(--medium-brown);
+}
+
+.mobile-menu-link span {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+/* Mobile Social Links */
+.mobile-menu-social {
+    padding: 25px 25px 35px;
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+    margin-top: auto;
+}
+
+.mobile-menu-social p {
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    color: var(--medium-brown);
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mobile-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.mobile-social-link {
+    color: var(--medium-brown);
+    transition: all 0.3s ease;
+    padding: 8px;
+}
+
+.mobile-social-link:hover {
+    color: var(--light-brown);
+    transform: scale(1.1);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .box-text {
+        padding: 50px 60px;
+    }
+    
+    .box-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 968px) {
+    /* Hero */
+    .retrievers-hero {
+        padding: 70px 30px;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Content Boxes - Stack Vertically */
+    .content-box {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .box-image-left,
+    .box-image-right {
+        grid-template-columns: 1fr;
+    }
+    
+    .box-image-left .box-image,
+    .box-image-right .box-image {
+        order: 1;
+        height: 350px;
+    }
+    
+    .box-image-left .box-text,
+    .box-image-right .box-text {
+        order: 2;
+    }
+    
+    .box-text {
+        padding: 40px 30px;
+    }
+    
+    .box-title {
+        font-size: 2.25rem;
+    }
+    
+    .box-subtitle {
+        font-size: 1rem;
+    }
+    
+    .box-body p,
+    .box-body ul li {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+    
+    /* CTA */
+    .adoption-cta {
+        padding: 70px 30px;
+    }
+    
+    .cta-title {
+        font-size: 2.25rem;
+    }
+    
+    .cta-text {
+        font-size: 1.05rem;
+    }
+    
+    /* Show Hamburger Menu */
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Hero */
+    .retrievers-hero {
+        padding: 50px 20px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Content Boxes */
+    .box-image {
+        height: 280px;
+    }
+    
+    .box-text {
+        padding: 30px 20px;
+    }
+    
+    .box-title {
+        font-size: 2rem;
+    }
+    
+    .box-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .box-body p,
+    .box-body ul li {
+        font-size: 0.95rem;
+    }
+    
+    .box-contact {
+        font-size: 0.9rem;
+    }
+    
+    /* CTA */
+    .adoption-cta {
+        padding: 60px 20px;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta-text {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 15px 40px;
+        font-size: 1rem;
+    }
+    
+    /* Hamburger Menu */
+    .hamburger-menu {
+        padding: 5px;
+    }
+    
+    .hamburger-menu span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    .mobile-menu {
+        width: 85%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 380px) {
+    .mobile-menu {
+        width: 90%;
+    }
+    
+    .mobile-menu-link {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .mobile-menu-link span {
+        font-size: 18px;
+        width: 20px;
+    }
+}
+
+/* END OF STYLES */
