@@ -1,9 +1,9 @@
 <!--
   File: animals.html
-  Last Modified: 2025-01-15
+  Last Modified: 2025-01-16
   Modified By: Claude (AI Assistant)
-  Changes: Added hamburger menu navigation for mobile
-  Previous Version: animals.html (without hamburger menu)
+  Changes: Added hamburger-menu.css reference, removed duplicate script tags, cleaned up structure
+  Previous Version: Backed up as animals-BACKUP-2025-01-16.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +11,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet the Animals - Wheat and Whisper Farm</title>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="animals.css">
+    <link rel="stylesheet" href="hamburger-menu.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Added Allura font for script title -->
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -36,6 +42,7 @@
                 <span>Search</span>
             </div>
             
+            <!-- Desktop Navigation -->
             <div class="main-nav">
                 <a href="index.html" class="nav-link">HOME</a>
                 <a href="about.html" class="nav-link">About</a>
@@ -52,13 +59,13 @@
         </div>
     </nav>
 
-    <!-- Page Header - Matching Paige's Design -->
+    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1 class="page-title">Meet the animals</h1>
             <p class="page-subtitle">Trusting Temperament in Every Turn</p>
             
-            <!-- Intro Text (from Paige's Wix) -->
+            <!-- Intro Text -->
             <div class="intro-text">
                 <p>Here at Wheat and Whisper farm every animal has a story, a story that matters, a life given by God. Our animals are the cornerstone of our farmette.</p>
             </div>
@@ -68,7 +75,7 @@
                 <p>We euphemize main cares for the needs of his animals <em>(Isaiah 40:11)</em></p>
             </div>
             
-            <!-- Social Icons (centered like Paige's) -->
+            <!-- Social Icons -->
             <div class="social-icons-header">
                 <a href="#" aria-label="Facebook">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -80,7 +87,7 @@
         </div>
     </section>
 
-    <!-- Hero Image Section (Large barn photo) -->
+    <!-- Hero Image Section -->
     <section class="hero-image-section">
         <img src="images/uploads/title-photo.jpg" alt="Paige with animals in barn" class="hero-image">
     </section>
@@ -98,12 +105,10 @@
     <!-- Animals Grid Section -->
     <section class="animals-section">
         <div class="container">
-            <!-- Section Title in Script Font -->
             <h2 class="section-title-script">Meet The Animals</h2>
             
             <div id="animals-grid" class="animals-grid">
-                <!-- Animals will be loaded here by JavaScript -->
-                <!-- Each card will have photo/video toggle button + social icons -->
+                <!-- Animals loaded by JavaScript -->
             </div>
         </div>
     </section>
@@ -144,32 +149,25 @@
         
         <div class="mobile-menu-links">
             <a href="index.html" class="mobile-menu-link">
-                <span>🏡</span>
-                Home
+                <span>🏡</span> Home
             </a>
             <a href="about.html" class="mobile-menu-link">
-                <span>📖</span>
-                Our Story
+                <span>📖</span> Our Story
             </a>
             <a href="animals.html" class="mobile-menu-link">
-                <span>🐴</span>
-                Meet the Animals
+                <span>🐴</span> Meet the Animals
             </a>
             <a href="farmette.html" class="mobile-menu-link">
-                <span>🌾</span>
-                Farmette Life
+                <span>🌾</span> Farmette Life
             </a>
             <a href="nubians.html" class="mobile-menu-link">
-                <span>🐐</span>
-                Mini Nubians
+                <span>🐐</span> Mini Nubians
             </a>
             <a href="retrievers.html" class="mobile-menu-link">
-                <span>🐕</span>
-                Golden Retrievers
+                <span>🐕</span> Golden Retrievers
             </a>
             <a href="products.html" class="mobile-menu-link">
-                <span>✨</span>
-                Handcrafted Treasures
+                <span>✨</span> Handcrafted Treasures
             </a>
         </div>
         
@@ -192,11 +190,10 @@
         </div>
     </nav>
 
+    <!-- JavaScript - Clean, No Duplicates -->
     <script src="animals.js"></script>
     <script src="animals-settings-loader.js"></script>
     <script src="animals-content-loader.js"></script>
     <script src="mobile-menu.js"></script>
- <script src="animals.js"></script>
- <script src="mobile-menu.js"></script>
 </body>
 </html>
