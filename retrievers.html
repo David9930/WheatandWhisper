@@ -2,7 +2,7 @@
   File: retrievers.html
   Last Modified: 2025-01-16
   Modified By: Claude (AI Assistant)
-  Changes: Added announcement banner, YouTube video toggles, photo gallery link
+  Changes: Added announcement banner, YouTube video toggles, photo gallery link (preserving original structure)
   Previous Version: Backed up as retrievers-BACKUP-2025-01-16.html
 -->
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Retrievers - Sovereignty Grace | Wheat and Whisper Farm</title>
+    <title>Sovereignty Grace Golden Retrievers - Wheat and Whisper Farm</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="retrievers.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,7 @@
     <!-- Top Navigation Bar -->
     <nav class="top-nav">
         <div class="nav-container">
+            <!-- Hamburger Menu Button (Mobile Only) -->
             <button class="hamburger-menu" id="hamburgerBtn" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -52,14 +53,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="retrievers-hero">
         <div class="hero-content">
-            <h1 class="hero-title" id="heroTitle">Sovereignty Grace Golden Retrievers</h1>
-            <p class="hero-subtitle" id="heroSubtitle">Where Faith, Love, and Excellence Meet</p>
+            <h1 class="hero-title">Sovereignty Grace Golden Retrievers</h1>
+            <p class="hero-subtitle">how we raise our golden babies</p>
         </div>
     </section>
 
-    <!-- SPECIAL ANNOUNCEMENT BANNER (NEW!) -->
+    <!-- ========== NEW FEATURE #1: SPECIAL ANNOUNCEMENT BANNER ========== -->
     <section class="announcement-banner" id="announcementBanner" style="display: none;">
         <div class="announcement-container">
             <div class="announcement-icon">🐕</div>
@@ -70,139 +71,168 @@
             <div class="announcement-icon">🐕</div>
         </div>
     </section>
+    <!-- ========== END NEW FEATURE #1 ========== -->
 
     <!-- Content Boxes Section -->
-    <section class="content-section">
-        <!-- Box 1 (Image Left) -->
-        <div class="content-box box-image-left">
-            <div class="box-image-container">
-                <!-- Photo/Video Toggle (NEW!) -->
-                <div class="media-toggle" id="box1Toggle" style="display: none;">
-                    <button class="toggle-btn active" data-type="photo">📷 Photo</button>
-                    <button class="toggle-btn" data-type="video">🎥 Video</button>
+    <section class="retrievers-content">
+        <div class="content-container">
+            
+            <!-- Box 1 - Image LEFT, Text RIGHT -->
+            <div class="content-box box-image-left">
+                <div class="box-image">
+                    <!-- ========== NEW FEATURE #2: VIDEO TOGGLE ========== -->
+                    <div class="media-toggle" id="box1Toggle" style="display: none;">
+                        <button class="toggle-btn active" data-type="photo">📷 Photo</button>
+                        <button class="toggle-btn" data-type="video">🎥 Video</button>
+                    </div>
+                    
+                    <img src="images/uploads/box-1-image.jpg" alt="Golden Retriever" class="retriever-image" id="box1Image">
+                    
+                    <div class="video-container" id="box1VideoContainer" style="display: none;">
+                        <iframe id="box1Video" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <!-- ========== END NEW FEATURE #2 ========== -->
                 </div>
-                
-                <img src="images/uploads/box-1-image.jpg" alt="Golden Retriever" class="box-image" id="box1Image">
-                
-                <!-- Video Container (NEW!) -->
-                <div class="video-container" id="box1VideoContainer" style="display: none;">
-                    <iframe id="box1Video" 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
+                <div class="box-text">
+                    <h2 class="box-title">Welcome</h2>
+                    <p class="box-subtitle">Keeping life golden</p>
+                    <div class="box-body">
+                        <p>We are a family in love with golden retrievers and we breed high quality, fully health tested, AKC Goldens. All of our dogs are fully registered, have all of their OFAs, and full genetic panels. We are also proud members of the Golden Retriever Club of America.</p>
+                    </div>
+                    <div class="box-contact">
+                        <p>484-354-5866 || Paige.grauch@gmail.com</p>
+                    </div>
                 </div>
             </div>
-            <div class="box-text">
-                <h2 class="box-title" id="box1Title">Our Breeding Philosophy</h2>
-                <h3 class="box-subtitle" id="box1Subtitle">Excellence in Every Generation</h3>
-                <div class="box-body" id="box1Body">
-                    <p>At Sovereignty Grace, we're committed to breeding Golden Retrievers that exemplify the best of the breed—healthy, sound temperaments, and beautiful conformation.</p>
-                </div>
-                <div class="box-contact" id="box1Contact"></div>
-            </div>
-        </div>
 
-        <!-- Box 2 (Image Right) -->
-        <div class="content-box box-image-right">
-            <div class="box-text">
-                <h2 class="box-title" id="box2Title">Health & Genetics</h2>
-                <h3 class="box-subtitle" id="box2Subtitle">Clearances You Can Trust</h3>
-                <div class="box-body" id="box2Body">
-                    <p>All our breeding dogs have full health clearances including hips, elbows, eyes, and heart certifications from OFA.</p>
+            <!-- Box 2 - Image RIGHT, Text LEFT -->
+            <div class="content-box box-image-right">
+                <div class="box-text">
+                    <h2 class="box-title">Certifications and Testing</h2>
+                    <p class="box-subtitle">responsible breeding is everything:</p>
+                    <div class="box-body">
+                        <ul>
+                            <li>full genetic panel</li>
+                            <li>echocardiogram</li>
+                            <li>hip and elbow x-rays</li>
+                            <li>annual eye evaluations</li>
+                            <li>veterinary exams</li>
+                            <li>AKC registrations</li>
+                        </ul>
+                    </div>
+                    <div class="box-contact">
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                            <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="box-contact" id="box2Contact"></div>
+                <div class="box-image">
+                    <!-- ========== NEW FEATURE #2: VIDEO TOGGLE ========== -->
+                    <div class="media-toggle" id="box2Toggle" style="display: none;">
+                        <button class="toggle-btn active" data-type="photo">📷 Photo</button>
+                        <button class="toggle-btn" data-type="video">🎥 Video</button>
+                    </div>
+                    
+                    <img src="images/uploads/box-2-image.jpg" alt="Golden Retriever" class="retriever-image" id="box2Image">
+                    
+                    <div class="video-container" id="box2VideoContainer" style="display: none;">
+                        <iframe id="box2Video" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <!-- ========== END NEW FEATURE #2 ========== -->
+                </div>
             </div>
-            <div class="box-image-container">
-                <!-- Photo/Video Toggle (NEW!) -->
-                <div class="media-toggle" id="box2Toggle" style="display: none;">
-                    <button class="toggle-btn active" data-type="photo">📷 Photo</button>
-                    <button class="toggle-btn" data-type="video">🎥 Video</button>
-                </div>
-                
-                <img src="images/uploads/box-2-image.jpg" alt="Golden Retriever" class="box-image" id="box2Image">
-                
-                <!-- Video Container (NEW!) -->
-                <div class="video-container" id="box2VideoContainer" style="display: none;">
-                    <iframe id="box2Video" 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
 
-        <!-- Box 3 (Image Left) -->
-        <div class="content-box box-image-left">
-            <div class="box-image-container">
-                <!-- Photo/Video Toggle (NEW!) -->
-                <div class="media-toggle" id="box3Toggle" style="display: none;">
-                    <button class="toggle-btn active" data-type="photo">📷 Photo</button>
-                    <button class="toggle-btn" data-type="video">🎥 Video</button>
+            <!-- Box 3 - Image LEFT, Text RIGHT -->
+            <div class="content-box box-image-left">
+                <div class="box-image">
+                    <!-- ========== NEW FEATURE #2: VIDEO TOGGLE ========== -->
+                    <div class="media-toggle" id="box3Toggle" style="display: none;">
+                        <button class="toggle-btn active" data-type="photo">📷 Photo</button>
+                        <button class="toggle-btn" data-type="video">🎥 Video</button>
+                    </div>
+                    
+                    <img src="images/uploads/box-3-image.jpg" alt="Golden Retriever" class="retriever-image" id="box3Image">
+                    
+                    <div class="video-container" id="box3VideoContainer" style="display: none;">
+                        <iframe id="box3Video" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <!-- ========== END NEW FEATURE #2 ========== -->
                 </div>
-                
-                <img src="images/uploads/box-3-image.jpg" alt="Golden Retriever" class="box-image" id="box3Image">
-                
-                <!-- Video Container (NEW!) -->
-                <div class="video-container" id="box3VideoContainer" style="display: none;">
-                    <iframe id="box3Video" 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
+                <div class="box-text">
+                    <h2 class="box-title">Our Breeding Program</h2>
+                    <p class="box-subtitle">Quality over quantity</p>
+                    <div class="box-body">
+                        <p>We focus on breeding healthy, well-tempered Golden Retrievers that make perfect family companions. Each puppy is raised in our home with love and care, ensuring they're well-socialized and ready for their forever families.</p>
+                    </div>
+                    <div class="box-contact">
+                        <p>484-354-5866 || Paige.grauch@gmail.com</p>
+                    </div>
                 </div>
             </div>
-            <div class="box-text">
-                <h2 class="box-title" id="box3Title">Puppy Raising</h2>
-                <h3 class="box-subtitle" id="box3Subtitle">The First Eight Weeks</h3>
-                <div class="box-body" id="box3Body">
-                    <p>Our puppies are raised in our home with early neurological stimulation, socialization, and lots of love.</p>
-                </div>
-                <div class="box-contact" id="box3Contact"></div>
-            </div>
-        </div>
 
-        <!-- Box 4 (Image Right) -->
-        <div class="content-box box-image-right">
-            <div class="box-text">
-                <h2 class="box-title" id="box4Title">Finding Your Perfect Match</h2>
-                <h3 class="box-subtitle" id="box4Subtitle">Lifetime Support</h3>
-                <div class="box-body" id="box4Body">
-                    <p>We carefully match puppies to families based on temperament and lifestyle. We're here to support you for the life of your golden.</p>
+            <!-- Box 4 - Image RIGHT, Text LEFT -->
+            <div class="content-box box-image-right">
+                <div class="box-text">
+                    <h2 class="box-title">Puppy Care</h2>
+                    <p class="box-subtitle">From birth to forever home</p>
+                    <div class="box-body">
+                        <p>Our puppies receive:</p>
+                        <ul>
+                            <li>Veterinary health checks</li>
+                            <li>Age-appropriate vaccinations</li>
+                            <li>Deworming treatments</li>
+                            <li>Early socialization</li>
+                            <li>Microchipping</li>
+                            <li>AKC registration papers</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="box-contact" id="box4Contact"></div>
+                <div class="box-image">
+                    <!-- ========== NEW FEATURE #2: VIDEO TOGGLE ========== -->
+                    <div class="media-toggle" id="box4Toggle" style="display: none;">
+                        <button class="toggle-btn active" data-type="photo">📷 Photo</button>
+                        <button class="toggle-btn" data-type="video">🎥 Video</button>
+                    </div>
+                    
+                    <img src="images/uploads/box-4-image.jpg" alt="Golden Retriever" class="retriever-image" id="box4Image">
+                    
+                    <div class="video-container" id="box4VideoContainer" style="display: none;">
+                        <iframe id="box4Video" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <!-- ========== END NEW FEATURE #2 ========== -->
+                </div>
             </div>
-            <div class="box-image-container">
-                <!-- Photo/Video Toggle (NEW!) -->
-                <div class="media-toggle" id="box4Toggle" style="display: none;">
-                    <button class="toggle-btn active" data-type="photo">📷 Photo</button>
-                    <button class="toggle-btn" data-type="video">🎥 Video</button>
-                </div>
-                
-                <img src="images/uploads/box-4-image.jpg" alt="Golden Retriever" class="box-image" id="box4Image">
-                
-                <!-- Video Container (NEW!) -->
-                <div class="video-container" id="box4VideoContainer" style="display: none;">
-                    <iframe id="box4Video" 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
+
         </div>
     </section>
 
-    <!-- PHOTO GALLERY LINK (NEW!) -->
+    <!-- ========== NEW FEATURE #3: PHOTO GALLERY LINK ========== -->
     <section class="gallery-link-section">
         <div class="gallery-link-container">
             <div class="gallery-icon">📸</div>
@@ -214,13 +244,14 @@
             <div class="gallery-icon">📸</div>
         </div>
     </section>
+    <!-- ========== END NEW FEATURE #3 ========== -->
 
-    <!-- Adoption CTA -->
+    <!-- Adoption Form CTA -->
     <section class="adoption-cta">
         <div class="cta-container">
-            <h2 class="cta-title" id="ctaTitle">Ready to Welcome a Golden into Your Home?</h2>
-            <p class="cta-text" id="ctaText">Start your journey to finding your perfect companion</p>
-            <a href="adoption-form.html" class="cta-button" id="ctaButton">Apply to Adopt a Puppy</a>
+            <h2 class="cta-title">Ready to Welcome a Golden into Your Family?</h2>
+            <p class="cta-text">Fill out our adoption application to get started on your journey with a Sovereignty Grace Golden Retriever.</p>
+            <a href="adoption-form.html" class="cta-button">Apply to Adopt a Puppy</a>
         </div>
     </section>
 
