@@ -1,0 +1,234 @@
+/*
+ * File: hamburger-menu.css
+ * Created: 2025-01-16
+ * Purpose: Standalone styles for mobile hamburger menu navigation
+ * Used by: All pages (index.html, about.html, animals.html, farmette.html)
+ */
+
+/* ========== HAMBURGER BUTTON ========== */
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.05);
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #5D4E37; /* var(--warm-brown) */
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger Animation - X Shape When Active */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ========== MOBILE MENU OVERLAY ========== */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========== MOBILE MENU DRAWER ========== */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Hidden off-screen */
+    width: 280px;
+    height: 100%;
+    background: #FFFEF9; /* var(--cream-bg) */
+    z-index: 1000;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+    left: 0; /* Slide in */
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ========== MOBILE MENU HEADER ========== */
+.mobile-menu-header {
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #8B6F47 0%, #5D4E37 100%);
+    color: white;
+}
+
+.mobile-menu-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    margin: 0 0 5px 0;
+    font-weight: 500;
+}
+
+.mobile-menu-header p {
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* ========== MOBILE MENU LINKS ========== */
+.mobile-menu-links {
+    padding: 20px 0;
+}
+
+.mobile-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    color: #5D4E37; /* var(--warm-brown) */
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:focus {
+    background: #F5F3ED; /* var(--beige-bg) */
+    color: #8B6F47; /* var(--medium-brown) */
+}
+
+.mobile-menu-link span {
+    font-size: 1.3rem;
+    display: inline-block;
+}
+
+/* ========== MOBILE MENU SOCIAL ========== */
+.mobile-menu-social {
+    padding: 20px;
+    border-top: 1px solid #F5F3ED; /* var(--beige-bg) */
+    text-align: center;
+}
+
+.mobile-menu-social p {
+    font-family: 'Crimson Text', serif;
+    color: #8B6F47; /* var(--medium-brown) */
+    margin: 0 0 15px 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mobile-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.mobile-social-link {
+    color: #8B6F47; /* var(--medium-brown) */
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.mobile-social-link:hover,
+.mobile-social-link:focus {
+    color: #5D4E37; /* var(--warm-brown) */
+    transform: scale(1.1);
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* Show hamburger menu on tablets and mobile */
+@media (max-width: 968px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Hide desktop navigation */
+    .main-nav {
+        display: none !important;
+    }
+}
+
+/* Adjust menu width on small phones */
+@media (max-width: 640px) {
+    .mobile-menu {
+        width: 85%;
+        left: -85%;
+    }
+}
+
+/* Adjust menu width on very small phones */
+@media (max-width: 380px) {
+    .mobile-menu {
+        width: 90%;
+        left: -90%;
+    }
+}
+
+/* ========== ACCESSIBILITY ========== */
+
+/* Focus states for keyboard navigation */
+.hamburger-menu:focus {
+    outline: 2px solid #C9A66B; /* var(--light-brown) */
+    outline-offset: 2px;
+}
+
+.mobile-menu-link:focus {
+    outline: 2px solid #C9A66B;
+    outline-offset: -2px;
+}
+
+.mobile-social-link:focus {
+    outline: 2px solid #C9A66B;
+    outline-offset: 2px;
+}
+
+/* Smooth scrolling when menu links are clicked */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .hamburger-menu,
+    .mobile-menu-overlay,
+    .mobile-menu {
+        display: none !important;
+    }
+}
