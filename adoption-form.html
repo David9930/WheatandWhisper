@@ -1,0 +1,742 @@
+<!--
+  File: adoption-form.html
+  Created: 2025-01-16
+  Created By: Claude (AI Assistant)
+  Purpose: Comprehensive puppy adoption application form for Sovereignty Grace Golden Retrievers
+  Based on: Research from GRCA, reputable breeders, and rescue organizations
+  Previous Version: N/A (new file)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppy Adoption Application - Sovereignty Grace Golden Retrievers</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="adoption-form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Parisienne&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-menu" id="hamburgerBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Search</span>
+            </div>
+            
+            <div class="main-nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="animals.html" class="nav-link">Meet the Animals</a>
+                <a href="farmette.html" class="nav-link">Farmette Life</a>
+                <a href="#more" class="nav-link">More...</a>
+            </div>
+            
+            <div class="nav-icons">
+                <div class="notification-icon">🔔</div>
+                <div class="profile-icon">👤</div>
+                <div class="cart-icon">🛒<span class="cart-count">0</span></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Header -->
+    <section class="form-header">
+        <div class="container">
+            <h1 class="form-title">Puppy Adoption Application</h1>
+            <p class="form-subtitle">Sovereignty Grace Golden Retrievers</p>
+            <p class="form-intro">Thank you for your interest in welcoming one of our golden babies into your home! This application helps us ensure the best match between puppies and families. Please answer all questions thoroughly and honestly.</p>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="form-section">
+        <div class="container">
+            <form id="adoptionForm" class="adoption-form">
+                
+                <!-- SECTION 1: APPLICANT INFORMATION -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Applicant Information</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="address">Street Address <span class="required">*</span></label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="city">City <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="state">State <span class="required">*</span></label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="zip">ZIP Code <span class="required">*</span></label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="referralSource">How did you hear about Sovereignty Grace Golden Retrievers?</label>
+                        <select id="referralSource" name="referralSource">
+                            <option value="">Please select...</option>
+                            <option value="google">Google Search</option>
+                            <option value="social_media">Social Media (Instagram/Facebook)</option>
+                            <option value="grca">Golden Retriever Club of America</option>
+                            <option value="friend">Friend/Family Referral</option>
+                            <option value="vet">Veterinarian Recommendation</option>
+                            <option value="previous_customer">Previous Customer</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: HOME ENVIRONMENT -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Home Environment</h2>
+                    
+                    <div class="form-field">
+                        <label>Do you own or rent your home? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="homeOwnership" value="own" required>
+                                <span>Own</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="homeOwnership" value="rent">
+                                <span>Rent</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-field" id="landlordField" style="display: none;">
+                        <label for="landlordContact">Landlord Name and Contact Information</label>
+                        <textarea id="landlordContact" name="landlordContact" rows="3" placeholder="Please provide landlord's name, phone, and email. We will need written permission for a large dog."></textarea>
+                        <p class="field-note">Note: Written permission from landlord required for approval</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="homeType">Type of Home <span class="required">*</span></label>
+                        <select id="homeType" name="homeType" required>
+                            <option value="">Please select...</option>
+                            <option value="single_family_house">Single Family House</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="condo">Condo/Apartment</option>
+                            <option value="farm_rural">Farm/Rural Property</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Do you have a fenced yard? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="fencedYard" value="yes_physical" required>
+                                <span>Yes - Physical Fence</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="fencedYard" value="yes_invisible">
+                                <span>Yes - Invisible/Electric Fence</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="fencedYard" value="no">
+                                <span>No Fence</span>
+                            </label>
+                        </div>
+                        <p class="field-note">Note: Physical fence is strongly preferred for puppies</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="fenceHeight">Fence Height (if applicable)</label>
+                            <input type="text" id="fenceHeight" name="fenceHeight" placeholder="e.g., 6 feet">
+                        </div>
+                        <div class="form-field">
+                            <label for="yardSize">Approximate Yard Size</label>
+                            <input type="text" id="yardSize" name="yardSize" placeholder="e.g., 1/2 acre, 5000 sq ft">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: HOUSEHOLD COMPOSITION -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Household Members</h2>
+                    
+                    <div class="form-field">
+                        <label for="adults">Number of Adults in Household <span class="required">*</span></label>
+                        <input type="number" id="adults" name="adults" min="1" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="children">Number of Children in Household</label>
+                        <input type="number" id="children" name="children" min="0" value="0">
+                    </div>
+
+                    <div class="form-field" id="childrenAgesField" style="display: none;">
+                        <label for="childrenAges">Ages of Children</label>
+                        <input type="text" id="childrenAges" name="childrenAges" placeholder="e.g., 3, 7, 12">
+                        <p class="field-note">Children must be gentle and supervised with puppies</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="primaryCaregiver">Who will be the primary caregiver for the puppy? <span class="required">*</span></label>
+                        <input type="text" id="primaryCaregiver" name="primaryCaregiver" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Are all household members in agreement about getting a Golden Retriever puppy? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="householdAgreement" value="yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="householdAgreement" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: DOG EXPERIENCE & CURRENT PETS -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Dog Experience & Current Pets</h2>
+                    
+                    <div class="form-field">
+                        <label>Have you owned a dog before? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="previousDogOwner" value="yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="previousDogOwner" value="no">
+                                <span>No - This will be my first dog</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-field" id="previousDogsField" style="display: none;">
+                        <label for="previousDogs">Please list previous dogs (breed, how long owned, what happened to them)</label>
+                        <textarea id="previousDogs" name="previousDogs" rows="4" placeholder="Example: Golden Retriever, 12 years, passed away from old age; Labrador Retriever, 5 years, still in family"></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Do you currently have any pets? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="currentPets" value="yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="currentPets" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-field" id="currentPetsField" style="display: none;">
+                        <label for="currentPetsDetail">Current Pets (type, breed, age, spayed/neutered?)</label>
+                        <textarea id="currentPetsDetail" name="currentPetsDetail" rows="4" placeholder="Example: Dog - Golden Retriever, 5 years old, spayed; Cat - Domestic Shorthair, 3 years old, neutered"></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="vetName">Current/Most Recent Veterinarian Name <span class="required">*</span></label>
+                        <input type="text" id="vetName" name="vetName" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="vetPhone">Veterinarian Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="vetPhone" name="vetPhone" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="vetCity">Veterinarian City/State</label>
+                            <input type="text" id="vetCity" name="vetCity" placeholder="e.g., Philadelphia, PA">
+                        </div>
+                    </div>
+
+                    <p class="field-note">Note: We will contact your veterinarian to verify vaccination history and quality of care</p>
+                </div>
+
+                <!-- SECTION 5: LIFESTYLE & TIME COMMITMENT -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Lifestyle & Time Commitment</h2>
+                    
+                    <div class="form-field">
+                        <label for="workSchedule">What is your work schedule? <span class="required">*</span></label>
+                        <select id="workSchedule" name="workSchedule" required>
+                            <option value="">Please select...</option>
+                            <option value="work_from_home">Work from home full-time</option>
+                            <option value="part_time">Work part-time outside home</option>
+                            <option value="full_time">Work full-time outside home</option>
+                            <option value="retired">Retired</option>
+                            <option value="stay_at_home">Stay-at-home parent</option>
+                            <option value="other">Other (please explain below)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="hoursAlone">How many hours per day will the puppy be alone?</label>
+                        <input type="text" id="hoursAlone" name="hoursAlone" placeholder="e.g., 4-6 hours">
+                        <p class="field-note">Puppies require frequent attention, especially in the first 6 months</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="puppyLocation">Where will the puppy stay during the day? <span class="required">*</span></label>
+                        <textarea id="puppyLocation" name="puppyLocation" rows="3" required placeholder="e.g., In kitchen with baby gate, in crate when I'm at work, free roam of house"></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="sleepLocation">Where will the puppy sleep at night? <span class="required">*</span></label>
+                        <textarea id="sleepLocation" name="sleepLocation" rows="2" required placeholder="e.g., In crate in bedroom, on dog bed in bedroom, in kitchen"></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Do you plan to crate train your puppy? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="crateTrain" value="yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="crateTrain" value="no">
+                                <span>No</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="crateTrain" value="unsure">
+                                <span>Unsure / Need guidance</span>
+                            </label>
+                        </div>
+                        <p class="field-note">We strongly recommend crate training for housebreaking and safety</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="exercisePlan">How do you plan to exercise your Golden Retriever? <span class="required">*</span></label>
+                        <textarea id="exercisePlan" name="exercisePlan" rows="3" required placeholder="e.g., Daily walks, backyard play, dog park visits, hiking, swimming"></textarea>
+                        <p class="field-note">Goldens are active dogs requiring 1-2 hours of exercise daily</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="trainingPlan">What are your plans for training? <span class="required">*</span></label>
+                        <textarea id="trainingPlan" name="trainingPlan" rows="3" required placeholder="e.g., Puppy kindergarten classes, professional trainer, self-training with books/videos"></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="vacationPlan">What will you do with your puppy when you travel?</label>
+                        <textarea id="vacationPlan" name="vacationPlan" rows="3" placeholder="e.g., Board at kennel, pet sitter at home, take with us, family member cares for dog"></textarea>
+                    </div>
+                </div>
+
+                <!-- SECTION 6: UNDERSTANDING OF BREED -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Understanding of Golden Retrievers</h2>
+                    
+                    <div class="form-field">
+                        <label for="whyGolden">Why do you want a Golden Retriever specifically? <span class="required">*</span></label>
+                        <textarea id="whyGolden" name="whyGolden" rows="4" required placeholder="Tell us what draws you to this breed..."></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="idealDog">What qualities are you looking for in your ideal dog? <span class="required">*</span></label>
+                        <textarea id="idealDog" name="idealDog" rows="3" required placeholder="e.g., Family companion, friendly with kids, good with other pets, active hiking partner"></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="activityLevel">What activity/energy level do you want in a Golden Retriever?</label>
+                        <select id="activityLevel" name="activityLevel">
+                            <option value="">Please select...</option>
+                            <option value="high">High - Very active, sporty, working dog</option>
+                            <option value="medium">Medium - Active but can relax at home</option>
+                            <option value="low">Low - Calm, quiet, less demanding</option>
+                            <option value="flexible">Flexible - I can adapt to the puppy's personality</option>
+                        </select>
+                        <p class="field-note">Note: Puppies are placed on temperament, not color preference</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Are you aware that Golden Retrievers shed heavily year-round? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="sheddingAware" value="yes" required>
+                                <span>Yes, and I'm prepared for regular grooming</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="sheddingAware" value="no">
+                                <span>No, I didn't realize this</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="groomingPlan">How do you plan to handle grooming needs?</label>
+                        <textarea id="groomingPlan" name="groomingPlan" rows="2" placeholder="e.g., Brush daily at home, professional groomer every 6 weeks, combination of both"></textarea>
+                        <p class="field-note">Goldens require brushing 3-4 times per week minimum</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Do you understand this is a 10-15 year commitment? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="commitmentAware" value="yes" required>
+                                <span>Yes, I'm prepared for a lifetime commitment</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="commitmentAware" value="no">
+                                <span>No, I need to think about this more</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 7: FINANCIAL RESPONSIBILITY -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Financial Responsibility</h2>
+                    
+                    <div class="info-box">
+                        <p><strong>Estimated Annual Costs for a Golden Retriever:</strong></p>
+                        <ul>
+                            <li>Food & Treats: $800-1,500</li>
+                            <li>Routine Veterinary Care: $500-1,000</li>
+                            <li>Heartworm/Flea Prevention: $200-400</li>
+                            <li>Grooming: $300-800</li>
+                            <li>Training Classes: $300-600</li>
+                            <li>Toys, Supplies, Misc: $300-500</li>
+                            <li><strong>Total: $2,400-4,800 per year</strong></li>
+                            <li><strong>Emergency fund recommended: $2,000-5,000</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Are you financially prepared for the ongoing costs of owning a Golden Retriever? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="financiallyPrepared" value="yes" required>
+                                <span>Yes, I can comfortably afford these expenses</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="financiallyPrepared" value="maybe">
+                                <span>I think so, but it will be tight</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="financiallyPrepared" value="no">
+                                <span>No, I'm concerned about the costs</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Do you have an emergency fund or pet insurance plan for unexpected veterinary expenses? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="emergencyFund" value="yes_both" required>
+                                <span>Yes - both emergency fund and pet insurance</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="emergencyFund" value="yes_fund">
+                                <span>Yes - emergency fund only</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="emergencyFund" value="yes_insurance">
+                                <span>Yes - pet insurance only</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="emergencyFund" value="planning">
+                                <span>Not yet, but I plan to set one up</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="emergencyFund" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 8: PUPPY PREFERENCES -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Puppy Preferences</h2>
+                    
+                    <div class="form-field">
+                        <label for="genderPreference">Gender Preference</label>
+                        <select id="genderPreference" name="genderPreference">
+                            <option value="no_preference">No Preference (Flexible)</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <p class="field-note">Temperament is more important than gender for a family pet</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="colorPreference">Color Preference</label>
+                        <select id="colorPreference" name="colorPreference">
+                            <option value="no_preference">No Preference (Flexible)</option>
+                            <option value="light_cream">Light Cream/White</option>
+                            <option value="golden">Golden</option>
+                            <option value="dark_golden">Dark Golden/Red</option>
+                        </select>
+                        <p class="field-note">Note: We match based on temperament and family needs, not color</p>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="timeline">When are you hoping to bring a puppy home?</label>
+                        <input type="text" id="timeline" name="timeline" placeholder="e.g., Next available litter, Spring 2025, Summer 2025">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="specificLitter">Are you interested in a specific upcoming litter?</label>
+                        <textarea id="specificLitter" name="specificLitter" rows="2" placeholder="If you saw a litter announcement, please mention it here"></textarea>
+                    </div>
+                </div>
+
+                <!-- SECTION 9: REFERENCES -->
+                <div class="form-group-section">
+                    <h2 class="section-title">References</h2>
+                    
+                    <div class="form-field">
+                        <label for="personalRef1Name">Personal Reference #1 - Name <span class="required">*</span></label>
+                        <input type="text" id="personalRef1Name" name="personalRef1Name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="personalRef1Phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="personalRef1Phone" name="personalRef1Phone" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="personalRef1Relationship">Relationship <span class="required">*</span></label>
+                            <input type="text" id="personalRef1Relationship" name="personalRef1Relationship" placeholder="e.g., Friend, Colleague, Neighbor" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="personalRef2Name">Personal Reference #2 - Name</label>
+                        <input type="text" id="personalRef2Name" name="personalRef2Name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="personalRef2Phone">Phone Number</label>
+                            <input type="tel" id="personalRef2Phone" name="personalRef2Phone">
+                        </div>
+                        <div class="form-field">
+                            <label for="personalRef2Relationship">Relationship</label>
+                            <input type="text" id="personalRef2Relationship" name="personalRef2Relationship" placeholder="e.g., Friend, Colleague, Neighbor">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 10: ADDITIONAL INFORMATION -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Additional Information</h2>
+                    
+                    <div class="form-field">
+                        <label for="whyYouQuestion">Why should we choose you as a home for one of our puppies?</label>
+                        <textarea id="whyYouQuestion" name="whyYouQuestion" rows="5" placeholder="Tell us about your family, lifestyle, and why you'd be a great fit for a Sovereignty Grace puppy..."></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="questions">Do you have any questions for us?</label>
+                        <textarea id="questions" name="questions" rows="4" placeholder="Feel free to ask anything about our breeding program, puppies, or the adoption process..."></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="additionalInfo">Anything else you'd like us to know?</label>
+                        <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any additional information that would help us get to know you better..."></textarea>
+                    </div>
+                </div>
+
+                <!-- SECTION 11: AGREEMENTS -->
+                <div class="form-group-section">
+                    <h2 class="section-title">Agreements & Commitments</h2>
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement1" required>
+                            <span>I understand this is a lifetime commitment of 10-15 years <span class="required">*</span></span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement2" required>
+                            <span>I agree to keep the puppy current on all vaccinations and preventative care <span class="required">*</span></span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement3" required>
+                            <span>I agree to spay/neuter the puppy per the contract terms <span class="required">*</span></span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement4" required>
+                            <span>I understand that if I can no longer keep the dog for any reason, I must return it to Sovereignty Grace Golden Retrievers <span class="required">*</span></span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement5" required>
+                            <span>I agree to provide updates and photos to the breeder periodically <span class="required">*</span></span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement6" required>
+                            <span>I authorize Sovereignty Grace to contact my veterinarian and personal references <span class="required">*</span></span>
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement7" required>
+                            <span>I certify that all information provided in this application is true and accurate <span class="required">*</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- SUBMIT SECTION -->
+                <div class="form-submit-section">
+                    <p class="submit-note">Thank you for taking the time to complete this application! We carefully review each application to ensure the best match between our puppies and their forever families. We will contact you within 5-7 business days.</p>
+                    
+                    <button type="submit" class="submit-button" id="submitBtn">
+                        <span class="button-text">Submit Application</span>
+                        <span class="button-loading" style="display: none;">Submitting...</span>
+                    </button>
+
+                    <p class="privacy-note">Your information is kept confidential and will only be used for the puppy adoption process.</p>
+                </div>
+
+                <!-- Success/Error Messages -->
+                <div id="successMessage" class="message success-message" style="display: none;">
+                    <h3>✅ Application Submitted Successfully!</h3>
+                    <p>Thank you for your application! We've received your information and will review it carefully. You should receive a confirmation email shortly. We'll be in touch within 5-7 business days.</p>
+                </div>
+
+                <div id="errorMessage" class="message error-message" style="display: none;">
+                    <h3>❌ Submission Error</h3>
+                    <p>We're sorry, but there was an error submitting your application. Please try again or contact us directly at <a href="mailto:Paige.grauch@gmail.com">Paige.grauch@gmail.com</a></p>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <button class="footer-link">Site Rules & FAQ's</button>
+            
+            <div class="footer-social">
+                <a href="#" class="footer-social-link" aria-label="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="#" class="footer-social-link" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="footer-social-link" aria-label="Pinterest">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+                </a>
+                <a href="#" class="footer-social-link" aria-label="X/Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+            
+            <p class="footer-credit">© 2025 Wheat and Whisper. Powered by Uncle Burnie, computer Genius and a lot of LOVE!</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>🌾 Wheat and Whisper</h3>
+            <p>Wild and Washed in Grace</p>
+        </div>
+        
+        <nav class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link">
+                <span>🏡</span>
+                Home
+            </a>
+            <a href="about.html" class="mobile-menu-link">
+                <span>📖</span>
+                Our Story
+            </a>
+            <a href="animals.html" class="mobile-menu-link">
+                <span>🐴</span>
+                Meet the Animals
+            </a>
+            <a href="farmette.html" class="mobile-menu-link">
+                <span>🌾</span>
+                Farmette Life
+            </a>
+            <a href="nubians.html" class="mobile-menu-link">
+                <span>🐐</span>
+                Mini Nubians
+            </a>
+            <a href="retrievers.html" class="mobile-menu-link">
+                <span>🐕</span>
+                Golden Retrievers
+            </a>
+            <a href="products.html" class="mobile-menu-link">
+                <span>✨</span>
+                Handcrafted Treasures
+            </a>
+        </nav>
+        
+        <div class="mobile-menu-social">
+            <p>Follow Us</p>
+            <div class="mobile-social-icons">
+                <a href="#" class="mobile-social-link" aria-label="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="#" class="mobile-social-link" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="mobile-social-link" aria-label="Pinterest">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+                </a>
+                <a href="#" class="mobile-social-link" aria-label="X/Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="mobile-menu.js"></script>
+    <script src="adoption-form.js"></script>
+</body>
+</html>
