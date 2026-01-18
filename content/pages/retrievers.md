@@ -2,15 +2,17 @@
 hero:
   title: Sovereignty Grace Golden Retrievers
   subtitle: how we raise our golden babies
+announcement:
+  text: " New Litter Coming this Spring!!!!"
 box_1:
   image: images/uploads/box-1-image.jpg
   title: Welcome
   subtitle: Keeping life golden
   body: >
     We are a family in love with golden retrievers and we breed high quality,
-    fully health tested, AKC Goldens. All of our dogs are fully registered,
-    have all of their OFAs, and full genetic panels. We are also proud members
-    of the Golden Retriever Club of America.
+    fully health tested, AKC Goldens. All of our dogs are fully registered, have
+    all of their OFAs, and full genetic panels. We are also proud members of the
+    Golden Retriever Club of America.
   contact: 484-354-5866 || Paige.grauch@gmail.com
   show_social: false
 box_2:
@@ -42,7 +44,7 @@ box_4:
   subtitle: From birth to forever home
   body: |
     Our puppies receive:
-    
+
     - Veterinary health checks
     - Age-appropriate vaccinations
     - Deworming treatments
