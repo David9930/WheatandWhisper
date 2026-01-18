@@ -1,0 +1,469 @@
+<!--
+  File: retrievers-banner-variations.html
+  Created: 2025-01-18 15:45
+  Created By: Claude (AI Assistant)
+  Purpose: Show 3 banner design options for Golden Retrievers announcement
+  Notes: Copy the banner HTML you prefer into retrievers.html
+  
+  The three options:
+  1. ELEGANCE - Delicate divider style (minimal, understated)
+  2. HERITAGE - Vintage card style (refined, classic)
+  3. WHISPER - Accent bar style (subtle sidebar, very elegant)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Design Options - Wheat and Whisper</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Parisienne&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', serif;
+            background-color: #FFFEF9;
+            color: #5D4E37;
+            line-height: 1.6;
+        }
+        
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .header h1 {
+            font-family: 'Parisienne', cursive;
+            font-size: 3.5em;
+            color: #8B6F47;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            color: #8B6F47;
+            margin-bottom: 20px;
+        }
+        
+        .instructions {
+            background-color: #F5F1E8;
+            padding: 20px;
+            border-left: 4px solid #D4A574;
+            margin-bottom: 50px;
+            font-size: 0.95em;
+        }
+        
+        .option-section {
+            margin-bottom: 80px;
+            page-break-inside: avoid;
+        }
+        
+        .option-title {
+            font-family: 'Parisienne', cursive;
+            font-size: 2em;
+            color: #8B6F47;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .option-subtitle {
+            text-align: center;
+            font-size: 0.9em;
+            color: #6B5B4A;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .banner-preview {
+            background-color: white;
+            padding: 30px;
+            border: 1px solid #E8DFD5;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            background-color: #F5F1E8;
+            padding: 15px 20px;
+            border-left: 3px solid #D4A574;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        
+        /* ==================== */
+        /* OPTION 1: ELEGANCE */
+        /* ==================== */
+        
+        .banner-elegance {
+            padding: 25px 0;
+            border-top: 2px solid #D4A574;
+            border-bottom: 2px solid #D4A574;
+            text-align: center;
+        }
+        
+        .elegance-ornament {
+            font-family: 'Parisienne', cursive;
+            font-size: 1.8em;
+            color: #D4A574;
+            margin-bottom: 12px;
+        }
+        
+        .elegance-text {
+            font-family: 'Cormorant+Garamond', serif;
+            font-size: 1.6em;
+            color: #8B6F47;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .elegance-subtext {
+            font-family: 'Lora', serif;
+            font-size: 0.9em;
+            color: #8B6F47;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+        
+        /* ==================== */
+        /* OPTION 2: HERITAGE */
+        /* ==================== */
+        
+        .banner-heritage {
+            background: linear-gradient(to bottom, #FFFEF9, #FFF8E7);
+            padding: 35px;
+            border: 2px solid #D4A574;
+            border-radius: 3px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .heritage-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1.5px solid #D4A574;
+        }
+        
+        .heritage-corner.top-left {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .heritage-corner.top-right {
+            top: 10px;
+            right: 10px;
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        .heritage-corner.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            border-right: none;
+            border-top: none;
+        }
+        
+        .heritage-corner.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+        }
+        
+        .heritage-icon {
+            font-size: 2.2em;
+            color: #D4A574;
+            margin-bottom: 15px;
+        }
+        
+        .heritage-heading {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.2em;
+            color: #8B6F47;
+            margin-bottom: 8px;
+        }
+        
+        .heritage-divider {
+            width: 40px;
+            height: 1px;
+            background-color: #D4A574;
+            margin: 12px auto;
+        }
+        
+        .heritage-text {
+            font-family: 'Cormorant+Garamond', serif;
+            font-size: 1.3em;
+            color: #6B5B4A;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        /* ==================== */
+        /* OPTION 3: WHISPER */
+        /* ==================== */
+        
+        .banner-whisper {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            background-color: #FFFEF9;
+            padding: 0;
+            min-height: 120px;
+        }
+        
+        .whisper-accent {
+            width: 6px;
+            background: linear-gradient(to bottom, #D4A574, #8B6F47);
+        }
+        
+        .whisper-content {
+            padding: 25px 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid #E8DFD5;
+        }
+        
+        .whisper-label {
+            font-family: 'Lora', serif;
+            font-size: 0.75em;
+            color: #D4A574;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .whisper-text {
+            font-family: 'Cormorant+Garamond', serif;
+            font-size: 1.5em;
+            color: #8B6F47;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        
+        .whisper-subtext {
+            font-family: 'Lora', serif;
+            font-size: 0.85em;
+            color: #6B5B4A;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        /* ==================== */
+        /* MOBILE RESPONSIVE */
+        /* ==================== */
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            /* ELEGANCE - Mobile */
+            .elegance-text {
+                font-size: 1.3em;
+            }
+            
+            .elegance-subtext {
+                font-size: 0.8em;
+            }
+            
+            /* HERITAGE - Mobile */
+            .banner-heritage {
+                padding: 25px;
+            }
+            
+            .heritage-heading {
+                font-size: 1.8em;
+            }
+            
+            .heritage-text {
+                font-size: 1.1em;
+            }
+            
+            .heritage-corner {
+                width: 15px;
+                height: 15px;
+            }
+            
+            /* WHISPER - Mobile */
+            .banner-whisper {
+                flex-direction: row;
+                min-height: auto;
+            }
+            
+            .whisper-accent {
+                width: 5px;
+                min-height: 100px;
+            }
+            
+            .whisper-content {
+                padding: 20px;
+            }
+            
+            .whisper-text {
+                font-size: 1.2em;
+            }
+            
+            .whisper-subtext {
+                font-size: 0.8em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner-preview {
+                padding: 20px;
+            }
+            
+            /* ELEGANCE - Very Mobile */
+            .elegance-ornament {
+                font-size: 1.4em;
+                margin-bottom: 8px;
+            }
+            
+            .elegance-text {
+                font-size: 1.1em;
+            }
+            
+            /* HERITAGE - Very Mobile */
+            .banner-heritage {
+                padding: 20px;
+            }
+            
+            .heritage-icon {
+                font-size: 1.8em;
+            }
+            
+            .heritage-heading {
+                font-size: 1.5em;
+            }
+            
+            .heritage-text {
+                font-size: 1em;
+            }
+            
+            /* WHISPER - Very Mobile */
+            .whisper-content {
+                padding: 15px;
+            }
+            
+            .whisper-text {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Announcement Banner Options</h1>
+            <p>Sovereignty Grace Golden Retrievers</p>
+            <p style="font-size: 0.95em; color: #6B5B4A; margin-top: 15px;">Three design variations that match Paige's elegant farmhouse aesthetic</p>
+        </div>
+        
+        <!-- INSTRUCTIONS -->
+        <div class="instructions">
+            <strong>📋 How to Use:</strong> Each option below shows a different banner design style. All three work with your existing CMS system (reads announcement text from retrievers.md). Choose your favorite, and I'll integrate it into retrievers.html. Resize your browser window to see how each looks on mobile!
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- OPTION 1: ELEGANCE (DELICATE & UNDERSTATED) -->
+        <!-- ============================================ -->
+        <div class="option-section">
+            <div class="option-title">Option 1: Elegance</div>
+            <div class="option-subtitle">Delicate dividers, minimal and understated</div>
+            
+            <div class="description">
+                <strong>Style:</strong> A sophisticated, minimalist approach using subtle dividers and elegant typography. The announcement feels integrated into the page flow rather than demanding attention. Perfect for those who prefer understatement and refinement.
+                <br><br>
+                <strong>Best for:</strong> Subtle announcements, sophisticated audience, pages with lots of other content
+            </div>
+            
+            <div class="banner-preview">
+                <div class="banner-elegance">
+                    <div class="elegance-ornament">✦</div>
+                    <div class="elegance-text">New Litter Coming this Spring</div>
+                    <div class="elegance-subtext">Something Special is On the Way</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- OPTION 2: HERITAGE (REFINED & CLASSIC) -->
+        <!-- ============================================ -->
+        <div class="option-section">
+            <div class="option-title">Option 2: Heritage</div>
+            <div class="option-subtitle">Vintage card style with corner flourishes</div>
+            
+            <div class="description">
+                <strong>Style:</strong> A refined, classic card-like design with subtle corner elements and a delicate border. Feels like an important announcement worthy of special attention, but in a timeless, elegant way. Evokes vintage farm announcements and certificates.
+                <br><br>
+                <strong>Best for:</strong> Important announcements, breeding program updates, special occasions
+            </div>
+            
+            <div class="banner-preview">
+                <div class="banner-heritage">
+                    <div class="heritage-corner top-left"></div>
+                    <div class="heritage-corner top-right"></div>
+                    <div class="heritage-corner bottom-left"></div>
+                    <div class="heritage-corner bottom-right"></div>
+                    
+                    <div class="heritage-icon">🐕</div>
+                    <div class="heritage-heading">New Litter Coming</div>
+                    <div class="heritage-divider"></div>
+                    <div class="heritage-text">Spring 2025</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- OPTION 3: WHISPER (ACCENT BAR STYLE) -->
+        <!-- ============================================ -->
+        <div class="option-section">
+            <div class="option-title">Option 3: Whisper</div>
+            <div class="option-subtitle">Golden accent bar with elegant text</div>
+            
+            <div class="description">
+                <strong>Style:</strong> A side-accent design with a subtle golden bar that draws the eye without being intrusive. The text sits alongside the accent, creating a modern yet timeless look. Very clean and contemporary while maintaining farmhouse elegance.
+                <br><br>
+                <strong>Best for:</strong> Contemporary-meets-rustic, clean design, quick scanning
+            </div>
+            
+            <div class="banner-preview">
+                <div class="banner-whisper">
+                    <div class="whisper-accent"></div>
+                    <div class="whisper-content">
+                        <div class="whisper-label">EXCITING NEWS</div>
+                        <div class="whisper-text">New Litter Coming this Spring</div>
+                        <div class="whisper-subtext">Join our waiting list for Sovereignty Grace Puppies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid #E8DFD5; color: #6B5B4A; font-size: 0.9em;">
+            <p><strong>Next Steps:</strong> Which design do you prefer? Let me know and I'll integrate it into retrievers.html with the full CMS functionality!</p>
+        </div>
+    </div>
+</body>
+</html>
