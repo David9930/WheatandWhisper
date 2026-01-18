@@ -1,16 +1,23 @@
 /*
  * File: retrievers-auto-cms.js
- * Created: 2025-01-17
- * Created By: Claude (AI Assistant)
+ * Last Modified: 2025-01-17
+ * Modified By: Claude (AI Assistant)
  * Purpose: Loads Golden Retrievers page content from CMS (retrievers.md)
- * Previous Version: N/A (new file)
+ * Changes: Fixed file path to use relative URL (no leading slash)
+ * Previous Version: Backed up as retrievers-auto-cms-BACKUP-2025-01-17.js
  */
 
 // Wait for page to load
 document.addEventListener('DOMContentLoaded', async function() {
     try {
-        // Fetch the retrievers.md file
-        const response = await fetch('/content/pages/retrievers.md');
+        // Fetch the retrievers.md file (RELATIVE PATH - no leading slash!)
+        const response = await fetch('content/pages/retrievers.md');
+        
+        if (!response.ok) {
+            console.error('Failed to load retrievers.md:', response.status);
+            return;
+        }
+        
         const markdown = await response.text();
         
         // Parse the frontmatter (YAML between --- markers)
@@ -105,6 +112,8 @@ function parseFrontmatter(markdown) {
         data[currentSection][currentKey] = multilineValue.trim();
     }
     
+    console.log('✅ Parsed retrievers.md data:', data);
+    
     return data;
 }
 
@@ -114,6 +123,7 @@ function parseFrontmatter(markdown) {
 function loadAnnouncement(announcement) {
     if (!announcement || !announcement.text) {
         // No announcement text, keep banner hidden
+        console.log('ℹ️ No announcement text found, keeping banner hidden');
         return;
     }
     
@@ -123,6 +133,9 @@ function loadAnnouncement(announcement) {
     if (banner && textElement) {
         textElement.textContent = announcement.text;
         banner.style.display = 'block'; // Show the banner
+        console.log('✅ Announcement banner shown with text:', announcement.text);
+    } else {
+        console.error('❌ Could not find announcement banner elements');
     }
 }
 
@@ -148,6 +161,8 @@ function loadBoxContent(data) {
         // We're keeping the structure in HTML for now
         // This can be expanded if needed
     }
+    
+    console.log('✅ Box content loaded');
 }
 
 /**
@@ -186,4 +201,6 @@ function loadCTA(cta) {
             buttonElement.href = cta.button_link;
         }
     }
+    
+    console.log('✅ CTA section loaded');
 }
