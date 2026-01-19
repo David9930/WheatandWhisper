@@ -22,21 +22,22 @@
         /* ========== HERITAGE BANNER STYLES (Option #2 - Scaled 25% Smaller) ========== */
         
         .announcement-banner {
-            background-color: #FFFEF9;
-            padding: 20px 0;
+            background-color: #D4A574;
+            padding: 25px 0;
             text-align: center;
             margin: 0;
+            width: 100%;
         }
         
         .announcement-container {
             background: linear-gradient(to bottom, #FFFEF9, #FFF8E7);
-            padding: 26px;
+            padding: 26px 80px;
             border: 1.5px solid #D4A574;
             border-radius: 3px;
             text-align: center;
             position: relative;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            max-width: 90%;
+            max-width: 85%;
             margin: 0 auto;
         }
         
@@ -109,9 +110,13 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .announcement-banner {
+                padding: 20px 0;
+            }
+            
             .announcement-container {
-                padding: 19px;
-                max-width: 95%;
+                padding: 26px 50px;
+                max-width: 90%;
             }
             
             .announcement-title {
@@ -129,8 +134,12 @@
         }
         
         @media (max-width: 480px) {
+            .announcement-banner {
+                padding: 18px 0;
+            }
+            
             .announcement-container {
-                padding: 16px;
+                padding: 20px 30px;
                 max-width: 95%;
             }
             
@@ -145,6 +154,12 @@
             .announcement-divider {
                 width: 25px;
                 margin: 7px auto;
+            }
+            
+            .announcement-corner {
+                width: 10px;
+                height: 10px;
+                border-width: 1px;
             }
         }
         
