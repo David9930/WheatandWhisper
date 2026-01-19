@@ -3,7 +3,7 @@ hero:
   title: Sovereignty Grace Golden Retrievers
   subtitle: how we raise our golden babies
 announcement:
-  text: " New Litter Coming this Spring !!!!"
+  text: " New Litter coming Spring 2026! "
 box_1:
   image: images/uploads/box-1-image.jpg
   title: Welcome
