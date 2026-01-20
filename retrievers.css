@@ -1,9 +1,9 @@
 /*
  * File: retrievers.css
- * Last Modified: 2025-01-20 14:50
+ * Last Modified: 2025-01-20 14:55
  * Modified By: Claude (AI Assistant)
- * Changes: Added height: 100% to .box-image to make all content boxes same size (fixes Welcome box size)
- * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1450.css
+ * Changes: Changed .box-image from height: 100% to min-height: 500px to match all content boxes exact same size
+ * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1455.css
  */
 
 /* ========================================
@@ -64,7 +64,7 @@
 .box-image {
     position: relative;
     overflow: hidden;
-    height: 100%;
+    min-height: 500px;
 }
 
 .retriever-image {
@@ -460,7 +460,7 @@ body.menu-open {
     .box-image-left .box-image,
     .box-image-right .box-image {
         order: 1;
-        height: 350px;
+        min-height: 350px;
     }
     
     .box-image-left .box-text,
