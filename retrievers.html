@@ -1,9 +1,9 @@
 <!--
   File: retrievers.html
-  Last Modified: 2025-01-19 17:45
+  Last Modified: 2025-01-19 18:15
   Modified By: Claude (AI Assistant)
-  Changes: Added display: block; width: 100% to announcement-title and announcement-text to fix side-by-side layout issue
-  Previous Version: Backed up as retrievers-BACKUP-2025-01-19-1745.html
+  Changes: Added display: flex; flex-direction: column; to announcement-container to force vertical stacking (fixes CSS conflict with external stylesheets)
+  Previous Version: Backed up as retrievers-BACKUP-2025-01-19-1815.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +39,9 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             width: 220px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .announcement-corner {
@@ -89,7 +92,6 @@
             color: #8B6F47;
             margin: 0;
             font-weight: normal;
-            display: block;
             width: 100%;
         }
         
@@ -109,7 +111,6 @@
             letter-spacing: 0.3px;
             margin: 0.5em 0 0 0;
             line-height: 1.4;
-            display: block;
             width: 100%;
         }
         
