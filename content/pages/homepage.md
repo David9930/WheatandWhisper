@@ -3,10 +3,10 @@ hero_section:
   hero_video_url: https://youtu.be/swcmoJEiTys
   background_image: images/uploads/hero-background.jpg
   use_video_background: true
-  subtitle_line_1: Wild and Washed in Grace
-  title_line_1: WHEAT AND
+  subtitle_line_1: Wild and Washed in Grace...
+  title_line_1: WHEAT AND WHISPER FARM
   subtitle_line_2: Where every moment is a gift and every animal has a story.
-  title_line_2: WHISPER FARM
+  title_line_2: .
   main_logo: WheatandWhisperLogo.png
   tagline_align: center
   subtitle_align: center
