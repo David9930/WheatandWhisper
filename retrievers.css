@@ -1,9 +1,9 @@
 /*
  * File: retrievers.css
- * Last Modified: 2025-01-16
- * Modified By: Claude (AI Assistant) + Original styles
- * Changes: Added announcement banner, video toggle, gallery link styles to existing file
- * Previous Version: Backed up separately
+ * Last Modified: 2025-01-20 14:45
+ * Modified By: Claude (AI Assistant)
+ * Changes: REMOVED old announcement banner styles (lines 168-215) - now using inline styles in HTML for Heritage Box design
+ * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1445.css
  */
 
 /* ========================================
@@ -594,94 +594,14 @@ body.menu-open {
     }
 }
 
-
 /* ========================================
    NEW FEATURES - Added 2025-01-16
-   Announcement Banner, Video Toggles, Gallery Link
+   Video Toggles and Gallery Link
+   (Announcement banner styles removed - now inline in HTML)
    ======================================== */
 
 /* ========================================
-   SPECIAL ANNOUNCEMENT BANNER (NEW!)
-   ======================================== */
-
-.announcement-banner {
-    margin-top: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    box-shadow: 0 4px 20px rgba(255, 165, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Animated shimmer effect */
-.announcement-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        transparent 100%
-    );
-    animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-.announcement-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px 40px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    position: relative;
-    z-index: 1;
-}
-
-.announcement-icon {
-    font-size: 3rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.announcement-content {
-    flex: 1;
-    text-align: center;
-}
-
-.announcement-title {
-    font-family: 'Parisienne', 'Allura', cursive;
-    font-size: 2.5rem;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.announcement-text {
-    font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.announcement-text p {
-    margin: 5px 0;
-}
-
-/* ========================================
-   VIDEO TOGGLE CONTROLS (NEW!)
+   VIDEO TOGGLE CONTROLS
    ======================================== */
 
 .media-toggle {
@@ -746,7 +666,7 @@ body.menu-open {
 }
 
 /* ========================================
-   PHOTO GALLERY LINK SECTION (NEW!)
+   PHOTO GALLERY LINK SECTION
    ======================================== */
 
 .gallery-link-section {
@@ -822,24 +742,6 @@ body.menu-open {
    ======================================== */
 
 @media (max-width: 968px) {
-    .announcement-container {
-        flex-direction: column;
-        padding: 25px 30px;
-        gap: 20px;
-    }
-    
-    .announcement-icon {
-        font-size: 2.5rem;
-    }
-    
-    .announcement-title {
-        font-size: 2rem;
-    }
-    
-    .announcement-text {
-        font-size: 1rem;
-    }
-    
     .media-toggle {
         top: 10px;
         right: 10px;
@@ -870,22 +772,6 @@ body.menu-open {
 }
 
 @media (max-width: 640px) {
-    .announcement-container {
-        padding: 20px 20px;
-    }
-    
-    .announcement-icon {
-        font-size: 2rem;
-    }
-    
-    .announcement-title {
-        font-size: 1.75rem;
-    }
-    
-    .announcement-text {
-        font-size: 0.95rem;
-    }
-    
     /* Move toggle below image on mobile */
     .media-toggle {
         position: static;
@@ -927,13 +813,9 @@ body.menu-open {
 }
 
 @media (max-width: 380px) {
-    .announcement-title {
-        font-size: 1.5rem;
-    }
-    
     .gallery-heading {
         font-size: 1.5rem;
     }
 }
 
-/* END OF COMPLETE STYLES - Original + New Features */
+/* END OF COMPLETE STYLES - Original + Video Toggles + Gallery Link */
