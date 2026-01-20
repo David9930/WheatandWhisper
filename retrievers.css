@@ -1,9 +1,9 @@
 /*
  * File: retrievers.css
- * Last Modified: 2025-01-20 14:55
+ * Last Modified: 2025-01-20 15:00
  * Modified By: Claude (AI Assistant)
- * Changes: Changed .box-image from height: 100% to min-height: 500px to match all content boxes exact same size
- * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1455.css
+ * Changes: Fixed content-box to height: 500px (not min-height) - image fills space with object-fit: cover, ignoring image size
+ * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1500.css
  */
 
 /* ========================================
@@ -56,7 +56,7 @@
 .content-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 500px;
+    height: 500px;
     border-bottom: 1px solid rgba(93, 78, 55, 0.1);
 }
 
@@ -64,13 +64,15 @@
 .box-image {
     position: relative;
     overflow: hidden;
-    min-height: 500px;
+    height: 100%;
+    width: 100%;
 }
 
 .retriever-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.5s ease;
 }
 
@@ -449,7 +451,7 @@ body.menu-open {
     /* Content Boxes - Stack Vertically */
     .content-box {
         grid-template-columns: 1fr;
-        min-height: auto;
+        height: auto;
     }
     
     .box-image-left,
@@ -460,7 +462,7 @@ body.menu-open {
     .box-image-left .box-image,
     .box-image-right .box-image {
         order: 1;
-        min-height: 350px;
+        height: 350px;
     }
     
     .box-image-left .box-text,
