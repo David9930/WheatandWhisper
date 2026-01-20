@@ -1,9 +1,9 @@
 /*
  * File: retrievers.css
- * Last Modified: 2025-01-20 15:00
+ * Last Modified: 2025-01-20 15:05
  * Modified By: Claude (AI Assistant)
- * Changes: Fixed content-box to height: 500px (not min-height) - image fills space with object-fit: cover, ignoring image size
- * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1500.css
+ * Changes: Reduced hero section padding from 100px to 50px (cuts height in half), added margin-bottom to content section to prevent gallery overlap
+ * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1505.css
  */
 
 /* ========================================
@@ -13,7 +13,7 @@
 /* Hero Section */
 .retrievers-hero {
     margin-top: 60px;
-    padding: 100px 40px;
+    padding: 50px 40px;
     background: linear-gradient(135deg, var(--beige-bg) 0%, var(--cream-bg) 100%);
     text-align: center;
     border-bottom: 1px solid rgba(93, 78, 55, 0.1);
@@ -45,6 +45,7 @@
 .retrievers-content {
     background: var(--cream-bg);
     padding: 0;
+    margin-bottom: 40px;
 }
 
 .content-container {
@@ -437,7 +438,7 @@ body.menu-open {
 @media (max-width: 968px) {
     /* Hero */
     .retrievers-hero {
-        padding: 70px 30px;
+        padding: 40px 30px;
     }
     
     .hero-title {
@@ -510,7 +511,7 @@ body.menu-open {
 @media (max-width: 640px) {
     /* Hero */
     .retrievers-hero {
-        padding: 50px 20px;
+        padding: 35px 20px;
     }
     
     .hero-title {
