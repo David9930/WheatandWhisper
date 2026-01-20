@@ -1,9 +1,9 @@
 /*
  * File: retrievers.css
- * Last Modified: 2025-01-20 14:45
+ * Last Modified: 2025-01-20 14:50
  * Modified By: Claude (AI Assistant)
- * Changes: REMOVED old announcement banner styles (lines 168-215) - now using inline styles in HTML for Heritage Box design
- * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1445.css
+ * Changes: Added height: 100% to .box-image to make all content boxes same size (fixes Welcome box size)
+ * Previous Version: Backed up as retrievers-BACKUP-2025-01-20-1450.css
  */
 
 /* ========================================
@@ -64,6 +64,7 @@
 .box-image {
     position: relative;
     overflow: hidden;
+    height: 100%;
 }
 
 .retriever-image {
