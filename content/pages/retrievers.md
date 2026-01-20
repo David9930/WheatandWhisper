@@ -59,7 +59,7 @@ cta:
     Fill out our adoption application to get started on your journey with a
     Sovereignty Grace Golden Retriever.
   button_text: Complete Adoption Application
-  button_link: "#adoption-form"
+  button_link: adoption-form.html
 ---
 
 Golden Retrievers page content managed through CMS
