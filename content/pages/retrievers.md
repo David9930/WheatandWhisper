@@ -3,7 +3,7 @@ hero:
   title: Sovereignty Grace Golden Retrievers
   subtitle: how we raise our golden babies
 announcement:
-  text: " NEW Litter coming... Summer 2026! "
+  text: "Planning our next litter for summer 2026! "
 box_1:
   image: images/uploads/box-1-image.jpg
   title: Welcome
@@ -19,13 +19,13 @@ box_2:
   image: images/uploads/box-2-image.jpg
   title: Certifications and Testing
   subtitle: "responsible breeding is everything:"
-  body: |
-    - full genetic panel
-    - echocardiogram
-    - hip and elbow x-rays
-    - annual eye evaluations
-    - veterinary exams
-    - AKC registrations
+  body: |-
+    * full genetic panel
+    * echocardiogram
+    * hip and elbow x-rays
+    * annual eye evaluations
+    * veterinary exams
+    * AKC litter registrations
   contact: ""
   show_social: true
 box_3:
