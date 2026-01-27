@@ -1,10 +1,10 @@
 /*
  * File: nubians.css
  * Created: 2025-01-20 15:15
- * Updated: 2025-01-27 13:28pm
+ * Updated: 2025-01-27 15:45
  * Updated By: Claude (AI Assistant)
  * Purpose: Styling for Mini Nubians page with masonry gallery (grid + freeform layouts)
- * Change: Updated freeform layout to 3 columns (from 4) to match working test page
+ * Change: Fixed freeform layout - removed border-radius and box-shadow to eliminate white gaps
  */
 
 /* ========================================
@@ -264,12 +264,23 @@
     margin-bottom: 2px;
     display: inline-block;
     width: 100%;
+    border-radius: 0;        /* Remove rounded corners that create visual gaps */
+    box-shadow: none;        /* Remove shadow that creates white space */
+}
+
+.masonry-gallery.freeform .gallery-item:hover {
+    transform: none;         /* Remove hover lift effect */
+    box-shadow: none;        /* Keep shadow removed on hover */
 }
 
 .masonry-gallery.freeform .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.masonry-gallery.freeform .gallery-item:hover img {
+    transform: none;         /* Remove image zoom on hover to maintain tight layout */
 }
 
 /* ========================================
