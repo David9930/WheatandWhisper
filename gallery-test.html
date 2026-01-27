@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Test - 3 Photos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #8B6F47;
+            margin-bottom: 30px;
+        }
+        
+        /* TEST 1: CSS Columns (Current Approach) */
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .test-title {
+            font-size: 1.2rem;
+            color: #5D4E37;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #C9A66B;
+        }
+        
+        /* Approach 1: CSS Columns */
+        .gallery-columns {
+            column-count: 3;
+            column-gap: 2px;
+        }
+        
+        .gallery-columns .item {
+            break-inside: avoid;
+            margin-bottom: 2px;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .gallery-columns .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Approach 2: CSS Grid with auto-fit */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+        
+        .gallery-grid .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Approach 3: Flexbox */
+        .gallery-flex {
+            display: flex;
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+        
+        .gallery-flex .item {
+            flex: 1 1 calc(33.333% - 2px);
+        }
+        
+        .gallery-flex .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Approach 4: Grid with explicit heights */
+        .gallery-grid-tight {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+        
+        .gallery-grid-tight .item {
+            position: relative;
+        }
+        
+        .gallery-grid-tight .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mini Nubians Gallery - Layout Tests (3 Photos)</h1>
+    
+    <!-- TEST 1: CSS Columns -->
+    <div class="test-container">
+        <div class="test-title">Test 1: CSS Columns (Current Approach)</div>
+        <div class="gallery-columns">
+            <div class="item">
+                <img src="images/uploads/img_0099_edited.jpg" alt="Mini Nubian 1">
+            </div>
+            <div class="item">
+                <img src="images/uploads/img_0384.jpeg" alt="Mini Nubian 2">
+            </div>
+            <div class="item">
+                <img src="images/uploads/e322d011-ce12-4fda-b65b-6ef19f396258-1-.jpg" alt="Mini Nubian 3">
+            </div>
+        </div>
+    </div>
+    
+    <!-- TEST 2: CSS Grid -->
+    <div class="test-container">
+        <div class="test-title">Test 2: CSS Grid (3 Equal Columns)</div>
+        <div class="gallery-grid">
+            <div class="item">
+                <img src="images/uploads/img_0099_edited.jpg" alt="Mini Nubian 1">
+            </div>
+            <div class="item">
+                <img src="images/uploads/img_0384.jpeg" alt="Mini Nubian 2">
+            </div>
+            <div class="item">
+                <img src="images/uploads/e322d011-ce12-4fda-b65b-6ef19f396258-1-.jpg" alt="Mini Nubian 3">
+            </div>
+        </div>
+    </div>
+    
+    <!-- TEST 3: Flexbox -->
+    <div class="test-container">
+        <div class="test-title">Test 3: Flexbox</div>
+        <div class="gallery-flex">
+            <div class="item">
+                <img src="images/uploads/img_0099_edited.jpg" alt="Mini Nubian 1">
+            </div>
+            <div class="item">
+                <img src="images/uploads/img_0384.jpeg" alt="Mini Nubian 2">
+            </div>
+            <div class="item">
+                <img src="images/uploads/e322d011-ce12-4fda-b65b-6ef19f396258-1-.jpg" alt="Mini Nubian 3">
+            </div>
+        </div>
+    </div>
+    
+    <!-- TEST 4: Grid with tight spacing -->
+    <div class="test-container">
+        <div class="test-title">Test 4: CSS Grid Tight (Natural Heights)</div>
+        <div class="gallery-grid-tight">
+            <div class="item">
+                <img src="images/uploads/img_0099_edited.jpg" alt="Mini Nubian 1">
+            </div>
+            <div class="item">
+                <img src="images/uploads/img_0384.jpeg" alt="Mini Nubian 2">
+            </div>
+            <div class="item">
+                <img src="images/uploads/e322d011-ce12-4fda-b65b-6ef19f396258-1-.jpg" alt="Mini Nubian 3">
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; padding: 20px; color: #666;">
+        <p><strong>Instructions:</strong></p>
+        <p>Look at each test layout above. Which one has the least white space and looks most like Paige's WIX design?</p>
+        <p>Note which test number works best, and we'll apply that approach to the full gallery.</p>
+    </div>
+</body>
+</html>
