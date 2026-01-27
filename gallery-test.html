@@ -123,10 +123,31 @@
             object-fit: cover;
             display: block;
         }
+        
+        /* Approach 6: 4 Columns with 50% width ONLY (natural height) */
+        .gallery-4col-halfwidth {
+            column-count: 4;
+            column-gap: 2px;
+            max-width: 600px;  /* 50% of standard 1200px */
+            margin: 0 auto;
+        }
+        
+        .gallery-4col-halfwidth .item {
+            break-inside: avoid;
+            margin-bottom: 2px;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .gallery-4col-halfwidth .item img {
+            width: 100%;
+            height: auto;  /* Natural proportions */
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <h1>Mini Nubians Gallery - Layout Tests (6 Photos - 5 Different Layouts)</h1>
+    <h1>Mini Nubians Gallery - Layout Tests (6 Photos - 6 Different Layouts)</h1>
     
     <!-- TEST 1: CSS Columns -->
     <div class="test-container">
@@ -232,6 +253,31 @@
     <div class="test-container">
         <div class="test-title">Test 5: 4 Columns (Images 50% Smaller - Width & Height)</div>
         <div class="gallery-4col-small">
+            <div class="item">
+                <img src="images/uploads/img_0099_edited.jpg" alt="Mini Nubian 1">
+            </div>
+            <div class="item">
+                <img src="images/uploads/img_0384.jpeg" alt="Mini Nubian 2">
+            </div>
+            <div class="item">
+                <img src="images/uploads/e322d011-ce12-4fda-b65b-6ef19f396258-1-.jpg" alt="Mini Nubian 3">
+            </div>
+            <div class="item">
+                <img src="images/uploads/img_9182.jpeg" alt="Mini Nubian 4">
+            </div>
+            <div class="item">
+                <img src="images/uploads/tezza-7058_edited.jpg" alt="Mini Nubian 5">
+            </div>
+            <div class="item">
+                <img src="images/uploads/img_9195.jpeg" alt="Mini Nubian 6">
+            </div>
+        </div>
+    </div>
+    
+    <!-- TEST 6: 4 Columns with 50% Width ONLY -->
+    <div class="test-container">
+        <div class="test-title">Test 6: 4 Columns (50% Width Only - Natural Heights)</div>
+        <div class="gallery-4col-halfwidth">
             <div class="item">
                 <img src="images/uploads/img_0099_edited.jpg" alt="Mini Nubian 1">
             </div>
