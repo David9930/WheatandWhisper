@@ -23,24 +23,22 @@ vision:
 gallery:
   title: Mini Nubians Gallery
   photos:
-    - image: images/uploads/nubians1.jpg
+    - image: images/uploads/img_0099_edited.jpg
       alt: Mini Nubian doe
-    - image: images/uploads/nubians2.jpg
+    - image: images/uploads/img_0384.jpeg
       alt: Mini Nubian with kids
-    - image: images/uploads/nubians3.jpg
+    - image: images/uploads/e322d011-ce12-4fda-b65b-6ef19f396258-1-.jpg
       alt: Mini Nubian grazing
-    - image: images/uploads/nubians4.jpg
+    - image: images/uploads/img_9182.jpeg
       alt: Mini Nubian close-up
-    - image: images/uploads/nubians5.jpg
+    - image: images/uploads/tezza-7058_edited.jpg
       alt: Mini Nubian playing
-    - image: images/uploads/nubians6.jpg
+    - image: images/uploads/img_9195.jpeg
       alt: Herd of Mini Nubians
-    - image: images/uploads/nubians7.jpg
+    - image: images/uploads/img_9155.jpeg
       alt: Mini Nubian portrait
-    - image: images/uploads/nubians8.jpg
-      alt: Mini Nubian in pasture
-    - image: images/uploads/nubians9.jpg
-      alt: Baby Mini Nubian
+    - image: images/uploads/tezza-7058-1-.jpg
+      alt: Photo Description here
 social:
   facebook_url: https://www.facebook.com/wheatandwhisper
   instagram_url: https://www.instagram.com/wheatandwhisper
