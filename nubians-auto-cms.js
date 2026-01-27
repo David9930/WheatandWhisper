@@ -110,21 +110,24 @@ function parseFrontmatter(content) {
 }
 
 /**
- * Better YAML parser (handles multiline text with > and |)
+ * Improved YAML parser (handles multiline text with > and galleries with lists)
  */
 function parseYAML(yaml) {
     const result = {};
     const lines = yaml.split('\n');
     let currentSection = null;
     let currentKey = null;
+    let currentSubKey = null;
     let multilineText = [];
     let multilineMode = false;
+    let inListMode = false;
+    let currentListItem = null;
     
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
         const trimmed = line.trim();
         
-        // Skip empty lines (unless in multiline mode)
+        // Skip completely empty lines (but track multiline content)
         if (!trimmed) {
             if (multilineMode) {
                 multilineText.push('');
@@ -135,15 +138,16 @@ function parseYAML(yaml) {
         const indent = line.length - line.trimStart().length;
         
         // Check if this is a multiline indicator (> or |)
-        if (trimmed.match(/^(\w+):\s*[>|]$/)) {
+        if (trimmed.match(/^(\w+):\s*[>|]\s*$/) && indent <= 2) {
             multilineMode = true;
-            currentKey = trimmed.split(':')[0].trim();
+            currentSubKey = trimmed.split(':')[0].trim();
             multilineText = [];
+            inListMode = false;
             continue;
         }
         
-        // If we're in multiline mode and this line is indented more than top level
-        if (multilineMode && indent > 0) {
+        // If we're in multiline mode and this line is indented more than the key
+        if (multilineMode && indent > 0 && !trimmed.startsWith('-')) {
             multilineText.push(trimmed);
             continue;
         }
@@ -152,16 +156,14 @@ function parseYAML(yaml) {
         if (multilineMode) {
             const text = multilineText.join(' ').trim();
             if (currentSection) {
-                if (!result[currentSection]) {
-                    result[currentSection] = {};
-                }
-                result[currentSection][currentKey] = text;
+                if (!result[currentSection]) result[currentSection] = {};
+                result[currentSection][currentSubKey] = text;
             } else {
-                result[currentKey] = text;
+                result[currentSubKey] = text;
             }
             multilineMode = false;
             multilineText = [];
-            currentKey = null;
+            currentSubKey = null;
         }
         
         // Top-level key (no indent)
@@ -176,62 +178,78 @@ function parseYAML(yaml) {
                 currentSection = key;
                 result[currentSection] = {};
             }
+            currentKey = null;
+            inListMode = false;
         }
+        
         // Nested key (2-space indent)
         else if (indent === 2 && line.includes(':')) {
             const colonIndex = line.indexOf(':');
-            const key = line.substring(indent, colonIndex).trim();
+            const key = line.substring(2, colonIndex).trim();
             const value = line.substring(colonIndex + 1).trim();
             
             if (currentSection) {
-                if (!result[currentSection]) {
-                    result[currentSection] = {};
-                }
+                if (!result[currentSection]) result[currentSection] = {};
                 
                 if (value && !value.match(/^[>|]$/)) {
                     result[currentSection][key] = value.replace(/^["']|["']$/g, '');
-                } else {
-                    result[currentSection][key] = {};
+                    inListMode = false;
+                } else if (value === '' || value.match(/^[>|]$/)) {
+                    // Empty value means it's a container (object or list)
+                    currentKey = key;
+                    // Look ahead to see if next non-empty line is a list item
+                    let nextNonEmpty = i + 1;
+                    while (nextNonEmpty < lines.length && !lines[nextNonEmpty].trim()) {
+                        nextNonEmpty++;
+                    }
+                    if (nextNonEmpty < lines.length) {
+                        const nextLine = lines[nextNonEmpty];
+                        if (nextLine.trim().startsWith('-')) {
+                            result[currentSection][key] = [];
+                            inListMode = true;
+                        } else {
+                            result[currentSection][key] = {};
+                            inListMode = false;
+                        }
+                    }
                 }
             }
         }
-        // List items (4-space indent with -)
+        
+        // List item (4-space indent with -)
         else if (indent === 4 && trimmed.startsWith('- ')) {
-            if (currentSection && currentKey) {
-                if (!Array.isArray(result[currentSection][currentKey])) {
-                    result[currentSection][currentKey] = [];
+            if (currentSection && currentKey && Array.isArray(result[currentSection][currentKey])) {
+                currentListItem = {};
+                result[currentSection][currentKey].push(currentListItem);
+                
+                // Handle inline value after dash
+                const rest = trimmed.substring(2);
+                if (rest.includes(':')) {
+                    const colonIndex = rest.indexOf(':');
+                    const itemKey = rest.substring(0, colonIndex).trim();
+                    const itemValue = rest.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
+                    currentListItem[itemKey] = itemValue;
                 }
-                result[currentSection][currentKey].push({
-                    image: '',
-                    alt: ''
-                });
             }
         }
-        // List item properties (6-space indent)
-        else if (indent === 6 && line.includes(':')) {
+        
+        // List item property (6-space indent)
+        else if (indent === 6 && line.includes(':') && currentListItem) {
             const colonIndex = line.indexOf(':');
-            const key = line.substring(indent, colonIndex).trim();
+            const key = line.substring(6, colonIndex).trim();
             const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
-            
-            if (currentSection && currentKey && result[currentSection][currentKey]) {
-                const items = result[currentSection][currentKey];
-                if (Array.isArray(items) && items.length > 0) {
-                    items[items.length - 1][key] = value;
-                }
-            }
+            currentListItem[key] = value;
         }
     }
     
     // Handle any remaining multiline text at EOF
-    if (multilineMode && currentKey) {
+    if (multilineMode && currentSubKey) {
         const text = multilineText.join(' ').trim();
         if (currentSection) {
-            if (!result[currentSection]) {
-                result[currentSection] = {};
-            }
-            result[currentSection][currentKey] = text;
+            if (!result[currentSection]) result[currentSection] = {};
+            result[currentSection][currentSubKey] = text;
         } else {
-            result[currentKey] = text;
+            result[currentSubKey] = text;
         }
     }
     
