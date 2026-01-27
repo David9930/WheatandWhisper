@@ -344,14 +344,8 @@ collections:
               - {label: "Button Text", name: "button_text", widget: "string", default: "Complete Adoption Application"}
               - {label: "Button Link", name: "button_link", widget: "string", default: "adoption-form.html", hint: "URL or #anchor link"}
 
-      # ============================================
-      # ADD THIS TO: admin/config.yml
-      # LOCATION: Under "- name: pages" → "files:" section
-      # AFTER: Animals Page Settings section
-      # ============================================
-
       # ---------------------------------------------------------------------------
-      # MINI NUBIANS PAGE
+      # MINI NUBIANS PAGE - UPDATED WITH BOX 5, BOX 6, AND LAYOUT OPTIONS
       # ---------------------------------------------------------------------------
       - label: "🐐 Mini Nubians Page"
         name: "nubians"
@@ -383,12 +377,41 @@ collections:
               - {label: "Section Image", name: "image", widget: "image", hint: "Image displayed on right side (desktop) or bottom (mobile)"}
               - {label: "Section Description", name: "body", widget: "markdown", hint: "Text describing your vision for the Mini Nubians"}
           
+          # ===== BOX 5 - NEW! =====
+          - label: "📦 Content Box 5 (Optional)"
+            name: "box_5"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title", name: "title", widget: "string", required: false, hint: "Leave empty to hide this box"}
+              - {label: "Box Image", name: "image", widget: "image", required: false, hint: "Image displayed on left side"}
+              - {label: "Box Content", name: "body", widget: "markdown", required: false, hint: "Main text for this box"}
+          
+          # ===== BOX 6 - NEW! =====
+          - label: "📦 Content Box 6 (Optional)"
+            name: "box_6"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title", name: "title", widget: "string", required: false, hint: "Leave empty to hide this box"}
+              - {label: "Box Image", name: "image", widget: "image", required: false, hint: "Image displayed on right side"}
+              - {label: "Box Content", name: "body", widget: "markdown", required: false, hint: "Main text for this box"}
+          
           - label: "Photo Gallery"
             name: "gallery"
             widget: "object"
             collapsed: false
             fields:
               - {label: "Gallery Title", name: "title", widget: "string", default: "Mini Nubians Gallery", hint: "Heading above photo grid"}
+              # ===== LAYOUT STYLE - NEW! =====
+              - label: "Gallery Layout Style"
+                name: "layout_style"
+                widget: "select"
+                default: "grid"
+                options:
+                  - {label: "Grid (Structured & Uniform)", value: "grid"}
+                  - {label: "Freeform (Pinterest-style Organic)", value: "freeform"}
+                hint: "Choose how photos are arranged in the gallery"
               - label: "Gallery Photos"
                 name: "photos"
                 widget: "list"
@@ -406,6 +429,15 @@ collections:
               - {label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full Instagram URL"}
               - {label: "Pinterest URL", name: "pinterest_url", widget: "string", required: false, hint: "Full Pinterest URL"}
               - {label: "Twitter URL", name: "twitter_url", widget: "string", required: false, hint: "Full Twitter/X URL"}
+
+
+# ============================================
+# WHAT'S NEW:
+# ============================================
+# ✅ Box 5 & Box 6 - Optional content boxes (leave title empty to hide)
+# ✅ Gallery Layout Style - Choose between Grid or Freeform layout
+# ✅ All fields properly labeled and organized
+# ============================================
       
       # ---------------------------------------------------------------------------
       # HOMEPAGE SITE SETTINGS (Fonts, Colors, Spacing)
