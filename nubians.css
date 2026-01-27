@@ -1,7 +1,7 @@
 /*
  * File: nubians.css
  * Created: 2025-01-20 15:15
- * Updated: 2025-01-27 10:38am
+ * Updated: 2025-01-27
  * Updated By: Claude (AI Assistant)
  * Purpose: Styling for Mini Nubians page with masonry gallery (grid + freeform layouts)
  * Previous Version: 2025-01-20 (added freeform layout styles)
@@ -170,7 +170,7 @@
 .masonry-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    gap: 6px;
     padding: 20px;
     background: white;
     border-radius: 12px;
@@ -257,7 +257,7 @@
 .masonry-gallery.freeform {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    gap: 6px;
     grid-auto-flow: dense;
 }
 
@@ -601,7 +601,7 @@
     
     .masonry-gallery {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 5px;
         padding: 15px;
     }
     
@@ -612,7 +612,7 @@
     /* Freeform layout - simpler on mobile */
     .masonry-gallery.freeform {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 5px;
     }
     
     .masonry-gallery.freeform .gallery-item {
