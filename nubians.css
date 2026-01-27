@@ -1,0 +1,597 @@
+/*
+ * File: nubians.css
+ * Created: 2025-01-20 15:15
+ * Created By: Claude (AI Assistant)
+ * Purpose: Styling for Mini Nubians page with masonry gallery layout
+ * Previous Version: N/A (new file)
+ */
+
+/* ========================================
+   MINI NUBIANS PAGE STYLES
+   ======================================== */
+
+/* Hero Section */
+.nubians-hero {
+    margin-top: 60px;
+    padding: 50px 40px;
+    background: linear-gradient(135deg, var(--beige-bg) 0%, var(--cream-bg) 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-tagline {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--medium-brown);
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.hero-title {
+    font-family: 'Allura', cursive;
+    font-size: 4.5rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+/* Content Sections */
+.nubians-content {
+    background: var(--cream-bg);
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.content-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.content-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: center;
+    min-height: 500px;
+    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+/* Section Image */
+.section-image {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.section-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.content-section:hover .section-img {
+    transform: scale(1.05);
+}
+
+/* Section Text */
+.section-text {
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream-bg);
+}
+
+.section-title {
+    font-family: 'Coquette', 'Parisienne', 'Allura', cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--warm-brown);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.section-body {
+    margin-bottom: 30px;
+}
+
+.section-body p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--warm-brown);
+    margin-bottom: 15px;
+}
+
+/* Mission Section - Image LEFT */
+.mission-section {
+    grid-template-columns: 1fr 1fr;
+}
+
+.mission-section .section-image {
+    order: 1;
+}
+
+.mission-section .section-text {
+    order: 2;
+}
+
+/* Vision Section - Image RIGHT */
+.vision-section {
+    grid-template-columns: 1fr 1fr;
+}
+
+.vision-section .section-text {
+    order: 1;
+}
+
+.vision-section .section-image {
+    order: 2;
+}
+
+/* ========================================
+   MASONRY GALLERY SECTION
+   ======================================== */
+
+.gallery-section {
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #FFFEF9 0%, #FFF8E7 100%);
+    border-top: 2px solid rgba(139, 111, 71, 0.2);
+    border-bottom: 2px solid rgba(139, 111, 71, 0.2);
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #8B6F47;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Masonry Gallery Grid */
+.masonry-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(93, 78, 55, 0.1);
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Vary column spans for masonry effect */
+.gallery-item:nth-child(1) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery-item:nth-child(2) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery-item:nth-child(3) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery-item:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(5) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery-item:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery-item:nth-child(7) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(8) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery-item:nth-child(9) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* ========================================
+   EMAIL SIGNUP SECTION
+   ======================================== */
+
+.email-signup-section {
+    padding: 60px 40px;
+    background: linear-gradient(135deg, var(--warm-brown) 0%, var(--medium-brown) 100%);
+    text-align: center;
+}
+
+.signup-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.signup-container h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.signup-container p {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 30px;
+}
+
+.email-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.email-form input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+}
+
+.email-form button {
+    padding: 15px 40px;
+    background: white;
+    color: var(--warm-brown);
+    border: none;
+    border-radius: 4px;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.email-form button:hover {
+    background: var(--light-brown);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   SOCIAL LINKS SECTION
+   ======================================== */
+
+.social-section {
+    padding: 50px 40px;
+    background: var(--cream-bg);
+    text-align: center;
+    border-top: 1px solid rgba(93, 78, 55, 0.1);
+}
+
+.social-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.social-container h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #8B6F47;
+    margin-bottom: 25px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    color: #8B6F47;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    background: #8B6F47;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   LET'S CHAT SECTION
+   ======================================== */
+
+.lets-chat-section {
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #FFFEF9 0%, #FFF8E7 100%);
+    text-align: center;
+}
+
+.lets-chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.lets-chat-btn {
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #5D4E37 0%, #8B6F47 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(93, 78, 55, 0.2);
+    margin-bottom: 20px;
+}
+
+.lets-chat-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(93, 78, 55, 0.3);
+}
+
+.lets-chat-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: #8B6F47;
+    line-height: 1.6;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .section-text {
+        padding: 50px 60px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 968px) {
+    /* Hero */
+    .nubians-hero {
+        padding: 40px 30px;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+    
+    /* Content Sections - Stack Vertically */
+    .content-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .mission-section,
+    .vision-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-section .section-image,
+    .vision-section .section-image {
+        order: 1;
+        height: 350px;
+    }
+    
+    .mission-section .section-text,
+    .vision-section .section-text {
+        order: 2;
+    }
+    
+    .section-text {
+        padding: 40px 30px;
+    }
+    
+    .section-title {
+        font-size: 2.25rem;
+    }
+    
+    .section-body p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+    
+    /* Gallery */
+    .gallery-section {
+        padding: 40px 30px;
+    }
+    
+    .gallery-title {
+        font-size: 2rem;
+    }
+    
+    .masonry-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+    }
+    
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(7) {
+        grid-row: span 1;
+    }
+    
+    /* Email signup */
+    .email-form {
+        flex-direction: column;
+    }
+    
+    .email-form input,
+    .email-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Hero */
+    .nubians-hero {
+        padding: 35px 20px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1rem;
+    }
+    
+    /* Section Images */
+    .section-image {
+        height: 280px;
+    }
+    
+    .section-text {
+        padding: 30px 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-body p {
+        font-size: 0.95rem;
+    }
+    
+    /* Gallery */
+    .gallery-section {
+        padding: 40px 20px;
+    }
+    
+    .gallery-title {
+        font-size: 1.75rem;
+    }
+    
+    .masonry-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .gallery-item img {
+        height: 200px;
+    }
+    
+    /* Email signup */
+    .signup-container h2 {
+        font-size: 2rem;
+    }
+    
+    .signup-container p {
+        font-size: 1rem;
+    }
+    
+    /* Social */
+    .social-container h3 {
+        font-size: 1.75rem;
+    }
+    
+    .social-links {
+        gap: 20px;
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Let's Chat */
+    .lets-chat-btn {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+    }
+    
+    .lets-chat-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(7) {
+        grid-row: span 1;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+}
+
+/* END OF NUBIANS STYLES */
