@@ -1,7 +1,7 @@
 /*
  * File: nubians.css
  * Created: 2025-01-20 15:15
- * Updated: 2025-01-27
+ * Updated: 2025-01-27 10:38am
  * Updated By: Claude (AI Assistant)
  * Purpose: Styling for Mini Nubians page with masonry gallery (grid + freeform layouts)
  * Previous Version: 2025-01-20 (added freeform layout styles)
@@ -256,49 +256,55 @@
 
 .masonry-gallery.freeform {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    grid-auto-rows: 20px;
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    grid-auto-flow: dense;
 }
 
 .masonry-gallery.freeform .gallery-item {
     border-radius: 12px;
+    position: relative;
 }
 
 /* Varying heights for organic Pinterest-style look */
 .masonry-gallery.freeform .gallery-item:nth-child(1) {
-    grid-row-end: span 14;
+    height: 320px;
 }
 
 .masonry-gallery.freeform .gallery-item:nth-child(2) {
-    grid-row-end: span 10;
+    height: 240px;
 }
 
 .masonry-gallery.freeform .gallery-item:nth-child(3) {
-    grid-row-end: span 16;
+    height: 380px;
 }
 
 .masonry-gallery.freeform .gallery-item:nth-child(4) {
-    grid-row-end: span 12;
+    height: 280px;
 }
 
 .masonry-gallery.freeform .gallery-item:nth-child(5) {
-    grid-row-end: span 15;
+    height: 350px;
 }
 
 .masonry-gallery.freeform .gallery-item:nth-child(6) {
-    grid-row-end: span 11;
+    height: 260px;
 }
 
 .masonry-gallery.freeform .gallery-item:nth-child(7) {
-    grid-row-end: span 13;
+    height: 300px;
 }
 
 .masonry-gallery.freeform .gallery-item:nth-child(8) {
-    grid-row-end: span 14;
+    height: 320px;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(n+9) {
+    height: 300px;
 }
 
 .masonry-gallery.freeform .gallery-item img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
 }
@@ -606,7 +612,15 @@
     /* Freeform layout - simpler on mobile */
     .masonry-gallery.freeform {
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 15px;
+        gap: 10px;
+    }
+    
+    .masonry-gallery.freeform .gallery-item {
+        height: 180px !important;
+    }
+    
+    .masonry-gallery.freeform .gallery-item:nth-child(3n) {
+        height: 220px !important;
     }
     
     .masonry-gallery.freeform .gallery-item img {
