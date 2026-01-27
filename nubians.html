@@ -1,0 +1,186 @@
+<!--
+  File: nubians.html
+  Created: 2025-01-20 15:15
+  Created By: Claude (AI Assistant)
+  Purpose: Mini Nubians page with masonry photo gallery and CMS integration
+  Previous Version: N/A (new file)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mini Nubians - Wheat and Whisper Farm</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="nubians.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Parisienne&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-menu" id="hamburgerBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Search</span>
+            </div>
+            
+            <div class="main-nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="animals.html" class="nav-link">Meet the Animals</a>
+                <a href="retrievers.html" class="nav-link">Retrievers</a>
+                <a href="farmette.html" class="nav-link">Farmette Life</a>
+                <a href="#more" class="nav-link">More...</a>
+            </div>
+            
+            <div class="nav-icons">
+                <div class="notification-icon">🔔</div>
+                <div class="profile-icon">👤</div>
+                <div class="cart-icon">🛒<span class="cart-count">0</span></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="nubians-hero">
+        <div class="hero-content">
+            <p class="hero-tagline" id="heroTagline">from birth to forever homes</p>
+            <h1 class="hero-title" id="heroTitle">Our Mini Nubians</h1>
+        </div>
+    </section>
+
+    <!-- Content Sections (Mission & Vision) -->
+    <section class="nubians-content">
+        <div class="content-container">
+            
+            <!-- Mission Section - Image LEFT, Text RIGHT -->
+            <div class="content-section mission-section">
+                <div class="section-image">
+                    <img src="images/uploads/nubians-mission.jpg" alt="Mini Nubian" class="section-img" id="missionImage">
+                </div>
+                <div class="section-text">
+                    <h2 class="section-title" id="missionTitle">Mission</h2>
+                    <div class="section-body" id="missionBody">
+                        <p>This is a Nubian Goat on "Milk Maid" in healthy chicken. We want to list editing the custom milk code so to add only relevant detail or information that you used to done with goat milkers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision Section - Image RIGHT, Text LEFT -->
+            <div class="content-section vision-section">
+                <div class="section-text">
+                    <h2 class="section-title" id="visionTitle">Vision</h2>
+                    <div class="section-body" id="visionBody">
+                        <p>This is a Nubian Goat on "Milk Maid" in healthy chicken. We want to list editing the custom milk code so to add only relevant detail or information that you used to done with goat milkers.</p>
+                    </div>
+                </div>
+                <div class="section-image">
+                    <img src="images/uploads/nubians-vision.jpg" alt="Mini Nubian" class="section-img" id="visionImage">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section (Masonry Layout) -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <h2 class="gallery-title">Mini Nubians Gallery</h2>
+            <div class="masonry-gallery" id="masonryGallery">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Signup Section -->
+    <section class="email-signup-section">
+        <div class="signup-container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for updates about our Mini Nubians and farm life</p>
+            <form id="emailSignupForm" class="email-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Social Media Links Section -->
+    <section class="social-section">
+        <div class="social-container">
+            <h3>Follow Us</h3>
+            <div class="social-links" id="socialLinks">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.117.6c-.779.263-1.618.603-2.368 1.353-.75.75-1.09 1.589-1.353 2.368-.266.788-.465 1.659-.6 2.937C.015 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.6 2.936.263.79.603 1.628 1.353 2.378.75.75 1.59 1.09 2.368 1.353.788.266 1.659.465 2.937.6C8.333 23.985 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.261 2.936-.6.79-.263 1.628-.603 2.378-1.353.75-.75 1.09-1.59 1.353-2.368.266-.788.465-1.659.6-2.937.057-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.261-2.148-.6-2.936-.263-.79-.603-1.628-1.353-2.378-.75-.75-1.59-1.09-2.368-1.353-.788-.266-1.659-.465-2.937-.6C15.667.015 15.26 0 12 0zm0 2.16c3.203 0 3.585.009 4.849.064 1.17.054 1.805.244 2.227.408.56.217.96.477 1.382.896.42.42.679.822.896 1.381.164.422.354 1.057.408 2.227.055 1.266.064 1.645.064 4.849 0 3.203-.009 3.585-.064 4.849-.054 1.17-.244 1.805-.408 2.227-.217.56-.477.96-.896 1.382-.42.42-.822.679-1.381.896-.422.164-1.057.354-2.227.408-1.266.055-1.645.064-4.849.064-3.203 0-3.585-.009-4.849-.064-1.17-.054-1.805-.244-2.227-.408-.56-.217-.96-.477-1.382-.896-.42-.42-.679-.822-.896-1.381-.164-.422-.354-1.057-.408-2.227-.055-1.266-.064-1.645-.064-4.849 0-3.203.009-3.585.064-4.849.054-1.17.244-1.805.408-2.227.217-.56.477-.96.896-1.382.42-.42.822-.679 1.381-.896.422-.164 1.057-.354 2.227-.408 1.266-.055 1.645-.064 4.849-.064z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Pinterest">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.937-.2-2.378.042-3.402.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.768 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Let's Chat Button Section (Placeholder) -->
+    <section class="lets-chat-section">
+        <div class="lets-chat-container">
+            <button class="lets-chat-btn" id="letsChatBtn">Let's Chat</button>
+            <p class="lets-chat-subtitle">Have questions about our Mini Nubians? We'd love to hear from you!</p>
+        </div>
+    </section>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <p>Wheat and Whisper Farm</p>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link">🏠 Home</a>
+            <a href="about.html" class="mobile-menu-link">ℹ️ About</a>
+            <a href="animals.html" class="mobile-menu-link">🐾 Meet the Animals</a>
+            <a href="retrievers.html" class="mobile-menu-link">🐕 Retrievers</a>
+            <a href="nubians.html" class="mobile-menu-link">🐐 Mini Nubians</a>
+            <a href="farmette.html" class="mobile-menu-link">🌾 Farmette Life</a>
+        </div>
+        <div class="mobile-menu-social">
+            <p>Follow Us</p>
+            <div class="mobile-social-icons">
+                <a href="#" class="mobile-social-link">f</a>
+                <a href="#" class="mobile-social-link">📷</a>
+                <a href="#" class="mobile-social-link">📌</a>
+                <a href="#" class="mobile-social-link">𝕏</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="mobile-menu.js"></script>
+    <script src="nubians-auto-cms.js"></script>
+</body>
+</html>
