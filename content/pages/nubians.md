@@ -20,6 +20,14 @@ vision:
     raising animals that bring joy and purpose to our farm family. Through
     ethical breeding practices and genuine care, we aim to provide puppies and
     young animals to families who will cherish them as we do.
+box_5:
+  title: New Title can go here
+  image: images/uploads/goat-placeholder.jpg
+  body: This is the area for additional content
+box_6:
+  title: Another image area
+  image: images/uploads/img_5318_edited.jpg
+  body: And another text area.
 gallery:
   title: Mini Nubians Gallery
   layout_style: grid
@@ -40,14 +48,8 @@ gallery:
       alt: Mini Nubian portrait
     - image: images/uploads/tezza-7058-1-.jpg
       alt: Photo Description here
-box_5:
-  title: ""
-  image: ""
-  body: ""
-box_6:
-  title: ""
-  image: ""
-  body: ""
+    - image: images/uploads/goat-placeholder.jpg
+      alt: The Big Head
 social:
   facebook_url: https://www.facebook.com/wheatandwhisper
   instagram_url: https://www.instagram.com/wheatandwhisper
