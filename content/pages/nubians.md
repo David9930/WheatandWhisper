@@ -22,6 +22,7 @@ vision:
     young animals to families who will cherish them as we do.
 gallery:
   title: Mini Nubians Gallery
+  layout_style: grid
   photos:
     - image: images/uploads/img_0099_edited.jpg
       alt: Mini Nubian doe
@@ -39,6 +40,14 @@ gallery:
       alt: Mini Nubian portrait
     - image: images/uploads/tezza-7058-1-.jpg
       alt: Photo Description here
+box_5:
+  title: ""
+  image: ""
+  body: ""
+box_6:
+  title: ""
+  image: ""
+  body: ""
 social:
   facebook_url: https://www.facebook.com/wheatandwhisper
   instagram_url: https://www.instagram.com/wheatandwhisper
