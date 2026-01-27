@@ -1,9 +1,10 @@
 <!--
   File: nubians.html
   Created: 2025-01-20 15:15
-  Created By: Claude (AI Assistant)
-  Purpose: Mini Nubians page with masonry photo gallery and CMS integration
-  Previous Version: N/A (new file)
+  Updated: 2025-01-27
+  Updated By: Claude (AI Assistant)
+  Purpose: Mini Nubians page with masonry photo gallery, CMS integration, optional boxes, and layout switching
+  Previous Version: 2025-01-20 (added Box 5, Box 6, and grid/freeform layout support)
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +47,9 @@
             </div>
             
             <div class="nav-icons">
-                <div class="notification-icon">🔔</div>
-                <div class="profile-icon">👤</div>
-                <div class="cart-icon">🛒<span class="cart-count">0</span></div>
+                <div class="notification-icon">ðŸ””</div>
+                <div class="profile-icon">ðŸ‘¤</div>
+                <div class="cart-icon">ðŸ›’<span class="cart-count">0</span></div>
             </div>
         </div>
     </nav>
@@ -88,6 +89,35 @@
                 </div>
                 <div class="section-image">
                     <img src="images/uploads/nubians-vision.jpg" alt="Mini Nubian" class="section-img" id="visionImage">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Additional Content Boxes (Box 5 & 6) - Optional -->
+    <section class="nubians-content" id="additionalBoxes" style="display: none;">
+        <div class="content-container">
+            
+            <!-- Box 5 - Image LEFT, Text RIGHT -->
+            <div class="content-section box-5-section" id="box5Section" style="display: none;">
+                <div class="section-image">
+                    <img src="" alt="Box 5" class="section-img" id="box5Image">
+                </div>
+                <div class="section-text">
+                    <h2 class="section-title" id="box5Title"></h2>
+                    <div class="section-body" id="box5Body"></div>
+                </div>
+            </div>
+
+            <!-- Box 6 - Image RIGHT, Text LEFT -->
+            <div class="content-section box-6-section" id="box6Section" style="display: none;">
+                <div class="section-text">
+                    <h2 class="section-title" id="box6Title"></h2>
+                    <div class="section-body" id="box6Body"></div>
+                </div>
+                <div class="section-image">
+                    <img src="" alt="Box 6" class="section-img" id="box6Image">
                 </div>
             </div>
 
@@ -161,20 +191,20 @@
             <p>Wheat and Whisper Farm</p>
         </div>
         <div class="mobile-menu-links">
-            <a href="index.html" class="mobile-menu-link">🏠 Home</a>
-            <a href="about.html" class="mobile-menu-link">ℹ️ About</a>
-            <a href="animals.html" class="mobile-menu-link">🐾 Meet the Animals</a>
-            <a href="retrievers.html" class="mobile-menu-link">🐕 Retrievers</a>
-            <a href="nubians.html" class="mobile-menu-link">🐐 Mini Nubians</a>
-            <a href="farmette.html" class="mobile-menu-link">🌾 Farmette Life</a>
+            <a href="index.html" class="mobile-menu-link">ðŸ  Home</a>
+            <a href="about.html" class="mobile-menu-link">â„¹ï¸ About</a>
+            <a href="animals.html" class="mobile-menu-link">ðŸ¾ Meet the Animals</a>
+            <a href="retrievers.html" class="mobile-menu-link">ðŸ• Retrievers</a>
+            <a href="nubians.html" class="mobile-menu-link">ðŸ Mini Nubians</a>
+            <a href="farmette.html" class="mobile-menu-link">ðŸŒ¾ Farmette Life</a>
         </div>
         <div class="mobile-menu-social">
             <p>Follow Us</p>
             <div class="mobile-social-icons">
                 <a href="#" class="mobile-social-link">f</a>
-                <a href="#" class="mobile-social-link">📷</a>
-                <a href="#" class="mobile-social-link">📌</a>
-                <a href="#" class="mobile-social-link">𝕏</a>
+                <a href="#" class="mobile-social-link">ðŸ“·</a>
+                <a href="#" class="mobile-social-link">ðŸ“Œ</a>
+                <a href="#" class="mobile-social-link">ð•</a>
             </div>
         </div>
     </div>
