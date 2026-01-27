@@ -30,7 +30,7 @@ box_6:
   body: And another text area.
 gallery:
   title: Mini Nubians Gallery
-  layout_style: grid
+  layout_style: freeform
   photos:
     - image: images/uploads/img_0099_edited.jpg
       alt: Mini Nubian doe
