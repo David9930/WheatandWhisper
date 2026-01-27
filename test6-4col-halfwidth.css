@@ -1,0 +1,49 @@
+/* ========================================
+   TEST 6: 4 Columns with 50% Width Only
+   Natural Heights - No Height Restriction
+   ======================================== */
+
+.masonry-gallery.freeform {
+    column-count: 4;
+    column-gap: 2px;
+    max-width: 600px;  /* 50% of standard 1200px gallery width */
+    margin: 0 auto;
+}
+
+.masonry-gallery.freeform .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 2px;
+    display: inline-block;
+    width: 100%;
+}
+
+.masonry-gallery.freeform .gallery-item img {
+    width: 100%;
+    height: auto;  /* Natural proportions maintained */
+    display: block;
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .masonry-gallery.freeform {
+        column-count: 3;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 640px) {
+    .masonry-gallery.freeform {
+        column-count: 2;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 380px) {
+    .masonry-gallery.freeform {
+        column-count: 1;
+        max-width: 300px;
+    }
+}
