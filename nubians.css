@@ -1,10 +1,10 @@
 /*
  * File: nubians.css
  * Created: 2025-01-20 15:15
- * Updated: 2025-01-27 14:28pm
+ * Updated: 2025-01-27 18:58
  * Updated By: Claude (AI Assistant)
  * Purpose: Styling for Mini Nubians page with masonry gallery (grid + freeform layouts)
- * Change: Applied EXACT Test 1 CSS from working test page - 11 lines only
+ * Change: Added !important overrides to remove ALL base styling causing white space
  */
 
 /* ========================================
@@ -251,25 +251,54 @@
 }
 
 /* ========================================
-   FREEFORM GALLERY - EXACT COPY FROM TEST 1
+   FREEFORM GALLERY - WITH OVERRIDES
    ======================================== */
 
 .masonry-gallery.freeform {
+    /* Test 1 CSS */
     column-count: 3;
     column-gap: 2px;
+    /* OVERRIDE base .masonry-gallery styling that creates white space */
+    display: block !important;
+    padding: 0 !important;
+    background: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 .masonry-gallery.freeform .gallery-item {
+    /* Test 1 CSS */
     break-inside: avoid;
     margin-bottom: 2px;
     display: inline-block;
     width: 100%;
+    /* OVERRIDE base .gallery-item styling that creates gaps */
+    position: static !important;
+    overflow: visible !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transition: none !important;
+    cursor: default !important;
+}
+
+.masonry-gallery.freeform .gallery-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 .masonry-gallery.freeform .gallery-item img {
+    /* Test 1 CSS */
     width: 100%;
     height: auto;
     display: block;
+    /* OVERRIDE base img styling */
+    object-fit: unset !important;
+    object-position: unset !important;
+    transition: none !important;
+}
+
+.masonry-gallery.freeform .gallery-item:hover img {
+    transform: none !important;
 }
 
 /* ========================================
