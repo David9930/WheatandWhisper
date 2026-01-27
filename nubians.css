@@ -1,10 +1,10 @@
 /*
  * File: nubians.css
  * Created: 2025-01-20 15:15
- * Updated: 2025-01-27 12:51 pm
+ * Updated: 2025-01-27 13:28pm
  * Updated By: Claude (AI Assistant)
  * Purpose: Styling for Mini Nubians page with masonry gallery (grid + freeform layouts)
- * Previous Version: 2025-01-20 (added freeform layout styles)
+ * Change: Updated freeform layout to 3 columns (from 4) to match working test page
  */
 
 /* ========================================
@@ -255,7 +255,7 @@
    ======================================== */
 
 .masonry-gallery.freeform {
-    column-count: 4;
+    column-count: 3;
     column-gap: 2px;
 }
 
@@ -442,7 +442,7 @@
         font-size: 2.5rem;
     }
     
-    /* Freeform - 3 columns on smaller desktops/tablets */
+    /* Freeform stays at 3 columns */
     .masonry-gallery.freeform {
         column-count: 3;
     }
