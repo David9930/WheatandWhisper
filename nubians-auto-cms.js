@@ -26,9 +26,11 @@ fetch('content/pages/nubians.md')
             // Update hero section
             if (frontmatter.hero) {
                 if (frontmatter.hero.title) {
+                    console.log('📝 Setting hero title:', frontmatter.hero.title);
                     document.getElementById('heroTitle').textContent = frontmatter.hero.title;
                 }
                 if (frontmatter.hero.tagline) {
+                    console.log('📝 Setting hero tagline:', frontmatter.hero.tagline);
                     document.getElementById('heroTagline').textContent = frontmatter.hero.tagline;
                 }
             }
@@ -36,12 +38,17 @@ fetch('content/pages/nubians.md')
             // Update mission section
             if (frontmatter.mission) {
                 if (frontmatter.mission.title) {
+                    console.log('📝 Setting mission title:', frontmatter.mission.title);
                     document.getElementById('missionTitle').textContent = frontmatter.mission.title;
                 }
                 if (frontmatter.mission.body) {
-                    document.getElementById('missionBody').innerHTML = convertMarkdownToHTML(frontmatter.mission.body);
+                    console.log('📝 Setting mission body (length: ' + frontmatter.mission.body.length + ')');
+                    const missionHTML = convertMarkdownToHTML(frontmatter.mission.body);
+                    console.log('📝 Mission HTML:', missionHTML);
+                    document.getElementById('missionBody').innerHTML = missionHTML;
                 }
                 if (frontmatter.mission.image) {
+                    console.log('🖼️ Setting mission image:', frontmatter.mission.image);
                     document.getElementById('missionImage').src = frontmatter.mission.image;
                 }
             }
@@ -49,23 +56,31 @@ fetch('content/pages/nubians.md')
             // Update vision section
             if (frontmatter.vision) {
                 if (frontmatter.vision.title) {
+                    console.log('📝 Setting vision title:', frontmatter.vision.title);
                     document.getElementById('visionTitle').textContent = frontmatter.vision.title;
                 }
                 if (frontmatter.vision.body) {
-                    document.getElementById('visionBody').innerHTML = convertMarkdownToHTML(frontmatter.vision.body);
+                    console.log('📝 Setting vision body (length: ' + frontmatter.vision.body.length + ')');
+                    const visionHTML = convertMarkdownToHTML(frontmatter.vision.body);
+                    console.log('📝 Vision HTML:', visionHTML);
+                    document.getElementById('visionBody').innerHTML = visionHTML;
                 }
                 if (frontmatter.vision.image) {
+                    console.log('🖼️ Setting vision image:', frontmatter.vision.image);
                     document.getElementById('visionImage').src = frontmatter.vision.image;
                 }
             }
             
             // Populate masonry gallery
             if (frontmatter.gallery && frontmatter.gallery.photos) {
+                console.log('📸 Gallery photos found:', frontmatter.gallery.photos);
                 populateGallery(frontmatter.gallery.photos);
                 console.log(`✅ Gallery populated with ${frontmatter.gallery.photos.length} photos`);
             }
             
-            console.log('✅ Nubians page content loaded');
+            console.log('✅ Nubians page content loaded successfully!');
+        } else {
+            console.error('❌ No frontmatter data available');
         }
     })
     .catch(error => {
@@ -95,63 +110,132 @@ function parseFrontmatter(content) {
 }
 
 /**
- * Simple YAML parser (handles basic structure)
+ * Better YAML parser (handles multiline text with > and |)
  */
 function parseYAML(yaml) {
     const result = {};
-    const lines = yaml.split('\n').filter(line => line.trim());
+    const lines = yaml.split('\n');
     let currentSection = null;
-    let currentList = null;
+    let currentKey = null;
+    let multilineText = [];
+    let multilineMode = false;
     
-    for (const line of lines) {
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
         const trimmed = line.trim();
         
-        if (!trimmed) continue;
+        // Skip empty lines (unless in multiline mode)
+        if (!trimmed) {
+            if (multilineMode) {
+                multilineText.push('');
+            }
+            continue;
+        }
         
-        // Top-level key
-        if (!line.startsWith('  ') && line.includes(':')) {
-            const [key, value] = line.split(':').map(s => s.trim());
+        const indent = line.length - line.trimStart().length;
+        
+        // Check if this is a multiline indicator (> or |)
+        if (trimmed.match(/^(\w+):\s*[>|]$/)) {
+            multilineMode = true;
+            currentKey = trimmed.split(':')[0].trim();
+            multilineText = [];
+            continue;
+        }
+        
+        // If we're in multiline mode and this line is indented more than top level
+        if (multilineMode && indent > 0) {
+            multilineText.push(trimmed);
+            continue;
+        }
+        
+        // End multiline mode and save the text
+        if (multilineMode) {
+            const text = multilineText.join(' ').trim();
+            if (currentSection) {
+                if (!result[currentSection]) {
+                    result[currentSection] = {};
+                }
+                result[currentSection][currentKey] = text;
+            } else {
+                result[currentKey] = text;
+            }
+            multilineMode = false;
+            multilineText = [];
+            currentKey = null;
+        }
+        
+        // Top-level key (no indent)
+        if (indent === 0 && line.includes(':')) {
+            const colonIndex = line.indexOf(':');
+            const key = line.substring(0, colonIndex).trim();
+            const value = line.substring(colonIndex + 1).trim();
             
-            if (value) {
-                // Remove quotes if present
+            if (value && !value.match(/^[>|]$/)) {
                 result[key] = value.replace(/^["']|["']$/g, '');
             } else {
                 currentSection = key;
                 result[currentSection] = {};
             }
-            currentList = null;
         }
-        // Nested key
-        else if (line.startsWith('  ') && !line.startsWith('    ')) {
-            const [key, value] = line.split(':').map(s => s.trim());
+        // Nested key (2-space indent)
+        else if (indent === 2 && line.includes(':')) {
+            const colonIndex = line.indexOf(':');
+            const key = line.substring(indent, colonIndex).trim();
+            const value = line.substring(colonIndex + 1).trim();
             
             if (currentSection) {
                 if (!result[currentSection]) {
                     result[currentSection] = {};
                 }
                 
-                if (value) {
+                if (value && !value.match(/^[>|]$/)) {
                     result[currentSection][key] = value.replace(/^["']|["']$/g, '');
                 } else {
                     result[currentSection][key] = {};
                 }
-                currentList = null;
             }
         }
-        // List item
-        else if (line.startsWith('    - ')) {
-            const value = line.substring(6).trim().replace(/^["']|["']$/g, '');
-            
-            if (currentSection && currentList) {
-                const lastKey = Object.keys(result[currentSection]).pop();
-                if (!Array.isArray(result[currentSection][lastKey])) {
-                    result[currentSection][lastKey] = [];
+        // List items (4-space indent with -)
+        else if (indent === 4 && trimmed.startsWith('- ')) {
+            if (currentSection && currentKey) {
+                if (!Array.isArray(result[currentSection][currentKey])) {
+                    result[currentSection][currentKey] = [];
                 }
-                result[currentSection][lastKey].push(value);
+                result[currentSection][currentKey].push({
+                    image: '',
+                    alt: ''
+                });
+            }
+        }
+        // List item properties (6-space indent)
+        else if (indent === 6 && line.includes(':')) {
+            const colonIndex = line.indexOf(':');
+            const key = line.substring(indent, colonIndex).trim();
+            const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
+            
+            if (currentSection && currentKey && result[currentSection][currentKey]) {
+                const items = result[currentSection][currentKey];
+                if (Array.isArray(items) && items.length > 0) {
+                    items[items.length - 1][key] = value;
+                }
             }
         }
     }
     
+    // Handle any remaining multiline text at EOF
+    if (multilineMode && currentKey) {
+        const text = multilineText.join(' ').trim();
+        if (currentSection) {
+            if (!result[currentSection]) {
+                result[currentSection] = {};
+            }
+            result[currentSection][currentKey] = text;
+        } else {
+            result[currentKey] = text;
+        }
+    }
+    
+    console.log('🔍 Parsed YAML:', result);
     return result;
 }
 
