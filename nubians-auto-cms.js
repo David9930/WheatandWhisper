@@ -1,12 +1,13 @@
 /*
  * File: nubians-auto-cms.js
  * Created: 2025-01-20 15:15
- * Created By: Claude (AI Assistant)
- * Purpose: Load Mini Nubians page content from CMS and populate masonry gallery
- * Previous Version: N/A (new file)
+ * Updated: 2025-01-27
+ * Updated By: Claude (AI Assistant)
+ * Purpose: Load Mini Nubians page content from CMS, populate gallery, load optional boxes, apply layout style
+ * Previous Version: 2025-01-20 (added Box 5, Box 6 loading and grid/freeform layout switching)
  */
 
-console.log('🐐 Nubians page initializing...');
+console.log('ðŸ Nubians page initializing...');
 
 // Fetch and parse the nubians.md file
 fetch('content/pages/nubians.md')
@@ -17,7 +18,7 @@ fetch('content/pages/nubians.md')
         return response.text();
     })
     .then(data => {
-        console.log('✅ Nubians.md loaded successfully');
+        console.log('âœ… Nubians.md loaded successfully');
         
         // Parse YAML frontmatter
         const frontmatter = parseFrontmatter(data);
@@ -26,11 +27,11 @@ fetch('content/pages/nubians.md')
             // Update hero section
             if (frontmatter.hero) {
                 if (frontmatter.hero.title) {
-                    console.log('📝 Setting hero title:', frontmatter.hero.title);
+                    console.log('ðŸ“ Setting hero title:', frontmatter.hero.title);
                     document.getElementById('heroTitle').textContent = frontmatter.hero.title;
                 }
                 if (frontmatter.hero.tagline) {
-                    console.log('📝 Setting hero tagline:', frontmatter.hero.tagline);
+                    console.log('ðŸ“ Setting hero tagline:', frontmatter.hero.tagline);
                     document.getElementById('heroTagline').textContent = frontmatter.hero.tagline;
                 }
             }
@@ -38,17 +39,17 @@ fetch('content/pages/nubians.md')
             // Update mission section
             if (frontmatter.mission) {
                 if (frontmatter.mission.title) {
-                    console.log('📝 Setting mission title:', frontmatter.mission.title);
+                    console.log('ðŸ“ Setting mission title:', frontmatter.mission.title);
                     document.getElementById('missionTitle').textContent = frontmatter.mission.title;
                 }
                 if (frontmatter.mission.body) {
-                    console.log('📝 Setting mission body (length: ' + frontmatter.mission.body.length + ')');
+                    console.log('ðŸ“ Setting mission body (length: ' + frontmatter.mission.body.length + ')');
                     const missionHTML = convertMarkdownToHTML(frontmatter.mission.body);
-                    console.log('📝 Mission HTML:', missionHTML);
+                    console.log('ðŸ“ Mission HTML:', missionHTML);
                     document.getElementById('missionBody').innerHTML = missionHTML;
                 }
                 if (frontmatter.mission.image) {
-                    console.log('🖼️ Setting mission image:', frontmatter.mission.image);
+                    console.log('ðŸ–¼ï¸ Setting mission image:', frontmatter.mission.image);
                     document.getElementById('missionImage').src = frontmatter.mission.image;
                 }
             }
@@ -56,35 +57,64 @@ fetch('content/pages/nubians.md')
             // Update vision section
             if (frontmatter.vision) {
                 if (frontmatter.vision.title) {
-                    console.log('📝 Setting vision title:', frontmatter.vision.title);
+                    console.log('ðŸ“ Setting vision title:', frontmatter.vision.title);
                     document.getElementById('visionTitle').textContent = frontmatter.vision.title;
                 }
                 if (frontmatter.vision.body) {
-                    console.log('📝 Setting vision body (length: ' + frontmatter.vision.body.length + ')');
+                    console.log('ðŸ“ Setting vision body (length: ' + frontmatter.vision.body.length + ')');
                     const visionHTML = convertMarkdownToHTML(frontmatter.vision.body);
-                    console.log('📝 Vision HTML:', visionHTML);
+                    console.log('ðŸ“ Vision HTML:', visionHTML);
                     document.getElementById('visionBody').innerHTML = visionHTML;
                 }
                 if (frontmatter.vision.image) {
-                    console.log('🖼️ Setting vision image:', frontmatter.vision.image);
+                    console.log('ðŸ–¼ï¸ Setting vision image:', frontmatter.vision.image);
                     document.getElementById('visionImage').src = frontmatter.vision.image;
                 }
             }
             
             // Populate masonry gallery
             if (frontmatter.gallery && frontmatter.gallery.photos) {
-                console.log('📸 Gallery photos found:', frontmatter.gallery.photos);
+                console.log('ðŸ“¸ Gallery photos found:', frontmatter.gallery.photos);
                 populateGallery(frontmatter.gallery.photos);
-                console.log(`✅ Gallery populated with ${frontmatter.gallery.photos.length} photos`);
+                console.log(`âœ… Gallery populated with ${frontmatter.gallery.photos.length} photos`);
+                
+                // Apply layout style (grid or freeform)
+                if (frontmatter.gallery.layout_style) {
+                    const galleryEl = document.getElementById('masonryGallery');
+                    galleryEl.classList.add(frontmatter.gallery.layout_style);
+                    console.log(`Applied layout style: ${frontmatter.gallery.layout_style}`);
+                }
             }
             
-            console.log('✅ Nubians page content loaded successfully!');
+            // Load optional Box 5
+            if (frontmatter.box_5 && frontmatter.box_5.title) {
+                console.log('Loading Box 5...');
+                document.getElementById('box5Title').textContent = frontmatter.box_5.title;
+                document.getElementById('box5Body').innerHTML = convertMarkdownToHTML(frontmatter.box_5.body || '');
+                document.getElementById('box5Image').src = frontmatter.box_5.image || '';
+                document.getElementById('box5Section').style.display = 'grid';
+                document.getElementById('additionalBoxes').style.display = 'block';
+                console.log('Box 5 loaded');
+            }
+            
+            // Load optional Box 6
+            if (frontmatter.box_6 && frontmatter.box_6.title) {
+                console.log('Loading Box 6...');
+                document.getElementById('box6Title').textContent = frontmatter.box_6.title;
+                document.getElementById('box6Body').innerHTML = convertMarkdownToHTML(frontmatter.box_6.body || '');
+                document.getElementById('box6Image').src = frontmatter.box_6.image || '';
+                document.getElementById('box6Section').style.display = 'grid';
+                document.getElementById('additionalBoxes').style.display = 'block';
+                console.log('Box 6 loaded');
+            }
+            
+            console.log('âœ… Nubians page content loaded successfully!');
         } else {
-            console.error('❌ No frontmatter data available');
+            console.error('âŒ No frontmatter data available');
         }
     })
     .catch(error => {
-        console.error('❌ Error loading nubians.md:', error);
+        console.error('âŒ Error loading nubians.md:', error);
     });
 
 /**
@@ -94,17 +124,17 @@ function parseFrontmatter(content) {
     const matches = content.match(/^---\n([\s\S]*?)\n---/);
     
     if (!matches) {
-        console.error('❌ No frontmatter found in nubians.md');
+        console.error('âŒ No frontmatter found in nubians.md');
         return null;
     }
     
     const yamlString = matches[1];
-    console.log('✅ Parsing YAML frontmatter...');
+    console.log('âœ… Parsing YAML frontmatter...');
     
     try {
         return parseYAML(yamlString);
     } catch (error) {
-        console.error('❌ Error parsing YAML:', error);
+        console.error('âŒ Error parsing YAML:', error);
         return null;
     }
 }
@@ -253,7 +283,7 @@ function parseYAML(yaml) {
         }
     }
     
-    console.log('🔍 Parsed YAML:', result);
+    console.log('ðŸ” Parsed YAML:', result);
     return result;
 }
 
@@ -312,8 +342,8 @@ function populateGallery(photos) {
         item.appendChild(img);
         gallery.appendChild(item);
         
-        console.log(`  ✓ Gallery photo ${index + 1}: ${photo.image || photo}`);
+        console.log(`  âœ“ Gallery photo ${index + 1}: ${photo.image || photo}`);
     });
 }
 
-console.log('✅ Nubians CMS loader ready!');
+console.log('âœ… Nubians CMS loader ready!');
