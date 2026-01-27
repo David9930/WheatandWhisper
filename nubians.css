@@ -1,9 +1,10 @@
 /*
  * File: nubians.css
  * Created: 2025-01-20 15:15
- * Created By: Claude (AI Assistant)
- * Purpose: Styling for Mini Nubians page with masonry gallery layout
- * Previous Version: N/A (new file)
+ * Updated: 2025-01-27
+ * Updated By: Claude (AI Assistant)
+ * Purpose: Styling for Mini Nubians page with masonry gallery (grid + freeform layouts)
+ * Previous Version: 2025-01-20 (added freeform layout styles)
  */
 
 /* ========================================
@@ -247,6 +248,59 @@
 .gallery-item:nth-child(9) {
     grid-column: span 1;
     grid-row: span 1;
+}
+
+/* ========================================
+   FREEFORM GALLERY LAYOUT (Pinterest-style)
+   ======================================== */
+
+.masonry-gallery.freeform {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-auto-rows: 20px;
+    gap: 12px;
+}
+
+.masonry-gallery.freeform .gallery-item {
+    border-radius: 12px;
+}
+
+/* Varying heights for organic Pinterest-style look */
+.masonry-gallery.freeform .gallery-item:nth-child(1) {
+    grid-row-end: span 14;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(2) {
+    grid-row-end: span 10;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(3) {
+    grid-row-end: span 16;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(4) {
+    grid-row-end: span 12;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(5) {
+    grid-row-end: span 15;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(6) {
+    grid-row-end: span 11;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(7) {
+    grid-row-end: span 13;
+}
+
+.masonry-gallery.freeform .gallery-item:nth-child(8) {
+    grid-row-end: span 14;
+}
+
+.masonry-gallery.freeform .gallery-item img {
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ========================================
@@ -549,6 +603,16 @@
         height: 200px;
     }
     
+    /* Freeform layout - simpler on mobile */
+    .masonry-gallery.freeform {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 15px;
+    }
+    
+    .masonry-gallery.freeform .gallery-item img {
+        height: 100%;
+    }
+    
     /* Email signup */
     .signup-container h2 {
         font-size: 2rem;
@@ -587,6 +651,11 @@
     .gallery-item:nth-child(4),
     .gallery-item:nth-child(7) {
         grid-row: span 1;
+    }
+    
+    /* Freeform - single column on very small screens */
+    .masonry-gallery.freeform {
+        grid-template-columns: 1fr;
     }
     
     .social-links {
