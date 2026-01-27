@@ -343,6 +343,69 @@ collections:
               - {label: "CTA Text", name: "text", widget: "text", default: "Fill out our adoption application to get started on your journey with a Sovereignty Grace Golden Retriever."}
               - {label: "Button Text", name: "button_text", widget: "string", default: "Complete Adoption Application"}
               - {label: "Button Link", name: "button_link", widget: "string", default: "adoption-form.html", hint: "URL or #anchor link"}
+
+      # ============================================
+      # ADD THIS TO: admin/config.yml
+      # LOCATION: Under "- name: pages" → "files:" section
+      # AFTER: Animals Page Settings section
+      # ============================================
+
+      # ---------------------------------------------------------------------------
+      # MINI NUBIANS PAGE
+      # ---------------------------------------------------------------------------
+      - label: "🐐 Mini Nubians Page"
+        name: "nubians"
+        file: "content/pages/nubians.md"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Page Title", name: "title", widget: "string", default: "Our Mini Nubians", hint: "Main heading displayed on page"}
+              - {label: "Tagline", name: "tagline", widget: "string", default: "from birth to forever homes", hint: "Subtitle above title"}
+          
+          - label: "Mission Section"
+            name: "mission"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Mission"}
+              - {label: "Section Image", name: "image", widget: "image", hint: "Image displayed on left side (desktop) or top (mobile)"}
+              - {label: "Section Description", name: "body", widget: "markdown", hint: "Text describing your mission for the Mini Nubians"}
+          
+          - label: "Vision Section"
+            name: "vision"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Vision"}
+              - {label: "Section Image", name: "image", widget: "image", hint: "Image displayed on right side (desktop) or bottom (mobile)"}
+              - {label: "Section Description", name: "body", widget: "markdown", hint: "Text describing your vision for the Mini Nubians"}
+          
+          - label: "Photo Gallery"
+            name: "gallery"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Gallery Title", name: "title", widget: "string", default: "Mini Nubians Gallery", hint: "Heading above photo grid"}
+              - label: "Gallery Photos"
+                name: "photos"
+                widget: "list"
+                summary: "{{fields.alt}}"
+                fields:
+                  - {label: "Photo", name: "image", widget: "image"}
+                  - {label: "Photo Description", name: "alt", widget: "string", hint: "Description for accessibility"}
+          
+          - label: "Social Media Links"
+            name: "social"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full Facebook URL"}
+              - {label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full Instagram URL"}
+              - {label: "Pinterest URL", name: "pinterest_url", widget: "string", required: false, hint: "Full Pinterest URL"}
+              - {label: "Twitter URL", name: "twitter_url", widget: "string", required: false, hint: "Full Twitter/X URL"}
       
       # ---------------------------------------------------------------------------
       # HOMEPAGE SITE SETTINGS (Fonts, Colors, Spacing)
