@@ -17,6 +17,8 @@ litters:
         caption: Peach Tarte - female (7 weeks)
       - image: images/uploads/52dd963c-4320-48cc-837c-47b2467a07a9_1_102_a.jpeg
         caption: Creme Brulee - male (3 weeks)
+      - image: images/uploads/41255fef-f3ea-4566-8f8f-e6e85cf64a6f_4_5005_c.jpeg
+        caption: Creme Brûlée and Limoncello Creme (8 weeks)
 ---
 
 # Puppy Gallery
