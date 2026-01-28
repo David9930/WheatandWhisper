@@ -5,11 +5,11 @@ litters:
     photos:
       - image: images/uploads/a4aa5df9-554e-43f3-8839-ad659328f588_1_105_c.jpeg
         caption: Teddy Graham -male (6 weeks)
-      - image: images/uploads/61915837-235e-4e1f-a161-333331249ee3_1_105_c.jpeg
+      - image: images/uploads/09cf8d9d-8f49-4fe8-bd50-e418dc11afbd_4_5005_c.jpeg
         caption: Reece Sunday -male (6 weeks)
       - image: images/uploads/38fdef96-9f2f-452c-9824-6e4a0df80e49_1_105_c.jpeg
         caption: Buttermilk Biscuit - female (6 weeks)
-      - image: images/uploads/198a2d44-4232-458c-9ace-469fae5fedf2_1_105_c.jpeg
+      - image: images/uploads/59c979c7-9482-463b-ab2c-c0526ddcbb42_4_5005_c.jpeg
         caption: Limoncello Creme - male (6 weeks)
       - image: images/uploads/98429914-f26a-457b-8e97-34c34748b631_1_102_a.jpeg
         caption: Mousse Trifle - male (10 days old)
