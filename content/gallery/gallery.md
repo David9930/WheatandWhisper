@@ -12,7 +12,11 @@ litters:
       - image: images/uploads/198a2d44-4232-458c-9ace-469fae5fedf2_1_105_c.jpeg
         caption: "Limoncello Creme - male "
       - image: images/uploads/98429914-f26a-457b-8e97-34c34748b631_1_102_a.jpeg
-        caption: "Mousse Trifle "
+        caption: Mousse Trifle - male
+      - image: images/uploads/cc586d38-9ca5-4208-a5bf-c619ad314ebd_4_5005_c.jpeg
+        caption: "Peach Tarte - female "
+      - image: images/uploads/e011c69f-a3c7-478f-b25b-4312fc2c967e_4_5005_c.jpeg
+        caption: Creme Brulee
 ---
 
 # Puppy Gallery
