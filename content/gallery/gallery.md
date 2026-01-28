@@ -11,6 +11,8 @@ litters:
         caption: "Buttermilk Biscuit - female "
       - image: images/uploads/198a2d44-4232-458c-9ace-469fae5fedf2_1_105_c.jpeg
         caption: "Limoncello Creme - male "
+      - image: images/uploads/98429914-f26a-457b-8e97-34c34748b631_1_102_a.jpeg
+        caption: "Mousse Trifle "
 ---
 
 # Puppy Gallery
