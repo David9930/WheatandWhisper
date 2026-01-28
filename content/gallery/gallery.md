@@ -1,10 +1,16 @@
 ---
 litters:
-  - name: Test Name
-    date: January 2026 Litter
+  - name: Darling/Thor 'little sweet treats'
+    date: July 2025 Litter
     photos:
-      - image: images/uploads/box-2-image.jpg
-        caption: Meet Like Greggy... Always chewing something!
+      - image: images/uploads/a4aa5df9-554e-43f3-8839-ad659328f588_1_105_c.jpeg
+        caption: Teddy Graham -male
+      - image: images/uploads/61915837-235e-4e1f-a161-333331249ee3_1_105_c.jpeg
+        caption: Reece Sunday -male
+      - image: images/uploads/38fdef96-9f2f-452c-9824-6e4a0df80e49_1_105_c.jpeg
+        caption: "Buttermilk Biscuit - female "
+      - image: images/uploads/198a2d44-4232-458c-9ace-469fae5fedf2_1_105_c.jpeg
+        caption: "Limoncello Creme - male "
 ---
 
 # Puppy Gallery
