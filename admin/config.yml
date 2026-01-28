@@ -33,26 +33,27 @@ collections:
   # =============================================================================
   # PUPPY GALLERY - NEW! 📸
   # =============================================================================
-  - name: "gallery"
+ - name: "gallery"
     label: "📸 Puppy Gallery"
-    folder: "content/gallery"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - label: "Litters"
-        name: "litters"
-        widget: "list"
-        summary: "{{fields.name}} - {{fields.date}}"
+    files:
+      - label: "Puppy Gallery"
+        name: "puppy_gallery"
+        file: "content/gallery/gallery.md"
         fields:
-          - {label: "Litter Name", name: "name", widget: "string", hint: "e.g., Spring 2025 Litter, Fall 2024 Litter"}
-          - {label: "Date", name: "date", widget: "string", hint: "e.g., March 2025, October 2024"}
-          - label: "Photos"
-            name: "photos"
+          - label: "Litters"
+            name: "litters"
             widget: "list"
-            summary: "{{fields.caption}}"
+            summary: "{{fields.name}} - {{fields.date}}"
             fields:
-              - {label: "Photo", name: "image", widget: "image", allow_multiple: false, hint: "Upload puppy photo"}
-              - {label: "Caption", name: "caption", widget: "string", required: false, hint: "e.g., Meet Sunny! This little guy loves to play"}
+              - {label: "Litter Name", name: "name", widget: "string", hint: "e.g., Spring 2025 Litter, Fall 2024 Litter"}
+              - {label: "Date", name: "date", widget: "string", hint: "e.g., March 2025, October 2024"}
+              - label: "Photos"
+                name: "photos"
+                widget: "list"
+                summary: "{{fields.caption}}"
+                fields:
+                  - {label: "Photo", name: "image", widget: "image", allow_multiple: false, hint: "Upload puppy photo"}
+                  - {label: "Caption", name: "caption", widget: "string", required: false, hint: "e.g., Meet Sunny! This little guy loves to play"}
 
   # =============================================================================
   # FARM UPDATES - Blog Posts
