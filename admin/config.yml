@@ -1,8 +1,8 @@
 # File: config.yml
-# Last Modified: 2025-01-16
-# Modified By: Claude (AI Assistant)
-# Changes: Added announcement banner, video URLs, and puppy gallery collection
-# Previous Version: Backed up as config-BACKUP-2025-01-16.yml
+# Last Modified: 2025-01-27
+# Modified By: Claude (AI Assistant) 9:11 pm
+# Changes: Fixed gallery collection indentation (line 35: added missing space)
+# Previous Version: Backed up as config-BACKUP-2025-01-27.yml
 
 backend:
   name: git-gateway
@@ -31,9 +31,9 @@ collections:
       - {label: "Display Order", name: "order", widget: "number", default: 1, value_type: "int", min: 1, hint: "Lower numbers appear first"}
 
   # =============================================================================
-  # PUPPY GALLERY - NEW! 📸
+  # PUPPY GALLERY - FILE COLLECTION 📸
   # =============================================================================
- - name: "gallery"
+  - name: "gallery"
     label: "📸 Puppy Gallery"
     files:
       - label: "Puppy Gallery"
