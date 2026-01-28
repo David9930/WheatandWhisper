@@ -4,9 +4,9 @@ hero_section:
   background_image: images/uploads/hero-background.jpg
   use_video_background: true
   subtitle_line_1: Wild and Washed in Grace...
-  title_line_1: WHEAT AND WHISPER FARM
+  title_line_1: "WHEAT AND WHISPER "
   subtitle_line_2: Where every moment is a gift and every animal has a story.
-  title_line_2: .
+  title_line_2: FARM
   main_logo: WheatandWhisperLogo.png
   tagline_align: center
   subtitle_align: center
