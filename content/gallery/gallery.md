@@ -36,6 +36,15 @@ litters:
         caption: Shay - female
   - name: Darling/Thor 'my little darlings' litter
     date: October 2023
+    photos:
+      - image: images/uploads/d102301f-332e-445a-b81c-032a9de3e7e2_1_105_c.jpeg
+        caption: Fern - female
+      - image: images/uploads/a4bde2b6-7aeb-433f-a02a-db9ab90c315d_1_105_c.jpeg
+        caption: Ivy - female
+      - image: images/uploads/e59e56cb-e66f-4b04-ad09-f84bf86e4b41_4_5005_c.jpeg
+        caption: Autumn - female
+      - image: images/uploads/793d25d2-eabf-49ac-aaad-b07f0841428a_4_5005_c.jpeg
+        caption: Briar - female
 ---
 
 # Puppy Gallery
