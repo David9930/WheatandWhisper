@@ -29,11 +29,11 @@ litters:
     date: "December 2024 "
     photos:
       - image: images/uploads/086ef8f9-b58a-4663-a134-2daebb13a6ea_1_105_c.jpeg
-        caption: "Tannen - male "
+        caption: Tannen - male
       - image: images/uploads/36c55c56-9931-4d69-a214-c1fc39029f8e_1_105_c.jpeg
-        caption: "Lux - female "
+        caption: Lux - female
       - image: images/uploads/93010107-253e-4389-8277-0f985ad873fc_1_105_c.jpeg
-        caption: "Shay - female "
+        caption: Shay - female
   - name: Darling/Thor 'my little darlings' litter
     date: October 2023
 ---
