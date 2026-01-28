@@ -1,9 +1,8 @@
-/*
+/**
  * File: puppy-gallery.css
- * Created: 2025-01-16
+ * Created: 2025-01-27
  * Created By: Claude (AI Assistant)
- * Purpose: Styling for puppy gallery page with masonry grid and lightbox
- * Previous Version: N/A (new file)
+ * Purpose: Styles for puppy gallery page
  */
 
 /* ========================================
@@ -11,41 +10,45 @@
    ======================================== */
 
 .gallery-header {
-    margin-top: 60px;
-    padding: 80px 40px 60px;
-    background: linear-gradient(135deg, var(--beige-bg) 0%, var(--cream-bg) 100%);
+    background: linear-gradient(135deg, #FFFEF9 0%, #FFF8E7 100%);
+    padding: 40px 40px 50px;
     text-align: center;
-    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+    border-bottom: 2px solid rgba(139, 111, 71, 0.2);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .back-link {
     display: inline-block;
     font-family: 'Lora', serif;
     font-size: 1rem;
-    color: var(--medium-brown);
+    color: #8B6F47;
     text-decoration: none;
     margin-bottom: 20px;
     transition: color 0.3s ease;
 }
 
 .back-link:hover {
-    color: var(--warm-brown);
+    color: #5D4E37;
 }
 
 .gallery-title {
-    font-family: 'Parisienne', 'Allura', cursive;
-    font-size: 4rem;
+    font-family: 'Parisienne', cursive;
+    font-size: 3.5rem;
     font-weight: 400;
-    color: var(--warm-brown);
-    margin-bottom: 15px;
-    line-height: 1.2;
+    color: #8B6F47;
+    margin: 0 0 10px;
 }
 
 .gallery-subtitle {
     font-family: 'Lora', serif;
     font-size: 1.2rem;
     font-style: italic;
-    color: var(--medium-brown);
+    color: #A0826D;
+    margin: 0;
 }
 
 /* ========================================
@@ -53,9 +56,9 @@
    ======================================== */
 
 .filter-section {
-    padding: 30px 40px;
     background: white;
-    border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+    padding: 25px 40px;
+    border-bottom: 1px solid #E8E0D5;
 }
 
 .filter-container {
@@ -68,108 +71,120 @@
 }
 
 .filter-label {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--warm-brown);
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: #6B5B4A;
+    font-weight: 500;
 }
 
 .filter-select {
-    padding: 10px 20px;
     font-family: 'Lora', serif;
     font-size: 1rem;
-    color: var(--warm-brown);
-    background: var(--beige-bg);
-    border: 2px solid rgba(139, 111, 71, 0.3);
+    color: #6B5B4A;
+    padding: 10px 40px 10px 15px;
+    border: 2px solid #D4A574;
     border-radius: 4px;
+    background: white;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
+}
+
+.filter-select:hover {
+    border-color: #8B6F47;
 }
 
 .filter-select:focus {
     outline: none;
-    border-color: var(--light-brown);
-    box-shadow: 0 0 0 3px rgba(201, 166, 107, 0.1);
+    border-color: #8B6F47;
 }
 
 /* ========================================
-   GALLERY GRID (MASONRY LAYOUT)
+   GALLERY SECTION
    ======================================== */
 
 .gallery-section {
-    padding: 60px 40px 100px;
-    background: var(--cream-bg);
+    padding: 50px 40px;
+    background: #FFFEF9;
+    min-height: 400px;
 }
 
 .gallery-grid {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    columns: 4;
-    column-gap: 20px;
 }
 
-.gallery-item {
-    break-inside: avoid;
-    margin-bottom: 20px;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(93, 78, 55, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
+/* Litter Section */
+.litter-section {
+    margin-bottom: 60px;
 }
 
-.gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(93, 78, 55, 0.2);
-}
-
-.gallery-item-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-item-image {
-    opacity: 0.9;
-}
-
-.gallery-item-caption {
-    padding: 15px;
-}
-
-.gallery-item-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--warm-brown);
-    margin-bottom: 5px;
-}
-
-.gallery-item-litter {
-    font-family: 'Lora', serif;
-    font-size: 0.9rem;
-    color: var(--medium-brown);
-    font-style: italic;
-}
-
-/* Loading Message */
-.loading-message {
+.litter-header-inline {
     text-align: center;
-    font-family: 'Lora', serif;
-    font-size: 1.2rem;
-    color: var(--medium-brown);
-    padding: 60px 20px;
+    margin-bottom: 30px;
 }
 
-/* No Results Message */
-.no-results {
-    text-align: center;
+.litter-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 2.5rem;
+    color: #8B6F47;
+    margin: 0 0 5px;
+}
+
+.litter-date {
     font-family: 'Lora', serif;
     font-size: 1.1rem;
-    color: var(--medium-brown);
+    font-style: italic;
+    color: #A0826D;
+    margin: 0;
+}
+
+/* Photos Grid */
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.photo-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    padding: 15px 20px;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: #6B5B4A;
+    text-align: center;
+    background: #FFFEF9;
+}
+
+/* Loading/Error/Empty Messages */
+.loading-message,
+.error-message,
+.empty-message,
+.no-photos {
+    text-align: center;
     padding: 60px 20px;
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: #A0826D;
 }
 
 /* ========================================
@@ -177,56 +192,48 @@
    ======================================== */
 
 .lightbox {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
 }
 
 .lightbox-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.9);
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .lightbox-content {
     position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px 20px;
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 10001;
 }
 
 .lightbox-close {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 50px;
+    top: -50px;
+    right: 0;
+    font-size: 3rem;
     color: white;
-    background: transparent;
+    background: none;
     border: none;
     cursor: pointer;
-    z-index: 10001;
-    transition: transform 0.2s ease;
-    line-height: 1;
+    padding: 10px;
+    transition: opacity 0.3s ease;
 }
 
 .lightbox-close:hover {
-    transform: scale(1.1);
+    opacity: 0.7;
 }
 
 .lightbox-prev,
@@ -234,128 +241,83 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 60px;
+    font-size: 3rem;
     color: white;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.5);
     border: none;
-    padding: 20px 15px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10001;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+.lightbox-prev {
+    left: -80px;
+}
+
+.lightbox-next {
+    right: -80px;
 }
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.lightbox-prev {
-    left: 20px;
-}
-
-.lightbox-next {
-    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .lightbox-image-container {
-    max-width: 90%;
-    max-height: 80vh;
+    background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: 80vh;
 }
 
 .lightbox-image {
     max-width: 100%;
     max-height: 80vh;
-    width: auto;
-    height: auto;
     object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
-    animation: zoomIn 0.3s ease;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 .lightbox-caption {
+    background: white;
+    padding: 20px;
     text-align: center;
-    color: white;
-    margin-top: 20px;
-    max-width: 600px;
 }
 
 .lightbox-caption h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    color: #6B5B4A;
+    margin: 0 0 8px;
 }
 
 .lightbox-caption p {
     font-family: 'Lora', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-style: italic;
+    color: #A0826D;
+    margin: 0;
 }
 
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
 
-@media (max-width: 1200px) {
-    .gallery-grid {
-        columns: 3;
-    }
-}
-
 @media (max-width: 968px) {
     .gallery-header {
-        padding: 60px 30px 40px;
+        padding: 35px 30px 40px;
     }
     
     .gallery-title {
-        font-size: 3rem;
-    }
-    
-    .gallery-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .filter-section {
-        padding: 25px 30px;
-    }
-    
-    .filter-container {
-        flex-direction: column;
-        gap: 10px;
+        font-size: 2.8rem;
     }
     
     .gallery-section {
-        padding: 40px 20px 80px;
+        padding: 40px 30px;
     }
     
-    .gallery-grid {
-        columns: 2;
-        column-gap: 15px;
-    }
-    
-    .gallery-item {
-        margin-bottom: 15px;
-    }
-    
-    .lightbox-prev,
-    .lightbox-next {
-        font-size: 40px;
-        padding: 15px 10px;
+    .photos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
     }
     
     .lightbox-prev {
@@ -369,67 +331,51 @@
 
 @media (max-width: 640px) {
     .gallery-header {
-        padding: 50px 20px 30px;
+        padding: 30px 20px 35px;
     }
     
     .gallery-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .gallery-subtitle {
         font-size: 1rem;
     }
     
-    .back-link {
-        font-size: 0.9rem;
-    }
-    
     .filter-section {
         padding: 20px;
     }
     
-    .filter-label {
-        font-size: 1rem;
+    .filter-container {
+        flex-direction: column;
+        gap: 10px;
     }
     
-    .filter-select {
-        width: 100%;
-        font-size: 0.95rem;
+    .gallery-section {
+        padding: 30px 20px;
     }
     
-    .gallery-grid {
-        columns: 1;
+    .photos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
-    .lightbox-content {
-        padding: 80px 10px 10px;
+    .gallery-photo {
+        height: 250px;
+    }
+    
+    .litter-title {
+        font-size: 2rem;
     }
     
     .lightbox-close {
-        top: 10px;
-        right: 10px;
-        font-size: 40px;
+        top: -40px;
+        font-size: 2rem;
     }
     
     .lightbox-prev,
     .lightbox-next {
-        font-size: 30px;
-        padding: 10px 8px;
-    }
-    
-    .lightbox-caption h3 {
-        font-size: 1.5rem;
-    }
-    
-    .lightbox-caption p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 380px) {
-    .gallery-title {
         font-size: 2rem;
+        padding: 5px 15px;
     }
 }
-
-/* END OF STYLES */
