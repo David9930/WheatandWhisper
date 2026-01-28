@@ -1,7 +1,7 @@
 ---
 litters:
   - name: Darling/Thor 'little sweet treats'
-    date: July 2025 Litter
+    date: July 2025 Litter of 7
     photos:
       - image: images/uploads/a4aa5df9-554e-43f3-8839-ad659328f588_1_105_c.jpeg
         caption: Teddy Graham -male (6 weeks)
