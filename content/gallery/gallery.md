@@ -19,6 +19,13 @@ litters:
         caption: Creme Brulee - male (3 weeks)
       - image: images/uploads/41255fef-f3ea-4566-8f8f-e6e85cf64a6f_4_5005_c.jpeg
         caption: Creme Brûlée and Limoncello Creme (8 weeks)
+      - image: images/uploads/1cf4b7e7-5783-4438-998a-a03d519726c3_4_5005_c.jpeg
+        caption: Teddy Graham (7 weeks)
+      - image: images/uploads/6dfc1c36-f919-4bc2-b1b6-b6108e902bd9_4_5005_c.jpeg
+        caption: Reece Sunday (9 weeks)
+      - image: images/uploads/2e454de0-f5fb-4528-a56e-a753c6339b90_1_105_c.jpeg
+        caption: Mousse Trifle (6 months)
+  - {}
 ---
 
 # Puppy Gallery
