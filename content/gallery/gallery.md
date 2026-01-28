@@ -1,7 +1,7 @@
 ---
 litters:
-  - name: Darling/Thor 'little sweet treats'
-    date: July 2025 Litter of 7
+  - name: Darling/Thor 'little sweet treats' litter
+    date: "July 2025 "
     photos:
       - image: images/uploads/a4aa5df9-554e-43f3-8839-ad659328f588_1_105_c.jpeg
         caption: Teddy Graham -male (6 weeks)
@@ -25,7 +25,15 @@ litters:
         caption: Reece Sunday (9 weeks)
       - image: images/uploads/2e454de0-f5fb-4528-a56e-a753c6339b90_1_105_c.jpeg
         caption: Mousse Trifle (6 months)
-  - {}
+  - name: Darling/Thor 'gifts of golden' litter
+    date: "December 2024 "
+    photos:
+      - image: images/uploads/086ef8f9-b58a-4663-a134-2daebb13a6ea_1_105_c.jpeg
+        caption: "Tannen - male "
+      - image: images/uploads/36c55c56-9931-4d69-a214-c1fc39029f8e_1_105_c.jpeg
+        caption: "Lux - female "
+      - image: images/uploads/93010107-253e-4389-8277-0f985ad873fc_1_105_c.jpeg
+        caption: "Shay - female "
 ---
 
 # Puppy Gallery
