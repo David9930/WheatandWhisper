@@ -70,21 +70,104 @@ collections:
       - {label: "Story", name: "body", widget: "markdown"}
       - {label: "Second Image (Optional)", name: "image2", widget: "image", required: false}
 
+  # ENHANCED PRODUCTS COLLECTION - WITH EDITABLE CATEGORIES
+# Replace the products section in your config.yml (around lines 71-85)
+
   # =============================================================================
-  # PRODUCTS
+  # PRODUCT CATEGORIES - Paige Can Add/Edit These!
+  # =============================================================================
+  - name: "product_categories"
+    label: "🏷️ Product Categories"
+    folder: "content/categories"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{emoji}} {{name}}"
+    fields:
+      - {label: "Category Name", name: "name", widget: "string", hint: "e.g., Bath & Body, Food & Pantry"}
+      - {label: "Emoji", name: "emoji", widget: "string", default: "📦", hint: "Single emoji for category button (e.g., 🧼, 🍯, 🏠)"}
+      - {label: "Description", name: "description", widget: "text", required: false, hint: "Optional description of what goes in this category"}
+      - {label: "Display Order", name: "order", widget: "number", default: 10, value_type: "int", min: 1, hint: "Lower numbers appear first in filter"}
+
+  # =============================================================================
+  # PRODUCTS - Shop Items
   # =============================================================================
   - name: "products"
-    label: "🛍️ Products"
+    label: "🛍️ Products (Shop)"
     folder: "content/products"
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} - ${{price}} - {{category.name}}"
     fields:
-      - {label: "Product Name", name: "title", widget: "string"}
-      - {label: "Price", name: "price", widget: "string"}
-      - {label: "Description", name: "body", widget: "markdown"}
-      - {label: "Product Photo", name: "image", widget: "image"}
-      - {label: "Available", name: "available", widget: "boolean", default: true}
+      - {label: "Product Name", name: "title", widget: "string", hint: "e.g., Lavender Goat Milk Soap"}
+      
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "product_categories"
+        search_fields: ["name"]
+        value_field: "{{slug}}"
+        display_fields: ["emoji", "name"]
+        hint: "Choose the category (or create a new one in Product Categories)"
+      
+      - {label: "Price", name: "price", widget: "string", hint: "e.g., 12.00 (no $ symbol)"}
+      
+      - {label: "Short Description", name: "short_description", widget: "text", hint: "Brief description shown on product card (2-3 sentences)"}
+      
+      - {label: "Full Description", name: "body", widget: "markdown", hint: "Full product details shown on product page"}
+      
+      - {label: "Main Product Photo", name: "image", widget: "image", hint: "Primary photo shown on cards"}
+      
+      - label: "Additional Photos (Optional)"
+        name: "gallery"
+        widget: "list"
+        required: false
+        max: 5
+        hint: "Add up to 5 more photos (customers can view gallery)"
+        fields:
+          - {label: "Photo", name: "image", widget: "image"}
+      
+      - {label: "SKU / Product Code", name: "sku", widget: "string", required: false, hint: "e.g., SOAP-LAV-001 (for your inventory tracking)"}
+      
+      - {label: "Inventory Stock", name: "stock", widget: "number", default: 0, value_type: "int", min: 0, hint: "How many in stock? (0 = sold out)"}
+      
+      - {label: "Available for Sale", name: "available", widget: "boolean", default: true, hint: "Toggle OFF to hide from store"}
+      
+      - {label: "Weight (oz)", name: "weight", widget: "number", required: false, value_type: "float", hint: "Weight in ounces (for shipping calculation)"}
+      
+      - {label: "Featured Product", name: "featured", widget: "boolean", default: false, hint: "Show on homepage or featured section"}
+      
+      - {label: "Display Order", name: "order", widget: "number", default: 100, value_type: "int", min: 1, hint: "Lower numbers appear first"}
 
+# =============================================================================
+# SUGGESTED STARTER CATEGORIES:
+# =============================================================================
+#
+# Category Name: Bath & Body
+# Emoji: 🧼
+# Description: Soaps, lotions, balms, and body care products
+# Order: 1
+#
+# Category Name: Food & Pantry  
+# Emoji: 🍯
+# Description: Honey, jams, cheese, eggs, and farmette foods
+# Order: 2
+#
+# Category Name: Home & Decor
+# Emoji: 🏠
+# Description: Candles, wreaths, signs, and home decorations
+# Order: 3
+#
+# Category Name: Fiber & Yarn
+# Emoji: 🧶
+# Description: Wool, yarn, roving, and fiber crafts
+# Order: 4
+#
+# Category Name: Gifts & Seasonal
+# Emoji: 🎁
+# Description: Gift sets, holiday items, and special occasions
+# Order: 5
+#
+# =============================================================================
   # =============================================================================
   # PAGES - Homepage, About, Animals, Settings, Retrievers
   # =============================================================================
