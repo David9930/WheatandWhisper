@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Wheat and Whisper Farm</title>
+    
+    <!-- Your existing stylesheets -->
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="shop.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Lora:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVIGATION (same as other pages) -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="WheatandWhisperLogo.png" alt="Wheat and Whisper Farm" class="nav-logo">
+            </div>
+            <div class="main-nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="about.html" class="nav-link">ABOUT</a>
+                <a href="animals.html" class="nav-link">MEET THE ANIMALS</a>
+                <a href="retrievers.html" class="nav-link">RETRIEVERS</a>
+                <a href="nubians.html" class="nav-link">MINI NUBIANS</a>
+                <a href="shop.html" class="nav-link active">SHOP</a>
+                <a href="farmette.html" class="nav-link">FARMETTE LIFE</a>
+                
+                <!-- Shopping Cart Button (Placeholder) -->
+                <button class="nav-cart-button" id="cart-button">
+                    🛒 <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SHOP HERO -->
+    <section class="shop-hero">
+        <h1 class="hero-title">Handcrafted Treasures</h1>
+        <p class="hero-subtitle">From our farmette to your home</p>
+        <p class="hero-tagline">Every item is made with love, care, and a little bit of farm magic</p>
+    </section>
+
+    <!-- CATEGORY FILTER (Dynamic - loads from CMS) -->
+    <section class="category-filter">
+        <div class="filter-container" id="category-filters">
+            <button class="filter-btn active" data-category="all">All Products</button>
+            <!-- Other category buttons loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- PRODUCTS GRID -->
+    <section class="products-section">
+        <div class="products-grid" id="products-grid">
+            <!-- Products loaded dynamically from CMS -->
+            <div class="loading-message">
+                <p>Loading our handcrafted treasures...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLACEHOLDER SHOPPING CART MODAL -->
+    <div id="cart-modal" class="cart-modal" style="display: none;">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <button class="close-cart" id="close-cart">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items displayed here -->
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span class="subtotal-amount" id="subtotal-amount">$0.00</span>
+                </div>
+                <button class="checkout-button" id="checkout-button">
+                    Proceed to Checkout
+                </button>
+                <p class="cart-note">
+                    🔒 Secure checkout powered by Snipcart (will be added when ready)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (same as other pages) -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Wheat and Whisper Farm. All rights reserved.</p>
+            <div class="social-links">
+                <!-- Your social media links -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Products from CMS -->
+    <script src="shop-products-loader-placeholder.js"></script>
+    
+    <!-- PLACEHOLDER CART FUNCTIONALITY -->
+    <script src="shop-cart-placeholder.js"></script>
+
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════
+    READY TO ADD REAL PAYMENTS?
+    ═══════════════════════════════════════════════════════════════════
+    
+    When you're ready to accept real payments:
+    
+    1. Sign up at https://snipcart.com (free up to $500/month)
+    2. Get your PUBLIC API key from Snipcart dashboard
+    3. Replace the placeholder scripts above with these:
+    
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+    <div id="snipcart" data-config-modal-style="side" data-api-key="YOUR_PUBLIC_API_KEY_HERE" hidden></div>
+    <script src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+    
+    4. In the JavaScript, change buy buttons to use Snipcart classes:
+       - Change class="buy-button" to class="snipcart-add-item buy-button"
+       - Add data-item-* attributes (already in the code!)
+    
+    5. Remove placeholder cart scripts (shop-cart-placeholder.js)
+    
+    That's it! Your shop will have real payment processing.
+    ═══════════════════════════════════════════════════════════════════
+    -->
+</body>
+</html>
