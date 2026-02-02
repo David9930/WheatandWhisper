@@ -21,12 +21,12 @@ vision:
     ethical breeding practices and genuine care, we aim to provide puppies and
     young animals to families who will cherish them as we do.
 box_5:
-  title: New Title can go here
-  image: images/uploads/goat-placeholder.jpg
+  title: Care
+  image: images/uploads/b57c62f2-aac9-4c42-badb-d718bb260e5c_1_105_c.jpeg
   body: This is the area for additional content
 box_6:
-  title: Another image area
-  image: images/uploads/img_5318_edited.jpg
+  title: Our babies
+  image: images/uploads/ae69f535-a9e5-4a1e-9943-bf99d83211f9_1_105_c.jpeg
   body: And another text area.
 gallery:
   title: Mini Nubians Gallery
@@ -36,7 +36,7 @@ gallery:
       alt: Mini Nubian doe
     - image: images/uploads/img_0384.jpeg
       alt: Mini Nubian with kids
-    - image: images/uploads/e322d011-ce12-4fda-b65b-6ef19f396258-1-.jpg
+    - image: images/uploads/a39265b5-6bd6-4333-8913-f5fc4eef9dec_1_105_c.jpeg
       alt: Mini Nubian grazing
     - image: images/uploads/img_9182.jpeg
       alt: Mini Nubian close-up
@@ -46,9 +46,9 @@ gallery:
       alt: Herd of Mini Nubians
     - image: images/uploads/img_9155.jpeg
       alt: Mini Nubian portrait
-    - image: images/uploads/tezza-7058-1-.jpg
+    - image: images/uploads/6934655c-45d4-46a8-a5b2-c01a4d4dc3a3_1_105_c.jpeg
       alt: Photo Description here
-    - image: images/uploads/goat-placeholder.jpg
+    - image: images/uploads/b7176079-3c2a-4ea0-8a65-cd73530e8c3f_1_105_c.jpeg
       alt: The Big Head
 social:
   facebook_url: https://www.facebook.com/wheatandwhisper
