@@ -1,6 +1,6 @@
 ---
 title: Yammies
-category: map-emoji-📦-order-10-name-yammies-description-soft-comfortable-cotton-yammies-for-everyone
+category_box: "1"
 price: "199.99"
 short_description: Soft Cotton Yammies - Unisex for the Amish in you!
 image: images/uploads/img_3007.jpg
@@ -10,6 +10,7 @@ available: true
 weight: 7
 featured: true
 order: 20
+category: map-emoji-📦-order-10-name-yammies-description-soft-comfortable-cotton-yammies-for-everyone
 ---
 White, comfortable and washable in the nearest creek. 
 
