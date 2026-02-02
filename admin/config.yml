@@ -620,10 +620,11 @@ collections:
           - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1rem"}
           - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#8B6F47"}
 
-# ==============================================
-# NOTES:
-# - Announcement banner shows/hides automatically based on text
-# - Video URLs enable photo/video toggles on boxes
-# - Puppy Gallery accessible via CMS sidebar
-# - All changes require GitHub commit to take effect
-# ==============================================
+          # ---------------------------------------------------------------------------
+      # SHOP PAGE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "🛍️ Shop Page"
+        name: "shop"
+        file: "content/pages/shop-settings.md"
+        fields:
+          ...
