@@ -70,44 +70,29 @@ collections:
       - {label: "Story", name: "body", widget: "markdown"}
       - {label: "Second Image (Optional)", name: "image2", widget: "image", required: false}
 
-  # ENHANCED PRODUCTS COLLECTION - WITH EDITABLE CATEGORIES
-# Replace the products section in your config.yml (around lines 71-85)
-
   # =============================================================================
-  # PRODUCT CATEGORIES - Paige Can Add/Edit These!
-  # =============================================================================
-  - name: "product_categories"
-    label: "🏷️ Product Categories"
-    folder: "content/categories"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{emoji}} {{name}}"
-    fields:
-      - {label: "Category Name", name: "name", widget: "string", hint: "e.g., Bath & Body, Food & Pantry"}
-      - {label: "Emoji", name: "emoji", widget: "string", default: "📦", hint: "Single emoji for category button (e.g., 🧼, 🍯, 🏠)"}
-      - {label: "Description", name: "description", widget: "text", required: false, hint: "Optional description of what goes in this category"}
-      - {label: "Display Order", name: "order", widget: "number", default: 10, value_type: "int", min: 1, hint: "Lower numbers appear first in filter"}
-
-  # =============================================================================
-  # PRODUCTS - Shop Items
+  # PRODUCTS - Shop Items (SIMPLIFIED!)
   # =============================================================================
   - name: "products"
     label: "🛍️ Products (Shop)"
     folder: "content/products"
     create: true
     slug: "{{slug}}"
-    summary: "{{title}} - ${{price}} - {{category.name}}"
+    summary: "{{title}} - ${{price}} - Box {{category_box}}"
     fields:
       - {label: "Product Name", name: "title", widget: "string", hint: "e.g., Lavender Goat Milk Soap"}
       
-      - label: "Category"
-        name: "category"
-        widget: "relation"
-        collection: "product_categories"
-        search_fields: ["name"]
-        value_field: "{{slug}}"
-        display_fields: ["emoji", "name"]
-        hint: "Choose the category (or create a new one in Product Categories)"
+      - label: "Category Box"
+        name: "category_box"
+        widget: "select"
+        options:
+          - {label: "Category Box 1", value: "1"}
+          - {label: "Category Box 2", value: "2"}
+          - {label: "Category Box 3", value: "3"}
+          - {label: "Category Box 4", value: "4"}
+          - {label: "Category Box 5", value: "5"}
+          - {label: "Category Box 6 - All Products", value: "6"}
+        hint: "Which category box does this product belong to? (Box names set in Shop Page)"
       
       - {label: "Price", name: "price", widget: "string", hint: "e.g., 12.00 (no $ symbol)"}
       
@@ -137,6 +122,7 @@ collections:
       - {label: "Featured Product", name: "featured", widget: "boolean", default: false, hint: "Show on homepage or featured section"}
       
       - {label: "Display Order", name: "order", widget: "number", default: 100, value_type: "int", min: 1, hint: "Lower numbers appear first"}
+
 
 # =============================================================================
 # SUGGESTED STARTER CATEGORIES:
@@ -620,12 +606,6 @@ collections:
           - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1rem"}
           - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#8B6F47"}
 
-         # =============================================================================
-# SHOP SETTINGS SECTION - ADD TO CONFIG.YML
-# =============================================================================
-# Insert this AFTER the "Animals Page Style Settings" section (around line 540)
-# and BEFORE the closing of the "pages" collection
-# =============================================================================
 
       # ---------------------------------------------------------------------------
       # SHOP PAGE SETTINGS
@@ -649,71 +629,71 @@ collections:
               - {label: "🎬 Use Video Background", name: "use_video_background", widget: "boolean", default: true, hint: "Toggle ON to use YouTube video as hero background"}
               - {label: "YouTube Video URL", name: "hero_video_url", widget: "string", required: false, default: "https://www.youtube.com/watch?v=2g811Eo7K8U", hint: "Paste full YouTube URL. Only used if 'Use Video Background' is ON."}
           
-          # ===== CATEGORY BOX 1 - Bath & Body =====
-          - label: "Category Box 1 - Bath & Body"
+          # ===== CATEGORY BOX 1 =====
+          - label: "📦 Category Box 1"
             name: "category_box_1"
             widget: "object"
             collapsed: true
+            hint: "Leave Title blank to hide this box. Links automatically to cat-box1.html"
             fields:
-              - {label: "Category Title", name: "title", widget: "string", default: "Bath & Body"}
+              - {label: "Category Title", name: "title", widget: "string", required: false, hint: "Leave blank to hide this category box"}
               - {label: "Emoji", name: "emoji", widget: "string", default: "🧼", hint: "Single emoji for visual appeal"}
-              - {label: "Background Image", name: "image", widget: "image", hint: "Category background image"}
-              - {label: "Link To", name: "link", widget: "string", default: "shop-bath-body.html", hint: "Page to link to when clicked"}
+              - {label: "Background Image", name: "image", widget: "image", required: false, hint: "Category background image"}
           
-          # ===== CATEGORY BOX 2 - Food & Pantry =====
-          - label: "Category Box 2 - Food & Pantry"
+          # ===== CATEGORY BOX 2 =====
+          - label: "📦 Category Box 2"
             name: "category_box_2"
             widget: "object"
             collapsed: true
+            hint: "Leave Title blank to hide this box. Links automatically to cat-box2.html"
             fields:
-              - {label: "Category Title", name: "title", widget: "string", default: "Food & Pantry"}
+              - {label: "Category Title", name: "title", widget: "string", required: false, hint: "Leave blank to hide this category box"}
               - {label: "Emoji", name: "emoji", widget: "string", default: "🍯"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link To", name: "link", widget: "string", default: "shop-food-pantry.html"}
+              - {label: "Background Image", name: "image", widget: "image", required: false}
           
-          # ===== CATEGORY BOX 3 - Home & Decor =====
-          - label: "Category Box 3 - Home & Decor"
+          # ===== CATEGORY BOX 3 =====
+          - label: "📦 Category Box 3"
             name: "category_box_3"
             widget: "object"
             collapsed: true
+            hint: "Leave Title blank to hide this box. Links automatically to cat-box3.html"
             fields:
-              - {label: "Category Title", name: "title", widget: "string", default: "Home & Decor"}
+              - {label: "Category Title", name: "title", widget: "string", required: false, hint: "Leave blank to hide this category box"}
               - {label: "Emoji", name: "emoji", widget: "string", default: "🏠"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link To", name: "link", widget: "string", default: "shop-home-decor.html"}
+              - {label: "Background Image", name: "image", widget: "image", required: false}
           
-          # ===== CATEGORY BOX 4 - Fiber & Yarn =====
-          - label: "Category Box 4 - Fiber & Yarn"
+          # ===== CATEGORY BOX 4 =====
+          - label: "📦 Category Box 4"
             name: "category_box_4"
             widget: "object"
             collapsed: true
+            hint: "Leave Title blank to hide this box. Links automatically to cat-box4.html"
             fields:
-              - {label: "Category Title", name: "title", widget: "string", default: "Fiber & Yarn"}
+              - {label: "Category Title", name: "title", widget: "string", required: false, hint: "Leave blank to hide this category box"}
               - {label: "Emoji", name: "emoji", widget: "string", default: "🧶"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link To", name: "link", widget: "string", default: "shop-fiber-yarn.html"}
+              - {label: "Background Image", name: "image", widget: "image", required: false}
           
-          # ===== CATEGORY BOX 5 - Gifts & Seasonal =====
-          - label: "Category Box 5 - Gifts & Seasonal"
+          # ===== CATEGORY BOX 5 =====
+          - label: "📦 Category Box 5"
             name: "category_box_5"
             widget: "object"
             collapsed: true
+            hint: "Leave Title blank to hide this box. Links automatically to cat-box5.html"
             fields:
-              - {label: "Category Title", name: "title", widget: "string", default: "Gifts & Seasonal"}
+              - {label: "Category Title", name: "title", widget: "string", required: false, hint: "Leave blank to hide this category box"}
               - {label: "Emoji", name: "emoji", widget: "string", default: "🎁"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link To", name: "link", widget: "string", default: "shop-gifts-seasonal.html"}
+              - {label: "Background Image", name: "image", widget: "image", required: false}
           
-          # ===== CATEGORY BOX 6 - All Products =====
-          - label: "Category Box 6 - All Products"
+          # ===== CATEGORY BOX 6 =====
+          - label: "📦 Category Box 6 - All Products"
             name: "category_box_6"
             widget: "object"
             collapsed: true
+            hint: "This box shows ALL products from all categories. Links to cat-box6.html"
             fields:
-              - {label: "Category Title", name: "title", widget: "string", default: "All Products"}
+              - {label: "Category Title", name: "title", widget: "string", default: "All Products", hint: "Usually 'All Products' or 'Shop All'"}
               - {label: "Emoji", name: "emoji", widget: "string", default: "✨"}
-              - {label: "Background Image", name: "image", widget: "image"}
-              - {label: "Link To", name: "link", widget: "string", default: "shop-all-products.html"}
+              - {label: "Background Image", name: "image", widget: "image", required: false}
           
           # ===== PAGE BANNER =====
           - label: "Page Banner"
