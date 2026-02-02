@@ -9,9 +9,9 @@ hero_section:
   use_video_background: true
   hero_video_url: https://youtube.com/shorts/WXJDDZTQjO6k
 category_box_1:
-  title: Bath & Body
+  title: Yammies
   emoji: 🧼
-  image: images/uploads/category-bath-body.jpg
+  image: images/uploads/img_3007.jpg
   link: shop-bath-body.html
 category_box_2:
   title: Food & Pantry
