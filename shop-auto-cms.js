@@ -1,9 +1,11 @@
 // =============================================================================
 // FILE: shop-auto-cms.js
 // CREATED: 2025-02-01
-// MODIFIED: 2025-02-02 18:10 EST
+// MODIFIED: 2025-02-02 18:30 EST
 // PURPOSE: Loads shop page content from Netlify CMS (shop-settings.md)
-// CHANGES: Added support for YouTube Shorts URLs (youtube.com/shorts/VIDEO_ID)
+// CHANGES: 
+//   - Added support for YouTube Shorts URLs (youtube.com/shorts/VIDEO_ID)
+//   - FIXED: Category boxes not loading (regex now includes numbers)
 // =============================================================================
 
 // Wait for DOM to be fully loaded
@@ -54,8 +56,8 @@ function parseShopSettings(text) {
             return;
         }
         
-        // Check for section headers (e.g., "hero_section:")
-        if (line.match(/^[a-z_]+:$/)) {
+        // Check for section headers (e.g., "hero_section:", "category_box_1:")
+        if (line.match(/^[a-z_0-9]+:$/)) {
             // Save any pending multiline value
             if (inMultiline && currentSection && currentKey) {
                 if (!data[currentSection]) data[currentSection] = {};
