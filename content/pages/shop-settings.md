@@ -7,7 +7,7 @@ hero_section:
   main_logo: WheatandWhisperLogo.png
   background_image: images/uploads/shop-hero-background.jpg
   use_video_background: true
-  hero_video_url: https://youtu.be/swcmoJEiTys
+  hero_video_url: https://youtube.com/shorts/WXJDDZTQjO6k
 category_box_1:
   title: Bath & Body
   emoji: 🧼
