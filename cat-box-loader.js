@@ -186,6 +186,7 @@ function parseProduct(text, filename) {
 function createProductCard(product) {
     const card = document.createElement('div');
     card.className = 'product-card';
+    card.style.cursor = 'pointer';
     
     // Stock badge
     let stockBadge = '';
@@ -212,28 +213,15 @@ function createProductCard(product) {
             <p class="product-description">${product.short_description || ''}</p>
             <div class="product-footer">
                 <span class="product-price">$${parseFloat(product.price || 0).toFixed(2)}</span>
-                ${product.stock === 0 ? 
-                    `<button class="add-to-cart-btn" disabled>Sold Out</button>` :
-                    `<button class="add-to-cart-btn" data-product='${JSON.stringify(product).replace(/'/g, "&#39;")}'>Add to Cart</button>`
-                }
+                <button class="view-details-btn">View Details →</button>
             </div>
         </div>
     `;
     
-    // Add to cart functionality
-    const addButton = card.querySelector('.add-to-cart-btn:not([disabled])');
-    if (addButton) {
-        addButton.addEventListener('click', function() {
-            const productData = JSON.parse(this.dataset.product.replace(/&#39;/g, "'"));
-            addToCart(productData);
-            
-            // Visual feedback
-            this.textContent = '✓ Added!';
-            setTimeout(() => {
-                this.textContent = 'Add to Cart';
-            }, 1500);
-        });
-    }
+    // Click entire card to go to detail page
+    card.addEventListener('click', function(e) {
+        window.location.href = `product-detail.html?product=${product.slug}`;
+    });
     
     return card;
 }
