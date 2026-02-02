@@ -2,8 +2,9 @@
 =============================================================================
 FILE: cat-box1.html
 CREATED: 2025-02-02
-MODIFIED: 2025-02-02 19:00 EST
-PURPOSE: Category Box 1 products page - loads products with category_box = "1"
+MODIFIED: 2025-02-02 19:30 EST
+PURPOSE: Category Box 1 products page - displays products with category_box = "1"
+CHANGES: Fixed ID mismatches (category-count, empty-state, breadcrumb-category, page-title)
 =============================================================================
 -->
 <!DOCTYPE html>
@@ -11,7 +12,7 @@ PURPOSE: Category Box 1 products page - loads products with category_box = "1"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Wheat and Whisper Farm</title>
+    <title id="page-title">Category 1 - Wheat and Whisper Farm</title>
     <link rel="stylesheet" href="homepage.css?v=2025">
     <link rel="stylesheet" href="shop.css?v=2025">
     <link rel="stylesheet" href="cat-box.css?v=2025">
@@ -84,7 +85,7 @@ PURPOSE: Category Box 1 products page - loads products with category_box = "1"
         <span class="breadcrumb-separator">›</span>
         <a href="shop.html">Shop</a>
         <span class="breadcrumb-separator">›</span>
-        <span id="category-breadcrumb">Category</span>
+        <span class="breadcrumb-current" id="breadcrumb-category">Category</span>
     </div>
 
     <!-- Category Header -->
@@ -108,8 +109,10 @@ PURPOSE: Category Box 1 products page - loads products with category_box = "1"
         </div>
         
         <!-- Empty state -->
-        <div class="empty-products" id="empty-products" style="display: none;">
-            <p>No products found in this category.</p>
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <div class="empty-state-icon">📦</div>
+            <h2>No Products Yet</h2>
+            <p>This category doesn't have any products yet. Check back soon!</p>
             <a href="shop.html" class="back-to-shop-btn">← Back to Shop</a>
         </div>
     </section>
