@@ -620,11 +620,4 @@ collections:
           - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1rem"}
           - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#8B6F47"}
 
-          # ---------------------------------------------------------------------------
-      # SHOP PAGE SETTINGS
-      # ---------------------------------------------------------------------------
-      - label: "🛍️ Shop Page"
-        name: "shop"
-        file: "content/pages/shop-settings.md"
-        fields:
-          ...
+         
