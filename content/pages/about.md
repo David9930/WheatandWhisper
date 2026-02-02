@@ -2,7 +2,7 @@
 page_title: Welcome to Wheat and Whisper Farm
 title_align: center
 body_text: >
-  Wheat and Whisper Farm is a family lifestyle brand born from faith, simple
+  Wheat and Whisper Farm is a family lifestyle business born from faith, simple
   living, and farm-rooted beauty. This little dream has lived in my heart for
   years. Born from a longing for simplicity, where family matters most, and
   beauty is found in the ordinary.
