@@ -620,4 +620,107 @@ collections:
           - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1rem"}
           - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#8B6F47"}
 
-         
+         # =============================================================================
+# SHOP SETTINGS SECTION - ADD TO CONFIG.YML
+# =============================================================================
+# Insert this AFTER the "Animals Page Style Settings" section (around line 540)
+# and BEFORE the closing of the "pages" collection
+# =============================================================================
+
+      # ---------------------------------------------------------------------------
+      # SHOP PAGE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "🛍️ Shop Page"
+        name: "shop"
+        file: "content/pages/shop-settings.md"
+        fields:
+          # ===== HERO SECTION =====
+          - label: "Hero Section"
+            name: "hero_section"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "HANDCRAFTED", hint: "First line of main title"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "TREASURES", hint: "Second line of main title"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "From Our Farmette to Your Home", hint: "Text below title"}
+              - {label: "Tagline", name: "tagline", widget: "string", default: "Every item made with love, care, and a little bit of farm magic", hint: "Small text below subtitle"}
+              - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/shop-hero-background.jpg", hint: "Used when video is disabled"}
+              - {label: "🎬 Use Video Background", name: "use_video_background", widget: "boolean", default: true, hint: "Toggle ON to use YouTube video as hero background"}
+              - {label: "YouTube Video URL", name: "hero_video_url", widget: "string", required: false, default: "https://www.youtube.com/watch?v=2g811Eo7K8U", hint: "Paste full YouTube URL. Only used if 'Use Video Background' is ON."}
+          
+          # ===== CATEGORY BOX 1 - Bath & Body =====
+          - label: "Category Box 1 - Bath & Body"
+            name: "category_box_1"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", default: "Bath & Body"}
+              - {label: "Emoji", name: "emoji", widget: "string", default: "🧼", hint: "Single emoji for visual appeal"}
+              - {label: "Background Image", name: "image", widget: "image", hint: "Category background image"}
+              - {label: "Link To", name: "link", widget: "string", default: "shop-bath-body.html", hint: "Page to link to when clicked"}
+          
+          # ===== CATEGORY BOX 2 - Food & Pantry =====
+          - label: "Category Box 2 - Food & Pantry"
+            name: "category_box_2"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", default: "Food & Pantry"}
+              - {label: "Emoji", name: "emoji", widget: "string", default: "🍯"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link To", name: "link", widget: "string", default: "shop-food-pantry.html"}
+          
+          # ===== CATEGORY BOX 3 - Home & Decor =====
+          - label: "Category Box 3 - Home & Decor"
+            name: "category_box_3"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", default: "Home & Decor"}
+              - {label: "Emoji", name: "emoji", widget: "string", default: "🏠"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link To", name: "link", widget: "string", default: "shop-home-decor.html"}
+          
+          # ===== CATEGORY BOX 4 - Fiber & Yarn =====
+          - label: "Category Box 4 - Fiber & Yarn"
+            name: "category_box_4"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", default: "Fiber & Yarn"}
+              - {label: "Emoji", name: "emoji", widget: "string", default: "🧶"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link To", name: "link", widget: "string", default: "shop-fiber-yarn.html"}
+          
+          # ===== CATEGORY BOX 5 - Gifts & Seasonal =====
+          - label: "Category Box 5 - Gifts & Seasonal"
+            name: "category_box_5"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", default: "Gifts & Seasonal"}
+              - {label: "Emoji", name: "emoji", widget: "string", default: "🎁"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link To", name: "link", widget: "string", default: "shop-gifts-seasonal.html"}
+          
+          # ===== CATEGORY BOX 6 - All Products =====
+          - label: "Category Box 6 - All Products"
+            name: "category_box_6"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", default: "All Products"}
+              - {label: "Emoji", name: "emoji", widget: "string", default: "✨"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link To", name: "link", widget: "string", default: "shop-all-products.html"}
+          
+          # ===== PAGE BANNER =====
+          - label: "Page Banner"
+            name: "page_banner"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Banner Title", name: "title", widget: "string", default: "Treasures from the farmette."}
+              - {label: "Banner Text", name: "text", widget: "text", default: "Each item is lovingly handcrafted with ingredients and materials from our farmette.\nFrom goat milk soaps to honey from our bees,\nevery purchase supports sustainable farming\nand helps us care for our animals.", hint: "Use line breaks for multi-line text"}
+
