@@ -63,7 +63,14 @@ function displayProduct(p) {
     
     if (p.sku) document.getElementById('product-sku').textContent = `SKU: ${p.sku}`;
     if (p.short_description) document.getElementById('product-short-desc').textContent = p.short_description;
-    if (p.body) document.getElementById('product-body').innerHTML = marked ? marked.parse(p.body) : p.body.replace(/\n/g, '<br>');
+    if (p.body) {
+    // Simple markdown: replace line breaks and make **bold**
+    let html = p.body
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n/g, '<br>');
+    document.getElementById('product-body').innerHTML = '<p>' + html + '</p>';
+}
     
     const mainImg = document.getElementById('main-image');
     mainImg.src = p.image || 'images/uploads/placeholder-product.jpg';
