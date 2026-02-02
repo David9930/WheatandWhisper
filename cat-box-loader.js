@@ -1,9 +1,20 @@
 // =============================================================================
 // FILE: cat-box-loader.js
 // CREATED: 2025-02-02
-// MODIFIED: 2025-02-02 19:10 EST
+// MODIFIED: 2025-02-02 19:40 EST
 // PURPOSE: Loads products from content/products/ and filters by category_box
+// CHANGES: Fixed to work with GitHub/Netlify (no directory listing needed)
 // =============================================================================
+
+// Product files list (Paige updates this when adding products)
+// FORMAT: Just the filename without path or extension
+const PRODUCT_FILES = [
+    'yammies'  // Add more product slugs here as you create them
+    // Example:
+    // 'lavender-soap',
+    // 'honey-jar',
+    // 'wool-yarn'
+];
 
 // Main initialization
 document.addEventListener('DOMContentLoaded', async function() {
@@ -35,68 +46,78 @@ async function loadCategoryInfo(boxNumber) {
             const categoryEmoji = categoryMatch[2].trim();
             
             // Update page title and header
-            document.getElementById('page-title').textContent = `${categoryTitle} - Wheat and Whisper Farm`;
-            document.getElementById('category-name').textContent = categoryTitle;
-            document.getElementById('category-emoji').textContent = categoryEmoji;
-            document.getElementById('breadcrumb-category').textContent = categoryTitle;
+            const pageTitleElement = document.querySelector('title');
+            const categoryNameElement = document.getElementById('category-name');
+            const categoryEmojiElement = document.getElementById('category-emoji');
+            const breadcrumbElement = document.getElementById('breadcrumb-category');
+            
+            if (pageTitleElement) pageTitleElement.textContent = `${categoryTitle} - Wheat and Whisper Farm`;
+            if (categoryNameElement) categoryNameElement.textContent = categoryTitle;
+            if (categoryEmojiElement) categoryEmojiElement.textContent = categoryEmoji;
+            if (breadcrumbElement) breadcrumbElement.textContent = categoryTitle;
             
             console.log(`✅ Category info loaded: ${categoryEmoji} ${categoryTitle}`);
         } else {
             console.warn(`⚠️ No category info found for Box ${boxNumber}`);
-            document.getElementById('category-name').textContent = `Category ${boxNumber}`;
+            const categoryNameElement = document.getElementById('category-name');
+            if (categoryNameElement) categoryNameElement.textContent = `Category ${boxNumber}`;
         }
     } catch (error) {
         console.error('Error loading category info:', error);
-        document.getElementById('category-name').textContent = `Category ${boxNumber}`;
+        const categoryNameElement = document.getElementById('category-name');
+        if (categoryNameElement) categoryNameElement.textContent = `Category ${boxNumber}`;
     }
 }
 
-// Load products from content/products/
+// Load products from product files list
 async function loadProducts(boxNumber) {
     const container = document.getElementById('products-container');
     const emptyState = document.getElementById('empty-state');
     const categoryCount = document.getElementById('category-count');
     
+    if (!container) {
+        console.error('❌ Products container not found!');
+        return;
+    }
+    
     try {
-        // Fetch the products folder
-        const productsResponse = await fetch('content/products/');
-        const productsText = await productsResponse.text();
-        
-        // Extract product filenames from directory listing
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(productsText, 'text/html');
-        const links = doc.querySelectorAll('a[href$=".md"]');
-        const productFiles = Array.from(links).map(link => 'content/products/' + link.getAttribute('href'));
-        
-        console.log(`📂 Found ${productFiles.length} product files`);
+        console.log(`📂 Loading ${PRODUCT_FILES.length} product files...`);
         
         // Load each product file
         const products = [];
-        for (const file of productFiles) {
+        for (const filename of PRODUCT_FILES) {
             try {
-                const response = await fetch(file);
+                const filepath = `content/products/${filename}.md`;
+                const response = await fetch(filepath);
+                
+                if (!response.ok) {
+                    console.warn(`⚠️ Could not load ${filepath}: ${response.status}`);
+                    continue;
+                }
+                
                 const text = await response.text();
-                const product = parseProduct(text, file);
+                const product = parseProduct(text, filename);
                 
                 // Filter by category_box and availability
                 if (product.category_box === boxNumber.toString() && product.available !== false) {
                     products.push(product);
+                    console.log(`✅ Loaded: ${product.title} (Box ${product.category_box})`);
                 }
             } catch (error) {
-                console.warn(`⚠️ Could not load ${file}:`, error);
+                console.warn(`⚠️ Error loading ${filename}:`, error);
             }
         }
         
-        console.log(`✅ Loaded ${products.length} products for Box ${boxNumber}`);
+        console.log(`✅ Found ${products.length} products for Box ${boxNumber}`);
         
         // Display products
         if (products.length === 0) {
             container.innerHTML = '';
-            emptyState.style.display = 'block';
-            categoryCount.textContent = 'No products available';
+            if (emptyState) emptyState.style.display = 'block';
+            if (categoryCount) categoryCount.textContent = 'No products available';
         } else {
             container.innerHTML = '';
-            categoryCount.textContent = `${products.length} ${products.length === 1 ? 'product' : 'products'}`;
+            if (categoryCount) categoryCount.textContent = `${products.length} ${products.length === 1 ? 'product' : 'products'}`;
             
             // Sort by order field
             products.sort((a, b) => (a.order || 100) - (b.order || 100));
@@ -107,7 +128,7 @@ async function loadProducts(boxNumber) {
                 container.appendChild(card);
             });
             
-            emptyState.style.display = 'none';
+            if (emptyState) emptyState.style.display = 'none';
         }
     } catch (error) {
         console.error('Error loading products:', error);
@@ -118,12 +139,16 @@ async function loadProducts(boxNumber) {
 // Parse product markdown file
 function parseProduct(text, filename) {
     const product = {
-        filename: filename
+        filename: filename,
+        slug: filename
     };
     
     // Extract YAML front matter
     const frontMatterMatch = text.match(/^---\s*\n([\s\S]*?)\n---/);
-    if (!frontMatterMatch) return product;
+    if (!frontMatterMatch) {
+        console.warn(`⚠️ No front matter in ${filename}`);
+        return product;
+    }
     
     const frontMatter = frontMatterMatch[1];
     const lines = frontMatter.split('\n');
@@ -166,27 +191,30 @@ function createProductCard(product) {
     let stockBadge = '';
     if (product.stock === 0) {
         stockBadge = '<span class="stock-badge sold-out">Sold Out</span>';
-    } else if (product.stock <= 3) {
+    } else if (product.stock && product.stock <= 3) {
         stockBadge = `<span class="stock-badge low-stock">Only ${product.stock} left!</span>`;
     }
     
     // Featured badge
     const featuredBadge = product.featured ? '<span class="featured-badge">⭐ Featured</span>' : '';
     
+    // Default placeholder image
+    const productImage = product.image || 'images/uploads/placeholder-product.jpg';
+    
     card.innerHTML = `
         <div class="product-image">
-            <img src="${product.image || 'images/uploads/placeholder-product.jpg'}" alt="${product.title}">
+            <img src="${productImage}" alt="${product.title || 'Product'}" onerror="this.src='images/uploads/placeholder-product.jpg'">
             ${stockBadge}
             ${featuredBadge}
         </div>
         <div class="product-info">
-            <h3 class="product-title">${product.title}</h3>
+            <h3 class="product-title">${product.title || 'Untitled Product'}</h3>
             <p class="product-description">${product.short_description || ''}</p>
             <div class="product-footer">
                 <span class="product-price">$${parseFloat(product.price || 0).toFixed(2)}</span>
-                ${product.stock > 0 ? 
-                    `<button class="add-to-cart-btn" data-product='${JSON.stringify(product)}'>Add to Cart</button>` :
-                    `<button class="add-to-cart-btn" disabled>Sold Out</button>`
+                ${product.stock === 0 ? 
+                    `<button class="add-to-cart-btn" disabled>Sold Out</button>` :
+                    `<button class="add-to-cart-btn" data-product='${JSON.stringify(product).replace(/'/g, "&#39;")}'>Add to Cart</button>`
                 }
             </div>
         </div>
@@ -196,7 +224,7 @@ function createProductCard(product) {
     const addButton = card.querySelector('.add-to-cart-btn:not([disabled])');
     if (addButton) {
         addButton.addEventListener('click', function() {
-            const productData = JSON.parse(this.dataset.product);
+            const productData = JSON.parse(this.dataset.product.replace(/&#39;/g, "'"));
             addToCart(productData);
             
             // Visual feedback
@@ -217,6 +245,14 @@ function addToCart(product) {
         window.addToCart(product);
     } else {
         console.log('Cart system not loaded, product:', product);
+        
+        // Update cart count manually if cart system exists
+        const cartCount = document.getElementById('cart-count');
+        if (cartCount) {
+            const currentCount = parseInt(cartCount.textContent) || 0;
+            cartCount.textContent = currentCount + 1;
+        }
+        
         alert(`Added ${product.title} to cart! (Cart placeholder active)`);
     }
 }
@@ -225,7 +261,18 @@ function addToCart(product) {
 window.catBoxDebug = {
     reload: () => location.reload(),
     getBoxNumber: () => window.CATEGORY_BOX_NUMBER,
-    info: () => console.log('Category Box ' + window.CATEGORY_BOX_NUMBER)
+    info: () => {
+        console.log('=== CATEGORY BOX DEBUG ===');
+        console.log('Box Number:', window.CATEGORY_BOX_NUMBER);
+        console.log('Product Files:', PRODUCT_FILES);
+        console.log('==========================');
+    },
+    addProduct: (filename) => {
+        console.log(`To add "${filename}" to the list:`);
+        console.log(`1. Open cat-box-loader.js`);
+        console.log(`2. Add '${filename}' to PRODUCT_FILES array`);
+        console.log(`3. Upload and refresh`);
+    }
 };
 
 console.log('✅ Category box loader ready! Debug: catBoxDebug.info()');
