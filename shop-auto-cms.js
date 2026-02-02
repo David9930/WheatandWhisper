@@ -1,11 +1,13 @@
 // =============================================================================
 // FILE: shop-auto-cms.js
 // CREATED: 2025-02-01
-// MODIFIED: 2025-02-02 18:30 EST
+// MODIFIED: 2025-02-02 18:45 EST
 // PURPOSE: Loads shop page content from Netlify CMS (shop-settings.md)
 // CHANGES: 
-//   - Added support for YouTube Shorts URLs (youtube.com/shorts/VIDEO_ID)
+//   - Added support for YouTube Shorts URLs
 //   - FIXED: Category boxes not loading (regex now includes numbers)
+//   - NEW: Hardcoded links (Box 1 → cat-box1.html, Box 2 → cat-box2.html, etc.)
+//   - NEW: Hide boxes with blank titles
 // =============================================================================
 
 // Wait for DOM to be fully loaded
@@ -208,15 +210,24 @@ function applyCategoryBoxes(data) {
         const boxKey = `category_box_${i}`;
         const boxData = data[boxKey];
         
-        if (!boxData) continue;
-        
         const boxElement = document.getElementById(`category-box-${i}`);
         if (!boxElement) continue;
         
-        // Update link
-        if (boxData.link) {
-            boxElement.href = boxData.link;
+        // Check if box has a title - if not, hide it
+        if (!boxData || !boxData.title || boxData.title.trim() === '') {
+            boxElement.style.display = 'none';
+            console.log(`📦 Box ${i} hidden (no title)`);
+            continue;
         }
+        
+        // Show the box
+        boxElement.style.display = '';
+        
+        // Hardcoded link to cat-boxN.html
+        boxElement.href = `cat-box${i}.html`;
+        
+        // Store box number as data attribute (useful for filtering)
+        boxElement.setAttribute('data-box-number', i);
         
         // Update background image
         if (boxData.image) {
@@ -232,6 +243,8 @@ function applyCategoryBoxes(data) {
             const title = boxData.title;
             titleElement.textContent = emoji ? `${emoji} ${title}` : title;
         }
+        
+        console.log(`✅ Box ${i} configured: "${boxData.title}" → cat-box${i}.html`);
     }
 }
 
