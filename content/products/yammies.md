@@ -14,4 +14,4 @@ category: map-emoji-📦-order-10-name-yammies-description-soft-comfortable-cott
 ---
 White, comfortable and washable in the nearest creek. 
 
-Easy tie ups and available in small. medium. large and extra Chunky!
+Easy tie ups and available in small. medium, middle size large and extra Chunky!
