@@ -11,7 +11,7 @@ header_section:
   bible_verse: A righteous man cares for the needs of his animals.
   bible_reference: Isaiah 40:11
 hero_image_section:
-  hero_image: images/uploads/title-photo.jpg
+  hero_image: images/uploads/3561d464-b6d4-4e9e-a2f3-0b5fd2bcf279_1_105_c.jpeg
   image_alt: Paige with animals in barn
 our_story_section:
   story_title: Our Story
