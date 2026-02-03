@@ -17,7 +17,13 @@ hero_image: images/uploads/aboutbackground.jpg
 overlay_line_1: WELCOME
 overlay_line_2: We are so glad you're here.
 overlay_line_3: We pray it will be a breath of fresh air.
-bottom_text: ""
+bottom_text: >-
+  "Yet we urge you, brothers an sisters, to do so more and more, and to make it
+  your ambition to lead a quiet life: you should mind your own business and work
+  with your hands, just as we told you, so that your daily life may win the
+  respect of outsiders and so that you will not be dependent on anybody."
+
+  1 Thessalonians 4:10-12
 bottom_align: center
 ---
 
