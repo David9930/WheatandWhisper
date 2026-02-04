@@ -3,7 +3,7 @@
    ========================================
    Name of file: product-detail.css
    Date/Time Created: February 02, 2025 - 20:00 EST
-   Date/Time of last Modification: February 02, 2025 - 21:15 EST
+   Date/Time of last Modification: February 02, 2025 - 21:45 EST
    How did the work: PHASE 1 - Complete CSS redesign for Slow Sunday aesthetic:
                      - Background: Changed to cream (#F7F4EF) from tan
                      - Typography: Cormorant Garamond italic titles, Lora serif body
@@ -14,10 +14,11 @@
                      - Removed: Rounded corners, colored backgrounds, farmhouse aesthetic
                      - Added: Size guide link, refined breadcrumbs, elegant price display
                      - Mobile responsive: Refined breakpoints for all screen sizes
+                     - IMAGE FIX: Constrained product image to max 600px width, 700px height with object-fit contain
    Purpose: Styling for product detail page with minimal elegant aesthetic inspired by shopslowsunday.com
    File Location: Root directory
    Last Modified By: Claude & David
-   Version: 1.0 - Phase 1 (Styling Complete)
+   Version: 1.1 - Phase 1 (Image Sizing Fixed)
    ======================================== */
 
 /* === BODY & BACKGROUND === */
@@ -54,16 +55,22 @@ body { background: #F7F4EF; }
 .product-images { 
     position: sticky; 
     top: 100px;
+    max-width: 600px; /* Constrain image column width */
 }
 
 .main-image-container { 
     position: relative; 
     margin-bottom: 20px;
     background: white;
+    max-height: 700px; /* Prevent oversized images */
+    overflow: hidden;
 }
 
 .main-product-image { 
     width: 100%; 
+    height: auto;
+    max-height: 700px; /* Match container */
+    object-fit: contain; /* Scale properly without cropping */
     display: block;
 }
 
