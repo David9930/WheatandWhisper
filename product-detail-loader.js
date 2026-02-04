@@ -3,9 +3,9 @@
 // ========================================
 // Name of file: product-detail-loader.js
 // Date/Time Created: February 02, 2025 - 20:00 EST
-// Date/Time of last Modification: February 02, 2025 - 21:15 EST
+// Date/Time of last Modification: February 04, 2026 - 09:15 AM EST
 // How did the work: PHASE 1 - Enhanced product loading with refined display:
-//                   - Price formatting: Split into dollars and cents with superscript display
+//                   - Price formatting: Split into dollars.cents with superscript (e.g. $136.00)
 //                   - Category display: Shows "WHEAT AND WHISPER" brand label at top
 //                   - Body text: Simple markdown conversion (** for bold, line breaks for paragraphs)
 //                   - Stock info: Refined messaging (in stock, low stock, out of stock)
@@ -16,7 +16,7 @@
 // Usage: Automatically runs on product-detail.html page load
 // File Location: Root directory
 // Last Modified By: Claude & David
-// Version: 1.0 - Phase 1 (Styling Support)
+// Version: 1.1 - Phase 1 (Price Decimal Format)
 // ========================================
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -74,10 +74,11 @@ function displayProduct(p) {
     document.getElementById('page-title').textContent = `${p.title} - Wheat and Whisper Farm`;
     document.getElementById('product-title').textContent = p.title || 'Product';
     
-    // Format price with superscript
+    // Format price with decimal and superscript cents
     const priceWhole = Math.floor(p.price || 0);
-    const priceCents = Math.round(((p.price || 0) - priceWhole) * 100);
+    const priceCents = String(Math.round(((p.price || 0) - priceWhole) * 100)).padStart(2, '0');
     document.getElementById('price-amount').textContent = priceWhole;
+    document.getElementById('price-cents').textContent = priceCents;
     
     document.getElementById('breadcrumb-product').textContent = p.title || 'Product';
     
