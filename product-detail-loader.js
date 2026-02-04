@@ -1,8 +1,23 @@
-// =============================================================================
-// FILE: product-detail-loader.js
-// CREATED: 2025-02-02
-// PURPOSE: Loads full product details from URL parameter
-// =============================================================================
+// ========================================
+// FILE TRACKING INFORMATION
+// ========================================
+// Name of file: product-detail-loader.js
+// Date/Time Created: February 02, 2025 - 20:00 EST
+// Date/Time of last Modification: February 02, 2025 - 21:15 EST
+// How did the work: PHASE 1 - Enhanced product loading with refined display:
+//                   - Price formatting: Split into dollars and cents with superscript display
+//                   - Category display: Shows "WHEAT AND WHISPER" brand label at top
+//                   - Body text: Simple markdown conversion (** for bold, line breaks for paragraphs)
+//                   - Stock info: Refined messaging (in stock, low stock, out of stock)
+//                   - Quantity controls: Plus/minus buttons with validation
+//                   - Add to cart: Integrates with existing cart system
+//                   - Error handling: Proper null checks and fallbacks
+// Purpose: Loads full product details from markdown files via URL parameter
+// Usage: Automatically runs on product-detail.html page load
+// File Location: Root directory
+// Last Modified By: Claude & David
+// Version: 1.0 - Phase 1 (Styling Support)
+// ========================================
 
 document.addEventListener('DOMContentLoaded', async function() {
     const urlParams = new URLSearchParams(window.location.search);
