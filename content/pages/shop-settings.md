@@ -1,13 +1,13 @@
 ---
 hero_section:
-  title_line_1: HANDCRAFTED
-  title_line_2: TREASURES
+  title_line_1: Handcrafted Treasures
+  title_line_2: ...
   subtitle: From Our Farmette to Your Home
   tagline: Every item made with love, care, and a little bit of farm magic
   main_logo: WheatandWhisperLogo.png
   background_image: images/uploads/shop-hero-background.jpg
   use_video_background: true
-  hero_video_url: https://www.youtube.com/shorts/WXJDZTQjO6k
+  hero_video_url: https://youtu.be/Bjf4S-0on-M
 category_box_1:
   title: Yammies
   emoji: 🧼
