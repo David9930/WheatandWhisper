@@ -2,8 +2,8 @@
    FILE TRACKING INFORMATION
    ========================================
    Name of file: product-detail.css
-   Date/Time Created: February 04, 2025 - 08:48 EST
-   Date/Time of last Modification: February 02, 2025 - 21:45 EST
+   Date/Time Created: February 02, 2025 - 20:00 EST
+   Date/Time of last Modification: February 04, 2026 - 09:15 AM EST
    How did the work: PHASE 1 - Complete CSS redesign for Slow Sunday aesthetic:
                      - Background: Changed to cream (#F7F4EF) from tan
                      - Typography: Cormorant Garamond italic titles, Lora serif body
@@ -12,13 +12,14 @@
                      - Size selector: Clean bordered boxes with hover states
                      - Spacing: Increased whitespace, refined padding/margins throughout
                      - Removed: Rounded corners, colored backgrounds, farmhouse aesthetic
-                     - Added: Size guide link, refined breadcrumbs, elegant price display
+                     - Added: Size guide link, refined breadcrumbs, elegant price display with decimal
                      - Mobile responsive: Refined breakpoints for all screen sizes
-                     - IMAGE FIX: Constrained product image to max 600px width, 700px height with object-fit contain
+                     - IMAGE FIX v2: Reduced to 400px width, 500px height (half previous size)
+                     - SCROLL FIX: Removed sticky positioning - image now scrolls naturally
    Purpose: Styling for product detail page with minimal elegant aesthetic inspired by shopslowsunday.com
    File Location: Root directory
    Last Modified By: Claude & David
-   Version: 1.1 - Phase 1 (Image Sizing Fixed)
+   Version: 1.2 - Phase 1 (Image Sizing v2 + Scroll Fix)
    ======================================== */
 
 /* === BODY & BACKGROUND === */
@@ -53,23 +54,22 @@ body { background: #F7F4EF; }
 
 /* === LEFT: IMAGES === */
 .product-images { 
-    position: sticky; 
-    top: 100px;
-    max-width: 600px; /* Constrain image column width */
+    position: relative; /* Changed from sticky - now scrolls normally */
+    max-width: 400px; /* Reduced from 600px - half the size */
 }
 
 .main-image-container { 
     position: relative; 
     margin-bottom: 20px;
     background: white;
-    max-height: 700px; /* Prevent oversized images */
+    max-height: 500px; /* Reduced from 700px */
     overflow: hidden;
 }
 
 .main-product-image { 
     width: 100%; 
     height: auto;
-    max-height: 700px; /* Match container */
+    max-height: 500px; /* Reduced from 700px */
     object-fit: contain; /* Scale properly without cropping */
     display: block;
 }
