@@ -4,10 +4,10 @@ hero_section:
   title_line_2: ...
   subtitle: From Our Farmette to Your Home
   tagline: Every item made with love, care, and a little bit of farm magic
-  main_logo: WheatandWhisperLogo.png
+  main_logo: images/uploads/130a2984-bd95-496e-8059-1f876495b29a.png
   background_image: images/uploads/shop-hero-background.jpg
   use_video_background: true
-  hero_video_url: https://youtu.be/Bjf4S-0on-M
+  hero_video_url: https://studio.youtube.com/video/Bjf4S-0on-M/edit
 category_box_1:
   title: Yammies
   emoji: 🧼
