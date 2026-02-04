@@ -4,12 +4,12 @@ FILE TRACKING INFORMATION
 ========================================
 Name of file: product-detail.html
 Date/Time Created: February 02, 2025 - 20:00 EST
-Date/Time of last Modification: February 02, 2025 - 21:15 EST
+Date/Time of last Modification: February 04, 2026 - 09:15 AM EST
 How did the work: PHASE 1 - Slow Sunday Styling Implementation:
                   - Changed background to cream (#F7F4EF) minimal aesthetic
                   - Updated typography: Cormorant Garamond italic for titles, Lora serif for body
                   - Added "WHEAT AND WHISPER" category label at top
-                  - Restructured price display with superscript cents ($136⁰⁰ format)
+                  - Restructured price display with DECIMAL and superscript cents ($136.00 format)
                   - Added SIZE selector section with bordered boxes (visual only)
                   - Added "♡ Size Guide" link
                   - Refined all button styling (dark minimal aesthetic)
@@ -20,7 +20,7 @@ Purpose: Product detail page showing full product information with Slow Sunday i
 Usage: product-detail.html?product=yammies (or any product slug)
 File Location: Root directory
 Last Modified By: Claude & David
-Version: 1.0 - Phase 1 (Styling Complete)
+Version: 1.1 - Phase 1 (Price Decimal Added)
 Next Phase: Phase 2 - Collapsible sections, thumbnail gallery, additional fields
 ========================================
 -->
@@ -139,7 +139,7 @@ Next Phase: Phase 2 - Collapsible sections, thumbnail gallery, additional fields
                     <!-- Title & Price -->
                     <h1 class="product-title" id="product-title">Product Name</h1>
                     <div class="product-price-row">
-                        <span class="product-price" id="product-price">$<span id="price-amount">0</span><sup>00</sup></span>
+                        <span class="product-price" id="product-price">$<span id="price-amount">0</span>.<sup id="price-cents">00</sup></span>
                         <span class="product-sku" id="product-sku"></span>
                     </div>
 
