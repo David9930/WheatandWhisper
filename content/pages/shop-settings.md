@@ -4,7 +4,7 @@ hero_section:
   title_line_2: ...
   subtitle: From Our Farmette to Your Home
   tagline: Every item made with love, care, and a little bit of farm magic
-  main_logo: images/uploads/360a7cea-fd97-40ae-b44c-93bdb8358d6f.png
+  main_logo: images/uploads/8030ec6c-1f30-4dee-ad63-87bdb0c3ab44.png
   background_image: images/uploads/shop-hero-background.jpg
   use_video_background: true
   hero_video_url: https://studio.youtube.com/video/Bjf4S-0on-M/edit
