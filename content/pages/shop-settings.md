@@ -7,7 +7,7 @@ hero_section:
   main_logo: images/uploads/ae0943ac-4392-4905-9cc7-88a6b49b093a.png
   background_image: images/uploads/shop-hero-background.jpg
   use_video_background: true
-  hero_video_url: https://studio.youtube.com/video/Bjf4S-0on-M/edit
+  hero_video_url: https://youtu.be/Bjf4S-0on-M
 category_box_1:
   title: Yammies
   emoji: 🧼
