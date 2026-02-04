@@ -3,7 +3,7 @@
    ========================================
    Name of file: product-detail.css
    Date/Time Created: February 02, 2025 - 20:00 EST
-   Date/Time of last Modification: February 04, 2026 - 09:15 AM EST
+   Date/Time of last Modification: February 04, 2026 - 09:30 AM EST
    How did the work: PHASE 1 - Complete CSS redesign for Slow Sunday aesthetic:
                      - Background: Changed to cream (#F7F4EF) from tan
                      - Typography: Cormorant Garamond italic titles, Lora serif body
@@ -16,10 +16,11 @@
                      - Mobile responsive: Refined breakpoints for all screen sizes
                      - IMAGE FIX v2: Reduced to 400px width, 500px height (half previous size)
                      - SCROLL FIX: Removed sticky positioning - image now scrolls naturally
+                     - LAYOUT FIX: Forced side-by-side grid (400px fixed image, flexible text column)
    Purpose: Styling for product detail page with minimal elegant aesthetic inspired by shopslowsunday.com
    File Location: Root directory
    Last Modified By: Claude & David
-   Version: 1.2 - Phase 1 (Image Sizing v2 + Scroll Fix)
+   Version: 1.3 - Phase 1 (Grid Layout Fixed - Side by Side)
    ======================================== */
 
 /* === BODY & BACKGROUND === */
@@ -46,16 +47,24 @@ body { background: #F7F4EF; }
 
 /* === GRID LAYOUT === */
 .product-content { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 80px;
+    display: grid !important; 
+    grid-template-columns: 400px 1fr !important; /* Fixed width for image, flexible for text */
+    gap: 60px !important;
     align-items: start;
+    max-width: 100% !important;
+}
+
+/* Ensure children don't break grid */
+.product-images,
+.product-details {
+    min-width: 0; /* Prevent grid blowout */
 }
 
 /* === LEFT: IMAGES === */
 .product-images { 
     position: relative; /* Changed from sticky - now scrolls normally */
     max-width: 400px; /* Reduced from 600px - half the size */
+    width: 100%;
 }
 
 .main-image-container { 
@@ -405,12 +414,13 @@ body { background: #F7F4EF; }
 /* === RESPONSIVE === */
 @media (max-width: 968px) { 
     .product-content { 
-        grid-template-columns: 1fr;
-        gap: 40px;
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
     }
     .product-images { 
         position: relative;
         top: 0;
+        max-width: 100%;
     }
     .product-detail-section {
         padding: 0 20px;
@@ -434,6 +444,6 @@ body { background: #F7F4EF; }
         font-size: 1.8rem;
     }
     .product-content {
-        gap: 30px;
+        gap: 30px !important;
     }
 }
