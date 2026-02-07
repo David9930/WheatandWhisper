@@ -1,7 +1,7 @@
 ---
 title: "Felicity in Spring "
 category_box: "1"
-price: $270
+price: "270.00"
 short_description: Organic cotton open back maxi dress
 image: images/uploads/19a6bf4d-71c9-4d7b-b304-6a7a008aa808_1_105_c.jpeg
 gallery:
