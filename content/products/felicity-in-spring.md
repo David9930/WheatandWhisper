@@ -1,4 +1,5 @@
 ---
+color: White
 title: "Felicity in Spring "
 category_box: "1"
 price: "270.00"
@@ -8,15 +9,14 @@ gallery:
   - image: images/uploads/e330bc51-81f4-48c7-b863-af988e1c2179_1_105_c.jpeg
   - image: images/uploads/animals-background.jpg
 sku: "123456"
-stock: 5
+stock: 3
 available: true
-weight: 20
 featured: true
-color: White
-care_instructions: "Wash in delicates selection on washer only "
-made_in: USA
 fit_description: Fit Description Here
-measurements: Measurements Here
 order: 10
+made_in: USA
+care_instructions: "Wash in delicates selection on washer only "
+measurements: Measurements Here
+weight: 20
 ---
 Stunning maxi dress with a free-spirited, romantic silhouette. Vintage lace, tiered layers, and a delicate back cutout with a waist tie. Designed to embody graceful femininity with an airy, effortless fit.
