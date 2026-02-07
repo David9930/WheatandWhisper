@@ -1,0 +1,522 @@
+/* ========================================
+   FILE TRACKING INFORMATION
+   ========================================
+   Name of file: product-detail.css
+   Date/Time Created: February 02, 2025 - 20:00 EST
+   Date/Time of last Modification: February 04, 2026 - 09:50 AM EST
+   How did the work: PHASE 1 - Complete CSS redesign for Slow Sunday aesthetic:
+                     - Background: Changed to cream (#F7F4EF) from tan
+                     - Typography: Cormorant Garamond italic titles, Lora serif body
+                     - Color palette: Dark charcoal (#2C2C2C), medium gray (#666), soft beige borders (#E8E4DD)
+                     - Buttons: Minimal dark style with uppercase text, letter-spacing
+                     - Size selector: Clean bordered boxes with hover states
+                     - Spacing: Increased whitespace, refined padding/margins throughout
+                     - Removed: Rounded corners, colored backgrounds, farmhouse aesthetic
+                     - Added: Size guide link, refined breadcrumbs, elegant price display with decimal
+                     - Mobile responsive: Refined breakpoints for all screen sizes
+                     - IMAGE FIX v2: Reduced to 400px width, 500px height (half previous size)
+                     - SCROLL FIX: Removed sticky positioning - image now scrolls naturally
+                     - LAYOUT FIX: Forced side-by-side grid (400px fixed image, flexible text column)
+                     PHASE 2 - Collapsible Sections (IN PROGRESS):
+                     - Added accordion-style collapsible sections with smooth transitions
+                     - Styled DETAILS and SIZE AND FIT dropdowns with icons and arrows
+                     - Hover states and active states for collapsible headers
+   Purpose: Styling for product detail page with minimal elegant aesthetic inspired by shopslowsunday.com
+   File Location: Root directory
+   Last Modified By: Claude & David
+   Version: 2.0 - Phase 2 (Collapsible Sections Added)
+   ======================================== */
+
+/* === BODY & BACKGROUND === */
+body { background: #F7F4EF; }
+.product-detail-section { 
+    max-width: 1200px; 
+    margin: 40px auto; 
+    padding: 0 40px;
+    background: #F7F4EF;
+}
+
+/* === BREADCRUMBS === */
+.breadcrumbs { 
+    font-size: 0.75rem; 
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 20px;
+}
+.breadcrumbs a { color: #999; }
+.breadcrumbs a:hover { color: #666; }
+.breadcrumb-separator { margin: 0 8px; color: #CCC; }
+.breadcrumb-current { color: #666; }
+
+/* === GRID LAYOUT === */
+.product-content { 
+    display: grid !important; 
+    grid-template-columns: 400px 1fr !important; /* Fixed width for image, flexible for text */
+    gap: 60px !important;
+    align-items: start;
+    max-width: 100% !important;
+}
+
+/* Ensure children don't break grid */
+.product-images,
+.product-details {
+    min-width: 0; /* Prevent grid blowout */
+}
+
+/* === LEFT: IMAGES === */
+.product-images { 
+    position: relative; /* Changed from sticky - now scrolls normally */
+    max-width: 400px; /* Reduced from 600px - half the size */
+    width: 100%;
+}
+
+.main-image-container { 
+    position: relative; 
+    margin-bottom: 20px;
+    background: white;
+    max-height: 500px; /* Reduced from 700px */
+    overflow: hidden;
+}
+
+.main-product-image { 
+    width: 100%; 
+    height: auto;
+    max-height: 500px; /* Reduced from 700px */
+    object-fit: contain; /* Scale properly without cropping */
+    display: block;
+}
+
+.product-badges { 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+}
+
+.badge-featured { 
+    background: rgba(0,0,0,0.7);
+    color: white; 
+    padding: 8px 16px; 
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Lora', serif;
+}
+
+/* Image gallery thumbnails */
+.image-gallery { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* === RIGHT: PRODUCT DETAILS === */
+.product-details {
+    padding-top: 0;
+}
+
+/* Brand/Category */
+.product-category {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 10px;
+    font-family: 'Lora', serif;
+}
+
+/* Product Title */
+.product-title { 
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #2C2C2C;
+    margin: 0 0 25px;
+    line-height: 1.2;
+}
+
+/* Price Row */
+.product-price-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: baseline;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E8E4DD;
+}
+
+.product-price { 
+    font-size: 1.5rem;
+    color: #2C2C2C;
+    font-weight: 400;
+    font-family: 'Lora', serif;
+}
+
+.product-price sup { 
+    font-size: 0.7em;
+    position: relative;
+    top: -0.5em;
+}
+
+.product-sku { 
+    font-size: 0.8rem;
+    color: #999;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Stock Info */
+.stock-info { 
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+    font-family: 'Lora', serif;
+    letter-spacing: 0.3px;
+}
+.in-stock { color: #666; } 
+.low-stock { color: #C9A66B; font-weight: 500; } 
+.out-of-stock { 
+    color: #DC3545; 
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Short Description */
+.product-short-desc { 
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Size Selector */
+.size-selector-label {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #2C2C2C;
+    margin-bottom: 12px;
+    display: block;
+    font-family: 'Lora', serif;
+}
+
+.size-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.size-option {
+    border: 1px solid #CCC;
+    background: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    color: #666;
+}
+
+.size-option:hover {
+    border-color: #2C2C2C;
+}
+
+.size-option.selected {
+    border-color: #2C2C2C;
+    background: #2C2C2C;
+    color: white;
+}
+
+.size-option.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.size-guide-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.size-guide-link:hover {
+    color: #2C2C2C;
+}
+
+/* === QUANTITY & ADD TO CART === */
+.product-actions { 
+    margin-bottom: 30px;
+}
+
+.quantity-selector { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.quantity-selector label { 
+    font-family: 'Lora', serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #2C2C2C;
+}
+
+.qty-btn { 
+    width: 40px;
+    height: 40px;
+    border: 1px solid #CCC;
+    background: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.qty-btn:hover { 
+    border-color: #2C2C2C;
+    color: #2C2C2C;
+}
+
+#quantity { 
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #CCC;
+    font-size: 1rem;
+    font-family: 'Lora', serif;
+}
+
+/* Add to Cart Button */
+.add-to-cart-large { 
+    width: 100%;
+    background: #2C2C2C;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+}
+
+.add-to-cart-large:hover { 
+    background: #000;
+}
+
+.add-to-cart-large:disabled { 
+    background: white;
+    color: #999;
+    border: 1px solid #CCC;
+    cursor: not-allowed;
+}
+
+/* === PRODUCT META === */
+.product-meta { 
+    margin: 30px 0;
+    padding: 0;
+    background: transparent;
+}
+
+.meta-grid { 
+    display: grid;
+    gap: 12px;
+}
+
+.meta-item { 
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.meta-item strong {
+    color: #2C2C2C;
+    font-weight: 500;
+}
+
+/* === COLLAPSIBLE SECTIONS === */
+.collapsible-section {
+    border-top: 1px solid #E8E4DD;
+    margin: 0;
+}
+
+.collapsible-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    padding: 20px 0;
+    cursor: pointer;
+    font-family: 'Lora', serif;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2C2C2C;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.collapsible-header:hover {
+    color: #666;
+}
+
+.collapsible-icon {
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.collapsible-arrow {
+    font-size: 0.6rem;
+    transition: transform 0.3s;
+}
+
+.collapsible-header.active .collapsible-arrow {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.collapsible-content.open {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+}
+
+.collapsible-inner {
+    padding: 0 0 20px 0;
+}
+
+.detail-item {
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.detail-item strong {
+    color: #2C2C2C;
+    font-weight: 500;
+}
+
+.product-full-desc {
+    border-top: 1px solid #E8E4DD;
+    padding-top: 30px;
+    margin-top: 0;
+}
+
+.product-full-desc h2 { 
+    font-family: 'Lora', serif;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2C2C2C;
+    margin: 0 0 20px;
+    font-weight: 500;
+}
+
+.product-body-content { 
+    font-family: 'Lora', serif;
+    line-height: 1.9;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.product-body-content p {
+    margin-bottom: 15px;
+}
+
+/* === LOADING & ERROR STATES === */
+.loading-state, .error-state { 
+    text-align: center; 
+    padding: 80px 20px;
+    color: #999;
+}
+
+.error-state h2 { 
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: #2C2C2C;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.error-state p {
+    color: #999;
+    font-family: 'Lora', serif;
+}
+
+.back-btn { 
+    display: inline-block;
+    background: transparent;
+    color: #2C2C2C;
+    border: 1px solid #CCC;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    border-color: #2C2C2C;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 968px) { 
+    .product-content { 
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+    .product-images { 
+        position: relative;
+        top: 0;
+        max-width: 100%;
+    }
+    .product-detail-section {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) { 
+    .product-title { 
+        font-size: 2.2rem;
+    }
+    .product-price {
+        font-size: 1.3rem;
+    }
+    .image-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-title {
+        font-size: 1.8rem;
+    }
+    .product-content {
+        gap: 30px !important;
+    }
+}
