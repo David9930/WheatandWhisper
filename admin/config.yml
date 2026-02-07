@@ -121,6 +121,18 @@ collections:
       
       - {label: "Featured Product", name: "featured", widget: "boolean", default: false, hint: "Show on homepage or featured section"}
       
+      - {label: "Material", name: "material", widget: "string", required: false, hint: "e.g., 100% organic cotton"}
+      
+      - {label: "Color", name: "color", widget: "string", required: false, hint: "e.g., Natural cream"}
+      
+      - {label: "Care Instructions", name: "care_instructions", widget: "text", required: false, hint: "e.g., Machine wash cold"}
+      
+      - {label: "Made In", name: "made_in", widget: "string", required: false, hint: "e.g., Made in USA"}
+      
+      - {label: "Fit Description", name: "fit_description", widget: "text", required: false, hint: "e.g., True to size"}
+      
+      - {label: "Measurements", name: "measurements", widget: "text", required: false, hint: "e.g., Small: 4oz bar"}
+      
       - {label: "Display Order", name: "order", widget: "number", default: 100, value_type: "int", min: 1, hint: "Lower numbers appear first"}
 
 
