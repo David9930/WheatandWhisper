@@ -3,7 +3,7 @@
 // ========================================
 // Name of file: product-detail-loader.js
 // Date/Time Created: February 02, 2025 - 20:00 EST
-// Date/Time of last Modification: February 04, 2026 - 09:50 AM EST
+// Date/Time of last Modification: February 04, 2026 - 10:30 AM EST
 // How did the work: PHASE 1 - Enhanced product loading with refined display:
 //                   - Price formatting: Split into dollars.cents with superscript (e.g. $136.00)
 //                   - Category display: Shows "WHEAT AND WHISPER" brand label at top
@@ -12,15 +12,17 @@
 //                   - Quantity controls: Plus/minus buttons with validation
 //                   - Add to cart: Integrates with existing cart system
 //                   - Error handling: Proper null checks and fallbacks
-//                   PHASE 2 - Collapsible Sections (IN PROGRESS):
+//                   PHASE 2 - Collapsible Sections:
 //                   - Added collapsible toggle functionality for DETAILS and SIZE AND FIT
 //                   - Populates collapsible sections with product data (material, color, care, fit, measurements)
 //                   - Smooth accordion animation with active states
+//                   BUG FIX - Price Parsing:
+//                   - Fixed: Now strips $ sign from price before parsing (handles "$270" format)
 // Purpose: Loads full product details from markdown files via URL parameter
 // Usage: Automatically runs on product-detail.html page load
 // File Location: Root directory
 // Last Modified By: Claude & David
-// Version: 2.0 - Phase 2 (Collapsible Sections)
+// Version: 2.1 - Phase 2 (Price Parsing Fixed)
 // ========================================
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -61,7 +63,10 @@ function parseProduct(text) {
                 if (value === 'true') value = true;
                 else if (value === 'false') value = false;
                 else if (match[1] === 'stock' || match[1] === 'order') value = parseInt(value) || 0;
-                else if (match[1] === 'price' || match[1] === 'weight') value = parseFloat(value) || 0;
+                else if (match[1] === 'price' || match[1] === 'weight') {
+                    // Strip $ sign and parse as float
+                    value = parseFloat(value.replace(/[$,]/g, '')) || 0;
+                }
                 product[match[1]] = value;
             }
         });
