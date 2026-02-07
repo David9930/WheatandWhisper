@@ -134,17 +134,26 @@ function displayProduct(p) {
     const detailCare = document.getElementById('detail-care');
     const detailOrigin = document.getElementById('detail-origin');
     
-    if (p.material) detailMaterial.innerHTML = `<strong>Material:</strong> ${p.material}`;
-    if (p.color) detailColor.innerHTML = `<strong>Color:</strong> ${p.color}`;
-    if (p.care_instructions) detailCare.innerHTML = `<strong>Care:</strong> ${p.care_instructions}`;
-    if (p.made_in) detailOrigin.innerHTML = `<strong>Made in:</strong> ${p.made_in}`;
+    // Check both flat fields and nested object fields
+    const material = p.details_section?.material || p.material;
+    const color = p.details_section?.color || p.color;
+    const care = p.details_section?.care_instructions || p.care_instructions;
+    const madeIn = p.details_section?.made_in || p.made_in;
+    
+    if (material) detailMaterial.innerHTML = `<strong>Material:</strong> ${material}`;
+    if (color) detailColor.innerHTML = `<strong>Color:</strong> ${color}`;
+    if (care) detailCare.innerHTML = `<strong>Care:</strong> ${care}`;
+    if (madeIn) detailOrigin.innerHTML = `<strong>Made in:</strong> ${madeIn}`;
     
     // Populate SIZE AND FIT collapsible
     const detailFit = document.getElementById('detail-fit');
     const detailMeasurements = document.getElementById('detail-measurements');
     
-    if (p.fit_description) detailFit.innerHTML = `<strong>Fit:</strong> ${p.fit_description}`;
-    if (p.measurements) detailMeasurements.innerHTML = `<strong>Measurements:</strong> ${p.measurements}`;
+    const fit = p.size_fit_section?.fit_description || p.fit_description;
+    const measurements = p.size_fit_section?.measurements || p.measurements;
+    
+    if (fit) detailFit.innerHTML = `<strong>Fit:</strong> ${fit}`;
+    if (measurements) detailMeasurements.innerHTML = `<strong>Measurements:</strong> ${measurements}`;
     
     document.getElementById('quantity').max = p.stock || 99;
     
