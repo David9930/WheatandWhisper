@@ -1,0 +1,11 @@
+# =============================================================================
+# Netlify Configuration
+# =============================================================================
+
+[build]
+  publish = "."
+  command = "node generate-product-index.js"
+
+# Optional: Deploy notifications
+[build.environment]
+  NODE_VERSION = "18"
