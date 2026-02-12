@@ -1,0 +1,587 @@
+# File: config.yml
+# Last Modified: 2025-02-12  7:00 am
+# Modified By: Claude (AI Assistant)
+# Changes: Fixed emoji encoding corruption + Added Shop Settings page
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+collections:
+  # =============================================================================
+  # ANIMALS PAGE - "Meet the Animals" (animals.html)
+  # =============================================================================
+  - name: "animals"
+    label: "🐴 Animals (Meet the Animals)"
+    label_singular: "Animal"
+    folder: "content/animals"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} - {{short_description}}"
+    fields:
+      - {label: "Animal Name", name: "name", widget: "string", hint: "Display name for this animal"}
+      - {label: "Photo", name: "photo", widget: "image", hint: "Main photo shown on card"}
+      - {label: "Video URL (Optional)", name: "video_url", widget: "string", required: false, hint: "YouTube URL for Meet button - leave blank for 'Coming Soon'"}
+      - {label: "Short Description", name: "short_description", widget: "text", hint: "Brief description shown on card (2-3 sentences)"}
+      - {label: "Text Alignment", name: "text_align", widget: "select", default: "center", options: ["left", "center", "right"], hint: "Alignment for name and description on this card"}
+      - {label: "Display Order", name: "order", widget: "number", default: 1, value_type: "int", min: 1, hint: "Lower numbers appear first"}
+
+  # =============================================================================
+  # PUPPY GALLERY
+  # =============================================================================
+  - name: "gallery"
+    label: "📸 Puppy Gallery"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Litters"
+        name: "litters"
+        widget: "list"
+        summary: "{{fields.name}} - {{fields.date}}"
+        fields:
+          - {label: "Litter Name", name: "name", widget: "string", hint: "e.g., Spring 2025 Litter, Fall 2024 Litter"}
+          - {label: "Date", name: "date", widget: "string", hint: "e.g., March 2025, October 2024"}
+          - label: "Photos"
+            name: "photos"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - {label: "Photo", name: "image", widget: "image", allow_multiple: false, hint: "Upload puppy photo"}
+              - {label: "Caption", name: "caption", widget: "string", required: false, hint: "e.g., Meet Sunny! This little guy loves to play"}
+
+  # =============================================================================
+  # FARM UPDATES - Blog Posts
+  # =============================================================================
+  - name: "updates"
+    label: "📝 Farm Updates"
+    folder: "content/updates"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Story", name: "body", widget: "markdown"}
+      - {label: "Second Image (Optional)", name: "image2", widget: "image", required: false}
+
+  # =============================================================================
+  # PRODUCTS - Shop Items
+  # =============================================================================
+  - name: "products"
+    label: "🛍️ Products (Shop)"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} - ${{price}} - Box {{category_box}}"
+    fields:
+      - {label: "Product Name", name: "title", widget: "string", hint: "e.g., Lavender Goat Milk Soap"}
+      
+      - label: "Category Box"
+        name: "category_box"
+        widget: "select"
+        options:
+          - {label: "Category Box 1", value: "1"}
+          - {label: "Category Box 2", value: "2"}
+          - {label: "Category Box 3", value: "3"}
+          - {label: "Category Box 4", value: "4"}
+          - {label: "Category Box 5", value: "5"}
+          - {label: "Category Box 6 - All Products", value: "6"}
+        hint: "Which category box does this product belong to? (Box names set in Shop Page)"
+      
+      - {label: "Price", name: "price", widget: "number", value_type: "float", hint: "e.g., 12.99 (no $ symbol)"}
+      
+      - {label: "Short Description", name: "short_description", widget: "text", hint: "Brief description shown on product card (2-3 sentences)"}
+      
+      - {label: "Full Description", name: "body", widget: "markdown", hint: "Full product details shown on product page"}
+      
+      - {label: "Main Product Photo", name: "image", widget: "image", hint: "Primary photo shown on cards"}
+      
+      - label: "Additional Photos (Optional)"
+        name: "gallery"
+        widget: "list"
+        required: false
+        max: 5
+        hint: "Add up to 5 more photos (customers can view gallery)"
+        fields:
+          - {label: "Photo", name: "image", widget: "image"}
+      
+      - {label: "SKU / Product Code", name: "sku", widget: "string", required: false, hint: "e.g., SOAP-LAV-001 (for your inventory tracking)"}
+      
+      - {label: "Inventory Stock", name: "stock", widget: "number", default: 0, value_type: "int", min: 0, hint: "How many in stock? (0 = sold out)"}
+      
+      - {label: "Available for Sale", name: "available", widget: "boolean", default: true, hint: "Toggle OFF to hide from store"}
+      
+      - {label: "Weight (oz)", name: "weight", widget: "number", required: false, value_type: "float", hint: "Weight in ounces (for shipping calculation)"}
+      
+      - {label: "Featured Product", name: "featured", widget: "boolean", default: false, hint: "Show on homepage or featured section"}
+      
+      - {label: "Material", name: "material", widget: "string", required: false, hint: "e.g., 100% organic cotton"}
+      - {label: "Color", name: "color", widget: "string", required: false, hint: "e.g., Natural cream"}
+      - {label: "Care Instructions", name: "care_instructions", widget: "text", required: false, hint: "e.g., Machine wash cold"}
+      - {label: "Made In", name: "made_in", widget: "string", required: false, hint: "e.g., Made in USA"}
+      - {label: "Fit Description", name: "fit_description", widget: "text", required: false, hint: "e.g., True to size"}
+      - {label: "Measurements", name: "measurements", widget: "text", required: false, hint: "e.g., Small: 4oz bar"}
+      
+      - {label: "Display Order", name: "order", widget: "number", default: 100, value_type: "int", min: 1, hint: "Lower numbers appear first"}
+
+  # =============================================================================
+  # PAGES - Homepage, About, Animals, Settings, Retrievers, Shop
+  # =============================================================================
+  - name: "pages"
+    label: "📄 Pages & Settings"
+    files:
+      # ---------------------------------------------------------------------------
+      # HOMEPAGE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/pages/homepage.md"
+        fields:
+          - label: "Hero Section"
+            name: "hero_section"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "WHEAT AND"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "WHISPER FARM"}
+              - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace"}
+              - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story"}
+              - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/hero-background.jpg", hint: "Used when video is disabled or not provided"}
+              - {label: "🎬 Use Video Background", name: "use_video_background", widget: "boolean", default: false, hint: "Toggle ON to use YouTube video as hero background instead of image"}
+              - {label: "YouTube Video URL", name: "hero_video_url", widget: "string", required: false, hint: "Paste full YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID). Only used if 'Use Video Background' is ON."}
+          
+          - label: "Box 1 - Story"
+            name: "box_1"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title", name: "title", widget: "string", default: "Wheat and Whisper Story"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "about.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+          
+          - label: "Box 2 - Animals"
+            name: "box_2"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title", name: "title", widget: "string", default: "Meet the Animals"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "animals.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+          
+          - label: "Box 3 - Farmette Life"
+            name: "box_3"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title", name: "title", widget: "string", default: "Farmette Life"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "farmette.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+          
+          - label: "Box 4 - Mini Nubians"
+            name: "box_4"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
+              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Mini Nubians"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "nubians.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+          
+          - label: "Box 5 - Golden Retrievers"
+            name: "box_5"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Sovereignty Grace"}
+              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Golden Retrievers"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "retrievers.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+          
+          - label: "Box 6 - Products"
+            name: "box_6"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Box Title Line 1", name: "title_line_1", widget: "string", default: "Handcrafted"}
+              - {label: "Box Title Line 2", name: "title_line_2", widget: "string", default: "Treasures"}
+              - {label: "Background Image", name: "image", widget: "image"}
+              - {label: "Link Destination", name: "link", widget: "select", default: "products.html", options: [{label: "About Page", value: "about.html"}, {label: "Meet the Animals", value: "animals.html"}, {label: "Farmette Life", value: "farmette.html"}, {label: "Mini Nubians", value: "nubians.html"}, {label: "Golden Retrievers", value: "retrievers.html"}, {label: "Products", value: "products.html"}]}
+          
+          - label: "Page Banner"
+            name: "page_banner"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Banner Title", name: "title", widget: "string", default: "From Our Fields to yours."}
+              - {label: "Banner Text", name: "text", widget: "text"}
+      
+      # ---------------------------------------------------------------------------
+      # ABOUT PAGE
+      # ---------------------------------------------------------------------------
+      - label: "About Page"
+        name: "about"
+        file: "content/pages/about.md"
+        fields:
+          - {label: "Page Title", name: "page_title", widget: "string", default: "Welcome to Wheat and Whisper Farm"}
+          - {label: "Title Alignment", name: "title_align", widget: "select", default: "center", options: ["left", "center", "right"]}
+          - {label: "Body Text", name: "body_text", widget: "text", hint: "Main text at top of page"}
+          - {label: "Body Text Alignment", name: "body_align", widget: "select", default: "center", options: ["left", "center", "right", "justify"]}
+          - {label: "Hero Image", name: "hero_image", widget: "image"}
+          - {label: "Image Overlay Line 1", name: "overlay_line_1", widget: "string", required: false, hint: "Large text on image"}
+          - {label: "Image Overlay Line 2", name: "overlay_line_2", widget: "string", required: false}
+          - {label: "Image Overlay Line 3", name: "overlay_line_3", widget: "string", required: false}
+          - {label: "Bottom Text (Optional)", name: "bottom_text", widget: "text", required: false, hint: "Additional text below image"}
+          - {label: "Bottom Text Alignment", name: "bottom_align", widget: "select", default: "center", options: ["left", "center", "right", "justify"]}
+      
+      # ---------------------------------------------------------------------------
+      # ANIMALS PAGE CONTENT
+      # ---------------------------------------------------------------------------
+      - label: "Animals Page Content"
+        name: "animals_page_content"
+        file: "content/pages/animals-settings.md"
+        fields:
+          - label: "🎨 Background Settings"
+            name: "background_settings"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Use Custom Background Image", name: "use_background_image", widget: "boolean", default: false, hint: "Toggle between plain wheat color or custom image background"}
+              - {label: "Background Image", name: "background_image", widget: "image", required: false, hint: "Only used if 'Use Custom Background Image' is enabled"}
+          
+          - label: "📝 Header Section"
+            name: "header_section"
+            widget: "object"
+            collapsed: false
+            hint: "Main title, subtitle, and intro text at top of page"
+            fields:
+              - {label: "Page Title", name: "page_title", widget: "string", default: "Meet the animals", hint: "Main title at top (displays in script font)"}
+              - {label: "Page Subtitle", name: "page_subtitle", widget: "string", default: "Trusting Temperament in Every Turn", hint: "Subtitle below title"}
+              - {label: "Intro Paragraph", name: "intro_text", widget: "text", default: "Here at Wheat and Whisper farm every animal has a story, a story that matters, a life given by God. Our animals are the cornerstone of our farmette.", hint: "Paragraph below subtitle"}
+              - {label: "Bible Verse", name: "bible_verse", widget: "string", default: "We euphemize main cares for the needs of his animals", hint: "Scripture quote"}
+              - {label: "Bible Verse Reference", name: "bible_reference", widget: "string", default: "Isaiah 40:11", hint: "Book, chapter, and verse"}
+          
+          - label: "🖼️ Hero Image Section"
+            name: "hero_image_section"
+            widget: "object"
+            collapsed: false
+            hint: "Large featured image between intro and Our Story"
+            fields:
+              - {label: "Hero Image", name: "hero_image", widget: "image", default: "images/uploads/title-photo.jpg", hint: "Large barn/animal photo - currently 'title-photo.jpg'"}
+              - {label: "Image Alt Text", name: "image_alt", widget: "string", default: "Paige with animals in barn", hint: "Description for screen readers"}
+          
+          - label: "📖 Our Story Section"
+            name: "our_story_section"
+            widget: "object"
+            collapsed: false
+            hint: "Section between hero image and animal grid"
+            fields:
+              - {label: "Section Title", name: "story_title", widget: "string", default: "Our Story", hint: "Title for this section"}
+              - {label: "Story Text", name: "story_text", widget: "text", default: "We are so excited to introduce you to the sweet faces of those who live at \"Wheat and Whisper farm.\" We can't wait to share what we are creating, and take you along for the journey as we follow God's direction for our family and our farm. We will be building on our breed story, and hope to spin a little something meaningful back to all of you.", hint: "Main paragraph text"}
+          
+          - label: "🐴 Animals Grid Section"
+            name: "animals_grid_section"
+            widget: "object"
+            collapsed: true
+            hint: "Settings for the animal cards grid"
+            fields:
+              - {label: "Section Title", name: "section_title", widget: "string", default: "Meet The Animals", hint: "Title above animal cards (displays in script font)"}
+      
+      # ---------------------------------------------------------------------------
+      # GOLDEN RETRIEVERS PAGE
+      # ---------------------------------------------------------------------------
+      - label: "Golden Retrievers Page"
+        name: "retrievers"
+        file: "content/pages/retrievers.md"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Main Title", name: "title", widget: "string", default: "Sovereignty Grace Golden Retrievers", hint: "Large title at top of page"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "how we raise our golden babies", hint: "Italic text below title"}
+          
+          - label: "✨ Special Announcement Banner"
+            name: "announcement"
+            widget: "object"
+            collapsed: false
+            hint: "Golden banner for litter announcements - shows/hides automatically"
+            fields:
+              - {label: "Announcement Text", name: "text", widget: "text", required: false, hint: "Leave empty to hide banner. Add text like 'New litter expected Spring 2025! Applications now being accepted.'"}
+          
+          - label: "Content Box 1 (Image Left)"
+            name: "box_1"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-1-image.jpg"}
+              - {label: "🎬 Video URL (Optional)", name: "video_url", widget: "string", required: false, hint: "YouTube URL - enables photo/video toggle. Leave empty for photo only."}
+              - {label: "Title", name: "title", widget: "string", default: "Welcome"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "Keeping life golden", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown", hint: "Main paragraph content"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false, hint: "Phone || Email format"}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: false}
+          
+          - label: "Content Box 2 (Image Right)"
+            name: "box_2"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-2-image.jpg"}
+              - {label: "🎬 Video URL (Optional)", name: "video_url", widget: "string", required: false, hint: "YouTube URL - enables photo/video toggle. Leave empty for photo only."}
+              - {label: "Title", name: "title", widget: "string", default: "Certifications and Testing"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "responsible breeding is everything:", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown", hint: "Can use bullet points with - or *"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: true}
+          
+          - label: "Content Box 3 (Image Left)"
+            name: "box_3"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-3-image.jpg"}
+              - {label: "🎬 Video URL (Optional)", name: "video_url", widget: "string", required: false, hint: "YouTube URL - enables photo/video toggle. Leave empty for photo only."}
+              - {label: "Title", name: "title", widget: "string", default: "Our Breeding Program"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "Quality over quantity", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: false}
+          
+          - label: "Content Box 4 (Image Right)"
+            name: "box_4"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Image", name: "image", widget: "image", default: "images/uploads/box-4-image.jpg"}
+              - {label: "🎬 Video URL (Optional)", name: "video_url", widget: "string", required: false, hint: "YouTube URL - enables photo/video toggle. Leave empty for photo only."}
+              - {label: "Title", name: "title", widget: "string", default: "Puppy Care"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "From birth to forever home", required: false}
+              - {label: "Body Text", name: "body", widget: "markdown"}
+              - {label: "Contact Info", name: "contact", widget: "string", required: false}
+              - {label: "Show Social Links", name: "show_social", widget: "boolean", default: false}
+          
+          - label: "Adoption Call-to-Action"
+            name: "cta"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "CTA Title", name: "title", widget: "string", default: "Ready to Welcome a Golden into Your Family?"}
+              - {label: "CTA Text", name: "text", widget: "text", default: "Fill out our adoption application to get started on your journey with a Sovereignty Grace Golden Retriever."}
+              - {label: "Button Text", name: "button_text", widget: "string", default: "Complete Adoption Application"}
+              - {label: "Button Link", name: "button_link", widget: "string", default: "adoption-form.html", hint: "URL or #anchor link"}
+
+      # ---------------------------------------------------------------------------
+      # MINI NUBIANS PAGE
+      # ---------------------------------------------------------------------------
+      - label: "🐐 Mini Nubians Page"
+        name: "nubians"
+        file: "content/pages/nubians.md"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Page Title", name: "title", widget: "string", default: "Our Mini Nubians", hint: "Main heading displayed on page"}
+              - {label: "Tagline", name: "tagline", widget: "string", default: "from birth to forever homes", hint: "Subtitle above title"}
+          
+          - label: "Mission Section"
+            name: "mission"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Mission"}
+              - {label: "Section Image", name: "image", widget: "image", hint: "Image displayed on left side (desktop) or top (mobile)"}
+              - {label: "Section Description", name: "body", widget: "markdown", hint: "Text describing your mission for the Mini Nubians"}
+          
+          - label: "Vision Section"
+            name: "vision"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Vision"}
+              - {label: "Section Image", name: "image", widget: "image", hint: "Image displayed on right side (desktop) or bottom (mobile)"}
+              - {label: "Section Description", name: "body", widget: "markdown", hint: "Text describing your vision for the Mini Nubians"}
+          
+          - label: "Photo Gallery"
+            name: "gallery"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Gallery Title", name: "title", widget: "string", default: "Mini Nubians Gallery", hint: "Heading above photo grid"}
+              - label: "Gallery Photos"
+                name: "photos"
+                widget: "list"
+                summary: "{{fields.alt}}"
+                fields:
+                  - {label: "Photo", name: "image", widget: "image"}
+                  - {label: "Photo Description", name: "alt", widget: "string", hint: "Description for accessibility"}
+          
+          - label: "Social Media Links"
+            name: "social"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full Facebook URL"}
+              - {label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full Instagram URL"}
+              - {label: "Pinterest URL", name: "pinterest_url", widget: "string", required: false, hint: "Full Pinterest URL"}
+              - {label: "Twitter URL", name: "twitter_url", widget: "string", required: false, hint: "Full Twitter/X URL"}
+      
+      # ---------------------------------------------------------------------------
+      # SHOP PAGE - NEW! 🛍️
+      # ---------------------------------------------------------------------------
+      - label: "Shop Page"
+        name: "shop_settings"
+        file: "content/pages/shop-settings.md"
+        fields:
+          - label: "Hero Section"
+            name: "hero_section"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "HANDCRAFTED"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "TREASURES"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "From Our Farmette to Your Home"}
+              - {label: "Tagline", name: "tagline", widget: "string", default: "Every item made with love, care, and a little bit of farm magic"}
+              - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/products-background.jpg"}
+              - {label: "🎬 Use Video Background", name: "use_video_background", widget: "boolean", default: false}
+              - {label: "YouTube Video URL", name: "hero_video_url", widget: "string", required: false}
+          
+          - label: "Category Box 1"
+            name: "category_box_1"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Bath & Body"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🧼"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 2"
+            name: "category_box_2"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Food & Pantry"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🍯"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 3"
+            name: "category_box_3"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Home & Decor"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🏠"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 4"
+            name: "category_box_4"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Fiber & Yarn"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🧶"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 5"
+            name: "category_box_5"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Gifts & Seasonal"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🎁"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 6"
+            name: "category_box_6"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., All Products"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., ✨"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Page Banner"
+            name: "page_banner"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Banner Title", name: "title", widget: "string", default: "Treasures from the farmette."}
+              - {label: "Banner Text", name: "text", widget: "text"}
+      
+      # ---------------------------------------------------------------------------
+      # HOMEPAGE SITE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "Homepage Site Settings"
+        name: "site_settings"
+        file: "content/settings/site-config.md"
+        fields:
+          - {label: "Title Font", name: "font_title", widget: "select", default: "Sacramento", options: [{label: "Montserrat", value: "Montserrat"}, {label: "Sacramento", value: "Sacramento"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}]}
+          - {label: "Subtitle Line 1 Font", name: "font_subtitle", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Sacramento", value: "Sacramento"}, {label: "Montserrat", value: "Montserrat"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Crimson Text", value: "Crimson Text"}], hint: "Font for 'Wild and Washed in Grace'"}
+          - {label: "Subtitle Line 2 Font (Tagline)", name: "font_tagline", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Montserrat", value: "Montserrat"}, {label: "Josefin Sans", value: "Josefin Sans"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Sacramento", value: "Sacramento"}], hint: "Font for 'Where every moment is a gift...'"}
+          - {label: "Body Font", name: "font_body", widget: "select", default: "Josefin Sans", options: [{label: "Josefin Sans", value: "Josefin Sans"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Montserrat", value: "Montserrat"}]}
+          - {label: "Title Size", name: "title_size", widget: "string", default: "5rem", hint: "e.g., 5rem, 80px, 3em"}
+          - {label: "Subtitle Line 1 Size", name: "subtitle_size", widget: "string", default: "1.2rem", hint: "Size for 'Wild and Washed in Grace'"}
+          - {label: "Subtitle Line 2 Size (Tagline)", name: "tagline_size", widget: "string", default: "1.1rem", hint: "Size for 'Where every moment is a gift...'"}
+          - {label: "Body Text Size", name: "body_size", widget: "string", default: "1rem"}
+          - {label: "Title Color", name: "color_title", widget: "color", default: "#FFFFFF", hint: "Color for 'WHEAT AND WHISPER FARM'"}
+          - {label: "Subtitle Line 1 Color", name: "color_subtitle", widget: "color", default: "#FFFFFF", hint: "Color for 'Wild and Washed in Grace'"}
+          - {label: "Subtitle Line 2 Color (Tagline)", name: "color_tagline", widget: "color", default: "#FFFFFF", hint: "Color for 'Where every moment is a gift...'"}
+          - {label: "Primary Brand Color", name: "color_primary", widget: "color", default: "#C9A66B"}
+          - {label: "Background Color", name: "color_background", widget: "color", default: "#FFFEF9"}
+          - {label: "Body Text Color", name: "color_text", widget: "color", default: "#5D4E37"}
+          - {label: "Section Padding", name: "section_padding", widget: "string", default: "80px"}
+          - {label: "Hero Height", name: "hero_height", widget: "string", default: "600px"}
+      
+      # ---------------------------------------------------------------------------
+      # ABOUT PAGE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "About Page Settings"
+        name: "about_settings"
+        file: "content/settings/about-config.md"
+        fields:
+          - {label: "📝 Page Title Font", name: "font_page_title", widget: "select", default: "Allura", options: [{label: "Allura", value: "Allura"}, {label: "Sacramento", value: "Sacramento"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}], hint: "Font for 'Welcome to Wheat and Whisper Farm'"}
+          - {label: "Page Title Size", name: "size_page_title", widget: "string", default: "4rem", hint: "e.g., 4rem, 64px"}
+          - {label: "Page Title Color", name: "color_page_title", widget: "color", default: "#8B6F47", hint: "Color for page title"}
+          - {label: "📝 Body Text Font", name: "font_body_text", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Josefin Sans", value: "Josefin Sans"}]}
+          - {label: "Body Text Size", name: "size_body_text", widget: "string", default: "1.2rem"}
+          - {label: "Body Text Color", name: "color_body_text", widget: "color", default: "#8B6F47"}
+          - {label: "📝 Overlay Line 1 Font", name: "font_overlay_1", widget: "select", default: "Cormorant Garamond", options: [{label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Sacramento", value: "Sacramento"}, {label: "Allura", value: "Allura"}, {label: "Lora", value: "Lora"}], hint: "Font for 'WELCOME'"}
+          - {label: "Overlay Line 1 Size", name: "size_overlay_1", widget: "string", default: "2.5rem"}
+          - {label: "Overlay Line 1 Color", name: "color_overlay_1", widget: "color", default: "#5D4E37"}
+          - {label: "📝 Overlay Line 2 Font", name: "font_overlay_2", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
+          - {label: "Overlay Line 2 Size", name: "size_overlay_2", widget: "string", default: "1rem"}
+          - {label: "Overlay Line 2 Color", name: "color_overlay_2", widget: "color", default: "#5D4E37"}
+          - {label: "📝 Overlay Line 3 Font", name: "font_overlay_3", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
+          - {label: "Overlay Line 3 Size", name: "size_overlay_3", widget: "string", default: "1rem"}
+          - {label: "Overlay Line 3 Color", name: "color_overlay_3", widget: "color", default: "#5D4E37"}
+          - {label: "📝 Bottom Text Font", name: "font_bottom_text", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
+          - {label: "Bottom Text Size", name: "size_bottom_text", widget: "string", default: "1.1rem"}
+          - {label: "Bottom Text Color", name: "color_bottom_text", widget: "color", default: "#8B6F47"}
+      
+      # ---------------------------------------------------------------------------
+      # ANIMALS PAGE STYLE SETTINGS
+      # ---------------------------------------------------------------------------
+      - label: "Animals Page Style Settings"
+        name: "animals_style_settings"
+        file: "content/settings/animals-config.md"
+        fields:
+          - {label: "📝 Page Title Font", name: "font_page_title", widget: "select", default: "Allura", options: [{label: "Allura", value: "Allura"}, {label: "Sacramento", value: "Sacramento"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}], hint: "Font for 'Meet the animals'"}
+          - {label: "Page Title Size", name: "size_page_title", widget: "string", default: "5rem", hint: "e.g., 5rem, 80px"}
+          - {label: "Page Title Color", name: "color_page_title", widget: "color", default: "#8B6F47", hint: "Color for page title"}
+          - {label: "📝 Page Subtitle Font", name: "font_page_subtitle", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}], hint: "Font for 'Trusting Temperament in Every Turn'"}
+          - {label: "Page Subtitle Size", name: "size_page_subtitle", widget: "string", default: "1.1rem"}
+          - {label: "Page Subtitle Color", name: "color_page_subtitle", widget: "color", default: "#8B6F47"}
+          - {label: "📝 Animal Card Name Font", name: "font_card_name", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}, {label: "Sacramento", value: "Sacramento"}, {label: "Allura", value: "Allura"}], hint: "Font for animal names on cards"}
+          - {label: "Animal Card Name Size", name: "size_card_name", widget: "string", default: "1.8rem"}
+          - {label: "Animal Card Name Color", name: "color_card_name", widget: "color", default: "#5D4E37", hint: "Color for animal names"}
+          - {label: "📝 Animal Card Description Font", name: "font_card_description", widget: "select", default: "Lora", options: [{label: "Lora", value: "Lora"}, {label: "Crimson Text", value: "Crimson Text"}, {label: "Cormorant Garamond", value: "Cormorant Garamond"}]}
+          - {label: "Animal Card Description Size", name: "size_card_description", widget: "string", default: "1rem"}
+          - {label: "Animal Card Description Color", name: "color_card_description", widget: "color", default: "#8B6F47"}
