@@ -12,39 +12,37 @@ category_box_1:
   title: Yammies
   emoji: 🧼
   image: images/uploads/img_3007.jpg
-  link: shop-bath-body.html
+  link: cat-box1.html
 category_box_2:
   title: Food & Pantry
   emoji: 🍯
   image: images/uploads/category-food-pantry.jpg
-  link: shop-food-pantry.html
+  link: cat-box2.html
 category_box_3:
   title: Home & Decor
   emoji: 🏠
   image: images/uploads/category-home-decor.jpg
-  link: shop-home-decor.html
+  link: cat-box3.html
 category_box_4:
   title: Fiber & Yarn
   emoji: 🧶
   image: images/uploads/category-fiber-yarn.jpg
-  link: shop-fiber-yarn.html
+  link: cat-box4.html
 category_box_5:
   title: Gifts & Seasonal
   emoji: 🎁
   image: images/uploads/category-gifts-seasonal.jpg
-  link: shop-gifts-seasonal.html
+  link: cat-box5.html
 category_box_6:
   title: All Products
   emoji: ✨
   image: images/uploads/category-all-products.jpg
-  link: shop-all-products.html
+  link: cat-box6.html
 page_banner:
   title: Treasures from the farmette.
   text: >
     Each item is lovingly handcrafted with ingredients and materials from our
     farmette.
-
     From goat milk soaps to honey from our bees, every purchase supports sustainable farming
-
     and helps us care for our animals.
 ---
