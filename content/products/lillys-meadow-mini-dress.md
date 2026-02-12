@@ -7,7 +7,7 @@ image: images/uploads/34262edc-6278-426f-b38a-744a73a77840_1_201_a.jpeg
 gallery:
   - image: images/uploads/c2ce493c-1018-44ee-964f-68996c028acf_1_105_c.jpeg
   - image: images/uploads/4118e7bd-a807-44a2-a78d-7a1c0d4bf670_1_105_c.jpeg
-stock: 0
+stock: 5
 available: true
 featured: false
 order: 100
