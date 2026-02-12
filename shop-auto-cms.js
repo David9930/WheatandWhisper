@@ -1,13 +1,14 @@
 // =============================================================================
 // FILE: shop-auto-cms.js
 // CREATED: 2025-02-01
-// MODIFIED: 2025-02-02 18:45 EST
+// MODIFIED: 2025-02-12 07:02 am EST
 // PURPOSE: Loads shop page content from Netlify CMS (shop-settings.md)
 // CHANGES: 
 //   - Added support for YouTube Shorts URLs
 //   - FIXED: Category boxes not loading (regex now includes numbers)
 //   - NEW: Hardcoded links (Box 1 → cat-box1.html, Box 2 → cat-box2.html, etc.)
 //   - NEW: Hide boxes with blank titles
+//   - NEW: Changed to remove hardcoded option
 // =============================================================================
 
 // Wait for DOM to be fully loaded
@@ -223,8 +224,8 @@ function applyCategoryBoxes(data) {
         // Show the box
         boxElement.style.display = '';
         
-        // Hardcoded link to cat-boxN.html
-        boxElement.href = `cat-box${i}.html`;
+        // NEW (uses CMS):
+        boxElement.href = boxData.link || `cat-box${i}.html`;
         
         // Store box number as data attribute (useful for filtering)
         boxElement.setAttribute('data-box-number', i);
