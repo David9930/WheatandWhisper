@@ -12,10 +12,10 @@ hero_section:
   subtitle_align: center
   title_align: center
 box_1:
-  title: Wheat and Whisper Story
+  title: Handcrafted Treasures
   title_align: center
-  image: images/uploads/tezza-2900.jpg
-  link: about.html
+  image: images/uploads/tezza-9369_edited.jpg
+  link: products.html
 box_2:
   title: Meet the Animals
   title_align: center
@@ -39,11 +39,11 @@ box_5:
   image: images/uploads/bd6e44a5-17a6-41d4-85f7-5aa1e05efadd_1_105_c.jpeg
   link: retrievers.html
 box_6:
-  title_line_1: Handcrafted
-  title_line_2: Treasures
+  title_line_1: Wheat & Whisper
+  title_line_2: Story
   title_align: center
-  image: images/uploads/tezza-9369_edited.jpg
-  link: products.html
+  image: images/uploads/tezza-2900.jpg
+  link: about.html
 page_banner:
   title: From Our Fields to yours.
   text: |
