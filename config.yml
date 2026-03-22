@@ -103,7 +103,7 @@ collections:
             collapsed: false
             fields:
               - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "WHEAT AND"}
-              - {label: "Title Line 2 (Optional)", name: "title_line_2", widget: "string", pattern: ['^.*$', "Can be left empty for single-line title"], default: "WHISPER FARM", hint: "Leave blank for single-line title with preserved spacing"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "WHISPER FARM", hint: "Type 'NONE' (without quotes) for single-line title"}
               - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace"}
               - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story"}
               - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
