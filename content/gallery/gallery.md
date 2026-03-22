@@ -1,4 +1,5 @@
 ---
+gallery_name: "Puppy Gallery"
 litters:
   - name: Darling/Thor 'little sweet treats' litter
     date: "July 2025 "
@@ -46,8 +47,6 @@ litters:
       - image: images/uploads/793d25d2-eabf-49ac-aaad-b07f0841428a_4_5005_c.jpeg
         caption: Briar - female
 ---
-
 # Puppy Gallery
-
 This file contains all the puppy litters and their photos.
 It is managed by Netlify CMS through the "📸 Puppy Gallery" section.
