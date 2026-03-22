@@ -103,7 +103,7 @@ collections:
             collapsed: false
             fields:
               - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "WHEAT AND"}
-              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "WHISPER FARM", hint: "Type 'NONE' (without quotes) for single-line title"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "WHISPER FARM", hint: "Type 'NONE' (any case) for single-line title"}
               - {label: "Subtitle Line 1", name: "subtitle_line_1", widget: "string", default: "Wild and Washed in Grace"}
               - {label: "Subtitle Line 2", name: "subtitle_line_2", widget: "string", default: "Where every moment is a gift and every animal has a story"}
               - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
@@ -511,3 +511,86 @@ collections:
 # - Puppy Gallery accessible via CMS sidebar
 # - All changes require GitHub commit to take effect
 # ==============================================
+      
+      # ---------------------------------------------------------------------------
+      # SHOP PAGE
+      # ---------------------------------------------------------------------------
+      - label: "Shop Page"
+        name: "shop_settings"
+        file: "content/pages/shop-settings.md"
+        fields:
+          - label: "Hero Section"
+            name: "hero_section"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Title Line 1", name: "title_line_1", widget: "string", default: "HANDCRAFTED"}
+              - {label: "Title Line 2", name: "title_line_2", widget: "string", default: "TREASURES", hint: "Type 'NONE' (any case) for single-line title"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "From Our Farmette to Your Home"}
+              - {label: "Tagline", name: "tagline", widget: "string", default: "Every item made with love, care, and a little bit of farm magic"}
+              - {label: "Main Logo", name: "main_logo", widget: "image", default: "WheatandWhisperLogo.png"}
+              - {label: "Hero Background Image", name: "background_image", widget: "image", default: "images/uploads/products-background.jpg"}
+              - {label: "🎬 Use Video Background", name: "use_video_background", widget: "boolean", default: false}
+              - {label: "YouTube Video URL", name: "hero_video_url", widget: "string", required: false}
+          
+          - label: "Category Box 1"
+            name: "category_box_1"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Bath & Body"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🧼"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 2"
+            name: "category_box_2"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Food & Pantry"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🍯"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 3"
+            name: "category_box_3"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Home & Decor"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🏠"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 4"
+            name: "category_box_4"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Fiber & Yarn"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🧶"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 5"
+            name: "category_box_5"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., Gifts & Seasonal"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., 🎁"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Category Box 6"
+            name: "category_box_6"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Category Title", name: "title", widget: "string", hint: "e.g., All Products"}
+              - {label: "Category Emoji", name: "emoji", widget: "string", hint: "e.g., ✨"}
+              - {label: "Background Image", name: "image", widget: "image"}
+          
+          - label: "Page Banner"
+            name: "page_banner"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Banner Title", name: "title", widget: "string", default: "Treasures from the farmette."}
+              - {label: "Banner Text", name: "text", widget: "text"}
