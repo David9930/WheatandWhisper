@@ -195,7 +195,56 @@ collections:
           - {label: "Bottom Text Alignment", name: "bottom_align", widget: "select", default: "center", options: ["left", "center", "right", "justify"]}
       
       # ---------------------------------------------------------------------------
-      # ANIMALS PAGE CONTENT
+      # FARMETTE LIFE PAGE
+      # ---------------------------------------------------------------------------
+      - label: "Farmette Life Page"
+        name: "farmette"
+        file: "content/pages/farmette.md"
+        fields:
+          # Page Header Section
+          - label: "ðŸŒ¾ Page Header"
+            name: "page_header"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Page Title", name: "title", widget: "string", default: "Bits and pieces of our life", hint: "Main title at top of page"}
+              - {label: "Description", name: "description", widget: "text", default: "Sharing my thoughts through the seasons as we live, learn, and grow here at the farm...", hint: "Paragraph below title"}
+          
+          # Emotions Section
+          - label: "ðŸŒ¼ Emotions Section"
+            name: "emotions_section"
+            widget: "object"
+            collapsed: false
+            hint: "First content section - image on left, text on right"
+            fields:
+              - {label: "Section Image", name: "image", widget: "image", default: "images/uploads/daisies-placeholder.jpg", hint: "Photo shown on left side"}
+              - {label: "Section Title", name: "title", widget: "string", default: "Emotions"}
+              - {label: "Body Text", name: "body", widget: "text", hint: "Main paragraph(s) - separate paragraphs with blank lines"}
+              - {label: "Quote Text (Optional)", name: "quote", widget: "text", required: false, hint: "Italicized quote with border - leave empty to hide"}
+          
+          # Vision Section
+          - label: "âœ¨ Vision Section"
+            name: "vision_section"
+            widget: "object"
+            collapsed: false
+            hint: "Second content section - text on left, image on right"
+            fields:
+              - {label: "Section Image", name: "image", widget: "image", default: "images/uploads/goat-placeholder.jpg", hint: "Photo shown on right side"}
+              - {label: "Section Title", name: "title", widget: "string", default: "Vision"}
+              - {label: "Body Text", name: "body", widget: "text", hint: "Main paragraph(s) - separate paragraphs with blank lines"}
+          
+          # Comments Section Settings
+          - label: "ðŸ'¬ Comments Section"
+            name: "comments_section"
+            widget: "object"
+            collapsed: true
+            hint: "Share Your Thoughts form settings"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Share Your Thoughts"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "We'd love to hear from you! Leave a comment or ask a question."}
+              - {label: "Moderation Note", name: "moderation_note", widget: "text", default: "âœ¨ Your comment will be reviewed by Paige before appearing on the site. Thank you for your patience!"}# ---------------------------------------------------------------------------
+      
+      ANIMALS PAGE CONTENT
       # ---------------------------------------------------------------------------
       - label: "Animals Page Content"
         name: "animals_page_content"
