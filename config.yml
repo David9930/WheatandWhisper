@@ -193,7 +193,7 @@ collections:
           - {label: "Image Overlay Line 3", name: "overlay_line_3", widget: "string", required: false}
           - {label: "Bottom Text (Optional)", name: "bottom_text", widget: "text", required: false, hint: "Additional text below image"}
           - {label: "Bottom Text Alignment", name: "bottom_align", widget: "select", default: "center", options: ["left", "center", "right", "justify"]}
-      
+       
       # ---------------------------------------------------------------------------
       # FARMETTE LIFE PAGE
       # ---------------------------------------------------------------------------
@@ -242,7 +242,7 @@ collections:
             fields:
               - {label: "Section Title", name: "title", widget: "string", default: "Share Your Thoughts"}
               - {label: "Subtitle", name: "subtitle", widget: "string", default: "We'd love to hear from you! Leave a comment or ask a question."}
-              - {label: "Moderation Note", name: "moderation_note", widget: "text", default: "âœ¨ Your comment will be reviewed by Paige before appearing on the site. Thank you for your patience!"}# ---------------------------------------------------------------------------
+              - {label: "Moderation Note", name: "moderation_note", widget: "text", default: "âœ¨ Your comment will be reviewed by Paige before appearing on the site. Thank you for your patience!"}
       
       # ---------------------------------------------------------------------------
       # ANIMALS PAGE CONTENT
