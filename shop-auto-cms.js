@@ -1,7 +1,7 @@
 // =============================================================================
 // FILE: shop-auto-cms.js
 // CREATED: 2025-02-01
-// MODIFIED: 2025-02-12 07:02 am EST
+// MODIFIED: 2025-03-22
 // PURPOSE: Loads shop page content from Netlify CMS (shop-settings.md)
 // CHANGES: 
 //   - Added support for YouTube Shorts URLs
@@ -9,6 +9,7 @@
 //   - NEW: Hardcoded links (Box 1 → cat-box1.html, Box 2 → cat-box2.html, etc.)
 //   - NEW: Hide boxes with blank titles
 //   - NEW: Changed to remove hardcoded option
+//   - NEW: Support for optional Title Line 2 with NONE placeholder
 // =============================================================================
 
 // Wait for DOM to be fully loaded
@@ -125,10 +126,19 @@ function applyHeroSettings(hero) {
     if (!hero) return;
     
     // Update hero title
-    if (hero.title_line_1 && hero.title_line_2) {
+    if (hero.title_line_1) {
         const titleEl = document.getElementById('shop-hero-title');
         if (titleEl) {
-            titleEl.innerHTML = `${hero.title_line_1}<br>${hero.title_line_2}`;
+            // Check if title_line_2 exists and has content (not just whitespace or "NONE")
+            const line2 = (hero.title_line_2 || '').trim();
+            
+            if (line2 && line2.length > 0 && line2.toUpperCase() !== 'NONE') {
+                // Two lines
+                titleEl.innerHTML = `${hero.title_line_1}<br>${hero.title_line_2}`;
+            } else {
+                // Single line with invisible spacer to preserve height
+                titleEl.innerHTML = `${hero.title_line_1}<br><span style="visibility: hidden;">&#8203;</span>`;
+            }
         }
     }
     
