@@ -128,8 +128,13 @@ function updatePageContent(data) {
     const bodyTextContainer = document.querySelector('.about-body-text');
     
     if (bodyTextContainer && data.body_text) {
+        // Convert smart quotes to regular quotes
+        const cleanBodyText = data.body_text
+            .replace(/"|"/g, '"')  // Convert smart double quotes
+            .replace(/'|'/g, "'"); // Convert smart single quotes
+        
         // Split text by newlines and wrap each paragraph in <p> tags
-        const paragraphs = data.body_text
+        const paragraphs = cleanBodyText
             .split('\n')
             .filter(p => p.trim())
             .map(p => `<p>${p.trim()}</p>`)
@@ -164,13 +169,17 @@ function updatePageContent(data) {
             let overlayHTML = '';
             
             if (data.overlay_line_1) {
-                overlayHTML += `<p class="overlay-line-1">${data.overlay_line_1}</p>`;
+                // Convert smart quotes
+                const cleanLine1 = (data.overlay_line_1 || '').replace(/"|"/g, '"').replace(/'|'/g, "'");
+                overlayHTML += `<p class="overlay-line-1">${cleanLine1}</p>`;
             }
             if (data.overlay_line_2) {
-                overlayHTML += `<p class="overlay-line-2">${data.overlay_line_2}</p>`;
+                const cleanLine2 = (data.overlay_line_2 || '').replace(/"|"/g, '"').replace(/'|'/g, "'");
+                overlayHTML += `<p class="overlay-line-2">${cleanLine2}</p>`;
             }
             if (data.overlay_line_3) {
-                overlayHTML += `<p class="overlay-line-3">${data.overlay_line_3}</p>`;
+                const cleanLine3 = (data.overlay_line_3 || '').replace(/"|"/g, '"').replace(/'|'/g, "'");
+                overlayHTML += `<p class="overlay-line-3">${cleanLine3}</p>`;
             }
             
             overlayText.innerHTML = overlayHTML;
@@ -187,8 +196,13 @@ function updatePageContent(data) {
     const bottomTextContainer = document.querySelector('.about-bottom-text');
     
     if (bottomTextContainer && data.bottom_text) {
+        // Convert smart quotes to regular quotes
+        const cleanText = data.bottom_text
+            .replace(/"|"/g, '"')  // Convert smart double quotes
+            .replace(/'|'/g, "'"); // Convert smart single quotes
+        
         // Split text by newlines and wrap each line in <p> tags
-        const paragraphs = data.bottom_text
+        const paragraphs = cleanText
             .split('\n')
             .filter(p => p.trim())
             .map(p => `<p>${p.trim()}</p>`)
