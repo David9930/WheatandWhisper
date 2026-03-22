@@ -244,7 +244,8 @@ collections:
               - {label: "Subtitle", name: "subtitle", widget: "string", default: "We'd love to hear from you! Leave a comment or ask a question."}
               - {label: "Moderation Note", name: "moderation_note", widget: "text", default: "âœ¨ Your comment will be reviewed by Paige before appearing on the site. Thank you for your patience!"}# ---------------------------------------------------------------------------
       
-      ANIMALS PAGE CONTENT
+      # ---------------------------------------------------------------------------
+      # ANIMALS PAGE CONTENT
       # ---------------------------------------------------------------------------
       - label: "Animals Page Content"
         name: "animals_page_content"
