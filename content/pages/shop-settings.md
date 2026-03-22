@@ -1,7 +1,7 @@
 ---
 hero_section:
   title_line_1: Handcrafted Treasures
-  title_line_2: ...
+  title_line_2: None
   subtitle: From Our Farmette to Your Home
   tagline: Every item made with love, care, and a little bit of farm magic
   main_logo: images/uploads/WheatandWhisperLogo.png
@@ -42,7 +42,6 @@ page_banner:
   title: Treasures from the farmette.
   text: >
     Each item is lovingly handcrafted with ingredients and materials from our
-    farmette.
-    From goat milk soaps to honey from our bees, every purchase supports sustainable farming
-    and helps us care for our animals.
+    farmette. From goat milk soaps to honey from our bees, every purchase
+    supports sustainable farming and helps us care for our animals.
 ---
