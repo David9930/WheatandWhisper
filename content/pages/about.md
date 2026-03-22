@@ -23,7 +23,7 @@ bottom_text: >-
   with your hands, just as we told you, so that your daily life may win the
   respect of outsiders and so that you will not be dependent on anybody."
 
-  1 Thessalonians 4:10-12
+  1 Thessalonians 4:10-12 
 bottom_align: center
 ---
 
