@@ -49,11 +49,7 @@ gallery:
     - image: images/uploads/6934655c-45d4-46a8-a5b2-c01a4d4dc3a3_1_105_c.jpeg
       alt: Photo Description here
     - image: images/uploads/b7176079-3c2a-4ea0-8a65-cd73530e8c3f_1_105_c.jpeg
-      alt: The Big Head
-    - image: images/uploads/animals-background.jpg
-      alt: Uncle Burnie mxmvxmvlmxcvmxcvmxcvmxc ;xlv;xmv;xcv;xlc;vmxc
-        ;xkv;xv;xv;xv;lxcv ;lv;xlvxv;x';xvc ;xcv'xv'xlcv'xl;v
-        'xcv;l'xclv'xlv'xlcv'lx'vc ;xcvl'xlv'xcl'xclv'
+      alt: " "
 social:
   facebook_url: https://www.facebook.com/wheatandwhisper
   instagram_url: https://www.instagram.com/wheatandwhisper
