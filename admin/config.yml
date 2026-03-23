@@ -36,8 +36,10 @@ collections:
     label: "📸 Puppy Gallery"
     folder: "content/gallery"
     create: true
-    slug: "{{slug}}"
+    slug: "{{gallery_name}}"
+    identifier_field: "gallery_name"
     fields:
+      - {label: "Gallery Name", name: "gallery_name", widget: "string", hint: "e.g., 2025 Puppies"}
       - label: "Litters"
         name: "litters"
         widget: "list"
